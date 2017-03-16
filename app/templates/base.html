@@ -1,10 +1,8 @@
 <html>
   <head>
-    {% if title %}
-    <title>{{ title }} - Pursuit of Hoppiness</title>
-    {% else %}
-    <title>Welcome to Pursuit of Hoppiness</title>
-    {% endif %}
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
   </head>
   <body>
     <div>Pursuit of Hoppiness: <a href="/index">Home</a></div>
