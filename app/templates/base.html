@@ -1,12 +1,31 @@
-<html>
-  <head>
-    {% block head %}
-    <title>{% block title %}{% endblock %}</title>
-    {% endblock %}
-  </head>
-  <body>
-    <div>Pursuit of Hoppiness: <a href="/index">Home</a></div>
-    <hr>
-    {% block content %}{% endblock %}
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  {% block head %}
+  <title>{% block title %}{% endblock %}</title>
+  {% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/index">Pursuit of Hoppiness</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="/beers">Beers</a></li>
+        <li><a href="/breweries">Breweries</a></li>
+        <li><a href="/locations">Locations</a></li>
+        <li><a href="/venues">Venues</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  {% block content %}{% endblock %}
+</body>
 </html>
