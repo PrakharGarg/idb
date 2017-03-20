@@ -1,7 +1,31 @@
 {% extends "base.html" %}
 {% block title %} About {% endblock %}
 
-
 {% block content %}
-    <h1>About</h1>
+<head>
+  <style>
+    .about {
+      margin-top: 5%;
+      font-family: "Lucida Console", Monaco, monospace;
+    }
+    .center {
+      padding: 100px;
+      text-align: center;
+      margin-top: -8%;
+    }
+    
+    
+  </style>
+</head>
+    <div class = "about">
+      <h1 style="text-align:center;">Welcome to <span style = "color:#FFCE1A;">Pursuit of Hoppiness!</span></h1>
+      
+      <br />
+      
+      <p class = "center">
+        We are enthusiasts of all things beer, and we want to share our love with you. 
+        Our goal is to make ordering a pint less stressfull, to help support local 
+        breweries,and to teach people everywhere how to be beer snobs.
+      </p>
+    </div>
 {% endblock %}
