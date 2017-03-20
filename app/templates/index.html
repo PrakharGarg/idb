@@ -7,8 +7,25 @@
 <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 100%;
       margin: auto;
+  }
+  @media (min-width: 1200px) {
+  .container {
+    width: 800px;
+}}
+  body {
+    background-color: lightblue;
+  }
+  div.container {
+    background-color: lightgoldenrodyellow;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-top: 5%;
+  }
+  .carousel-indicators {
+    bottom: -10px;
   }
   </style>
 </head>
@@ -38,16 +55,6 @@
       </div>
 
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
 </div>
 {% endblock %}
