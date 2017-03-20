@@ -11,6 +11,17 @@
   {% block head %}
     <title>{% block title %}{% endblock %}</title>
   {% endblock %}
+  <style>
+    body {
+      font-family: "Lucida Console", Monaco, monospace;
+    }
+    li:hover {
+      background-color: #FFCE1A;
+    }
+    .navbar-brand:hover {
+      background-color: #FFCE1A;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,11 +31,11 @@
         <a class="navbar-brand" href="/index">Pursuit of Hoppiness</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="/about">About</a></li>
         <li><a href="/beers">Beers</a></li>
         <li><a href="/breweries">Breweries</a></li>
         <li><a href="/locations">Locations</a></li>
         <li><a href="/venues">Venues</a></li>
+        <li><a href="/about">About</a></li>
       </ul>
     </div>
   </nav>
