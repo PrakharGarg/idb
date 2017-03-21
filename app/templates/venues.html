@@ -3,5 +3,35 @@
 
 
 {% block content %}
-    <h1>Venues</h1>
+<!-- PLACEHOLDER TABLE, REPLACE ASAP -->
+<head>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
+<h1 align="center">Venues</h1>
+</head>
+<body>
+	<div class="container table-responsive">
+		<table class="table table-striped table-hover" id="venue_table">
+			<thead>
+				<tr>
+					<th>Venues</th>
+					<th>Beers</th>
+					<th>Breweries</th>
+					<th>Locations</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>Venue 1</td><td>Beer 1</td><td>Brewery 1</td><td>Location 1</td></tr>
+				<tr><td>Venue 2</td><td>Beer 2</td><td>Brewery 2</td><td>Location 2</td></tr>
+				<tr><td>Venue 3</td><td>Beer 3</td><td>Brewery 3</td><td>Location 3</td></tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#venue_table').DataTable();
+	});
+	</script>
+</body>
 {% endblock %}
