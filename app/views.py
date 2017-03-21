@@ -21,7 +21,38 @@ def beers() :
 # the name of the beer being passed in   
 @app.route('/beers/<beer_name>/')
 def beer(beer_name) :
-    return render_template('beer.html', name = beer_name)
+    beer_info = [{
+            "name":"(512) IPA",
+            "brewery":"",
+            "labels":"https://s3.amazonaws.com/brewerydbapi/beer/ezGh5N/upload_r8SNni-large.png",
+            "style":"American-Style India Pale Ale",
+            "abv":"7",
+            "glasswareId":"5",
+            "isOrganic":"N"
+        }, {
+            "name":"Pecan Porter",
+            "brewery":"",
+            "labels":"https://s3.amazonaws.com/brewerydbapi/beer/HIzVEo/upload_aT5MqH-large.png",
+            "style":"British Origin Ales",
+            "abv":"6.8",
+            "glasswareId":"5",
+            "isOrganic":"N"
+        }, {
+            "name":"(512) Black IPA",
+            "brewery":"",
+            "labels":"https://s3.amazonaws.com/brewerydbapi/beer/6PPnT2/upload_Cnl1UJ-large.png",
+            "style":"Hybrid/mixed Beer",
+            "abv":"7.5",
+            "glasswareId":"5",
+            "isOrganic":"N"
+        }
+        ]
+    beer = ''
+    for b in beer_info:
+        if beer_name == b['name']:
+            beer = b
+
+    return render_template('beer.html', name = beer_name, beer_info = beer)
 
 # Page that shows all of the venues in a grid
 @app.route('/venues/')
