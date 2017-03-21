@@ -1,0 +1,10 @@
+// yUML Class Diagram to track out database schema
+// edit here - http://yuml.me/edit/21092100
+
+[Beer]
+
+[Brewery]
+
+[Venue]
+
+[Location]
