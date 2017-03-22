@@ -18,3 +18,4 @@
 [Brewery]1-1..*[Beer]
 
 [Venue]0..*-1..*[Beer]
+[Venue]0..*-1..*[Brewery]
