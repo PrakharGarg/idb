@@ -15,8 +15,8 @@
 
 // class inter-relations
 
-[Location]-[Venue]
-[Location]-[Brewery]
+[Location]1-0..*[Venue]
+[Location]1-0..*[Brewery]
 
 [Brewery]-[Beer]
 
