@@ -1,10 +1,10 @@
 // yUML Class Diagram to track out database schema
 // edit here - http://yuml.me/edit/21092100
 
-[Beer| -name: string ; -label: jpeg ; -style: string ; -organic: boolean ; -glassware: jpeg]
+[Beer| -name: string; -label: image; -style: string; -organic: boolean; -glassware: image]
 
-[Brewery| -name: string ; -type: string ; -founded: date ; -label: jpeg]
+[Brewery| -name: string; -type: string; -founded: date; -label: image; -address: string]
 
-[Venue]
+[Venue| -category: string; -media: image; -address: string]
 
 [Location]
