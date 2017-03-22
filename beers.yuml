@@ -7,4 +7,4 @@
 
 [Venue| -category: string; -media: image; -address: string]
 
-[Location]
+[Location| -name: string; -media: jpeg]
