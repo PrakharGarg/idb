@@ -13,7 +13,6 @@ venue_beer_association = db.Table('venue_beer_association',
     db.Column('beer_id', db.Integer, db.ForeignKey('beer.id'))
 )
 
-
 """
 model definitions
 """
