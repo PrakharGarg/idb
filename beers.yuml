@@ -1,7 +1,7 @@
 // yUML Class Diagram to track out database schema
 // edit here - http://yuml.me/edit/21092100
 
-[Beer]
+[Beer| -name: string ; -label: jpeg ; -style: string ; -organic: boolean ; -glassware: jpeg]
 
 [Brewery| -name: string ; -type: string ; -founded: date ; -label: jpeg]
 
