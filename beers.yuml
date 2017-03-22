@@ -1,6 +1,8 @@
 // yUML Class Diagram to track out database schema
 // edit here - http://yuml.me/edit/21092100
 
+// class declarations
+
 [Beer| -name: string; -label: image; -style: string; -organic: boolean; -glassware: image]
 
 [Brewery| -name: string; -type: string; -founded: date; -label: image; -address: string]
@@ -8,3 +10,15 @@
 [Venue| -category: string; -media: image; -address: string]
 
 [Location| -name: string; -media: jpeg]
+
+
+
+// class inter-relations
+
+[Location]-[Venue]
+[Location]-[Brewery]
+
+[Brewery]-[Beer]
+
+[Venue]-[Beer]
+
