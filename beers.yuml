@@ -3,7 +3,7 @@
 
 [Beer]
 
-[Brewery]
+[Brewery| -name: string ; -type: string ; -founded: date ; -label: jpeg]
 
 [Venue]
 
