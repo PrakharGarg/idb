@@ -7,13 +7,13 @@
 
 [Venue| -category: string; -media:［image］; -address: string ; -breweries: ［Brewery］; -beers:［Beer］]
 
-[Location| -name: string; -media:［image］; -capital: string; -breweries: ［Brewery］; -venues: ［Venue］]
+[State| -name: string; -media:［image］; -capital: string; -breweries: ［Brewery］; -venues: ［Venue］]
 
 
 // class inter-relations
 
-[Location]1-0..*[Venue]
-[Location]1-0..*[Brewery]
+[State]1-0..*[Venue]
+[State]1-0..*[Brewery]
 
 [Brewery]1-1..*[Beer]
 
