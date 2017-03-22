@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -11,20 +11,6 @@
   {% block head %}
     <title>{% block title %}{% endblock %}</title>
   {% endblock %}
-  <style>
-    body {
-      font-family: "Lucida Console", Monaco, monospace;
-    }
-    li:hover {
-      background-color: #FFCE1A;
-    }
-    .navbar-brand:hover {
-      background-color: #FFCE1A;
-    }
-    .navbar {
-      border-radius: 0px;
-    }
-  </style>
 </head>
 
 <body>
@@ -34,11 +20,11 @@
         <a class="navbar-brand" href="/index">Pursuit of Hoppiness</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="/beers">Beers</a></li>
-        <li><a href="/breweries">Breweries</a></li>
-        <li><a href="/locations">Locations</a></li>
-        <li><a href="/venues">Venues</a></li>
-        <li><a href="/about">About</a></li>
+        <li class = "navlist"><a href="/beers">Beers</a></li>
+        <li class = "navlist"><a href="/breweries">Breweries</a></li>
+        <li class = "navlist"><a href="/states">States</a></li>
+        <li class = "navlist"><a href="/venues">Venues</a></li>
+        <li class = "navlist"><a href="/about">About</a></li>
       </ul>
     </div>
   </nav>
