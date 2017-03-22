@@ -5,9 +5,9 @@
 
 [Brewery| -name: string; -type: string; -founded: date; -label:［image］; -address: string]
 
-[Venue| -category: string; -media:［image］; -address: string]
+[Venue| -category: string; -media:［image］; -address: string ; -breweries: ［Brewery］; -beers:［Beer］]
 
-[Location| -name: string; -media:［image］]
+[Location| -name: string; -media:［image］; -capital: string; -breweries: ［Brewery］; -venues: ［Venue］]
 
 
 // class inter-relations
