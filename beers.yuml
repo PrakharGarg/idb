@@ -1,13 +1,13 @@
 // yUML class diagram to track database schema
 // class declarations
 
-[Beer| -name: string; -labels:［image］; -style: string; -brewery: string; -organic: boolean; -glassware:［image］]
+[Beer| -name: string; -labels:［image］; -style: string; -brewery: Brewery; -organic: boolean; -venues:［Venue］]
 
-[Brewery| -name: string; -type: string; -founded: date; -beers: [Beer]; -State: string; -venues: [Venue]; -label:［image］; -address: string]
+[Brewery| -name: string; -type: string; -founded: date; -beers:［Beer］; -State: string; -venues:［Venue］; -label:［image］; -address: string]
 
 [Venue| -name: string; -category: string; -media:［image］; -address: string ; -breweries: ［Brewery］; -state: State; -beers:［Beer］]
 
-[State| -name: string; -media:［image］; -capital: string; -breweries: ［Brewery］; -venues: ［Venue］]
+[State| -name: string; -media:［image］; -capital: string; -breweries: ［Brewery］; -venues:［Venue］]
 
 
 // class inter-relations
