@@ -44,3 +44,11 @@ h2.centernormal {
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
 }
+
+.tools {
+  margin-top: -5%;
+}
+
+.text {
+  font-size: 15px;
+}

@@ -2,18 +2,7 @@
 {% block title %} About {% endblock %}
 
 {% block content %}
-<head>
-  <style>
 
-    .center {
-      padding: 100px;
-      text-align: center;
-      margin-top: -8%;
-    }
-    
-    
-  </style>
-</head>
     <div class = "about center">
       <h1>Welcome to <span class = "gold">Pursuit of Hoppiness!</span></h1>
       
@@ -63,6 +52,9 @@
       </div>
     </div>
   </div>
+  
+  <div class = "tools">
+    
     
     <h2 class = "aboutstatsheader">Stats</h2>
     <div class = "aboutstats">
@@ -75,9 +67,9 @@
         <br />
         Apirary API: <span class = "gold">https://FILLMEIN.com</span>
         <br />
-        GitHub Issue Tracker: <a href="https://github.com/prakhargarg/idb/issues" style = "color:#FFCE1A;">Issues</a>
+        GitHub Issue Tracker: <a href="https://github.com/prakhargarg/idb/issues" class = "gold">Issues</a>
         <br />
-        GitHub Repo: <a href="https://github.com/prakhargarg/idb" style = "color:#FFCE1A;">Team Repo</a>
+        GitHub Repo: <a href="https://github.com/prakhargarg/idb" class = "gold">Team Repo</a>
       </p>
     </div>
     
@@ -85,10 +77,10 @@
     
     <h2 class = "aboutstatsheader">Data</h2>
     <div class = "aboutstats">
-      Source 1: <a href="http://www.brewerydb.com" style = "color:#FFCE1A;">BreweryDB</a> <br />
+      Source 1: <a href="http://www.brewerydb.com" class = "gold">BreweryDB</a> <br />
         Phase 1: Since we are serving up static pages and don't have a database to work with, we manually looked up
         breweries, locations, beers, and breweries. We manually imported this data into our project. <br /><br />
-      Source 2: <a href="https://untappd.com/api/docs" style = "color:#FFCE1A;">Untapped API</a> <br />
+      Source 2: <a href="https://untappd.com/api/docs" class = "gold">Untapped API</a> <br />
         Phase 1: Since we are serving up static pages and don't have a database to work with, we manually looked up
         breweries, locations, beers, and breweries. We manually imported this data into our project.
     </div>
@@ -99,7 +91,7 @@
       <h3>Front-End</h3> 
       <ul>
         <li>
-          <a href="http://getbootstrap.com/2.3.2/" style = "color:#FFCE1A;">Twitter Bootstrap</a> 
+          <a href="http://getbootstrap.com/2.3.2/" class = "gold">Twitter Bootstrap</a> 
           <ul>
             <li>
               <i>Carousel</i>- used to create home page with revolving images.
@@ -114,7 +106,7 @@
       <h3>Back-End</h3>
       <ul>
         <li>
-          <a href="https://aws.amazon.com/websites/" style = "color:#FFCE1A;">AWS Hosting</a> 
+          <a href="https://aws.amazon.com/websites/" class = "gold">AWS Hosting</a> 
           <ul>
             <li>
               Used to host our Flask project.
@@ -122,7 +114,7 @@
           </ul>
         </li>
         <li>
-          <a href="http://flask.pocoo.org" style = "color:#FFCE1A;">Flask</a> 
+          <a href="http://flask.pocoo.org" class = "gold">Flask</a> 
           <ul>
             <li>
               Used to power our app and provide the python framework for development.
@@ -134,7 +126,7 @@
       <h3>Others</h3>
       <ul>
         <li>
-          <a href = "https://slack.com" style = "color:#FFCE1A;">Slack</a> 
+          <a href = "https://slack.com" class = "gold">Slack</a> 
           <ul>
             <li>
               Used for communication within the Team. Furthermore, we hooked up GitHub, TravisCI, and Google Hangouts to get real-time updates on the project.
@@ -142,7 +134,7 @@
           </ul>
         </li>
         <li>
-          <a href = "https://apiary.io" style = "color:#FFCE1A;">Apiary</a> 
+          <a href = "https://apiary.io" class = "gold">Apiary</a> 
           <ul>
             <li>
               Used to design our API document so that other developers could easily use our API.
@@ -150,7 +142,7 @@
           </ul>
         </li>
         <li>
-          <a href = "https://travis-ci.com" style = "color:#FFCE1A;">TravisCI</a> 
+          <a href = "https://travis-ci.com" class = "gold">TravisCI</a> 
           <ul>
             <li>
               Used to continously test our app with each commit.
@@ -160,6 +152,7 @@
       </ul>
       
     </div>
+  </div>
     
     
 {% endblock %}
