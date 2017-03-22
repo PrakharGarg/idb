@@ -51,6 +51,6 @@ def locations() :
 
 # Page that shows info about a specific location with
 # the name of the location being passed in 
-@app.route('/states/<location_name>/')
-def location(location_name) :
-    return render_template('state.html', name = location_name)
+@app.route('/states/<state_name>/')
+def location(state_name) :
+    return render_template('state.html', name = state_name)
