@@ -1,0 +1,46 @@
+body {
+  font-family:  "Lucida Console", Monaco, monospace;
+}
+
+.navlist:hover {
+  background-color: #FFCE1A;
+}
+.navbar-brand:hover {
+  background-color: #FFCE1A;
+}
+.navbar {
+  border-radius: 0px;
+}
+
+.about {
+  margin-top: 5%;
+  font-family: "Lucida Console", Monaco, monospace;
+  text-align: center;
+}
+.center {
+  padding: 100px;
+  text-align: center;
+  margin-top: -8%;
+  
+}
+
+h2.centernormal {
+  text-align: center;
+}
+
+.gold {
+  color: #FFCE1A;
+}
+
+.aboutstatsheader {
+  color: #FFCE1A;
+  padding-left:40px;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.aboutstats {
+  padding-left: 40px;
+  text-align: left;
+  width: 50%;
+  font-family: "Lucida Console", Monaco, monospace;
+}
