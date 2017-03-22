@@ -26,6 +26,7 @@ class Beer(db.Model):
 		labels: link to a picture of the beer label
 		style: what type of beer this is (ale, lager, IPA, kolsh, etc.)
 		is_organic: whether or not this beer is environmentally friendly!
+        rating: numeric rating by the Untapped community.
 		brewery: where and who this is brewed by 
 		venues: where this beer is served, sold, and distributed
 	"""
@@ -34,6 +35,7 @@ class Beer(db.Model):
 	labels = db.Column(db.Array(db.String(300)), index=True, unique=True)
 	style = db.Column(db.String(60), index=True, unique=True)
 	is_organic = db.Column(db.Boolean)
+    rating = db.Column(db.Integer)
 	brewery = db.relationship('Brewery')
 	venues = db.relationship('Venue', secondary=venue_beer_association)
 
@@ -73,6 +75,7 @@ class Venue(db.Model):
 		media: links to images of the venue, its patrons, its logo, etc.
 		address: where this is located
 		category: is this a bar? is it a store? this will tell you!
+        is_public: boolean value to let us know if this place is open to the public or not.
 		state: which state you will find this in
 		breweries: all of the breweries represented here
 		beers: all the beers you may obtain
@@ -82,6 +85,7 @@ class Venue(db.Model):
 	media = db.Column(db.Array(db.String(300)), index=True, unique=True)
 	address = db.Column(db.String(120), index=True, unique=True)
 	category = db.Column(db.String(90), index=True, unique=True)
+    is_public = db.Column(db.Boolean)
 	state = db.relationship('State')
 	breweries = db.relationship('Brewery', secondary=venue_brewery_association)
 	beers = db.relationship('Beer', secondary=venue_beer_association)
@@ -95,10 +99,14 @@ class State(db.Model):
 	Attributes:
 		name: what state is this?
 		capital: the city where this state does its legislative business
-		media: links to pics of this state! 
+		media: links to pics of this state!
+        abbreviation: state abbreviation.
+        flower: the state flower! 
 	"""
 	id = db.Column(db.Integer, primary_key=True)
 	capital = db.Column(db.String(120), index=True, unique=True)
 	name = db.Column(db.String(120), index=True, unique=True)
 	media = db.Column(db.Array(db.String(300)), index=True, unique=True)
+    abbreviation = db.Column(db.String(120), index=True, unique=True)
+    flower = db.Column(db.String(120), index=True, unique=True)
 
