@@ -18,7 +18,6 @@
 [Location]1-0..*[Venue]
 [Location]1-0..*[Brewery]
 
-[Brewery]-[Beer]
+[Brewery]1-1..*[Beer]
 
-[Venue]-[Beer]
-
+[Venue]0..*-1..*[Beer]
