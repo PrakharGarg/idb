@@ -1,0 +1,188 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Pursuit of Hoppiness
+PursuitOfHoppiness is a useful API used to help people find the perfect beer for them which they can search through different breweries and venues as well as specifications of the different beers.  
+
+
+# group Beers 
+
+## Beer Collection [/beers]
+
+### List All Beers [GET /beers]
+Retrieve a list of all beers from the PursuitOfHoppiness database.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "Shiner Bock"
+            },
+            {
+                "id": "1",
+                "name": "Heineken"
+            },
+            {
+                "id": "2",
+                "name": "Blue Moon"
+            }
+        ]
+### Specific Beer [GET /beers/{beer_id}]
+Retrieve details of a specific beer using its ID from the database including the beer's name, brewery, labels, style, venue, and if it's organic or not.
+
++ Parameters
+    + beer_id (number, required) - the unique id of the beer as an integer
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "Shiner Bock",
+                "labels": "https://www.beermenus.com/beers/4728-shiner-bock/label",
+                "style": "lager",
+                "is_organic": "false",
+                "brewery": "Spoetzl Brewery",
+                "venues": "Westwood's Liquor, A&J"
+                
+            }
+        ]
+
+
+# group Brewery 
+
+## Brewery Collection [/brewery]
+
+### List all Breweries [GET /brewery]
+Retrieve the list of all of the breweries.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "Hops and Grain",
+            },
+            {
+                "id": "1",
+                "name": "Blue Owl"
+            },
+            {
+                "id": "2",
+                "name": "Zilker Brewing Company and Taproom"
+            }
+        ]
+        
+### Specific Brewery [GET /brewery/{brewery_id}]
+Retrieve the details of a specific brewery using its ID from the database including its name, brewery type, when it's founded, labels, address, venues, and states.
+
++ Parameters
+    + brewery_id (number, required) - the unique id of the brewery as an integer
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "Hops and Grain",
+                "brewery_type": "micro",
+                "founded": "2011",
+                "labels": "https://www.tripadvisor.com/LocationPhotoDirectLink-g30196-d8547104-i232510009-Hops_Grain_Brewing-Austin_Texas.html",
+                "address": "507 Calles St, Suite 101, Austin, TX 78702",
+                "venues": "Diamond Food Mart, Westwood's Liquor"
+                "states": "Texas"
+            }
+        ]
+
+
+# group Venue 
+
+## All Venues [/venue]
+
+###List all Venues [GET /venues]
+Retrieve the list of all of the venues.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "The Ginger Man"
+            },
+            {
+                "id": "1",
+                "name": "Draught House Pub"
+            }
+            {
+                "id": "2",
+                "name": "Craft Pride"
+            }
+        ]
+
+### Specific Venue [GET /venue/{venue_id}]
+Retrieve the specific details of a venue using its ID from the database includings its name, media, address, category, state, breweries, and beers.
+
++ Parameters
+    + venue_id (number, required) - the unique id of the venue as an integer
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "The Ginger Man",
+                "media": "https://www.facebook.com/pg/TheGingerManAustin/photos/",
+                "address": "301 Lavaca St. Austin, Texas",
+                "category": "pub",
+                "is_public": 
+                "state": "TX",
+                "breweries": "Spoetzl, Uncle Billy's",
+                "beers": "Shiner Bock, Dos Equis, Budweiser"
+            }
+        ]
+
+
+# group State 
+
+## State Collection [/state]
+
+### List all States [GET /state]
+Retrieves a list of all of the states.
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "Texas"
+            },
+            {
+                "id": "1",
+                "name": "California"
+            }
+            {
+                "id": "2",
+                "name": "Florida"
+            }
+        ]
+        
+### Specific States [GET /state/{state_id}]
+Retrieves the specific details of a location using its ID from the database including its name, capital, and media.
+
++ Parameters
+    + state_id (number, required) - the unique id of the state as an integer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "0",
+                "capital": "Austin",
+                "name": "Texas",
+                "media": "https://en.wikipedia.org/wiki/Flag_of_Texas#/media/File:Flag_of_Texas.svg",
+                "abbreviation": "TX",
+                "flower": "Bluebonnet"
+            }
+        
+        ]

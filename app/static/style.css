@@ -52,3 +52,13 @@ h2.centernormal {
 .text {
   font-size: 15px;
 }
+
+.beerlabel {
+  width: 12;
+  height: 120;
+}
+
+div.grid {
+  margin-right: 0px;
+  margin-left: 0px;
+}
