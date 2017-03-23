@@ -39,6 +39,15 @@ class Beer(db.Model):
 	brewery = db.relationship('Brewery')
 	venues = db.relationship('Venue', secondary=venue_beer_association)
 
+	#self, name, labels, style, organic, rating
+	def __init__():
+
+	def __repr__():
+
+	def relabel(new_label):
+
+	def change_rating(new_rating):
+
 class Brewery(db.Model):
 	"""
 	The brewery model. This gives information about what kinds of beers
@@ -61,6 +70,19 @@ class Brewery(db.Model):
 	address = db.Column(db.String(120), index=True, unique=True)
 	venues = db.relationship('Venue', secondary=venue_brewery_association)
 	state = db.relationship('State')
+
+	def __init__():
+
+	def __repr__():
+
+	def change_name(new_name):
+
+	def change_founded_date(new_date):
+		raise Exception('THOU SHALT NOT REWRITE HISTORY')
+
+	def add_venue():
+
+	def remove_venue():
 
 class Venue(db.Model):
 	"""
@@ -90,6 +112,16 @@ class Venue(db.Model):
 	breweries = db.relationship('Brewery', secondary=venue_brewery_association)
 	beers = db.relationship('Beer', secondary=venue_beer_association)
 
+	def __init__():
+
+	def __repr__():
+
+	def add_beer(beer):
+
+	def remove_beer(beer):
+
+	def remove_brewery():
+
 class State(db.Model):
 	"""
 	A large geographic region you may wish to explore by beer. Beer!
@@ -109,4 +141,13 @@ class State(db.Model):
 	media = db.Column(db.Array(db.String(300)), index=True, unique=True)
     abbreviation = db.Column(db.String(120), index=True, unique=True)
     flower = db.Column(db.String(120), index=True, unique=True)
+
+    def __init__():
+
+	def __repr__():
+
+	def is_best_state():
+		return abbreviation == 'TX'
+
+	def add_media(link):
 
