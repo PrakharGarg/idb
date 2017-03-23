@@ -4,7 +4,6 @@ FILES :=                          	\
     requirements.txt				\
 
 check:
-	check:
 	@not_found=0;                                 \
     for i in $(FILES);                            \
     do                                            \
