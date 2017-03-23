@@ -1,2 +1,18 @@
 notifications:
   slack: swegroupproject:8Nso4AZAyHlIU9wIcoeIsWq2
+
+sudo: false
+
+language: python
+
+python:
+    - "3.5"
+
+before_install:
+
+install: true
+
+script:
+    - date
+    - ls -alr
+    - make check
