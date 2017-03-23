@@ -69,7 +69,46 @@ def venues() :
 # the name of the venue being passed in 
 @app.route('/venues/<venue_name>/')
 def venue(venue_name) :
-    return render_template('venue.html', name = venue_name)
+    venue_info = [{
+            "name":"Craft Pride",
+            "category":"Nightlife Spot",
+            "media":"https://untappd.akamaized.net/photo/2017_03_23/fa1e38c565451d0d57610426ec397a9a_640x640.jpeg",
+            "address":"61 Rainey St Austin, TX",
+            "is_public":"Yes",
+            "beer":"Bearded Seal",
+            "brewery":"Pinthouse Pizza",
+            "state":"TX"
+        }, {
+            "name":"Craft Pride",
+            "category":"Nightlife Spot",
+            "media":"https://untappd.akamaized.net/photo/2017_03_23/fa1e38c565451d0d57610426ec397a9a_640x640.jpeg",
+            "address":"61 Rainey St Austin, TX",
+            "is_public":"Yes",
+            "beer":"Bearded Seal",
+            "brewery":"Pinthouse Pizza",
+            "state":"TX"
+        }, {
+            "name":"Craft Pride",
+            "category":"Nightlife Spot",
+            "media":"https://untappd.akamaized.net/photo/2017_03_23/fa1e38c565451d0d57610426ec397a9a_640x640.jpeg",
+            "address":"61 Rainey St Austin, TX",
+            "is_public":"Yes",
+            "beer":"Bearded Seal",
+            "brewery":"Pinthouse Pizza",
+            "state":"TX"
+        }]
+    venue = ''
+    for b in venue_info:
+        if venue_name == b['name']:
+            venue = b
+
+    return render_template('venue.html', 
+        name = venue_name, 
+        state = venue["state"],
+        beer = venue["beer"],
+        brewery = venue["brewery"], 
+        venue_info = venue)
+
 # Page that shows all of the breweries in a grid
 @app.route('/breweries/')
 def breweries() :
