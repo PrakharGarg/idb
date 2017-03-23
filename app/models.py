@@ -39,14 +39,22 @@ class Beer(db.Model):
 	brewery = db.relationship('Brewery')
 	venues = db.relationship('Venue', secondary=venue_beer_association)
 
-	#self, name, labels, style, organic, rating
-	def __init__():
+	def __init__(self, name, labels, style, is_organic, rating):
+		self.name = name
+		self.labels = labels
+		self.style = style
+		self.is_organic = is_organic
+		self.rating = rating
 
-	def __repr__():
+	def __repr__(self):
+		descr = "This is {} beer. You will drink it, and you will love it!"
+		return descr.format(self.name)
 
 	def relabel(new_label):
+		labels.insert(0, new_label)
 
 	def change_rating(new_rating):
+		rating = new_rating
 
 class Brewery(db.Model):
 	"""
