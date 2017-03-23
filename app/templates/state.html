@@ -3,7 +3,7 @@
 
 {% block content %}
     <body>
-    	<h1>{{ name }}</h1>
+    	<h1>{{ state_info["name"] }}</h1>
     	<img src={{ state_info["media"] }} alt={{ state_info['name'] }} style="width:304px;height:228px;">
     	<h2> State Details </h2>
     	<h3> Name </h3>
@@ -15,8 +15,8 @@
      	<h3> Flower </h3>
      	<h4> {{ state_info["flower"] }} </h4>
      	<h3> Venues </h3>
-     	<h4> <a href="/venues/{{ venue }}"> {{ venue }} </a> </h4>
+     	<h4> <a href="/venues/{{ venue }}"> {{ state_info["venue"] }} </a> </h4>
      	<h3> Breweries </h3>
-     	<h4> <a href="/breweries/{{ brewery }}"> {{ brewery }} </a> </h4>
+     	<h4> <a href="/breweries/{{ brewery }}"> {{ state_info["brewery"] }} </a> </h4>
     </body>
 {% endblock %}

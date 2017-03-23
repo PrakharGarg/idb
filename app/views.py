@@ -22,6 +22,7 @@ def beers() :
 @app.route('/beers/<beer_name>/')
 def beer(beer_name) :
     beer_info = [{
+            "id": "bearded_seal",
             "name":"Bearded Seal",
             "labels":"https://untappd.akamaized.net/site/beer_logos/beer-_251610_5e1b7f6c8e4f14e29b5f2144ad7e.jpeg",
             "style":"Stout - Irish Dry",
@@ -31,6 +32,7 @@ def beer(beer_name) :
             "brewery":"Pinthouse Pizza",
             "state":"TX"
         }, {
+            "id":"bursted_citra",
             "name":"Bursted Citra",
             "labels":"https://s3.amazonaws.com/brewerydbapi/beer/ezGh5N/upload_r8SNni-large.png",
             "style":"IPA - American",
@@ -40,6 +42,7 @@ def beer(beer_name) :
             "brewery":"El Segundo Brewing Company",
             "state":"OR"
         }, {
+            "id": "daydream_in_green",
             "name":"Daydream In Green",
             "labels":"https://untappd.akamaized.net/site/beer_logos/beer-1995566_d307c_sm.jpeg",
             "style":"IPA - Imperial / Double",
@@ -49,16 +52,10 @@ def beer(beer_name) :
             "brewery":"Other Half Brewing Company",
             "state":"NY"
         }]
-    beer = ''
-    for b in beer_info:
-        if beer_name == b['name']:
-            beer = b
-
+    beer_info = next((item for item in beer_info if item["id"] == beer_name), None)
     return render_template('beer.html', 
         name = beer_name, 
-        brewery = beer["brewery"], 
-        state = beer["state"], 
-        beer_info = beer)
+        beer_info = beer_info)
 
 # Page that shows all of the venues in a grid
 @app.route('/venues/')
@@ -70,44 +67,41 @@ def venues() :
 @app.route('/venues/<venue_name>/')
 def venue(venue_name) :
     venue_info = [{
+            "id": "craft_pride",
             "name":"Craft Pride",
             "category":"Nightlife Spot",
-            "media":"https://untappd.akamaized.net/photo/2017_03_23/fa1e38c565451d0d57610426ec397a9a_640x640.jpeg",
+            "media":"https:\/\/untappd.akamaized.net\/venuelogos\/venue_597840_aaf578d8_bg_64.png",
             "address":"61 Rainey St Austin, TX",
             "is_public":"Yes",
             "beer":"Bearded Seal",
             "brewery":"Pinthouse Pizza",
             "state":"TX"
         }, {
-            "name":"Rattle N Hum",
+            "id": "rattle_n_hum",
+            "name": "Rattle N Hum",
             "category":"Nightlife Spot",
-            "media":"https://untappd.akamaized.net/photo/2017_03_22/c0bdf6ce5df2fe33d4ccffdd35497bc0_640x640.jpg",
+            "media":"https:\/\/untappd.akamaized.net\/venuelogos\/venue_2845_e817b5a8_bg_64.png",
             "address":"14 E 33rd Street New York, NY",
             "is_public":"Yes",
             "beer":"Daydream In Green",
             "brewery":"Other Half Brewing Company",
             "state":"NY"
         }, {
-            "name":"The BeerMongers",
+            "id": "the_beermongers",
+            "name": "The BeerMongers",
             "category":"Nightlife Spot",
-            "media":"https://untappd.akamaized.net/venuelogos/venue_8350_220bb816_bg_88.png",
+            "media":"https:\/\/untappd.akamaized.net\/venuelogos\/venue_8350_220bb816_bg_64.png",
             "address":"1125 SE Division St Portland, OR",
             "is_public":"Yes",
             "beer":"Bursted Citra",
             "brewery":"El Segundo Brewing Company",
             "state":"OR"
         }]
-    venue = ''
-    for b in venue_info:
-        if venue_name == b['name']:
-            venue = b
-
+    
+    venue_info = next((item for item in venue_info if item["id"] == venue_name), None)
     return render_template('venue.html', 
         name = venue_name, 
-        state = venue["state"],
-        beer = venue["beer"],
-        brewery = venue["brewery"], 
-        venue_info = venue)
+        venue_info = venue_info)
 
 # Page that shows all of the breweries in a grid
 @app.route('/breweries/')
@@ -119,6 +113,7 @@ def breweries() :
 @app.route('/breweries/<brewery_name>/')
 def brewery(brewery_name) :
     brewery_info = [{
+            "id" : "el_segundo_brewing_company",
             "name":"El Segundo Brewing Company",
             "type":"Micro Brewery",
             "founded":"2011",
@@ -128,6 +123,7 @@ def brewery(brewery_name) :
             "venue":"The BeerMongers",
             "state":"TX"
         }, {
+            "id" : "other_half_brewing_company",
             "name":"Other Half Brewing Company",
             "type":"Micro Brewery",
             "founded":"2014",
@@ -137,6 +133,7 @@ def brewery(brewery_name) :
             "venue":"Rattle N Hum",
             "state":"NY"
         }, {
+            "id": "pinthouse_pizza",
             "name":"Pinthouse Pizza",
             "type":"Brew Pub",
             "founded":"2012",
@@ -146,17 +143,12 @@ def brewery(brewery_name) :
             "venue":"Craft Pride",
             "state":"TX"
         }]
-    brewery = ''
-    for b in brewery_info:
-        if brewery_name == b['name']:
-            brewery = b
+        
+    brewery_info = next((item for item in brewery_info if item["id"] == brewery_name), None)
 
     return render_template('brewery.html', 
         name = brewery_name, 
-        state = brewery["state"],
-        beer = brewery["beer"],
-        venue = brewery["venue"], 
-        brewery_info = brewery)
+        brewery_info = brewery_info)
 
 # Page that shows all of the locations in a grid
 @app.route('/states/')
@@ -168,6 +160,7 @@ def locations() :
 @app.route('/states/<state_name>/')
 def location(state_name) :
     state_info = [{
+            "id": "texas",
             "name":"Texas",
             "capital":"Austin",
             "abbreviation":"TX",
@@ -176,6 +169,7 @@ def location(state_name) :
             "brewery":"Pinthouse Pizza",
             "venue":"Craft Pride"
         }, {
+            "id": "new_york",
             "name":"New York",
             "capital":"Albany",
             "abbreviation":"NY",
@@ -184,6 +178,7 @@ def location(state_name) :
             "brewery":"Other Half Brewing Company",
             "venue":"Rattle N Hum"
         }, {
+            "id" : "oregon",
             "name":"Oregon",
             "capital":"Salem",
             "abbreviation":"OR",
@@ -192,14 +187,9 @@ def location(state_name) :
             "brewery":"El Segundo Brewing Company",
             "venue":"The BeerMongers"
         }]
-    state = ''
-    for b in state_info:
-        if state_name == b['name']:
-            state = b
+        
+    state_info = next((item for item in state_info if item["id"] == state_name), None)
 
     return render_template('state.html', 
         name = state_name, 
-        brewery = state["brewery"],
-        venue = state["venue"], 
-        state_info = state)
-    return render_template('state.html', name = state_name)
+        state_info = state_info)
