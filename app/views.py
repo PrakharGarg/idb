@@ -118,7 +118,45 @@ def breweries() :
 # the name of the brewery being passed in 
 @app.route('/breweries/<brewery_name>/')
 def brewery(brewery_name) :
-    return render_template('brewery.html', name = brewery_name)
+    brewery_info = [{
+            "name":"El Segundo Brewing Company",
+            "type":"Micro Brewery",
+            "founded":"2011",
+            "label":"https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-11688_fbaaa.jpeg",
+            "address":"140 Main St El Segundo, CA",
+            "beer":"Bursted Citra",
+            "venue":"The BeerMongers",
+            "state":"TX"
+        }, {
+            "name":"Other Half Brewing Company",
+            "type":"Micro Brewery",
+            "founded":"2014",
+            "label":"https://untappd.akamaized.net/site/brewery_logos/brewery-OtherHalfBrewing_94785_7c587.jpeg",
+            "address":"195 Centre St Brooklyn, NY",
+            "beer":"Daydream In Green",
+            "venue":"Rattle N Hum",
+            "state":"NY"
+        }, {
+            "name":"Pinthouse Pizza",
+            "type":"Brew Pub",
+            "founded":"2012",
+            "label":"https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-pinthousepizza_43305.jpeg",
+            "address":"4729 Burnet Rd Austin, TX",
+            "beer":"Bearded Seal",
+            "venue":"Craft Pride",
+            "state":"TX"
+        }]
+    brewery = ''
+    for b in brewery_info:
+        if brewery_name == b['name']:
+            brewery = b
+
+    return render_template('brewery.html', 
+        name = brewery_name, 
+        state = brewery["state"],
+        beer = brewery["beer"],
+        venue = brewery["venue"], 
+        brewery_info = brewery)
 
 # Page that shows all of the locations in a grid
 @app.route('/states/')
