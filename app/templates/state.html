@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 {% block title %} State - {{name}} {% endblock %}
 
-
 {% block content %}
-    <h1>{{name}}</h1>
+    <body>
+    	<h1>{{ name }}</h1>
+    	<img src={{ state_info["media"] }} alt={{ state_info['name'] }} style="width:304px;height:228px;">
+    	<h2> State Details </h2>
+    	<h3> Name </h3>
+    	<h4> {{ state_info["name"] }} </h4>
+     	<h3> Capital </h3>
+     	<h4> {{ state_info["capital"] }} </h4>
+     	<h3> Abbreviation </h3>
+     	<h4> {{ state_info["abbreviation"] }} </h4>
+     	<h3> Flower </h3>
+     	<h4> {{ state_info["flower"] }} </h4>
+     	<h3> Venues </h3>
+     	<h4> <a href="/venues/{{ venue }}"> {{ venue }} </a> </h4>
+     	<h3> Breweries </h3>
+     	<h4> <a href="/breweries/{{ brewery }}"> {{ brewery }} </a> </h4>
+    </body>
 {% endblock %}
