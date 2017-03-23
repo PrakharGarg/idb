@@ -79,23 +79,23 @@ def venue(venue_name) :
             "brewery":"Pinthouse Pizza",
             "state":"TX"
         }, {
-            "name":"Craft Pride",
+            "name":"Rattle N Hum",
             "category":"Nightlife Spot",
-            "media":"https://untappd.akamaized.net/photo/2017_03_23/fa1e38c565451d0d57610426ec397a9a_640x640.jpeg",
-            "address":"61 Rainey St Austin, TX",
+            "media":"https://untappd.akamaized.net/photo/2017_03_22/c0bdf6ce5df2fe33d4ccffdd35497bc0_640x640.jpg",
+            "address":"14 E 33rd Street New York, NY",
             "is_public":"Yes",
-            "beer":"Bearded Seal",
-            "brewery":"Pinthouse Pizza",
-            "state":"TX"
+            "beer":"Daydream In Green",
+            "brewery":"Other Half Brewing Company",
+            "state":"NY"
         }, {
-            "name":"Craft Pride",
+            "name":"The BeerMongers",
             "category":"Nightlife Spot",
-            "media":"https://untappd.akamaized.net/photo/2017_03_23/fa1e38c565451d0d57610426ec397a9a_640x640.jpeg",
-            "address":"61 Rainey St Austin, TX",
+            "media":"https://untappd.akamaized.net/venuelogos/venue_8350_220bb816_bg_88.png",
+            "address":"1125 SE Division St Portland, OR",
             "is_public":"Yes",
-            "beer":"Bearded Seal",
-            "brewery":"Pinthouse Pizza",
-            "state":"TX"
+            "beer":"Bursted Citra",
+            "brewery":"El Segundo Brewing Company",
+            "state":"OR"
         }]
     venue = ''
     for b in venue_info:
