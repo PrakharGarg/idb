@@ -167,4 +167,39 @@ def locations() :
 # the name of the location being passed in 
 @app.route('/states/<state_name>/')
 def location(state_name) :
+    state_info = [{
+            "name":"Texas",
+            "capital":"Austin",
+            "abbreviation":"TX",
+            "flower":"Bluebonnet",
+            "media":"/static/img/texasflag.png",
+            "brewery":"Pinthouse Pizza",
+            "venue":"Craft Pride"
+        }, {
+            "name":"New York",
+            "capital":"Albany",
+            "abbreviation":"NY",
+            "flower":"Rose",
+            "media":"/static/img/newyorkflag.png",
+            "brewery":"Other Half Brewing Company",
+            "venue":"Rattle N Hum"
+        }, {
+            "name":"Oregon",
+            "capital":"Salem",
+            "abbreviation":"OR",
+            "flower":"Oregon Grape",
+            "media":"/static/img/oregonflag.png",
+            "brewery":"El Segundo Brewing Company",
+            "venue":"The BeerMongers"
+        }]
+    state = ''
+    for b in state_info:
+        if state_name == b['name']:
+            state = b
+
+    return render_template('state.html', 
+        name = state_name, 
+        brewery = state["brewery"],
+        venue = state["venue"], 
+        state_info = state)
     return render_template('state.html', name = state_name)
