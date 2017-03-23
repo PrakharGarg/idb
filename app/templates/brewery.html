@@ -3,7 +3,7 @@
 
 {% block content %}
     <body>
-    	<h1>{{ name }}</h1>
+    	<h1>{{ brewery_info["name"] }}</h1>
     	<img src={{ brewery_info["label"] }} alt={{ brewery_info['name'] }} style="width:304px;height:228px;">
     	<h2> Brewery Details </h2>
     	<h3> Name </h3>
@@ -15,10 +15,10 @@
      	<h3> Address </h3>
      	<h4> {{ brewery_info["address"] }} </h4>
      	<h3> Venues </h3>
-     	<h4> <a href="/venues/{{ venue }}"> {{ venue }} </a> </h4>
+     	<h4> <a href="/venues/{{ brewery_info["venue_id"] }}"> {{ brewery_info["venue"] }} </a> </h4>
      	<h3> Beers </h3>
-     	<h4> <a href="/beers/{{ beer }}"> {{ beer }} </a> </h4>
+     	<h4> <a href="/beers/{{ brewery_info["beer_id"] }}"> {{ brewery_info["beer"] }} </a> </h4>
      	<h3> State </h3>
-     	<h4> <a href="/states/{{ state }}"> {{ state }} </a> </h4>
+     	<h4> <a href="/states/{{ brewery_info["state_id"] }}"> {{ brewery_info["state"] }} </a> </h4>
     </body>
 {% endblock %}
