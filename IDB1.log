@@ -1,0 +1,1115 @@
+commit ac17f601426152bdce4960faf0bfcc0be6920b27
+Merge: 966a5e8 24eef2f
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 14:02:52 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 24eef2ff8ec9c8ca2d74d3cf5728bf1b867685f0
+Merge: 2186cba 060da5a
+Author: Drew Storey <adstorey@Sydney-Storeys-MacBook-Pro.local>
+Date:   Thu Mar 23 14:00:01 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 2186cba2f327c2665fc6a90f0c6872d81deca927
+Author: Drew Storey <adstorey@Sydney-Storeys-MacBook-Pro.local>
+Date:   Thu Mar 23 13:59:16 2017 -0500
+
+    updates about page
+
+commit 060da5a4069c8cfd614a3f3bcfdce8a2ecbd42af
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 13:57:24 2017 -0500
+
+    arjun about
+
+commit 966a5e8fd4aed3c149e0bd70f2a6c8fbaf4902ca
+Merge: 6f4f983 883188a
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 13:56:53 2017 -0500
+
+    Merge branch 'master' into yuml
+
+commit 6f4f9835f4cb61e76e6a95abb3f9c060696d2286
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 13:56:24 2017 -0500
+
+    models and its documentation done
+
+commit 883188aebcfd535aef2f57c6dfab082114a73cb6
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 13:48:18 2017 -0500
+
+    about page updates
+
+commit d99f413488b309f61fdc93b5cd8698e2fb58becc
+Merge: cf25b33 93a6d9d
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 13:32:52 2017 -0500
+
+    Merge pull request #55 from PrakharGarg/filters
+    
+    filtering
+
+commit 93a6d9df55dc102bb36ff142d4f0808133976780
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 13:31:52 2017 -0500
+
+    filtering
+
+commit cf25b339f48d60c614627505c3ed217eb2bca554
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Thu Mar 23 13:15:54 2017 -0500
+
+    Fixed typo on states.html page
+
+commit 4aa5f650c74876ec2e3854b1ae17893036e20905
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 13:06:09 2017 -0500
+
+    finished with the models, going to comment now
+
+commit a6223fb41e7501d099491f3d413745f82b31e122
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 12:59:48 2017 -0500
+
+    finishing up models, mostly done
+
+commit c06452752f246b550f9aee3ef8fe0c0a40271abf
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 12:35:57 2017 -0500
+
+    beer model methods
+
+commit 30b8680ad7d3645be6debf05845b794bd027229c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 12:34:08 2017 -0500
+
+    removed titles
+
+commit ec3bf05df1254799dabc48e7036725223586bc22
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 12:10:37 2017 -0500
+
+    stubbing out model mehtods
+
+commit ae6e2853fa5efb853a56b41bacc1884efdee305e
+Merge: 8905f43 9a6e112
+Author: amiralihashim <amiralihashim@users.noreply.github.com>
+Date:   Thu Mar 23 12:29:11 2017 -0500
+
+    Merge pull request #54 from PrakharGarg/tests
+    
+    added state flags
+
+commit 9a6e112dae88727c7314a280ed765e7c278292ba
+Author: Amirali Hashim <amiralihashim@wireless-10-145-242-112.public.utexas.edu>
+Date:   Thu Mar 23 12:28:06 2017 -0500
+
+    added state flags
+
+commit 8905f43325c9c4f56c945f86a40f5f25397f2366
+Merge: f6ccd88 108de1d
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 12:21:06 2017 -0500
+
+    Merge pull request #53 from PrakharGarg/css_2
+    
+    css done for individual
+
+commit 108de1d84dc0547f095397afd75400fe6cc5152a
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 12:20:14 2017 -0500
+
+    css done
+
+commit f6ccd883fdf0317b080ae174d9780e17dd0f07f9
+Merge: adcd3e9 ac5ce9c
+Author: amiralihashim <amiralihashim@users.noreply.github.com>
+Date:   Thu Mar 23 12:18:31 2017 -0500
+
+    Merge pull request #52 from PrakharGarg/tests
+    
+    Tests
+
+commit ac5ce9ca00874554edf05cf46a92639004fd895e
+Author: Amirali Hashim <amiralihashim@wireless-10-145-242-112.public.utexas.edu>
+Date:   Thu Mar 23 12:15:08 2017 -0500
+
+    edited Amirali's Responsibilites
+
+commit f76e1efaa38bb07bbdf706022890b075c136d7d5
+Author: Amirali Hashim <amiralihashim@wireless-10-145-242-112.public.utexas.edu>
+Date:   Thu Mar 23 12:12:07 2017 -0500
+
+    Added initial tests for models
+
+commit 78a5c018454ca10cf2d8bf434ff8b0f6f148ab54
+Author: Amirali Hashim <amiralihashim@wireless-10-145-242-112.public.utexas.edu>
+Date:   Thu Mar 23 12:10:27 2017 -0500
+
+    Added initial tests for models
+
+commit adcd3e98d5c6dcb0b4a3fadfd4434096390b2fd3
+Merge: a3069a8 9ef010c
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 12:01:26 2017 -0500
+
+    Merge pull request #51 from PrakharGarg/fixes
+    
+    Fixes
+
+commit 9ef010cfbf2c457ff1373951d89c12e275f11c60
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 11:54:47 2017 -0500
+
+    done with individual. just needs css
+
+commit a3069a876930c04521932b82df18d4bb8cc1277e
+Author: Amirali Hashim <amirali.hashim@gmail.com>
+Date:   Thu Mar 23 11:46:54 2017 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 1338325acf3f4aa52f580f9e348bf8fa0ff1fdcd
+Author: Amirali Hashim <amirali.hashim@gmail.com>
+Date:   Thu Mar 23 11:45:48 2017 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 02da210b02c33108de2b68af9abf98ddf6ab8b95
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 11:40:56 2017 -0500
+
+    5 pure attributes for each model
+
+commit 44494398ace276b8bdf19d091b98c7fff50deb79
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 11:40:41 2017 -0500
+
+    ignore .pyc, __pycache__, and the virtualenv the makefile builds #50
+
+commit 37f7f8837dae1ca32aa1f7ff0091a9bb00af1de3
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 11:38:38 2017 -0500
+
+    added all app/ and app/templates files to make check #15
+
+commit 503811c6d88770fce2ac3bb98b7d208c2b9a4623
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 11:35:13 2017 -0500
+
+    fixed individual pages
+
+commit f1c8ae4fd1113783bb4516377db6db810d106e68
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 11:34:55 2017 -0500
+
+    removed links as attributes
+
+commit 5ecff78dcf701a5ee76fb0f511e87d27c2d6ee0e
+Merge: 34dea9e deab555
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 11:31:27 2017 -0500
+
+    okie dokie
+
+commit 012acbf4dbdd623aae01caad87d8d3bee189a2c8
+Author: Amirali Hashim <amirali.hashim@gmail.com>
+Date:   Thu Mar 23 11:30:55 2017 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 34dea9e5173717a431f14014d6f3a6873d9b7420
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 11:30:08 2017 -0500
+
+    removed dashes at beginning of line
+
+commit 78ce387108b2c03517bd11775ed92a3729f53458
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 11:28:33 2017 -0500
+
+    fix make check typo #15
+
+commit 6072fdc0efb41a742e693f26465457cfc0bb5366
+Merge: 2542da3 deab555
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 11:26:39 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 2542da38cb1e1fd03e5be12a5c2329f0ad4a39d0
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 11:26:28 2017 -0500
+
+    added check to makefile, travis will pass fail dependent on make check #15 #48
+
+commit deab55522ea877256ec86ac8a23f2eb3709483d0
+Merge: b714a97 9319264
+Author: amiralihashim <amiralihashim@users.noreply.github.com>
+Date:   Thu Mar 23 11:12:42 2017 -0500
+
+    Merge pull request #49 from PrakharGarg/tests
+    
+    Tests
+
+commit b714a97ec968df4376f798ae2d105ec80a9c2977
+Merge: 9ae4947 2a5217a
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Thu Mar 23 10:16:17 2017 -0500
+
+    Merge pull request #47 from PrakharGarg/individual
+    
+    Individual
+
+commit 9ae4947160cbd1032b06e55cc45370cf63acd4b8
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 10:15:16 2017 -0500
+
+    forgot to change aws link to gcp
+
+commit f6d046a1e93cd14a68c9f6c7cf208dd598cdca43
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 10:14:05 2017 -0500
+
+    changed aws to gcp in about
+
+commit 2a5217aa0da323f7a6329addcde5f6d890fc71bd
+Merge: 90ed2d2 5b2757c
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Thu Mar 23 10:13:17 2017 -0500
+
+    Merge pull request #46 from PrakharGarg/master
+    
+    Updating branch with grids
+
+commit 5b2757c7c54897d984914b73fedf6e733d55b316
+Merge: 4fd701b db2876b
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 10:07:09 2017 -0500
+
+    Merge pull request #45 from PrakharGarg/grid
+    
+    Grid updated from tables
+
+commit db2876bc188645373250cc2b9633109ec5f5a372
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 10:06:35 2017 -0500
+
+    grids done
+
+commit f5dd208387d55154e3426e66b019d0412795795c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 09:39:50 2017 -0500
+
+    grids finished
+
+commit 4f19b30ce77a90dac62c5be98fb9905ced7c45bb
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 09:33:48 2017 -0500
+
+    state grid
+
+commit 679f308ba76e0addf7f9d63eefd4a911e3566995
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 09:30:46 2017 -0500
+
+    brewery grid
+
+commit d6e73972f28613fec5ea74b3f5e72c6142c87981
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 09:24:52 2017 -0500
+
+    beer grid:
+
+commit 4fd701b5485c13bab3a2514dfc167eb13b4f4307
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 08:46:41 2017 -0500
+
+    fixed broken link and state links
+
+commit d51ec6edee2c1e20b700a506326eaf9c2751cf83
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 08:36:00 2017 -0500
+
+    comment out models for now
+
+commit 9319264eedf6dbc090807f8a007e2779c0a34cdb
+Author: Amirali Hashim <amiralihashim@wireless-10-146-235-57.public.utexas.edu>
+Date:   Thu Mar 23 00:29:47 2017 -0500
+
+    Fixed typo in about.html
+
+commit c85afeb57c83c17bb1884cf08ed238bfc7113a27
+Author: Amirali Hashim <amiralihashim@wireless-10-146-235-57.public.utexas.edu>
+Date:   Thu Mar 23 00:24:41 2017 -0500
+
+    Added about pic for Amirali
+
+commit 405f433bb9d877f38321f6515257daaba1180999
+Author: Amirali Hashim <amiralihashim@wireless-10-146-235-57.public.utexas.edu>
+Date:   Thu Mar 23 00:18:01 2017 -0500
+
+    updated the about.html page with apiary doc link and Amirali's about description
+
+commit ec2bc13f0a943284fc31149db490e84db1bbed97
+Merge: 436a570 c681af2
+Author: Amirali Hashim <amiralihashim@wireless-10-146-235-57.public.utexas.edu>
+Date:   Thu Mar 23 00:14:12 2017 -0500
+
+    Merge branch 'master' into tests
+
+commit 6f48f69e134903b334549eb57d2493532433c890
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 23:21:42 2017 -0500
+
+    uploaded a picture of myself, edited the about  and
+    major responsibilities fields. issue #37
+
+commit c681af23c6e5628334c722361a44744f145a0441
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 23:21:42 2017 -0500
+
+    uploaded a picture of myself, edited the about  and
+    major responsibilities fields
+
+commit 4fbfa022b13ce90630b514adfea5121f3569fe7e
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 23:07:40 2017 -0500
+
+    go ahead and actually create db. We don't use it technically, but it removes errors we would encounter in the future
+
+commit 90ed2d2f8fe81eda373f9f3442654b9885d6ddd8
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Mar 22 21:25:38 2017 -0500
+
+    Added pages for state
+
+commit d7806a872d20d79eb7330b9e33417037f0d5607a
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Mar 22 21:00:29 2017 -0500
+
+    Added pages for brewery
+
+commit 0236d5a67590835e7c11536027465250c6248d3a
+Merge: 9f122b6 c0769d8
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 21:00:02 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 9f122b6bd4531ec4a7e97e803aebacf24f3cc675
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 20:59:55 2017 -0500
+
+    added makefile that creates virtualenv, deploys to gcp, cleans, and runs #15
+
+commit c0769d85e5dcb54e89fc606c2612ee8ede2c4e03
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 20:49:35 2017 -0500
+
+    small style fix for images
+
+commit 90e3b12fdcc731c8fc65e5243a83b0a2b5cec02a
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 20:37:27 2017 -0500
+
+    adding picture of cole #37
+
+commit 0cb58591d1ae67daed986d0500c2031996274dfa
+Merge: 226938e a00acce
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 20:36:26 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 226938e449680a9c984a52c3add23b417aa324ba
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 20:36:19 2017 -0500
+
+    adding coles/my picture for the about page #37
+
+commit fd7234812b2a2852a6cc91efed2ec69fc2be887a
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Mar 22 20:28:41 2017 -0500
+
+    Updated pages for venues
+
+commit a00accef4ea43fc04e5c799ccd1f5f60ab6805dc
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 20:18:39 2017 -0500
+
+    small style fix
+
+commit acb889e542bbd08b9fad0eea2010362b78e396ea
+Merge: f6d0647 8a37e26
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 20:13:43 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit f6d0647f55ee3fd2fcfa28abd943f29f35a51952
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 20:12:18 2017 -0500
+
+    rename run.py to app.py resolves #43
+
+commit b3e2563f00afb652c6c4db18b639ede0dc23cc29
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 20:10:28 2017 -0500
+
+    remove unnecessary dependencies #39
+
+commit 8a37e262a7d6a6def4086361540ebeca157f75e0
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 20:01:55 2017 -0500
+
+    changed state title
+
+commit b7435e9dc09075ce0967b476b32301181b0f33ee
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Mar 22 19:51:41 2017 -0500
+
+    Created venue page
+
+commit 857a5ee7e1259a263ff72481728c6dbc788335be
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 19:44:17 2017 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit cb0517723c61a7e26cd82a6a356e894665bacc72
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 19:43:38 2017 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 7f207697f7192355e6e77485659f53257c1becc6
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Mar 22 19:03:56 2017 -0500
+
+    More work on beer individual page
+
+commit 72fb6de2560eb8a8f5407740e9c4dcdbae1927ea
+Merge: 5e7d9fe 1b88d22
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Mar 22 17:57:40 2017 -0500
+
+    Merge pull request #42 from PrakharGarg/master
+    
+    Updating branch
+
+commit 1b88d224cc3fe609ab5b058c32ab96c37e9962fe
+Author: as43574 <adstorey@gmail.com>
+Date:   Wed Mar 22 16:19:39 2017 -0500
+
+    Fixes small mistake in grid data
+
+commit fa888e6aa8c57c04dea8d2999bb6c906e1cc4122
+Merge: 107ad99 e379132
+Author: as43574 <adstorey@gmail.com>
+Date:   Wed Mar 22 16:15:37 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 107ad9932cacd6131869f16451bcac4c09eb6157
+Author: as43574 <adstorey@gmail.com>
+Date:   Wed Mar 22 16:15:31 2017 -0500
+
+    Completes all data in grids. Links are set, but go to nowhere.
+
+commit e379132b1764d945b37428837d91a768118ce67b
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 15:32:11 2017 -0500
+
+    added attributes to model.py
+
+commit 436a57051f7e7f07b07bbac1c7a456b7d64ba87d
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 14:57:39 2017 -0500
+
+    inital steps for model tests
+
+commit b7781ebb08de9f972feee1c06e3b794992df848e
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 14:27:56 2017 -0500
+
+    final yuml
+
+commit bfdfc26da38fe846b4c54bae22fdf327d1c506d4
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 14:25:39 2017 -0500
+
+    removed beers.yuml
+
+commit 9673f976904f9c3f1aa22792504c29bc71f87e7c
+Merge: fe05fff 516f178
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 14:21:15 2017 -0500
+
+    Merge branch 'master' into models
+
+commit fe05fff4f24ed6749f8fa062d5cc6ee19763a217
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 14:20:25 2017 -0500
+
+    added good comments outlining the attributes, their purposes
+
+commit c5ad651b3e2a927948460f21e7dcd99123b0f7a9
+Author: as43574 <adstorey@gmail.com>
+Date:   Wed Mar 22 14:13:44 2017 -0500
+
+    Adds some data to grids and changes Locations to States
+
+commit 516f178f3ee571c93ad31b0449dfc319650adf39
+Merge: c2498d0 1c8184c
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 14:07:21 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit fcad6c261ed6d0d2dea9988887f36e2b8ceab8b7
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 13:59:39 2017 -0500
+
+    formatting changes
+
+commit 1c8184cb6ba50d7a67a981ef49d886a58bcce4eb
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 13:56:51 2017 -0500
+
+    made more consistent with listing relationships as attributes, removed glassware
+
+commit c2498d0184101540a69ae0f447d289e6f9da2ce4
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 13:51:09 2017 -0500
+
+    adding gunicorn to requirements.txt #39
+
+commit d7c8717aa8d1d3939777168fcece6562f805c373
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 13:50:33 2017 -0500
+
+    removed glassware from beer, added commits, cleaned up
+
+commit 26b55e03b45eb9293af60176847b4190d0207ffc
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 13:49:49 2017 -0500
+
+    adding basic app.yaml #41
+
+commit 87b71aef0b28e28475bf990eecfa432493777d54
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 13:46:08 2017 -0500
+
+    basic models and relationships
+
+commit f6a10f5544b9b57df4cd050e137ba7f505818b6f
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 13:31:11 2017 -0500
+
+    a few fixed to uml
+
+commit 7eb0486836d6fa54570679275171097c7636ec82
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 13:08:17 2017 -0500
+
+    whoops
+
+commit 54febf9c3bb87d364e21457a5951d97162333726
+Merge: 831e873 e56a6e8
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 12:47:08 2017 -0500
+
+    Merge branch 'master' into yuml
+
+commit 831e873d6c21dcb9d15aa21612d1f12ab70e17f9
+Merge: 961016c 9100f35
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 12:45:33 2017 -0500
+
+    Merge branch 'master' into yuml
+
+commit e56a6e844501e7b7f42991f4fb2f74d36867d357
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 12:44:39 2017 -0500
+
+    typo in views
+
+commit 8371e9d3547e116b56da82a339473753242d64dd
+Merge: 0f854d1 59f791c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 12:44:10 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 961016ca58f313d9c5fd13443cbf3254e4031e2e
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 12:42:51 2017 -0500
+
+    uml pdf diagram
+
+commit 0f854d134e8e691b389a71e8a376a3bfc04a31d2
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 12:40:52 2017 -0500
+
+    changed locations to states
+
+commit b023c500ef077171eb998f9c769b1ccd79ec7e87
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 12:40:12 2017 -0500
+
+    changed location to state, less confusing
+
+commit 2efdd4f8448325b560e43fb84dd2cc0beb67f041
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 12:39:08 2017 -0500
+
+    added fields (some dups) to meet the 5 field minimum
+
+commit 59f791cffdd102ece875f0ac05f873bee0eea1b1
+Merge: 2bc3c88 83eedaf
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 12:30:47 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 2bc3c88c4c3c1161d61c4b0c93583d2f63814e42
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Mar 22 12:30:30 2017 -0500
+
+    adding requirements.txt #39
+
+commit 768f51c69388a5af991aca47ed65fecca744e570
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 12:26:47 2017 -0500
+
+    made explicit connection between breweries and venues
+
+commit 545a259e35a7ab213e958d7d4834f2808abf1aac
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 12:09:11 2017 -0500
+
+    final touches
+
+commit 7663fdad31cf98ab6ac1bb5c9c76a756aa68390d
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 12:07:16 2017 -0500
+
+    made image arrays for media
+
+commit 231f95f466ecf2c8578d1ce6663c962af12df4c7
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 11:58:21 2017 -0500
+
+    removed broken link, cleaned up file
+
+commit 384a4458f6f536d2a7a0ee12ad7b7d3fc4ac18d3
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 11:56:18 2017 -0500
+
+    venue needs at least one beer, beers can be sold at any number of venues, breweries make at least one beer, beer is brewed at one brewery
+
+commit 5887a5dfcda064ff43bb0253d2feed48be93f989
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 11:48:22 2017 -0500
+
+    venues & breweries have a single location, locations can have any number
+
+commit c276f837ba791f42c8adfa4e6b84ce99704f7f78
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 11:43:22 2017 -0500
+
+    stubbing out class relationships
+
+commit 35d3429ab08f258d17701bb21e77796378b24881
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 11:34:35 2017 -0500
+
+    location fields
+
+commit aed40060772644afbecdccb8f73e5aace0eca494
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 11:34:24 2017 -0500
+
+    venue fields
+
+commit de1659d38872323b5393b28360ac06f072591ead
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 11:24:43 2017 -0500
+
+    beer fields
+
+commit 55043e1c1466de9c70378c9fe14ddcb9fdacdf4e
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Mar 22 11:22:33 2017 -0500
+
+    brewery fields
+
+commit 83eedaf4b00a10f775a93a6b91eeb3164d89d528
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 11:56:07 2017 -0500
+
+    typo
+
+commit a59f93b1d07e74e1daee71b7f22d6ce35884ddf2
+Merge: 9100f35 c59cd62
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 11:06:43 2017 -0500
+
+    Merge pull request #38 from PrakharGarg/css
+    
+    Css
+
+commit c59cd627f512adc7788ae23b58eb8ccbd37d5ab3
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 11:05:20 2017 -0500
+
+    finished about styling
+
+commit 1cdc3540f218c002723a8f7207cb433da5131e43
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 22 09:57:30 2017 -0500
+
+    fixed css stylesheet not showing
+
+commit 9100f351328584ab66efccc4707c7b58e10d00b2
+Author: Arjun Gopisetty <arjungopisetty@wireless-10-145-248-78.public.utexas.edu>
+Date:   Tue Mar 21 16:06:17 2017 -0500
+
+    Updated about page
+
+commit 16dd29ab4425d1db167771e58b52fc8674647ebf
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Tue Mar 21 14:57:47 2017 -0500
+
+    stubbing out basics, link to editable
+
+commit 7c4427173ff86ba7bb3ddc0a7179bc24b3c9ded1
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Tue Mar 21 14:53:36 2017 -0500
+
+    added a yuml file to track database/schema structure
+
+commit 3e8a58f0125d5f6cbf1d59a0ba46c248a1872091
+Author: Cole Mayo <Cole Mayo>
+Date:   Tue Mar 21 14:41:20 2017 -0500
+
+    updated Coles about page #37
+
+commit e223c5807af9b24a1e82704e3355d6c8ee43c0e6
+Author: as43574 <adstorey@gmail.com>
+Date:   Tue Mar 21 13:55:51 2017 -0500
+
+    Changes grid columns to correct categories
+
+commit 71224889b7e432b950c227241330fa9c0cba59f8
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Mar 21 12:33:37 2017 -0500
+
+    small fix
+
+commit 2e5814eb3b2da0ad7ae9e3417780e4b7a0fe0958
+Merge: d3ce0bc c7837f2
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Tue Mar 21 12:29:47 2017 -0500
+
+    Merge pull request #35 from PrakharGarg/rest_of_about
+    
+    Rest of about
+
+commit c7837f270f0556f6916cd6dfdab1466cf8c0779d
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Mar 21 12:29:07 2017 -0500
+
+    about page done-ish
+
+commit a094b57f999904513c046c0970b3e2138bb64ff7
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Mar 21 11:44:44 2017 -0500
+
+    added data
+
+commit 5e7d9fee95885cae6bb7c80c99daf87b30ba0f74
+Merge: 85c307e d3ce0bc
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Mon Mar 20 22:37:41 2017 -0500
+
+    Merge pull request #33 from PrakharGarg/master
+    
+    Updating branch
+
+commit d3ce0bc5c825761ace73ad7a99c8003cbf0bcf5c
+Merge: 4d94823 74f2049
+Author: as43574 <as43574@users.noreply.github.com>
+Date:   Mon Mar 20 22:26:36 2017 -0500
+
+    Merge pull request #32 from PrakharGarg/dev2
+    
+    Dev2 implements basic grid view on search pages
+
+commit 85c307e4b83af6ee0bf176aa9ba4574dce6c7a39
+Author: Arjun Gopisetty <arjungopisetty@Arjuns-MacBook-Pro.local>
+Date:   Mon Mar 20 22:26:33 2017 -0500
+
+    Initial info for beer pages
+
+commit 74f2049656325c682f35c9d81ab7329f606ac4e5
+Author: as43574 <adstorey@gmail.com>
+Date:   Mon Mar 20 22:13:20 2017 -0500
+
+    tables are now sortable by row and have search functionality -- still not populated
+
+commit b0cb59642f1601dc67ad6b30261dd812e60f937f
+Author: as43574 <adstorey@gmail.com>
+Date:   Mon Mar 20 21:41:25 2017 -0500
+
+    fixes typos in grids
+
+commit 253bdc5e0ebe50c0ade82a8d6691f7bc898a243d
+Author: as43574 <adstorey@gmail.com>
+Date:   Mon Mar 20 20:38:26 2017 -0500
+
+    Corrects table ids on grids
+
+commit 0cc6cfde245dfb858411095f2a07b1e26206606f
+Author: as43574 <adstorey@gmail.com>
+Date:   Mon Mar 20 20:28:55 2017 -0500
+
+    adds skeleton grid for main search pages -- no links implemented yet
+
+commit ee935cb43851d5b045fa7a9ec4417ad99a67daf6
+Author: as43574 <adstorey@gmail.com>
+Date:   Mon Mar 20 19:23:30 2017 -0500
+
+    Create branch to work on
+
+commit 4d948231b5bfe9cac7a0aa754e93efbcb1f3d640
+Author: as43574 <arthur_storey@yahoo.com>
+Date:   Mon Mar 20 17:55:19 2017 -0500
+
+    Correct minor typo, and adds info for Arthur Storey on about page.
+
+commit 221e638d3c6f9443cc7919b7cf49c7711503783b
+Merge: 40eed1d dd01d60
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 15:50:50 2017 -0500
+
+    Merge pull request #28 from PrakharGarg/about
+    
+    stats
+
+commit dd01d6061d4daa3497524224c1ca8c7b3e0d9c93
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 15:49:45 2017 -0500
+
+    stats
+
+commit 40eed1d4abed0daeaceb2e704f577f96d9dd69fe
+Merge: 8a84bc1 cdc965c
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 15:07:33 2017 -0500
+
+    Merge pull request #26 from PrakharGarg/about
+    
+    About
+
+commit cdc965c6c706cef6d9694f0597d86e74b47fa9a6
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 15:05:57 2017 -0500
+
+    quick fix Issue #25
+
+commit 756e02bd3014e3755101f8342989992f96111246
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 15:02:22 2017 -0500
+
+    meet the team
+
+commit 7928beb6e4045cb1aeb48d7766dd1d31e61e92e0
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 14:29:47 2017 -0500
+
+    changed splash to not be crappy :D
+
+commit d9891b52d42af044e61ebc75a84d4cec47d58839
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 14:15:05 2017 -0500
+
+    about welcome
+
+commit 8a84bc11d098be735c851b7f8202a74e241663f3
+Merge: 8f5b38c bb35f24
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 13:10:36 2017 -0500
+
+    Merge pull request #24 from PrakharGarg/splash
+    
+    added colors to splash. Issue #11
+
+commit bb35f24810a9c56fa7887d65a19d9708234c5764
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 13:09:47 2017 -0500
+
+    added colors to splash. Issue #11
+
+commit 8f5b38c9a0f73c6f48189314bc116a2b1a623200
+Merge: df2843d c8bb031
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 11:02:20 2017 -0500
+
+    Merge pull request #23 from PrakharGarg/splash
+    
+    Splash page that i accidentally deleted.
+
+commit c8bb031ac832111101d57054030b0987596f6e5b
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Mar 20 11:00:52 2017 -0500
+
+    spalsh page. Issue 21
+
+commit d44ebcd253c5bb22374770d0bed92f164f54a46e
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Fri Mar 17 11:42:11 2017 -0500
+
+    basic splash page done
+
+commit df2843dafae945e63d7589592433a7489543c246
+Merge: 7ebce9c 9e316ba
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 12:21:28 2017 -0500
+
+    Merge pull request #20 from PrakharGarg/nav_2.0
+    
+    Nav Bar done
+
+commit 9e316badb709c75c15bb8f19c19bba44d87f381c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 12:21:02 2017 -0500
+
+    nav bar done. Added about page too. Issue #19
+
+commit c1d6a423ae01a550deae6afb60876942f9caa9a2
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 12:16:07 2017 -0500
+
+    bootstrap nav up
+
+commit 87b109bd6dab0afcd04aeba71d92225a6a1fb6d2
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 12:00:01 2017 -0500
+
+    added bootstrap
+
+commit 7ebce9c5645b1128d5aae7b1c8e8389febf5aa54
+Merge: a8bdae8 c194f62
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 11:50:53 2017 -0500
+
+    Merge pull request #18 from PrakharGarg/nav
+    
+    Basic Nav Bar + Inheritance templates
+
+commit c194f623c9815a7f46d5f2328f2afeddd3ba4f6c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 11:48:16 2017 -0500
+
+    basic nav bar created with inheritance Issue #14, Issue #17
+
+commit 24cccb4c385c2a581f85091bfe1fbef3005260e4
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 11:37:18 2017 -0500
+
+    travis?
+
+commit 7c81e692b3d79da553bed32a892e4a374b3e798d
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 11:35:43 2017 -0500
+
+    got base html working
+
+commit 8350d0366566d0755428adea3d390439c73c5d32
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 16 11:13:47 2017 -0500
+
+    base html
+
+commit a8bdae80ca02a5c9a3dd568ac0ba74f62d598460
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Mar 14 12:37:11 2017 -0500
+
+    added all the views. Issue #16
+
+commit 597441dd23e38d76b9b065d9a3038326a5fc3f79
+Merge: 210b574 3f5ec89
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Mar 8 14:07:10 2017 -0600
+
+    Merge pull request #8 from PrakharGarg/prakhar_setup
+    
+    routes. Issue #7
+
+commit 3f5ec892ec6b136acc4ee9b8163a8515747e0391
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 8 14:06:31 2017 -0600
+
+    routes. Issue #7
+
+commit 210b5748d32ff2f6afbc60391c049a2e773a4f09
+Merge: 7ccac6c 4a95fa6
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Mar 8 13:32:34 2017 -0600
+
+    Merge pull request #6 from PrakharGarg/prakhar_setup
+    
+    other files we need
+
+commit 4a95fa66e92e78a9399a975c898f7d09484baee8
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 8 13:30:33 2017 -0600
+
+    other files we need
+
+commit 7ccac6c3c17cedca3b626d3078cfcb752da75095
+Merge: 4252930 6e16f10
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Mar 8 13:08:15 2017 -0600
+
+    Merge pull request #4 from PrakharGarg/prakhar_setup
+    
+    folders didn't push up
+
+commit 6e16f10bd895fea8232e92bdfd03289395fc9302
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 8 13:06:44 2017 -0600
+
+    folders didn't push up
+
+commit 4252930b85342edd7afdb50e2660166f8abbc0c1
+Merge: 00c8240 5b0252d
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Mar 8 12:55:51 2017 -0600
+
+    Merge pull request #3 from PrakharGarg/prakhar_setup
+    
+    setup app. Issue #2
+
+commit 5b0252d019ae1bd4d0f4c511f511720a5518690f
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Mar 8 12:54:10 2017 -0600
+
+    setup app. Issue #2
+
+commit 00c824040a85d8aa29c742ebac6e5e85e8102192
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Mar 6 16:39:52 2017 -0600
+
+    test slack integration. Issue #1
+
+commit 3aa5062ca3b4de88f78b456e0e2061468cff039c
+Author: Prakhar Garg <prakhar@cs.utexas.edu>
+Date:   Mon Mar 6 13:44:53 2017 -0600
+
+    readme
