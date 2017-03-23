@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Locations {% endblock %}
+{% block title %} States {% endblock %}
 
 
 {% block content %}
@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
-<h1 align="center">Locations</h1>
+<h1 align="center">States</h1>
 </head>
 <body>
 	<div class="container table-responsive">
@@ -18,15 +18,32 @@
 					<th>Name</th>
 					<th>Breweries</th>
 					<th>Venues</th>
-					<th>Media</th>
-					<th>Media Feed</th>
-					<th>State</th>
+					<th>Flag</th>
+					<th>Capital</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr><td>Name 1</td><td>Brewery 1</td><td>Venue 1</td><td>Media1(pics)</td><td>Media Feed 1</td><td>State 1</td></tr>
-				<tr><td>Name 2</td><td>Brewery 2</td><td>Venue 2</td><td>Media2(pics)</td><td>Media Feed 2</td><td>State 2</td></tr>
-				<tr><td>Name 3</td><td>Brewery 3</td><td>Venue 3</td><td>Media3(pics)</td><td>Media Feed 3</td><td>State 3</td></tr>
+				<tr>
+					<td>Texas</td>
+					<td><a href="/breweries/pinthouse_pizza">Pinthouse Pizza</a></td>
+					<td><a href="/venues/craft_pride">Craft Pride</a></td>
+					<td><img src="/static/img/texasflag.png"></td>
+					<td>Austin</td>
+				</tr>
+				<tr>
+					<td>New York</td>
+					<td><a href="/breweries/other_half_brewing_company">Other Half Brewing Company</a></td>
+					<td><a href="/venues/rattle_n_hum">Rattle N Hum</a></td>
+					<td><img src="/static/img/newyorkflag.png"></td>
+					<td>Albany</td>
+				</tr>
+				<tr>
+					<td>Oregon</td>
+					<td><a href="/Breweries/el_segundo_brewing_company">El Segundo Brewing Company</a></td>
+					<td><a href="/venues/the_beermongers">The BeerMongers</a></td>
+					<td><img src="/static/img/oregonflag.png"></td>
+					<td>Salem</td>
+				</tr>
 				
 			</tbody>
 		</table>
