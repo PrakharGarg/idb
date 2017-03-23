@@ -7,7 +7,7 @@
 
 [Venue| -name: string; -media:［image］; -address: string; -category: string; -public: Boolean | add_beer(beer); remove_beer(beer); remove_brewery(brewery)]
 
-[State| -name: string; -media:［image］; -capital: string; -abbreviation: string; -flower: String | is_best_state() ; add_media(link)]
+[State| -name: string; -media:［image］; -capital: string; -abbreviation: string; -flower: String | is_best_state() ; add_media(link) ; is_flower_pretty()]
 
 
 // class inter-relations

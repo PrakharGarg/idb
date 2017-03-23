@@ -50,11 +50,11 @@ class Beer(db.Model):
 		descr = "This is {} beer. You will drink it, and you will love it!"
 		return descr.format(self.name)
 
-	def relabel(new_label):
-		labels.insert(0, new_label)
+	def relabel(self, new_label):
+		self.labels.insert(0, new_label)
 
-	def change_rating(new_rating):
-		rating = new_rating
+	def change_rating(self, new_rating):
+		self.rating = new_rating
 
 class Brewery(db.Model):
 	"""
@@ -79,18 +79,28 @@ class Brewery(db.Model):
 	venues = db.relationship('Venue', secondary=venue_brewery_association)
 	state = db.relationship('State')
 
-	def __init__():
+	def __init__(self, name, brewery_type, founded, labels, address):
+		self.name = name
+		self.brewery_type = brewery_type
+		self.founded = founded
+		self.labels = labels
+		self.address = address
 
-	def __repr__():
+	def __repr__(self):
+		descr = "At {}, we brew lots of beers. Try some!"
+		return descr.format(self.name)
 
-	def change_name(new_name):
+	def change_name(self, new_name):
+		self.name = new_name
 
-	def change_founded_date(new_date):
+	def change_founded_date(self, new_date):
 		raise Exception('THOU SHALT NOT REWRITE HISTORY')
 
-	def add_venue():
+	def add_venue(self, venue):
+		self.venues.add(venue)
 
-	def remove_venue():
+	def remove_venue(self, venue):
+		self.venues.remove(venue)
 
 class Venue(db.Model):
 	"""
@@ -120,15 +130,26 @@ class Venue(db.Model):
 	breweries = db.relationship('Brewery', secondary=venue_brewery_association)
 	beers = db.relationship('Beer', secondary=venue_beer_association)
 
-	def __init__():
+	def __init__(self, name, media, address, category, is_public):
+		self.name = name
+		self.media = media
+		self.address = address
+		self.category = category
+		self.is_public = is_public
 
-	def __repr__():
+	def __repr__(self):
+		descr = "Here at {}, you can get a whole bunch of beers from {} breweries."
+		return descr.format(self.name, str(len(self.breweries)))
 
-	def add_beer(beer):
+	def add_beer(self, beer):
+		self.beers.add(beer)
 
-	def remove_beer(beer):
+	def remove_beer(self, beer):
+		self.beers.remove(beer)
 
-	def remove_brewery():
+	def remove_brewery(self, brewery):
+		self.breweries.remove(brewery)
+		self.beers = [br for br in self.beers if br.brewery != brewery]
 
 class State(db.Model):
 	"""
@@ -150,12 +171,23 @@ class State(db.Model):
     abbreviation = db.Column(db.String(120), index=True, unique=True)
     flower = db.Column(db.String(120), index=True, unique=True)
 
-    def __init__():
+    def __init__(self, capital, name, media, abbreviation, flower):
+    	self.capital = capital
+    	self.name = name
+    	self.media = media
+    	self.abbreviation = abbreviation
+    	self.flower = flower
 
-	def __repr__():
+	def __repr__(self):
+		descr = ("Welcome to {}, where the state flower is the {}, and "
+			"the capital is {}. Our postal code is {}!")
+		return descr.format(self.name, self.flower, self.capital, self.abbreviation)
 
-	def is_best_state():
+	def is_best_state(self):
 		return abbreviation == 'TX'
 
-	def add_media(link):
+	def add_media(self, link):
+		self.media.add(media)
 
+	def is_flower_pretty(self):
+		return True
