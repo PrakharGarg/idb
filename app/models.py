@@ -39,12 +39,15 @@ class Beer(db.Model):
 	brewery = db.relationship('Brewery')
 	venues = db.relationship('Venue', secondary=venue_beer_association)
 
-	def __init__(self, name, labels, style, is_organic, rating):
+	def __init__(self, name, labels, style, is_organic, rating,
+		brewery, venues):
 		self.name = name
 		self.labels = labels
 		self.style = style
 		self.is_organic = is_organic
 		self.rating = rating
+		self.brewery = brewery
+		self.venues = venues
 
 	def __repr__(self):
 		descr = "This is {} beer. You will drink it, and you will love it!"
@@ -79,12 +82,15 @@ class Brewery(db.Model):
 	venues = db.relationship('Venue', secondary=venue_brewery_association)
 	state = db.relationship('State')
 
-	def __init__(self, name, brewery_type, founded, labels, address):
+	def __init__(self, name, brewery_type, founded, labels, address,
+		venues, state):
 		self.name = name
 		self.brewery_type = brewery_type
 		self.founded = founded
 		self.labels = labels
 		self.address = address
+		self.venues = venues
+		self.state = state
 
 	def __repr__(self):
 		descr = "At {}, we brew lots of beers. Try some!"
@@ -130,12 +136,16 @@ class Venue(db.Model):
 	breweries = db.relationship('Brewery', secondary=venue_brewery_association)
 	beers = db.relationship('Beer', secondary=venue_beer_association)
 
-	def __init__(self, name, media, address, category, is_public):
+	def __init__(self, name, media, address, category, is_public,
+		state, breweries, beers):
 		self.name = name
 		self.media = media
 		self.address = address
 		self.category = category
 		self.is_public = is_public
+		self.state = state
+		self.breweries = breweries
+		self.beers = beers
 
 	def __repr__(self):
 		descr = "Here at {}, you can get a whole bunch of beers from {} breweries."
