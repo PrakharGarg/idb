@@ -1,3 +1,88 @@
+commit 29ca32d7880e90d6d6305c7fdf4feea30206dae9
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Mar 23 14:30:02 2017 -0500
+
+    overall commits
+
+commit be317ffc80bdd38ddaded7bb67bd7c86e9915ea0
+Merge: 9a4e3c3 1fa3553
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 14:28:33 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 9a4e3c3eeb9189814d1d692bb550c065a862a9b3
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 14:28:30 2017 -0500
+
+    updated personal info
+
+commit 1fa3553aada1486df74c2f5576da08d3de7f29a6
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 14:27:17 2017 -0500
+
+    one more time: fixing coles stats remix
+
+commit 97d198384bb765b0ceb4d4baa20fc5997ab2cdcb
+Merge: 61eb475 3d35c71
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 14:26:21 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 61eb4752deb26a91ea410de2e5ebe4dec9a0f9d6
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 14:26:16 2017 -0500
+
+    fixing coles about stats
+
+commit 3d35c71182055f2cb124cef6c880f007820f513c
+Merge: 6e975f9 b709ede
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 14:25:25 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit b709ede201a7c76c45ac21cfea3926fc91f616c2
+Merge: 2661d99 564e7b2
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 14:24:55 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 6e975f9ed534e373e93492af54095bd31ed86fb2
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 14:24:47 2017 -0500
+
+    fixed gitignore?
+
+commit 2661d99e7608da46e2460cb14bd96c4034bf13e6
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Thu Mar 23 14:24:44 2017 -0500
+
+    update coles about
+
+commit 564e7b2d6b933816770c1c8c1355d9831dc2eeb5
+Merge: ef114af 44dd33f
+Author: amiralihashim <amiralihashim@users.noreply.github.com>
+Date:   Thu Mar 23 14:22:41 2017 -0500
+
+    Merge pull request #59 from PrakharGarg/tests
+    
+    Updated Amirali's stats
+
+commit 44dd33f86359c918079132f433c74e46d76bd16c
+Author: Amirali Hashim <amiralihashim@wireless-10-145-242-112.public.utexas.edu>
+Date:   Thu Mar 23 14:21:27 2017 -0500
+
+    Updated Amirali's stats
+
+commit ef114afa58c48555cb95fd2790a73cdf1a8a5e25
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Mar 23 14:19:12 2017 -0500
+
+    make file target for documenting, and thegenerated logs
+
 commit ac17f601426152bdce4960faf0bfcc0be6920b27
 Merge: 966a5e8 24eef2f
 Author: Patrick Moore <phatrickmoore@gmail.com>
