@@ -14,8 +14,13 @@
      	<h4> {{ beer_info["style"] }} </h4>
      	<h3> ABV </h3>
      	<h4> {{ beer_info["abv"] }}% </h4>
-     	<h3> Glassware (pictures) </h3>
+     	<h3> Rating </h3>
+     	<h4> {{ beer_info["rating"] }} </h4>
      	<h3> Organic </h3>
      	<h4> {{ beer_info["isOrganic"] }} </h4>
+     	<h3> Brewery </h3>
+     	<h4> <a href="/breweries/{{ brewery }}"> {{ brewery }} </a> </h4>
+     	<h3> State </h3>
+     	<h4> <a href="/states/{{ state }}"> {{ state }} </a> </h4>
     </body>
 {% endblock %}

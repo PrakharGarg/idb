@@ -22,37 +22,43 @@ def beers() :
 @app.route('/beers/<beer_name>/')
 def beer(beer_name) :
     beer_info = [{
-            "name":"(512) IPA",
-            "brewery":"",
+            "name":"Bearded Seal",
+            "labels":"https://untappd.akamaized.net/site/beer_logos/beer-_251610_5e1b7f6c8e4f14e29b5f2144ad7e.jpeg",
+            "style":"Stout - Irish Dry",
+            "abv":"6.1",
+            "rating":"3.80086",
+            "isOrganic":"N",
+            "brewery":"Pinthouse Pizza",
+            "state":"TX"
+        }, {
+            "name":"Bursted Citra",
             "labels":"https://s3.amazonaws.com/brewerydbapi/beer/ezGh5N/upload_r8SNni-large.png",
-            "style":"American-Style India Pale Ale",
-            "abv":"7",
-            "glasswareId":"5",
-            "isOrganic":"N"
+            "style":"IPA - American",
+            "abv":"6",
+            "rating":"3.86842",
+            "isOrganic":"N",
+            "brewery":"El Segundo Brewing Company",
+            "state":"OR"
         }, {
-            "name":"Pecan Porter",
-            "brewery":"",
-            "labels":"https://s3.amazonaws.com/brewerydbapi/beer/HIzVEo/upload_aT5MqH-large.png",
-            "style":"British Origin Ales",
-            "abv":"6.8",
-            "glasswareId":"5",
-            "isOrganic":"N"
-        }, {
-            "name":"(512) Black IPA",
-            "brewery":"",
-            "labels":"https://s3.amazonaws.com/brewerydbapi/beer/6PPnT2/upload_Cnl1UJ-large.png",
-            "style":"Hybrid/mixed Beer",
-            "abv":"7.5",
-            "glasswareId":"5",
-            "isOrganic":"N"
-        }
-        ]
+            "name":"Daydream In Green",
+            "labels":"https://untappd.akamaized.net/site/beer_logos/beer-1995566_d307c_sm.jpeg",
+            "style":"IPA - Imperial / Double",
+            "abv":"8.1",
+            "rating":"4.44162",
+            "isOrganic":"N",
+            "brewery":"Other Half Brewing Company",
+            "state":"NY"
+        }]
     beer = ''
     for b in beer_info:
         if beer_name == b['name']:
             beer = b
 
-    return render_template('beer.html', name = beer_name, beer_info = beer)
+    return render_template('beer.html', 
+        name = beer_name, 
+        brewery = beer["brewery"], 
+        state = beer["state"], 
+        beer_info = beer)
 
 # Page that shows all of the venues in a grid
 @app.route('/venues/')
