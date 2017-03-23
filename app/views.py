@@ -30,7 +30,9 @@ def beer(beer_name) :
             "rating":"3.80086",
             "isOrganic":"N",
             "brewery":"Pinthouse Pizza",
-            "state":"TX"
+            "brewery_id": "pinthouse_pizza",
+            "state":"TX",
+            "state_id":"texas"
         }, {
             "id":"bursted_citra",
             "name":"Bursted Citra",
@@ -40,7 +42,9 @@ def beer(beer_name) :
             "rating":"3.86842",
             "isOrganic":"N",
             "brewery":"El Segundo Brewing Company",
-            "state":"OR"
+            "brewery_id": "el_segundo_brewing_company",
+            "state":"OR",
+            "state_id":"oregon"
         }, {
             "id": "daydream_in_green",
             "name":"Daydream In Green",
@@ -50,7 +54,9 @@ def beer(beer_name) :
             "rating":"4.44162",
             "isOrganic":"N",
             "brewery":"Other Half Brewing Company",
-            "state":"NY"
+            "brewery_id": "other_half_brewing_company",
+            "state":"NY",
+            "state_id": "new_york"
         }]
     beer_info = next((item for item in beer_info if item["id"] == beer_name), None)
     return render_template('beer.html', 
@@ -74,8 +80,11 @@ def venue(venue_name) :
             "address":"61 Rainey St Austin, TX",
             "is_public":"Yes",
             "beer":"Bearded Seal",
+            "beer_id":"bearded_seal",
             "brewery":"Pinthouse Pizza",
-            "state":"TX"
+            "brewery_id": "pinthouse_pizza",
+            "state":"TX",
+            "state_id":"texas"
         }, {
             "id": "rattle_n_hum",
             "name": "Rattle N Hum",
@@ -84,8 +93,11 @@ def venue(venue_name) :
             "address":"14 E 33rd Street New York, NY",
             "is_public":"Yes",
             "beer":"Daydream In Green",
+            "beer_id":"daydream_in_green",
             "brewery":"Other Half Brewing Company",
-            "state":"NY"
+            "brewery_id":"other_half_brewing_company",
+            "state":"NY",
+            "state_id":"new_york"
         }, {
             "id": "the_beermongers",
             "name": "The BeerMongers",
@@ -94,8 +106,11 @@ def venue(venue_name) :
             "address":"1125 SE Division St Portland, OR",
             "is_public":"Yes",
             "beer":"Bursted Citra",
+            "beer_id":"bursted_citra",
             "brewery":"El Segundo Brewing Company",
-            "state":"OR"
+            "brewery_id":"el_segundo_brewing_company",
+            "state":"OR",
+            "state_id":"oregon"
         }]
     
     venue_info = next((item for item in venue_info if item["id"] == venue_name), None)
@@ -120,8 +135,11 @@ def brewery(brewery_name) :
             "label":"https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-11688_fbaaa.jpeg",
             "address":"140 Main St El Segundo, CA",
             "beer":"Bursted Citra",
+            "beer_id":"bursted_citra",
             "venue":"The BeerMongers",
-            "state":"TX"
+            "venue_id":"the_beermongers",
+            "state":"TX",
+            "state_id":"texas"
         }, {
             "id" : "other_half_brewing_company",
             "name":"Other Half Brewing Company",
@@ -130,8 +148,11 @@ def brewery(brewery_name) :
             "label":"https://untappd.akamaized.net/site/brewery_logos/brewery-OtherHalfBrewing_94785_7c587.jpeg",
             "address":"195 Centre St Brooklyn, NY",
             "beer":"Daydream In Green",
+            "beer_id":"daydream_in_green",
             "venue":"Rattle N Hum",
-            "state":"NY"
+            "venue_id":"rattle_n_hum",
+            "state":"NY",
+            "state_id":"new_york"
         }, {
             "id": "pinthouse_pizza",
             "name":"Pinthouse Pizza",
@@ -140,8 +161,11 @@ def brewery(brewery_name) :
             "label":"https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-pinthousepizza_43305.jpeg",
             "address":"4729 Burnet Rd Austin, TX",
             "beer":"Bearded Seal",
+            "beer_id":"bearded_seal",
             "venue":"Craft Pride",
-            "state":"TX"
+            "venue_id":"craft_pride",
+            "state":"TX",
+            "state_id":"texas"
         }]
         
     brewery_info = next((item for item in brewery_info if item["id"] == brewery_name), None)
@@ -167,7 +191,9 @@ def location(state_name) :
             "flower":"Bluebonnet",
             "media":"/static/img/texasflag.png",
             "brewery":"Pinthouse Pizza",
-            "venue":"Craft Pride"
+            "brewery_id": "pinthouse_pizza",
+            "venue":"Craft Pride",
+            "venue_id":"craft_pride"
         }, {
             "id": "new_york",
             "name":"New York",
@@ -176,7 +202,9 @@ def location(state_name) :
             "flower":"Rose",
             "media":"/static/img/newyorkflag.png",
             "brewery":"Other Half Brewing Company",
-            "venue":"Rattle N Hum"
+            "brewery_id": "other_half_brewing_company",
+            "venue":"Rattle N Hum",
+            "venue_id":"rattle_n_hum"
         }, {
             "id" : "oregon",
             "name":"Oregon",
@@ -185,7 +213,9 @@ def location(state_name) :
             "flower":"Oregon Grape",
             "media":"/static/img/oregonflag.png",
             "brewery":"El Segundo Brewing Company",
-            "venue":"The BeerMongers"
+            "brewery_id":"el_segundo_brewing_company",
+            "venue":"The BeerMongers",
+            "venue_id":"the_beermongers"
         }]
         
     state_info = next((item for item in state_info if item["id"] == state_name), None)

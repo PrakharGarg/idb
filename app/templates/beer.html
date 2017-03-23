@@ -19,8 +19,8 @@
      	<h3> Organic </h3>
      	<h4> {{ beer_info["isOrganic"] }} </h4>
      	<h3> Brewery </h3>
-     	<h4> <a href="/breweries/{{ brewery }}"> {{ beer_info["brewery"] }} </a> </h4>
+     	<h4> <a href="/breweries/{{ beer_info["brewery_id"] }}"> {{ beer_info["brewery"] }} </a> </h4>
      	<h3> State </h3>
-     	<h4> <a href="/states/{{ state }}"> {{ beer_info["state"] }} </a> </h4>
+     	<h4> <a href="/states/{{ beer_info["state_id"] }}"> {{ beer_info["state"] }} </a> </h4>
     </body>
 {% endblock %}

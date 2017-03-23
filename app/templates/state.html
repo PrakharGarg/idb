@@ -12,11 +12,11 @@
      	<h4> {{ state_info["capital"] }} </h4>
      	<h3> Abbreviation </h3>
      	<h4> {{ state_info["abbreviation"] }} </h4>
-     	<h3> Flower </h3>
+     	<h3> State Flower </h3>
      	<h4> {{ state_info["flower"] }} </h4>
      	<h3> Venues </h3>
-     	<h4> <a href="/venues/{{ venue }}"> {{ state_info["venue"] }} </a> </h4>
+     	<h4> <a href="/venues/{{ state_info["venue_id"] }}"> {{ state_info["venue"] }} </a> </h4>
      	<h3> Breweries </h3>
-     	<h4> <a href="/breweries/{{ brewery }}"> {{ state_info["brewery"] }} </a> </h4>
+     	<h4> <a href="/breweries/{{ state_info["brewery_id"] }}"> {{ state_info["brewery"] }} </a> </h4>
     </body>
 {% endblock %}
