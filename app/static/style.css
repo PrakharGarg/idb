@@ -51,6 +51,14 @@ h2.centernormal {
   font-family: "Lucida Console", Monaco, monospace;
 }
 
+.filter {
+  padding-left: 40px;
+  text-align: left;
+  font-family: "Lucida Console", Monaco, monospace;
+  border-color: black;
+  margin-left: 20px;
+}
+
 .tools {
   margin-top: -5%;
 }
@@ -67,4 +75,8 @@ h2.centernormal {
 div.grid {
   margin-right: 0px;
   margin-left: 0px;
+}
+
+.middle {
+  text-align: center;
 }
