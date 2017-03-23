@@ -45,6 +45,12 @@ h2.centernormal {
   font-family: "Lucida Console", Monaco, monospace;
 }
 
+.individual {
+  padding-left: 40px;
+  text-align: left;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
 .tools {
   margin-top: -5%;
 }

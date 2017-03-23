@@ -3,24 +3,25 @@
 
 {% block content %}
     <body>
-    	<h1>{{beer_info["name"]}}</h1>
-    	<img src={{ beer_info["labels"] }} alt={{ beer_info['name'] }} style="width:304px;height:228px;">
-    	<h2> Beer Details </h2>
-    	<h3> Name </h3>
-    	<h4> {{ beer_info["name"] }} </h4>
-     	<h3> Brewery </h3>
-     	<h4> {{ beer_info["brewery"] }} </h4>
-     	<h3> Style </h3>
-     	<h4> {{ beer_info["style"] }} </h4>
-     	<h3> ABV </h3>
-     	<h4> {{ beer_info["abv"] }}% </h4>
-     	<h3> Rating </h3>
-     	<h4> {{ beer_info["rating"] }} </h4>
-     	<h3> Organic </h3>
-     	<h4> {{ beer_info["isOrganic"] }} </h4>
-     	<h3> Brewery </h3>
-     	<h4> <a href="/breweries/{{ beer_info["brewery_id"] }}"> {{ beer_info["brewery"] }} </a> </h4>
-     	<h3> State </h3>
-     	<h4> <a href="/states/{{ beer_info["state_id"] }}"> {{ beer_info["state"] }} </a> </h4>
+      <div class= "individual">
+        <h1 class = "gold">{{beer_info["name"]}}</h1>
+      	<img src={{ beer_info["labels"] }} alt={{ beer_info['name'] }} style="width:304px;height:228px;">
+      	<h3 class = "gold"> Name </h3>
+      	<h4> {{ beer_info["name"] }} </h4>
+       	<h3 class = "gold"> Brewery </h3>
+       	<h4> {{ beer_info["brewery"] }} </h4>
+       	<h3 class = "gold"> Style </h3>
+       	<h4> {{ beer_info["style"] }} </h4>
+       	<h3 class = "gold"> ABV </h3>
+       	<h4> {{ beer_info["abv"] }}% </h4>
+       	<h3 class = "gold"> Rating </h3>
+       	<h4> {{ beer_info["rating"] }} </h4>
+       	<h3 class = "gold"> Organic </h3>
+       	<h4> {{ beer_info["isOrganic"] }} </h4>
+       	<h3 class = "gold"> Brewery </h3>
+       	<h4> <a href="/breweries/{{ beer_info["brewery_id"] }}"> {{ beer_info["brewery"] }} </a> </h4>
+       	<h3 class = "gold"> State </h3>
+       	<h4> <a href="/states/{{ beer_info["state_id"] }}"> {{ beer_info["state"] }} </a> </h4>
+      </div>
     </body>
 {% endblock %}
