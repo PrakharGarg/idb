@@ -8,57 +8,67 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
-<h1 align="center">Breweries</h1>
+<h1 class = "gold" align="center">Breweries</h1>
+<br />
+<br />
 </head>
 <body>
-	<div class="container table-responsive">
-		<table class="table table-striped table-hover" id="brewery_table">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Venues</th>
-					<th>Type</th>
-					<th>Established</th>
-					<th>Label</th>
-					<th>Beers</th>
-					<th>State</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="/breweries/pinthouse_pizza">Pinthouse Pizza</a></td>
-					<td><a href="/venues/craft_pride">Craft Pride</a></td>
-					<td>Brew Pub</td>
-					<td>2012</td>
-					<td><img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-pinthousepizza_43305.jpeg" width = "60" hight = "60"></td>
-					<td><a href="/beers/bearded_seal">Bearded Seal</a></td>
-					<td><a href="/states/texas/">TX</a></td>
-				</tr>
-				<tr>
-					<td><a href="/breweries/other_half_brewing_company">Other Half Brewing Company</a></td>
-					<td><a href="/venues/rattle_n_hum">Rattle N Hum</a></td>
-					<td>Micro Brewery</td>
-					<td>2014</td>
-					<td><img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-OtherHalfBrewing_94785_7c587.jpeg" width = "60" hight = "60"></td>
-					<td><a href="/beers/daydream_in_green">Daydream In Green</a></td>
-					<td><a href="/states/new_york/">NY</a></td>
-				</tr>
-				<tr>
-					<td><a href="/breweries/el_segundo_brewing_company">El Segundo Brewing Company</a></td>
-					<td><a href="/venues/the_beermongers">The BeerMongers</a></td>
-					<td>Micro Brewery</td>
-					<td>2011</td>
-					<td><img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-11688_fbaaa.jpeg" width = "60" hight = "60"></td>
-					<td><a href="/beers/bursted_citra">Bursted Citra</a></td>
-					<td><a href="/states/oregon/">OR</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#brewery_table').DataTable();
-	});
-	</script>
+	<div class="grid row text-center">
+
+			<div class="col-md-4 col-sm-6 hero-feature">
+					<div class="thumbnail">
+							<img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-pinthousepizza_43305.jpeg" width = "150" alt="">
+							<div class="caption">
+									<h3>Pinthouse Pizza</h3>
+									<p>
+										Brew Pub <br />
+										Est. 2012 <br />
+										4729 Burnet Rd. Austin, TX<br />
+									</p>
+									<p>
+											<a href="/breweries/pinthouse_pizza/" class="btn btn-primary">More Info</a>
+									</p>
+							</div>
+					</div>
+			</div>
+
+			<div class="col-md-4 col-sm-6 hero-feature">
+					<div class="thumbnail">
+							<img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-OtherHalfBrewing_94785_7c587.jpeg" width = "150" alt="">
+							<div class="caption">
+									<h3>Other Half Brewing Company</h3>
+									<p>
+										Mirco Brewery<br />
+										Est. 2014 <br />
+										195 Centre St. Brooklyn, NY<br />
+									</p>
+									<p>
+											<a href="/breweries/other_half_brewing_company/" class="btn btn-primary">More Info</a>
+									</p>
+							</div>
+					</div>
+			</div>
+
+			<div class="col-md-4 col-sm-6 hero-feature">
+					<div class="thumbnail">
+							<img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-11688_fbaaa.jpeg" width = "150" alt="">
+							<div class="caption">
+									<h3>El Segundo Brewing Company</h3>
+									<p>
+										Micro Brewery <br />
+										Est. 2011 <br />
+										140 Main St. El Segundo, CA <br />
+									</p>
+									<p>
+											<a href="/breweries/el_segundo_brewing_company/" class="btn btn-primary">More Info</a>
+									</p>
+							</div>
+					</div>
+			</div>
+
+			</div>
+
+	</div>	
+
 </body>
 {% endblock %}
