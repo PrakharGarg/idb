@@ -52,3 +52,8 @@ h2.centernormal {
 .text {
   font-size: 15px;
 }
+
+.beerlabel {
+  width: 12;
+  height: 120;
+}
