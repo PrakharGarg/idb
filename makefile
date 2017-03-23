@@ -1,7 +1,22 @@
 FILES :=                          	\
-    .gitignore                    	\
     main.py                       	\
-    requirements.txt				\
+	app/__init__.py					\
+	app/models.py					\
+	app/tests.py					\
+	app/views.py					\
+	app/templates/about.html		\
+	app/templates/base.html			\
+	app/templates/beer.html			\
+	app/templates/beers.html		\
+	app/templates/breweries.html	\
+	app/templates/brewery.html		\
+	app/templates/index.html		\
+	app/templates/states.html		\
+	app/templates/venues.html		\
+	app/templates/venue.html		\
+	.gitignore                    	\
+	requirements.txt				\
+
 
 check:
 	@not_found=0;                                 \
@@ -24,6 +39,7 @@ check:
 
 clean:
 	-rm -r *.pyc
+	-rm -rf __pycache__
 	-rm -rf idb-env
 
 run:
