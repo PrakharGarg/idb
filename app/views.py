@@ -8,10 +8,6 @@ from app import app
 def index() :
     return render_template('index.html')
 
-@app.route('/technical/')
-def technical() :
-    return render_template('technical_report.html')
-
 # Page that shows our about page
 @app.route('/about/')
 def about() :
