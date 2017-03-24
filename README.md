@@ -1,3 +1,3 @@
 Group 6
 
-Pursuit of Hoppiness
+Pursuit of Hoppyness
