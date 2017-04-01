@@ -13,6 +13,11 @@ def index() :
 def about() :
     return render_template('about.html')
 
+# Page that shows our technical report.
+@app.route('/technical/')
+def technical() :
+    return render_template('technical.html')
+
 # Page that shows all of the beers in a grid    
 @app.route('/beers/')
 def beers() :
