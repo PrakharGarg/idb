@@ -6,98 +6,102 @@
 <!-- PLACEHOLDER TABLE, REPLACE ASAP -->
 <head>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
-    
-<h1 class = "gold" align="center">Beers</h1> 
-<br />
-<br />
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
+	
+	<h1 class = "gold" align="center">Beers</h1> 
+	<br />
+	<br />
 </head>
 <body>
 	
 	<div class="grid row text-center">
-		<div class = "col-md-2 filter panel panel-default">
-			<div class="dropdown">
-			  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort
-			  <span class="caret"></span></button>
-			  <ul class="dropdown-menu">
-			    <li><a href="#">Name</a></li>
-			    <li><a href="#">Type</a></li>
-			    <li><a href="#">Rating</a></li>
-			  </ul>
-		</div>
-		<br />
-		<input type="checkbox"> ASC <br />
-		<input type="checkbox"> DESC <br />
-		<br />
-		<br />
-		
-			Type  <br />
-			<input type="checkbox"> Stout <br />
-			<input type="checkbox"> IPA <br />
-			<input type="checkbox"> Sour <br />
-			<br />
-			<br />
-			Rating <br />
-			<input type="checkbox"> 2+ <br />
-			<input type="checkbox"> 3+ <br />
-			<input type="checkbox"> 4+
-		</div>
-
-			<div class="col-md-3 col-sm-6 hero-feature">
-					<div class="thumbnail">
+		<div class="col-md-3">
+			<div class="list-group">
+				<div class="dropdown">
+					<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By
+						<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Name</a></li>
+							<li><a href="#">Type</a></li>
+							<li><a href="#">Rating</a></li>
+						</ul>
+					</div>
+					<div class="dropdown">
+						<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li class = "boxes" ><input type="checkbox"> Stout <br /></li>
+								<li class = "boxes" ><input type="checkbox"> IPA <br /></li>
+								<li class = "boxes" ><input type="checkbox"> Sour <br /></li>
+							</ul>
+						</div>
+						<div class="dropdown">
+							<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
+								<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li class = "boxes" ><input type="checkbox"> 2+ <br /></li>
+									<li class = "boxes" ><input type="checkbox"> 3+ <br /></li>
+									<li class = "boxes" ><input type="checkbox"> 4+</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-sm-6 hero-feature">
+						<div class="thumbnail">
 							<img src="https:\/\/untappd.akamaized.net\/site\/beer_logos\/beer-_251610_5e1b7f6c8e4f14e29b5f2144ad7e.jpeg" width = "150" alt="">
 							<div class="caption">
-									<h3>Bearded Seal</h3>
-									<p>
-										Stout - Irish Dry <br />
-										6.1% ABV <br />
-										Rating: 3.8/5.0 <br />
-									</p>
-									<p>
-											<a href="/beers/bearded_seal/" class="btn btn-primary">More Info</a>
-									</p>
+								<h3>Bearded Seal</h3>
+								<p>
+									Stout - Irish Dry <br />
+									6.1% ABV <br />
+									Rating: 3.8/5.0 <br />
+								</p>
+								<p>
+									<a href="/beers/bearded_seal/" class="btn btn-primary">More Info</a>
+								</p>
 							</div>
+						</div>
 					</div>
-			</div>
-
-			<div class="col-md-3 col-sm-6 hero-feature">
-					<div class="thumbnail">
+					
+					<div class="col-md-3 col-sm-6 hero-feature">
+						<div class="thumbnail">
 							<img src="https:\/\/untappd.akamaized.net\/site\/beer_logos\/beer-1995566_d307c_sm.jpeg" width = "150" alt="">
 							<div class="caption">
-									<h3>Daydream In Green</h3>
-									<p>
+								<h3>Daydream In Green</h3>
+								<p>
 									IPA - Imperial/Double <br />
 									8.1% ABV <br />
 									Rating: 4.4/5.0
 								</p>
-									<p>
-											<a href="/beers/daydream_in_green/" class="btn btn-primary">More Info</a>
-									</p>
+								<p>
+									<a href="/beers/daydream_in_green/" class="btn btn-primary">More Info</a>
+								</p>
 							</div>
+						</div>
 					</div>
-			</div>
-
-			<div class="col-md-3 col-sm-6 hero-feature">
-					<div class="thumbnail">
+					
+					<div class="col-md-3 col-sm-6 hero-feature">
+						<div class="thumbnail">
 							<img src="https://s3.amazonaws.com/brewerydbapi/beer/ezGh5N/upload_r8SNni-large.png" width = "150" alt="">
 							<div class="caption">
-									<h3>Bursted Citra</h3>
-									<p>
-										IPA - American <br />
-										6% ABV <br />
-										Rating: 3.9/5.0
-									</p>
-									<p>
-											<a href="/beers/bursted_citra/" class="btn btn-primary">More Info</a>
-									</p>
+								<h3>Bursted Citra</h3>
+								<p>
+									IPA - American <br />
+									6% ABV <br />
+									Rating: 3.9/5.0
+								</p>
+								<p>
+									<a href="/beers/bursted_citra/" class="btn btn-primary">More Info</a>
+								</p>
 							</div>
+						</div>
 					</div>
-			</div>
-
-			</div>
-
-	</div>	
-
-</body>
-{% endblock %}
+					
+				</div>
+				
+			</div>	
+			
+		</body>
+		{% endblock %}

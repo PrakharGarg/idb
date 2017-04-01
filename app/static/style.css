@@ -24,6 +24,10 @@ body {
   
 }
 
+.boxes {
+  margin-left: 10px;
+}
+
 h2.centernormal {
   text-align: center;
 }
