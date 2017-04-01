@@ -6,96 +6,106 @@
 <!-- PLACEHOLDER TABLE, REPLACE ASAP -->
 <head>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
-<h1 class = "gold" align="center">Breweries</h1>
-<br />
-<br />
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
+	<h1 class = "gold" align="center">Breweries</h1>
+	<br />
+	<br />
 </head>
 <body>
-	<div class="grid row text-center">
-		<div class = "col-md-2 filter panel panel-default">
-			<div class="dropdown">
-			  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort
-			  <span class="caret"></span></button>
-			  <ul class="dropdown-menu">
-			    <li><a href="#">Name</a></li>
-			    <li><a href="#">Type</a></li>
-			    <li><a href="#">Address</a></li>
-			  </ul>
-		</div>
-		<br />
-		<input type="checkbox"> ASC <br />
-		<input type="checkbox"> DESC <br />
-		<br />
-		<br />
-		
-			State  <br />
-			<input type="checkbox"> TX <br />
-			<input type="checkbox"> OR <br />
-			<input type="checkbox"> NY <br />
-			<br />
-			<br />
-			Name <br />
-			<input type="checkbox"> A-M <br />
-			<input type="checkbox"> N-P <br />
-			<input type="checkbox"> Q-Z
-		</div>
-
-			<div class="col-md-3 col-sm-6 hero-feature">
-					<div class="thumbnail">
+	<div class="grid row">
+		<div class="col-md-3">
+			<div class="list-group">
+				<div class="dropdown">
+					<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By
+						<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Name</a></li>
+							<li><a href="#">Type</a></li>
+							<li><a href="#">Address</a></li>
+						</ul>
+					</div>
+					<button type="button" class="btn btn-default ascdesc" aria-label="Left Align">
+						<a href = "#" class="glyphicon glyphicon-arrow-up" aria-hidden="true"></a>
+					</button>
+					<button type="button" class="btn btn-default ascdesc" aria-label="Left Align">
+						<a href = "#" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></a>
+					</button>
+					<div class="dropdown">
+						<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">State
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li class = "boxes" ><input type="checkbox"> TX <br /></li>
+								<li class = "boxes" ><input type="checkbox"> OR <br /></li>
+								<li class = "boxes" ><input type="checkbox"> NY <br /></li>
+							</ul>
+						</div>
+						<div class="dropdown">
+							<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Name
+								<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li class = "boxes" ><input type="checkbox"> A-M <br /></li>
+									<li class = "boxes" ><input type="checkbox"> N-P <br /></li>
+									<li class = "boxes" ><input type="checkbox"> Q-Z </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-sm-6 hero-feature text-center">
+						<div class="thumbnail">
 							<img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-pinthousepizza_43305.jpeg" width = "150"  height = "150" alt="">
 							<div class="caption">
-									<h3>Pinthouse Pizza</h3>
-									<p>
-										Brew Pub <br />
-										Est. 2012 <br />
-										4729 Burnet Rd. Austin, TX<br />
-									</p>
-									<p>
-											<a href="/breweries/pinthouse_pizza/" class="btn btn-primary">More Info</a>
-									</p>
+								<h3>Pinthouse Pizza</h3>
+								<p>
+									Brew Pub <br />
+									Est. 2012 <br />
+									4729 Burnet Rd. Austin, TX<br />
+								</p>
+								<p>
+									<a href="/breweries/pinthouse_pizza/" class="btn btn-primary">More Info</a>
+								</p>
 							</div>
+						</div>
 					</div>
-			</div>
-
-			<div class="col-md-3 col-sm-6 hero-feature">
-					<div class="thumbnail">
+					
+					<div class="col-md-3 col-sm-6 hero-feature text-center">
+						<div class="thumbnail">
 							<img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-OtherHalfBrewing_94785_7c587.jpeg" width = "150"  height = "150" alt="">
 							<div class="caption">
-									<h3>Other Half Brewing</h3>
-									<p>
-										Mirco Brewery<br />
-										Est. 2014 <br />
-										195 Centre St. Brooklyn, NY<br />
-									</p>
-									<p>
-											<a href="/breweries/other_half_brewing_company/" class="btn btn-primary">More Info</a>
-									</p>
+								<h3>Other Half Brewing</h3>
+								<p>
+									Mirco Brewery<br />
+									Est. 2014 <br />
+									195 Centre St. Brooklyn, NY<br />
+								</p>
+								<p>
+									<a href="/breweries/other_half_brewing_company/" class="btn btn-primary">More Info</a>
+								</p>
 							</div>
+						</div>
 					</div>
-			</div>
-
-			<div class="col-md-3 col-sm-6 hero-feature">
-					<div class="thumbnail">
+					
+					<div class="col-md-3 col-sm-6 hero-feature text-center">
+						<div class="thumbnail">
 							<img src="https:\/\/untappd.akamaized.net\/site\/brewery_logos\/brewery-11688_fbaaa.jpeg" width = "150"  height = "150" alt="">
 							<div class="caption">
-									<h3>El Segundo Brewing</h3>
-									<p>
-										Micro Brewery <br />
-										Est. 2011 <br />
-										140 Main St. El Segundo, CA <br />
-									</p>
-									<p>
-											<a href="/breweries/el_segundo_brewing_company/" class="btn btn-primary">More Info</a>
-									</p>
+								<h3>El Segundo Brewing</h3>
+								<p>
+									Micro Brewery <br />
+									Est. 2011 <br />
+									140 Main St. El Segundo, CA <br />
+								</p>
+								<p>
+									<a href="/breweries/el_segundo_brewing_company/" class="btn btn-primary">More Info</a>
+								</p>
 							</div>
+						</div>
 					</div>
-			</div>
-
-			</div>
-
-	</div>	
-
-</body>
-{% endblock %}
+					
+				</div>
+				
+			</div>	
+			
+		</body>
+		{% endblock %}
