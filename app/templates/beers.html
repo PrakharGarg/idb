@@ -55,6 +55,7 @@
 					</div>
 					
 					<div>
+						
 						{% for i in json_query %}
 						<div class="col-md-3 col-sm-6 hero-feature text-center">
 							<div class="thumbnail">
@@ -67,12 +68,13 @@
 										Rating: {{i["rating"]}}/5.0 <br />
 									</p>
 									<p>
-										<a href="/beers/bearded_seal/" class="btn btn-primary">More Info</a>
+										<a href="/beers/{{i["id"]}}/" class="btn btn-primary">More Info</a>
 									</p>
 								</div>
 							</div>
 						</div>
 						{% endfor %}
+						
 					</div>
 					
 				</div>

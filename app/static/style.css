@@ -85,3 +85,12 @@ div.grid {
 .middle {
   text-align: center;
 }
+
+.thumbnail {
+  height: 375px;
+}
+
+.name {
+  overflow: hidden;
+  height:30px;
+}
