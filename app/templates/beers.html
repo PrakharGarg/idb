@@ -54,60 +54,28 @@
 						</div>
 					</div>
 					
-					<div class="col-md-3 col-sm-6 hero-feature text-center">
-						<div class="thumbnail">
-							<img src="https:\/\/untappd.akamaized.net\/site\/beer_logos\/beer-_251610_5e1b7f6c8e4f14e29b5f2144ad7e.jpeg" width = "150" alt="">
-							<div class="caption">
-								<h3>Bearded Seal</h3>
-								<p>
-									Stout - Irish Dry <br />
-									6.1% ABV <br />
-									Rating: 3.8/5.0 <br />
-								</p>
-								<p>
-									<a href="/beers/bearded_seal/" class="btn btn-primary">More Info</a>
-								</p>
+					<div>
+						{% for i in json_query %}
+						<div class="col-md-3 col-sm-6 hero-feature text-center">
+							<div class="thumbnail">
+								<img src="{{i["labels"]}}" width = "150" alt="">
+								<div class="caption">
+									<h3>{{i["name"]}}</h3>
+									<p>
+										{{i["style"]}} <br />
+										ABV: {{i["abv"]}} <br />
+										Rating: {{i["rating"]}}/5.0 <br />
+									</p>
+									<p>
+										<a href="/beers/bearded_seal/" class="btn btn-primary">More Info</a>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					
-					<div class="col-md-3 col-sm-6 hero-feature text-center">
-						<div class="thumbnail">
-							<img src="https:\/\/untappd.akamaized.net\/site\/beer_logos\/beer-1995566_d307c_sm.jpeg" width = "150" alt="">
-							<div class="caption">
-								<h3>Daydream In Green</h3>
-								<p>
-									IPA - Imperial/Double <br />
-									8.1% ABV <br />
-									Rating: 4.4/5.0
-								</p>
-								<p>
-									<a href="/beers/daydream_in_green/" class="btn btn-primary">More Info</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-md-3 col-sm-6 hero-feature text-center">
-						<div class="thumbnail">
-							<img src="https://s3.amazonaws.com/brewerydbapi/beer/ezGh5N/upload_r8SNni-large.png" width = "150" alt="">
-							<div class="caption">
-								<h3>Bursted Citra</h3>
-								<p>
-									IPA - American <br />
-									6% ABV <br />
-									Rating: 3.9/5.0
-								</p>
-								<p>
-									<a href="/beers/bursted_citra/" class="btn btn-primary">More Info</a>
-								</p>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 					
 				</div>
-				
 			</div>	
-			
 		</body>
 		{% endblock %}

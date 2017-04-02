@@ -20,8 +20,46 @@ def technical() :
 
 # Page that shows all of the beers in a grid    
 @app.route('/beers/')
+# TODO: DO SQL HERE AND STORE IT IN A VAR CALLED JSON_QUERY
 def beers() :
-    return render_template('beers.html')
+    json_query = [{
+            "id": "bearded_seal",
+            "name":"Bearded Seal",
+            "labels":"https://untappd.akamaized.net/site/beer_logos/beer-_251610_5e1b7f6c8e4f14e29b5f2144ad7e.jpeg",
+            "style":"Stout - Irish Dry",
+            "abv":"6.1",
+            "rating":"3.80086",
+            "isOrganic":"N",
+            "brewery":"Pinthouse Pizza",
+            "brewery_id": "pinthouse_pizza",
+            "state":"TX",
+            "state_id":"texas"
+        }, {
+            "id":"bursted_citra",
+            "name":"Bursted Citra",
+            "labels":"https://s3.amazonaws.com/brewerydbapi/beer/ezGh5N/upload_r8SNni-large.png",
+            "style":"IPA - American",
+            "abv":"6",
+            "rating":"3.86842",
+            "isOrganic":"N",
+            "brewery":"El Segundo Brewing Company",
+            "brewery_id": "el_segundo_brewing_company",
+            "state":"OR",
+            "state_id":"oregon"
+        }, {
+            "id": "daydream_in_green",
+            "name":"Daydream In Green",
+            "labels":"https://untappd.akamaized.net/site/beer_logos/beer-1995566_d307c_sm.jpeg",
+            "style":"IPA - Imperial / Double",
+            "abv":"8.1",
+            "rating":"4.44162",
+            "isOrganic":"N",
+            "brewery":"Other Half Brewing Company",
+            "brewery_id": "other_half_brewing_company",
+            "state":"NY",
+            "state_id": "new_york"
+        }]
+    return render_template('beers.html', json_query = json_query)
 
 # Page that shows info about a specific beer with
 # the name of the beer being passed in   
@@ -71,8 +109,9 @@ def beer(beer_name) :
 
 # Page that shows all of the venues in a grid
 @app.route('/venues/')
+# TODO: DO SQL HERE AND STORE IT IN A VAR CALLED JSON_QUERY
 def venues() :
-    return render_template('venues.html')
+    return render_template('venues.html', json_query = json_query)
 
 # Page that shows info about a specific venue with
 # the name of the venue being passed in 
@@ -126,8 +165,9 @@ def venue(venue_name) :
 
 # Page that shows all of the breweries in a grid
 @app.route('/breweries/')
+# TODO: DO SQL HERE AND STORE IT IN A VAR CALLED JSON_QUERY
 def breweries() :
-    return render_template('breweries.html')
+    return render_template('breweries.html', json_query = json_query)
     
 # Page that shows info about a specific brewery with
 # the name of the brewery being passed in 
@@ -182,8 +222,9 @@ def brewery(brewery_name) :
 
 # Page that shows all of the locations in a grid
 @app.route('/states/')
+# TODO: DO SQL HERE AND STORE IT IN A VAR CALLED JSON_QUERY
 def locations() :
-    return render_template('states.html')
+    return render_template('states.html', json_query = json_query)
 
 # Page that shows info about a specific location with
 # the name of the location being passed in 
