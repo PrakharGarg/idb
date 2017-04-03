@@ -1,4 +1,5 @@
 from app import db
+from flask_sqlalchemy import SQLAlchemy
 
 """
 association tables for many-to-many relationships
