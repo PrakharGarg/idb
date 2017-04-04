@@ -386,6 +386,7 @@ def state(state_name) :
 
 # API GET methods
 
+# return all beers (names only) in Beer table
 @app.route('/api/beers', methods=['GET'])
 def get_beers():
     beers = Beer.query.all()
@@ -394,6 +395,7 @@ def get_beers():
         beer_names += beer.name
     return jsonify({'result' : beer_names})
 
+# return all information on named beer
 @app.route('api/beer/<string:name>', methods=['GET'])
 def get_beer_info(beer_name):
     beer = Beer.query.filter_by(name=beer_name)
@@ -402,6 +404,7 @@ def get_beer_info(beer_name):
         abort(404)
     return jsonify({'result' : beer.dictify()})
 
+# return all venues in Venue table
 @app.route('/api/venues', methods=['GET'])
 def get_venues():
     venues = Venue.query.all()
@@ -410,6 +413,7 @@ def get_venues():
         venue_names += venue.name
     return jsonify({'result' : venue_names})
 
+# return all information on named venue
 @app.route('api/venue/<string:name>', methods=['GET'])
 def get_venue_info(venue_name):
     venue = venue.query.filter_by(name=venue_name)
@@ -418,6 +422,7 @@ def get_venue_info(venue_name):
         abort(404)
     return jsonify({'result' : venue.dictify()})
 
+# return all breweries in Brewery table
 @app.route('/api/breweries', methods=['GET'])
 def get_breweries():
     breweries = Brewery.query.all()
@@ -426,14 +431,16 @@ def get_breweries():
         brewery_names += brewery.name
     return jsonify({'result' : brewery_names})
 
+# return all information on named brewery
 @app.route('api/brewery/<string:name>', methods=['GET'])
-def get_beer_info(brewery_name):
+def get_brewery_info(brewery_name):
     brewery = Brewery.query.filter_by(name=brewery_name)
 
     if not brewery:
         abort(404)
     return jsonify({'result' : brewery.dictify()})
 
+# return all states in State table
 @app.route('/api/states', methods=['GET'])
 def get_states():
     states = State.query.all()
@@ -442,6 +449,7 @@ def get_states():
         state_names += state.name
     return jsonify({'result' : state_names})
 
+# return all information on named State
 @app.route('api/state/<string:name>', methods=['GET'])
 def get_state_info(state_name):
     state = State.query.filter_by(name=state_name)
