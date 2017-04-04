@@ -1,18 +1,23 @@
 from app import db
 from flask_sqlalchemy import SQLAlchemy
 
-"""
-association tables for many-to-many relationships
-"""
-venue_brewery_association = db.Table('venue_brewery_association',
-    db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id')),
-    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id'))
-)
 
+"""
+association tables
+"""
+
+# venues <-> beers
 venue_beer_association = db.Table('venue_beer_association',
     db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
     db.Column('beer_id', db.Integer, db.ForeignKey('beer.id'))
 )
+
+# venues <-> breweries
+venue_brewery_association = db.Table('venue_brewery_association',
+    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
+    db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id'))
+)
+
 
 """
 model definitions
@@ -37,8 +42,9 @@ class Beer(db.Model):
     style = db.Column(db.String(60), index=True, unique=True)
     is_organic = db.Column(db.Boolean)
     rating = db.Column(db.Integer)
-    brewery = db.relationship('Brewery')
-    venues = db.relationship('Venue', secondary=venue_beer_association)
+    # relationships
+    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
 
     def __init__(self, name, labels, style, is_organic, rating,
         brewery, venues):
@@ -86,14 +92,16 @@ class Brewery(db.Model):
         venues: who serves, sells, and distributes this beer
         state: which state this exists in
     """
+    # properties
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True, unique=True)
     brewery_type = db.Column(db.String(60), index=True, unique=True)
     founded = db.Column(db.Date)
     labels = db.Column(db.ARRAY(db.String(300)), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
-    venues = db.relationship('Venue', secondary=venue_brewery_association)
-    state = db.relationship('State')
+    # relationships
+    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    beers = db.relationship('Beer', backref='brewery', lazy='select')
 
     def __init__(self, name, brewery_type, founded, labels, address,
         venues, state):
@@ -157,15 +165,23 @@ class Venue(db.Model):
         breweries: all of the breweries represented here
         beers: all the beers you may obtain
     """
+    # properties
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True, unique=True)
     media = db.Column(db.ARRAY(db.String(300)), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
     category = db.Column(db.String(90), index=True, unique=True)
     is_public = db.Column(db.Boolean)
-    state = db.relationship('State')
-    breweries = db.relationship('Brewery', secondary=venue_brewery_association)
-    beers = db.relationship('Beer', secondary=venue_beer_association)
+    # relationships
+    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    venue_beer_association = db.relationship('Beer',
+        secondary=venue_beer_association,
+        backref=db.backref('venues'),
+        lazy='select')
+    venue_brewery_association = db.relationship('Beer',
+        secondary=venue_brewery_association,
+        backref=db.backref('venues'),
+        lazy='select')
 
     def __init__(self, name, media, address, category, is_public,
         state, breweries, beers):
@@ -220,12 +236,17 @@ class State(db.Model):
         abbreviation: state abbreviation.
         flower: the state flower! 
     """
+    #properties
     id = db.Column(db.Integer, primary_key=True)
     capital = db.Column(db.String(120), index=True, unique=True)
     name = db.Column(db.String(120), index=True, unique=True)
     media = db.Column(db.ARRAY(db.String(300)), index=True, unique=True)
     abbreviation = db.Column(db.String(120), index=True, unique=True)
     flower = db.Column(db.String(120), index=True, unique=True)
+    #relationships
+    breweries = db.relationship('Brewery', backref='state', lazy='select')
+    venues = db.relationship('Venue', backref='state', lazy='select')
+    beers = db.relationship('Beer', backref='state', lazy='select')
 
     def __init__(self, capital, name, media, abbreviation, flower):
         """
