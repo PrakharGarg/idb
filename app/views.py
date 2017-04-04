@@ -2,14 +2,15 @@ from flask import render_template, abort, jsonify
 from app import app
 from app.models import *
 from flask_sqlalchemy import SQLAlchemy
+import subprocess
 
-# Index page that contains a carousel 
-# Can be accessed at either / or /index/
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :
-    beer = Beer.query.all()
-    return render_template("unittests.html", beer = beer)
+    output = subprocess.getoutput("python3 app/tests.py")
+    return render_template("unittests.html", output = output)
 
+# Index page that contains a carousel
+# Can be accessed at either / or /index/
 @app.route('/')
 @app.route('/index/')
 def index() :
