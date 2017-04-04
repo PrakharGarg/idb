@@ -93,9 +93,9 @@ def get_beers():
         beer_names += beer.name
     return jsonify({'result' : beer_names})
 
-@app.route('/api/beer/<beer_name>', methods=['GET'])
-def get_beer_info(beer_name):
-    beer = Beer.query.filter_by(name=beer_name).first()
+@app.route('/api/beer/<beer_id>', methods=['GET'])
+def get_beer_info(beer_id):
+    beer = Beer.query.filter_by(id=beer_id).first()
 
     if not beer:
         abort(404)
@@ -109,9 +109,9 @@ def get_venues():
         venue_names += venue.name
     return jsonify({'result' : venue_names})
 
-@app.route('/api/venue/<venue_name>', methods=['GET'])
-def get_venue_info(venue_name):
-    venue = Venue.query.filter_by(name=venue_name)
+@app.route('/api/venue/<venue_id>', methods=['GET'])
+def get_venue_info(venue_id):
+    venue = Venue.query.filter_by(name=venue_id).first()
 
     if not venue:
         abort(404)
@@ -125,9 +125,9 @@ def get_breweries():
         brewery_names += brewery.name
     return jsonify({'result' : brewery_names})
 
-@app.route('/api/brewery/<brewery_name>', methods=['GET'])
-def get_brewery_info(brewery_name):
-    brewery = Brewery.query.filter_by(name=brewery_name)
+@app.route('/api/brewery/<brewery_id>', methods=['GET'])
+def get_brewery_info(brewery_id):
+    brewery = Brewery.query.filter_by(name=brewery_id).first()
 
     if not brewery:
         abort(404)
@@ -141,9 +141,9 @@ def get_states():
         state_names += state.name
     return jsonify({'result' : state_names})
 
-@app.route('/api/state/<state_name>', methods=['GET'])
-def get_state_info(state_name):
-    state = State.query.filter_by(name=state_name)
+@app.route('/api/state/<state_id>', methods=['GET'])
+def get_state_info(state_id):
+    state = State.query.filter_by(name=state_id).first()
 
     if not state:
         abort(404)
