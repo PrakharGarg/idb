@@ -5,6 +5,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 # Index page that contains a carousel 
 # Can be accessed at either / or /index/
+@app.route('/test/', methods=['GET', 'POST'])
+def test() :
+    beer = Beer.query.all()
+    return render_template("test.html", beer = beer)
 
 @app.route('/')
 @app.route('/index/')
