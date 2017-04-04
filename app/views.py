@@ -1,5 +1,7 @@
-from flask import render_template
+from flask import render_template, jsonify, abort
 from app import app
+from flask_sqlalchemy import SQLAlchemy
+from models import *
 
 # Index page that contains a carousel 
 # Can be accessed at either / or /index/
@@ -381,3 +383,75 @@ def state(state_name) :
     return render_template('state.html', 
         name = state_name, 
         state_info = state_info)
+
+# API GET methods
+
+@app.route('/api/beers', methods=['GET'])
+def get_beers():
+    beers = Beer.query.all()
+    beer_names = list()
+    for beer in beers:
+        beer_names += beer.name
+    return jsonify({'result' : beer_names})
+
+@app.route('api/beer/<string:name>', methods=['GET'])
+def get_beer_info(beer_name):
+    beer = Beer.query.filter_by(name=beer_name)
+
+    if not beer:
+        abort(404)
+    return jsonify({'result' : beer.dictify()})
+
+@app.route('/api/venues', methods=['GET'])
+def get_venues():
+    venues = Venue.query.all()
+    venue_names = list()
+    for venue in venues:
+        venue_names += venue.name
+    return jsonify({'result' : venue_names})
+
+@app.route('api/venue/<string:name>', methods=['GET'])
+def get_venue_info(venue_name):
+    venue = venue.query.filter_by(name=venue_name)
+
+    if not venue:
+        abort(404)
+    return jsonify({'result' : venue.dictify()})
+
+@app.route('/api/breweries', methods=['GET'])
+def get_breweries():
+    breweries = Brewery.query.all()
+    brewery_names = list()
+    for brewery in breweries:
+        brewery_names += brewery.name
+    return jsonify({'result' : brewery_names})
+
+@app.route('api/brewery/<string:name>', methods=['GET'])
+def get_beer_info(brewery_name):
+    brewery = Brewery.query.filter_by(name=brewery_name)
+
+    if not brewery:
+        abort(404)
+    return jsonify({'result' : brewery.dictify()})
+
+@app.route('/api/states', methods=['GET'])
+def get_states():
+    states = State.query.all()
+    state_names = list()
+    for state in states:
+        state_names += state.name
+    return jsonify({'result' : state_names})
+
+@app.route('api/state/<string:name>', methods=['GET'])
+def get_state_info(state_name):
+    state = State.query.filter_by(name=state_name)
+
+    if not state:
+        abort(404)
+    return jsonify({'result' : state.dictify()})
+
+
+
+
+
+
