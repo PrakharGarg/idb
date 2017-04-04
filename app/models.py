@@ -178,7 +178,7 @@ class Venue(db.Model):
         secondary=venue_beer_association,
         backref=db.backref('venues'),
         lazy='select')
-    venue_brewery_association = db.relationship('Beer',
+    venue_brewery_association = db.relationship('Brewery',
         secondary=venue_brewery_association,
         backref=db.backref('venues'),
         lazy='select')

@@ -1,8 +1,16 @@
 from flask import render_template
 from app import app
+from app.models import Beer
+from flask_sqlalchemy import SQLAlchemy
 
 # Index page that contains a carousel 
 # Can be accessed at either / or /index/
+@app.route('/test/')
+def test() :
+    beer = Beer.query.all()
+    return render_template("test.html", beer = beer)
+
+
 @app.route('/')
 @app.route('/index/')
 def index() :
