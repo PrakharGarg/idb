@@ -99,7 +99,14 @@ def get_beer_info(beer_id):
 
     if not beer:
         abort(404)
-    return jsonify({'result' : beer})
+    return jsonify({'result' : {'id' : beer.id,
+                                'name' : beer.name,
+                                'labels' : beer.labels,
+                                'style' : beer.style,
+                                'is_organic' : beer.is_organic,
+                                'rating' : beer.rating,
+                                'brewery' : beer.brewery,
+                                'venues' : beer.venues}})
 
 @app.route('/api/venues', methods=['GET'])
 def get_venues():
@@ -111,11 +118,19 @@ def get_venues():
 
 @app.route('/api/venue/<venue_id>', methods=['GET'])
 def get_venue_info(venue_id):
-    venue = Venue.query.filter_by(name=venue_id).first()
+    venue = Venue.query.filter_by(id=venue_id).first()
 
     if not venue:
         abort(404)
-    return jsonify({'result' : venue.dictify()})
+    return jsonify({'result' : {'id' : venue.id,
+                                'name' : venue.name,
+                                'media' : venue.media,
+                                'address' : venue.address,
+                                'category' : venue.category,
+                                'is_public' : venue.is_public,
+                                'state' : venue.state,
+                                'breweries' : venue.breweries,
+                                'beers' : venue.beers}})
 
 @app.route('/api/breweries', methods=['GET'])
 def get_breweries():
@@ -127,11 +142,17 @@ def get_breweries():
 
 @app.route('/api/brewery/<brewery_id>', methods=['GET'])
 def get_brewery_info(brewery_id):
-    brewery = Brewery.query.filter_by(name=brewery_id).first()
+    brewery = Brewery.query.filter_by(id=brewery_id).first()
 
     if not brewery:
         abort(404)
-    return jsonify({'result' : brewery.dictify()})
+    return jsonify({'result' : {'id' : brewery.id,
+                                'name' : brewery.name,
+                                'founded' : brewery.founded,
+                                'labels' : brewery.labels,
+                                'address' : brewery.address,
+                                'venues' : brewery.venues,
+                                'state' : brewery.state}})
 
 @app.route('/api/states', methods=['GET'])
 def get_states():
@@ -143,8 +164,13 @@ def get_states():
 
 @app.route('/api/state/<state_id>', methods=['GET'])
 def get_state_info(state_id):
-    state = State.query.filter_by(name=state_id).first()
+    state = State.query.filter_by(id=state_id).first()
 
     if not state:
         abort(404)
-    return jsonify({'result' : state.dictify()})
+    return jsonify({'result' : {'id' : state.id,
+                                'capital' : state.capital,
+                                'name' : state.name,
+                                'media' : state.media,
+                                'abbreviation' : state.abbreviation,
+                                'flower' : state.flower}})
