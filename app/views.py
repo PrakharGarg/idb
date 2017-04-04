@@ -78,7 +78,7 @@ def states() :
 # the name of the location being passed in 
 @app.route('/states/<state_id>/')
 def state(state_id) :
-    state_info = State.query.filter_by(name=state_id).first()
+    state_info = State.query.filter_by(id = state_id).first()
 
     return render_template('state.html', 
         state_info = state_info)
