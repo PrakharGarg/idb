@@ -90,7 +90,7 @@ def get_beers():
     beers = Beer.query.all()
     beer_names = list()
     for beer in beers:
-        beer_names += beer.name
+        beer_names += [beer.name]
     return jsonify({'result' : beer_names})
 
 @app.route('/api/beer/<beer_id>', methods=['GET'])
@@ -106,7 +106,7 @@ def get_venues():
     venues = Venue.query.all()
     venue_names = list()
     for venue in venues:
-        venue_names += venue.name
+        venue_names += [venue.name]
     return jsonify({'result' : venue_names})
 
 @app.route('/api/venue/<venue_id>', methods=['GET'])
@@ -122,7 +122,7 @@ def get_breweries():
     breweries = Brewery.query.all()
     brewery_names = list()
     for brewery in breweries:
-        brewery_names += brewery.name
+        brewery_names += [brewery.name]
     return jsonify({'result' : brewery_names})
 
 @app.route('/api/brewery/<brewery_id>', methods=['GET'])
@@ -138,7 +138,7 @@ def get_states():
     states = State.query.all()
     state_names = list()
     for state in states:
-        state_names += state.name
+        state_names += [state.name]
     return jsonify({'result' : state_names})
 
 @app.route('/api/state/<state_id>', methods=['GET'])
