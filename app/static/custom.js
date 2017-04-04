@@ -15,7 +15,7 @@ $(document).ready(function(){
 
     $.ajax({
       type: "POST",
-      url: "/test/",
+      url: "/unittests/",
       dataType: "html",
 
       success: function(response) {
