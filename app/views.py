@@ -5,11 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 # Index page that contains a carousel 
 # Can be accessed at either / or /index/
-@app.route('/test/')
-def test() :
-    beer = Beer.query.all()
-    return render_template("test.html", beer = beer)
-
 
 @app.route('/')
 @app.route('/index/')
@@ -35,12 +30,10 @@ def beers() :
 
 # Page that shows info about a specific beer with
 # the name of the beer being passed in   
-@app.route('/beers/<beer_name>/')
-def beer(beer_name) :
-    beer_info = Beer.query.filter_by(name=beer_name)
-    beer_info = next((item for item in beer_info if item["id"] == beer_name), None)
+@app.route('/beers/<beer_id>/')
+def beer(beer_id) :
+    beer_info = Beer.query.filter_by(id = beer_id).first()
     return render_template('beer.html', 
-        name = beer_name, 
         beer_info = beer_info)
 
 # Page that shows all of the venues in a grid
@@ -52,13 +45,11 @@ def venues() :
 
 # Page that shows info about a specific venue with
 # the name of the venue being passed in 
-@app.route('/venues/<venue_name>/')
-def venue(venue_name) :
-    venue_info = Venue.query.filter_by(name=venue_name)
+@app.route('/venues/<venue_id>/')
+def venue(venue_id) :
+    venue_info = Venue.query.filter_by(id = venue_id).first()
     
-    venue_info = next((item for item in venue_info if item["id"] == venue_name), None)
     return render_template('venue.html', 
-        name = venue_name, 
         venue_info = venue_info)
 
 # Page that shows all of the breweries in a grid
@@ -69,13 +60,11 @@ def breweries() :
     return render_template('breweries.html', json_query = json_query)
 # Page that shows info about a specific brewery with
 # the name of the brewery being passed in
-@app.route('/breweries/<brewery_name>/')
-def brewery(brewery_name):
-    brewery_info = Brewery.query.filter_by(name=brewery_name)
-    brewery_info = next((item for item in brewery_info if item["id"] == brewery_name), None)
+@app.route('/breweries/<brewery_id>/')
+def brewery(brewery_id):
+    brewery_info = Brewery.query.filter_by(id = brewery_id).first()
 
     return render_template('brewery.html',
-        name = brewery_name,
         brewery_info = brewery_info)
 
 # Page that shows all of the locations in a grid
@@ -87,13 +76,11 @@ def states() :
 
 # Page that shows info about a specific location with
 # the name of the location being passed in 
-@app.route('/states/<state_name>/')
-def state(state_name) :
-    state_info = State.query.filter_by(name=state_name)
-    state_info = next((item for item in state_info if item["id"] == state_name), None)
+@app.route('/states/<state_id>/')
+def state(state_id) :
+    state_info = State.query.filter_by(name=state_id).first()
 
     return render_template('state.html', 
-        name = state_name, 
         state_info = state_info)
 
 # API GET methods
@@ -108,11 +95,11 @@ def get_beers():
 
 @app.route('/api/beer/<beer_name>', methods=['GET'])
 def get_beer_info(beer_name):
-    beer = Beer.query.filter_by(name=beer_name)
+    beer = Beer.query.filter_by(name=beer_name).first()
 
     if not beer:
         abort(404)
-    return jsonify({'result' : beer.dictify()})
+    return jsonify({'result' : beer})
 
 @app.route('/api/venues', methods=['GET'])
 def get_venues():
