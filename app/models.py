@@ -41,7 +41,8 @@ class Beer(db.Model):
     name = db.Column(db.String(120), index=True, unique=True)
     label = db.Column(db.String(300), index=True, unique=True)
     style = db.Column(db.String(60), index=True, unique=True)
-    is_organic = db.Column(db.Boolean)
+    ibu = db.Column(db.Integer)
+    abv = db.Column(db.Float)
     rating = db.Column(db.Float)
     # relationships
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
@@ -58,12 +59,12 @@ class Beer(db.Model):
         return {
             'id' : beer.id,
             'name' : beer.name,
-            'labels' : beer.labels,
+            'label' : beer.label,
             'style' : beer.style,
-            'is_organic' : beer.is_organic,
+            'ibu' : beer.ibu,
+            'abv' : beer.abv,
             'rating' : beer.rating,
-            'brewery' : beer.brewery,
-            'venues' : beer.venues }
+            'brewery_id' : beer.brewery_id }
 
     def relabel(self, new_label):
         """
@@ -96,7 +97,7 @@ class Brewery(db.Model):
     name = db.Column(db.String(120), index=True, unique=True)
     brewery_type = db.Column(db.String(60), index=True, unique=True)
     founded = db.Column(db.Integer, index=True)
-    labels = db.Column(db.String(300), index=True, unique=True)
+    label = db.Column(db.String(300), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
     # relationships
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
@@ -113,8 +114,9 @@ class Brewery(db.Model):
         return {
             'id' : brewery.id,
             'name' : brewery.name,
+            'brewery_type': brewery.brewery_type,
             'founded' : brewery.founded,
-            'labels' : brewery.labels,
+            'label' : brewery.label,
             'address' : brewery.address,
             'venues' : brewery.venues,
             'state' : brewery.state }
@@ -195,8 +197,8 @@ class Venue(db.Model):
             'category' : venue.category,
             'is_public' : venue.is_public,
             'state' : venue.state,
-            'breweries' : venue.breweries,
-            'beers' : venue.beers }
+            'breweries' : venue.ven2brew,
+            'beers' : venue.ven2beer }
 
     def add_beer(self, beer):
         """
