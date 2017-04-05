@@ -1,6 +1,7 @@
 from app import db
-from flask_sqlalchemy import SQLAlchemy
 
+from flask_sqlalchemy import SQLAlchemy
+import json
 
 """
 association tables
@@ -50,8 +51,7 @@ class Beer(db.Model):
         """
         get a string representation of this beer
         """
-        descr = "This is {} beer. You will drink it, and you will love it!"
-        return descr.format(self.name)
+        return json.dumps(self.to_dict())
 
     def to_dict(self):
         beer = self
@@ -106,8 +106,7 @@ class Brewery(db.Model):
         """
         get a string representation of this brewery
         """
-        descr = "At {}, we brew lots of beers. Try some!"
-        return descr.format(self.name)
+        return json.dumps(self.to_dict())
 
     def to_dict(self):
         brewery = self
@@ -184,8 +183,7 @@ class Venue(db.Model):
         """
         get a string representation of this venue
         """
-        descr = "Here at {}, you can get a whole bunch of beers from {} breweries."
-        return descr.format(self.name, str(len(self.ven2brew)))
+        return json.dumps(self.to_dict())
 
     def to_dict(self):
         venue = self
@@ -248,9 +246,7 @@ class State(db.Model):
         """
         get a string representation of this state
         """
-        descr = ("Welcome to {}, where the state flower is the {}, and "
-            "the capital is {}. Our postal code is {}!")
-        return descr.format(self.name, self.flower, self.capital, self.abbreviation)
+        return json.dumps(self.to_dict())
 
     def to_dict(self):
         state = self
