@@ -38,27 +38,13 @@ class Beer(db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True, unique=True)
-    labels = db.Column(db.String(300), index=True, unique=True)
+    label = db.Column(db.String(300), index=True, unique=True)
     style = db.Column(db.String(60), index=True, unique=True)
     is_organic = db.Column(db.Boolean)
     rating = db.Column(db.Float)
     # relationships
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
     brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
-
-    def __init__(self, idd, name, labels, style, is_organic, rating,
-        brewery, venues):
-        """
-        make a new beer instance
-        """
-        self.id = idd
-        self.name = name
-        self.labels = labels
-        self.style = style
-        self.is_organic = is_organic
-        self.rating = rating
-        self.brewery = brewery
-        self.venues = venues
 
     def __repr__(self):
         """
@@ -83,7 +69,7 @@ class Beer(db.Model):
         """
         change the label on this beer (gotta keep it fresh!)
         """
-        self.labels.insert(0, new_label)
+        self.label = new_label
 
     def change_rating(self, new_rating):
         """
@@ -115,20 +101,6 @@ class Brewery(db.Model):
     # relationships
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
-
-    def __init__(self, idd, name, brewery_type, founded, labels, address,
-        venues, state):
-        """
-        make a new brewery instance
-        """
-        self.id = idd
-        self.name = name
-        self.brewery_type = brewery_type
-        self.founded = founded
-        self.labels = labels
-        self.address = address
-        self.venues = venues
-        self.state = state
 
     def __repr__(self):
         """
@@ -208,21 +180,6 @@ class Venue(db.Model):
         backref=db.backref('venues'),
         lazy='select')
 
-    def __init__(self, idd, name, media, address, category, is_public,
-        state, breweries, beers):
-        """
-        make a new venue instance
-        """
-        self.id = idd
-        self.name = name
-        self.media = media
-        self.address = address
-        self.category = category
-        self.is_public = is_public
-        self.state = state
-        self.breweries = breweries
-        self.beers = beers
-
     def __repr__(self):
         """
         get a string representation of this venue
@@ -286,16 +243,6 @@ class State(db.Model):
     breweries = db.relationship('Brewery', backref='state', lazy='select')
     venues = db.relationship('Venue', backref='state', lazy='select')
     beers = db.relationship('Beer', backref='state', lazy='select')
-
-    def __init__(self, capital, name, media, abbreviation, flower):
-        """
-        make a new state instance
-        """
-        self.capital = capital
-        self.name = name
-        self.media = media
-        self.abbreviation = abbreviation
-        self.flower = flower
 
     def __repr__(self):
         """
