@@ -54,10 +54,10 @@
 						</div>
 					</div>
 					
-					<div>
+					<div ng-init={json_query}></div>>
 						
 						{% for i in json_query %}
-						<div class="col-md-3 col-sm-6 hero-feature text-center">
+						<div ng-controller="index" class="col-md-3 col-sm-6 hero-feature text-center">
 							<div class="thumbnail">
 								<img src="{{i["labels"]}}" width = "150" alt="">
 								<div class="caption">
@@ -74,6 +74,10 @@
 							</div>
 						</div>
 						{% endfor %}
+						
+						<label>Name:</label>
+						<hr>
+						<h1 ng-controller="index">Hello {{message|angular}}!</h1>
 						
 					</div>
 					
