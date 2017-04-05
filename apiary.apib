@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://pursuitofhoppyness.me
 
 # Pursuit of Hoppyness
 PursuitOfHoppyness is a useful API used to help people find the perfect beer for them which they can search through different breweries and venues as well as specifications of the different beers.  
@@ -9,7 +9,7 @@ PursuitOfHoppyness is a useful API used to help people find the perfect beer for
 
 ## Beer Collection [/beers]
 
-### List All Beers [GET /beers]
+### List All Beers [GET /api/beers]
 Retrieve a list of all beers from the PursuitOfHoppyness database.
 
 + Response 200 (application/json)
@@ -28,7 +28,7 @@ Retrieve a list of all beers from the PursuitOfHoppyness database.
                 "name": "Blue Moon"
             }
         ]
-### Specific Beer [GET /beers/{beer_id}]
+### Specific Beer [GET /api/beers/{beer_id}]
 Retrieve details of a specific beer using its ID from the database including the beer's name, brewery, labels, style, venue, and if it's organic or not.
 
 + Parameters
@@ -54,7 +54,7 @@ Retrieve details of a specific beer using its ID from the database including the
 
 ## Brewery Collection [/brewery]
 
-### List all Breweries [GET /brewery]
+### List all Breweries [GET /api/breweries]
 Retrieve the list of all of the breweries.
 
 + Response 200 (application/json)
@@ -74,7 +74,7 @@ Retrieve the list of all of the breweries.
             }
         ]
         
-### Specific Brewery [GET /brewery/{brewery_id}]
+### Specific Brewery [GET /api/brewery/{brewery_id}]
 Retrieve the details of a specific brewery using its ID from the database including its name, brewery type, when it's founded, labels, address, venues, and states.
 
 + Parameters
@@ -100,7 +100,7 @@ Retrieve the details of a specific brewery using its ID from the database includ
 
 ## All Venues [/venue]
 
-###List all Venues [GET /venues]
+###List all Venues [GET /api/venues]
 Retrieve the list of all of the venues.
 
 + Response 200 (application/json)
@@ -120,7 +120,7 @@ Retrieve the list of all of the venues.
             }
         ]
 
-### Specific Venue [GET /venue/{venue_id}]
+### Specific Venue [GET /api/venue/{venue_id}]
 Retrieve the specific details of a venue using its ID from the database includings its name, media, address, category, state, breweries, and beers.
 
 + Parameters
@@ -147,7 +147,7 @@ Retrieve the specific details of a venue using its ID from the database includin
 
 ## State Collection [/state]
 
-### List all States [GET /state]
+### List all States [GET /api/states]
 Retrieves a list of all of the states.
     
 + Response 200 (application/json)
@@ -167,7 +167,7 @@ Retrieves a list of all of the states.
             }
         ]
         
-### Specific States [GET /state/{state_id}]
+### Specific States [GET /api/state/{state_id}]
 Retrieves the specific details of a location using its ID from the database including its name, capital, and media.
 
 + Parameters
