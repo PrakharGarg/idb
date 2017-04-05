@@ -47,7 +47,7 @@
 					{% for i in json_query %}
 					<div class="col-md-3 col-sm-6 hero-feature text-center">
 						<div class="thumbnail">
-							<img src="{{i["media"]}}" width = "150" alt="">
+							<img src="{{i.media[0]}}" width = "150" alt="">
 							<div class="caption">
 								<h3 class = "name">{{i.name}}</h3>
 								<p>
