@@ -168,7 +168,7 @@ class Venue(db.Model):
     # properties
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True, unique=True)
-    media = db.Columndb.String(300), index=True, unique=True)
+    media = db.Column(db.String(300), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
     category = db.Column(db.String(90), index=True, unique=True)
     is_public = db.Column(db.Boolean)
