@@ -95,61 +95,87 @@ def get_beers():
     beers = Beer.query.all()
     beer_names = list()
     for beer in beers:
-        beer_names += beer.name
+        beer_names += [beer.name]
     return jsonify({'result' : beer_names})
 
-@app.route('/api/beer/<beer_name>', methods=['GET'])
-def get_beer_info(beer_name):
-    beer = Beer.query.filter_by(name=beer_name).first()
+@app.route('/api/beer/<beer_id>', methods=['GET'])
+def get_beer_info(beer_id):
+    beer = Beer.query.filter_by(id=beer_id).first()
 
     if not beer:
         abort(404)
-    return jsonify({'result' : beer})
+    return jsonify({'result' : {'id' : beer.id,
+                                'name' : beer.name,
+                                'labels' : beer.labels,
+                                'style' : beer.style,
+                                'is_organic' : beer.is_organic,
+                                'rating' : beer.rating,
+                                'brewery' : beer.brewery,
+                                'venues' : beer.venues}})
 
 @app.route('/api/venues', methods=['GET'])
 def get_venues():
     venues = Venue.query.all()
     venue_names = list()
     for venue in venues:
-        venue_names += venue.name
+        venue_names += [venue.name]
     return jsonify({'result' : venue_names})
 
-@app.route('/api/venue/<venue_name>', methods=['GET'])
-def get_venue_info(venue_name):
-    venue = Venue.query.filter_by(name=venue_name)
+@app.route('/api/venue/<venue_id>', methods=['GET'])
+def get_venue_info(venue_id):
+    venue = Venue.query.filter_by(id=venue_id).first()
 
     if not venue:
         abort(404)
-    return jsonify({'result' : venue.dictify()})
+    return jsonify({'result' : {'id' : venue.id,
+                                'name' : venue.name,
+                                'media' : venue.media,
+                                'address' : venue.address,
+                                'category' : venue.category,
+                                'is_public' : venue.is_public,
+                                'state' : venue.state,
+                                'breweries' : venue.breweries,
+                                'beers' : venue.beers}})
 
 @app.route('/api/breweries', methods=['GET'])
 def get_breweries():
     breweries = Brewery.query.all()
     brewery_names = list()
     for brewery in breweries:
-        brewery_names += brewery.name
+        brewery_names += [brewery.name]
     return jsonify({'result' : brewery_names})
 
-@app.route('/api/brewery/<brewery_name>', methods=['GET'])
-def get_brewery_info(brewery_name):
-    brewery = Brewery.query.filter_by(name=brewery_name)
+@app.route('/api/brewery/<brewery_id>', methods=['GET'])
+def get_brewery_info(brewery_id):
+    brewery = Brewery.query.filter_by(id=brewery_id).first()
 
     if not brewery:
         abort(404)
-    return jsonify({'result' : brewery.dictify()})
+    return jsonify({'result' : {'id' : brewery.id,
+                                'name' : brewery.name,
+                                'founded' : brewery.founded,
+                                'labels' : brewery.labels,
+                                'address' : brewery.address,
+                                'venues' : brewery.venues,
+                                'state' : brewery.state}})
 
 @app.route('/api/states', methods=['GET'])
 def get_states():
     states = State.query.all()
     state_names = list()
     for state in states:
-        state_names += state.name
+        state_names += [state.name]
     return jsonify({'result' : state_names})
 
-@app.route('/api/state/<state_name>', methods=['GET'])
-def get_state_info(state_name):
-    state = State.query.filter_by(name=state_name)
+@app.route('/api/state/<state_id>', methods=['GET'])
+def get_state_info(state_id):
+    state = State.query.filter_by(id=state_id).first()
 
     if not state:
         abort(404)
-    return jsonify({'result' : state.dictify()})
+    return jsonify({'result' : {'id' : state.id,
+                                'capital' : state.capital,
+                                'name' : state.name,
+                                'media' : state.media,
+                                'abbreviation' : state.abbreviation,
+                                'flower' : state.flower}})
