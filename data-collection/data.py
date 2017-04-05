@@ -60,6 +60,16 @@ class Data:
 				ids.append(idd)
 		return ids
 
+	def collect_data(self):
+		self.read_metadata()
+		next_venue = max(self.metadata['collected_venues']) + 1
+		url = endpoint.format('venue', next_venue_id)
+
+	def condense_data(self):
+		self.condense_venue_data()
+		self.condense_beer_data()
+		self.condense_brewery_data()
+
 	def create_metadata(self):
 		""" record all the ids and relationships collected thus far """
 		beer_ids = self.get_collected_ids('beer')
