@@ -17,7 +17,7 @@ for venue in venues:
 	except Exception as e:
 		print(e)
 
-with open(beer_file_path, 'a') as bf:
+with open(beer_file_path, 'w') as bf:
 	for beer in beers:
 		bf.write(beer)
 		bf.write('\n')
