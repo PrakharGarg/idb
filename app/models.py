@@ -7,13 +7,13 @@ association tables
 """
 
 # venues <-> beers
-venue_beer_association = db.Table('venue_beer_association',
+ven2beer = db.Table('ven2beer',
     db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
     db.Column('beer_id', db.Integer, db.ForeignKey('beer.id'))
 )
 
 # venues <-> breweries
-venue_brewery_association = db.Table('venue_brewery_association',
+ven2brew = db.Table('ven2brew',
     db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
     db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id'))
 )
@@ -171,12 +171,12 @@ class Venue(db.Model):
     is_public = db.Column(db.Boolean)
     # relationships
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
-    venue_beer_association = db.relationship('Beer',
-        secondary=venue_beer_association,
+    ven2beer = db.relationship('Beer',
+        secondary=ven2beer,
         backref=db.backref('venues'),
         lazy='select')
-    venue_brewery_association = db.relationship('Brewery',
-        secondary=venue_brewery_association,
+    ven2brew = db.relationship('Brewery',
+        secondary=ven2brew,
         backref=db.backref('venues'),
         lazy='select')
 
@@ -185,7 +185,7 @@ class Venue(db.Model):
         get a string representation of this venue
         """
         descr = "Here at {}, you can get a whole bunch of beers from {} breweries."
-        return descr.format(self.name, str(len(self.breweries)))
+        return descr.format(self.name, str(len(self.ven2brew)))
 
     def to_dict(self):
         venue = self
