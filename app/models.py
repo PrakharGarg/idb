@@ -55,16 +55,7 @@ class Beer(db.Model):
         return json.dumps(self.to_dict())
 
     def to_dict(self):
-        beer = self
-        return {
-            'id' : beer.id,
-            'name' : beer.name,
-            'label' : beer.label,
-            'style' : beer.style,
-            'ibu' : beer.ibu,
-            'abv' : beer.abv,
-            'rating' : beer.rating,
-            'brewery_id' : beer.brewery_id }
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def relabel(self, new_label):
         """
@@ -110,16 +101,7 @@ class Brewery(db.Model):
         return json.dumps(self.to_dict())
 
     def to_dict(self):
-        brewery = self
-        return {
-            'id' : brewery.id,
-            'name' : brewery.name,
-            'brewery_type': brewery.brewery_type,
-            'founded' : brewery.founded,
-            'label' : brewery.label,
-            'address' : brewery.address,
-            'venues' : brewery.venues,
-            'state' : brewery.state }
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def change_name(self, new_name):
         """
@@ -188,17 +170,7 @@ class Venue(db.Model):
         return json.dumps(self.to_dict())
 
     def to_dict(self):
-        venue = self
-        return {
-            'id' : venue.id,
-            'name' : venue.name,
-            'media' : venue.media,
-            'address' : venue.address,
-            'category' : venue.category,
-            'is_public' : venue.is_public,
-            'state' : venue.state,
-            'breweries' : venue.ven2brew,
-            'beers' : venue.ven2beer }
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def add_beer(self, beer):
         """
@@ -251,14 +223,7 @@ class State(db.Model):
         return json.dumps(self.to_dict())
 
     def to_dict(self):
-        state = self
-        return {
-            'id' : state.id,
-            'capital' : state.capital,
-            'name' : state.name,
-            'media' : state.media,
-            'abbreviation' : state.abbreviation,
-            'flower' : state.flower}
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def is_best_state(self):
         """
