@@ -242,7 +242,7 @@ class State(db.Model):
     name = db.Column(db.String(120), index=True, unique=True)
     media = db.Column(db.String(300), index=True, unique=True)
     abbreviation = db.Column(db.String(120), index=True, unique=True)
-    flower = db.Column(db.String(120), index=True, unique=True)
+    flower = db.Column(db.String(120), index=True)
     #relationships
     breweries = db.relationship('Brewery', backref='state', lazy='select')
     venues = db.relationship('Venue', backref='state', lazy='select')
