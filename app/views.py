@@ -53,9 +53,11 @@ def venues() :
 @app.route('/venues/<venue_id>/')
 def venue(venue_id) :
     venue_info = Venue.query.filter_by(id = venue_id).first()
+    beers = db.session.query(venue_beer_association).all()
+    venues_breweries = db.session.query(venue_brewery_association).all()
     
     return render_template('venue.html', 
-        venue_info = venue_info)
+        venue_info = venue_info, beers = beers, venues_breweries = venues_breweries)
 
 # Page that shows all of the breweries in a grid
 @app.route('/breweries/')
@@ -67,10 +69,12 @@ def breweries() :
 # the name of the brewery being passed in
 @app.route('/breweries/<brewery_id>/')
 def brewery(brewery_id):
+    beers = db.session.query(venue_beer_association).all()
+    venues = db.session.query(venue_brewery_association).all()
     brewery_info = Brewery.query.filter_by(id = brewery_id).first()
 
     return render_template('brewery.html',
-        brewery_info = brewery_info)
+        brewery_info = brewery_info, venues = venues, beers = beers)
 
 # Page that shows all of the locations in a grid
 @app.route('/states/')
@@ -84,9 +88,10 @@ def states() :
 @app.route('/states/<state_id>/')
 def state(state_id) :
     state_info = State.query.filter_by(id = state_id).first()
-
+    venues = Venue.query.filter_by(state_id = state_id).all()
+    breweries = Brewery.query.filter_by(state_id = state_id).all()
     return render_template('state.html', 
-        state_info = state_info)
+        state_info = state_info, venues = venues, breweries = breweries)
 
 # API GET methods
 

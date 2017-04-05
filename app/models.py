@@ -38,10 +38,10 @@ class Beer(db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True, unique=True)
-    labels = db.Column(db.ARRAY(db.String(300)), index=True, unique=True)
+    labels = db.Column(db.String(300), index=True, unique=True)
     style = db.Column(db.String(60), index=True, unique=True)
     is_organic = db.Column(db.Boolean)
-    rating = db.Column(db.Integer)
+    rating = db.Column(db.Float)
     # relationships
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
     brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
@@ -96,8 +96,8 @@ class Brewery(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True, unique=True)
     brewery_type = db.Column(db.String(60), index=True, unique=True)
-    founded = db.Column(db.Date)
-    labels = db.Column(db.ARRAY(db.String(300)), index=True, unique=True)
+    founded = db.Column(db.Integer, index=True)
+    labels = db.Column(db.String(300), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
     # relationships
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
@@ -168,7 +168,7 @@ class Venue(db.Model):
     # properties
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True, unique=True)
-    media = db.Column(db.ARRAY(db.String(300)), index=True, unique=True)
+    media = db.Column(db.String(300), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
     category = db.Column(db.String(90), index=True, unique=True)
     is_public = db.Column(db.Boolean)
@@ -240,9 +240,9 @@ class State(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     capital = db.Column(db.String(120), index=True, unique=True)
     name = db.Column(db.String(120), index=True, unique=True)
-    media = db.Column(db.ARRAY(db.String(300)), index=True, unique=True)
+    media = db.Column(db.String(300), index=True, unique=True)
     abbreviation = db.Column(db.String(120), index=True, unique=True)
-    flower = db.Column(db.String(120), index=True, unique=True)
+    flower = db.Column(db.String(120), index=True)
     #relationships
     breweries = db.relationship('Brewery', backref='state', lazy='select')
     venues = db.relationship('Venue', backref='state', lazy='select')

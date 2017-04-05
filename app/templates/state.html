@@ -14,9 +14,13 @@
        	<h3 class = "gold"> State Flower </h3>
        	<h4> {{ state_info.flower }} </h4>
        	<h3 class = "gold"> Venues </h3>
-       	<h4> <a href="/venues/{{ state_info }}"> {{ state_info }} </a> </h4>
+        {% for i in venues %}
+       	  <h4> <a href="/venues/{{ i.id}}"> {{ i.name }} </a> </h4>
+        {% endfor %}
        	<h3 class = "gold"> Breweries </h3>
-       	<h4> <a href="/breweries/{{ state_info }}"> {{ state_info }} </a> </h4>
+        {% for i in breweries %}
+       	  <h4> <a href="/breweries/{{ i.id }}"> {{ i.name }} </a> </h4>
+        {% endfor %}
       </div>
     </body>
 {% endblock %}
