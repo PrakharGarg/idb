@@ -46,11 +46,12 @@ class Beer(db.Model):
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
     brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
 
-    def __init__(self, name, labels, style, is_organic, rating,
+    def __init__(self, idd, name, labels, style, is_organic, rating,
         brewery, venues):
         """
         make a new beer instance
         """
+        self.id = idd
         self.name = name
         self.labels = labels
         self.style = style
@@ -65,6 +66,18 @@ class Beer(db.Model):
         """
         descr = "This is {} beer. You will drink it, and you will love it!"
         return descr.format(self.name)
+
+    def to_dict(self):
+        beer = self
+        return {
+            'id' : beer.id,
+            'name' : beer.name,
+            'labels' : beer.labels,
+            'style' : beer.style,
+            'is_organic' : beer.is_organic,
+            'rating' : beer.rating,
+            'brewery' : beer.brewery,
+            'venues' : beer.venues }
 
     def relabel(self, new_label):
         """
@@ -103,11 +116,12 @@ class Brewery(db.Model):
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
 
-    def __init__(self, name, brewery_type, founded, labels, address,
+    def __init__(self, idd, name, brewery_type, founded, labels, address,
         venues, state):
         """
         make a new brewery instance
         """
+        self.id = idd
         self.name = name
         self.brewery_type = brewery_type
         self.founded = founded
@@ -122,6 +136,17 @@ class Brewery(db.Model):
         """
         descr = "At {}, we brew lots of beers. Try some!"
         return descr.format(self.name)
+
+    def to_dict(self):
+        brewery = self
+        return {
+            'id' : brewery.id,
+            'name' : brewery.name,
+            'founded' : brewery.founded,
+            'labels' : brewery.labels,
+            'address' : brewery.address,
+            'venues' : brewery.venues,
+            'state' : brewery.state }
 
     def change_name(self, new_name):
         """
@@ -183,11 +208,12 @@ class Venue(db.Model):
         backref=db.backref('venues'),
         lazy='select')
 
-    def __init__(self, name, media, address, category, is_public,
+    def __init__(self, idd, name, media, address, category, is_public,
         state, breweries, beers):
         """
         make a new venue instance
         """
+        self.id = idd
         self.name = name
         self.media = media
         self.address = address
@@ -203,6 +229,19 @@ class Venue(db.Model):
         """
         descr = "Here at {}, you can get a whole bunch of beers from {} breweries."
         return descr.format(self.name, str(len(self.breweries)))
+
+    def to_dict(self):
+        venue = self
+        return {
+            'id' : venue.id,
+            'name' : venue.name,
+            'media' : venue.media,
+            'address' : venue.address,
+            'category' : venue.category,
+            'is_public' : venue.is_public,
+            'state' : venue.state,
+            'breweries' : venue.breweries,
+            'beers' : venue.beers }
 
     def add_beer(self, beer):
         """
@@ -265,6 +304,16 @@ class State(db.Model):
         descr = ("Welcome to {}, where the state flower is the {}, and "
             "the capital is {}. Our postal code is {}!")
         return descr.format(self.name, self.flower, self.capital, self.abbreviation)
+
+    def to_dict(self):
+        state = self
+        return {
+            'id' : state.id,
+            'capital' : state.capital,
+            'name' : state.name,
+            'media' : state.media,
+            'abbreviation' : state.abbreviation,
+            'flower' : state.flower}
 
     def is_best_state(self):
         """

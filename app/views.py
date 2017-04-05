@@ -104,14 +104,7 @@ def get_beer_info(beer_id):
 
     if not beer:
         abort(404)
-    return jsonify({'result' : {'id' : beer.id,
-                                'name' : beer.name,
-                                'labels' : beer.labels,
-                                'style' : beer.style,
-                                'is_organic' : beer.is_organic,
-                                'rating' : beer.rating,
-                                'brewery' : beer.brewery,
-                                'venues' : beer.venues}})
+    return jsonify({'result' : beer.to_dict()})
 
 @app.route('/api/venues', methods=['GET'])
 def get_venues():
@@ -127,15 +120,7 @@ def get_venue_info(venue_id):
 
     if not venue:
         abort(404)
-    return jsonify({'result' : {'id' : venue.id,
-                                'name' : venue.name,
-                                'media' : venue.media,
-                                'address' : venue.address,
-                                'category' : venue.category,
-                                'is_public' : venue.is_public,
-                                'state' : venue.state,
-                                'breweries' : venue.breweries,
-                                'beers' : venue.beers}})
+    return jsonify({'result' : venue.to_dict()})
 
 @app.route('/api/breweries', methods=['GET'])
 def get_breweries():
@@ -151,13 +136,7 @@ def get_brewery_info(brewery_id):
 
     if not brewery:
         abort(404)
-    return jsonify({'result' : {'id' : brewery.id,
-                                'name' : brewery.name,
-                                'founded' : brewery.founded,
-                                'labels' : brewery.labels,
-                                'address' : brewery.address,
-                                'venues' : brewery.venues,
-                                'state' : brewery.state}})
+    return jsonify({'result' : brewery.to_dict()})
 
 @app.route('/api/states', methods=['GET'])
 def get_states():
@@ -173,9 +152,4 @@ def get_state_info(state_id):
 
     if not state:
         abort(404)
-    return jsonify({'result' : {'id' : state.id,
-                                'capital' : state.capital,
-                                'name' : state.name,
-                                'media' : state.media,
-                                'abbreviation' : state.abbreviation,
-                                'flower' : state.flower}})
+    return jsonify({'result' : state.to_dict()})
