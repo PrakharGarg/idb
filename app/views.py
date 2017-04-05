@@ -83,10 +83,10 @@ def states() :
 @app.route('/states/<state_id>/')
 def state(state_id) :
     state_info = State.query.filter_by(id = state_id).first()
-    venues_breweries = db.session.query(venue_brewery_association).all()
-
+    venues = Venue.query.filter_by(state_id = state_id).all()
+    breweries = Brewery.query.filter_by(state_id = state_id).all()
     return render_template('state.html', 
-        state_info = state_info, venues_breweries = venues_breweries)
+        state_info = state_info, venues = venues, breweries = breweries)
 
 # API GET methods
 
