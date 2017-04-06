@@ -205,11 +205,10 @@ class State(db.Model):
         flower: the state flower! 
     """
     #properties
-    id = db.Column(db.Integer, primary_key=True)
+    abbreviation = db.Column(db.String(120), index=True, unique=True, primary_key=True)
     capital = db.Column(db.String(120), index=True, unique=True)
     name = db.Column(db.String(120), index=True, unique=True)
     media = db.Column(db.String(300), index=True, unique=True)
-    abbreviation = db.Column(db.String(120), index=True, unique=True)
     flower = db.Column(db.String(120), index=True)
     #relationships
     breweries = db.relationship('Brewery', backref='state', lazy='select')
