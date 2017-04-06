@@ -103,7 +103,7 @@ class Data:
 				v = Venue(
 					id=v['venue_id'],
 					name=v['venue_name'],
-					media=medias[0],
+					media=v['venue_icon']['lg'],
 					address=', '.join([
 				    	str(v['location']['venue_address']),
 				    	str(v['location']['venue_city']),
