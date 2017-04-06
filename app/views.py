@@ -69,7 +69,7 @@ def breweries() :
 # the name of the brewery being passed in
 @app.route('/breweries/<brewery_id>/')
 def brewery(brewery_id):
-    # beers = db.session.query(venue_beer_association).all()
+    beers = Beer.query.filter_by(brewery_id = brewery_id).all()
     # venues = db.session.query(venue_brewery_association).all()
     brewery_info = Brewery.query.filter_by(id = brewery_id).first()
 
