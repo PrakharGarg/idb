@@ -148,7 +148,7 @@ Retrieve the specific details of a venue using its ID from the database includin
 ## State Collection [/state]
 
 ### List all States [GET /api/states]
-Retrieves a list of all of the states.
+Retrieves a list of all of the states and their abbreviationsixe.
     
 + Response 200 (application/json)
 
@@ -171,7 +171,7 @@ Retrieves a list of all of the states.
 Retrieves the specific details of a location using its ID from the database including its name, capital, and media.
 
 + Parameters
-    + state_id (number, required) - the unique id of the state as an integer
+    + state_abbreviation (string, required) - the unique abbreviation of the state as a string
 
 + Response 200 (application/json)
 
