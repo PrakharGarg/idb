@@ -45,7 +45,7 @@ class Beer(db.Model):
     abv = db.Column(db.Float)
     rating = db.Column(db.Float)
     # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    state_id = db.Column(db.Integer, db.ForeignKey('state.abbreviation'))
     brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
 
     def __repr__(self):
@@ -91,7 +91,7 @@ class Brewery(db.Model):
     label = db.Column(db.String(300), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
     # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    state_id = db.Column(db.Integer, db.ForeignKey('state.abbreviation'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
 
     def __repr__(self):
@@ -153,7 +153,7 @@ class Venue(db.Model):
     category = db.Column(db.String(90), index=True, unique=True)
     is_public = db.Column(db.Boolean)
     # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    state_id = db.Column(db.Integer, db.ForeignKey('state.abbreviation'))
     ven2beer = db.relationship('Beer',
         secondary=ven2beer,
         backref=db.backref('venues'),
