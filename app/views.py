@@ -69,8 +69,8 @@ def breweries() :
 # the name of the brewery being passed in
 @app.route('/breweries/<brewery_id>/')
 def brewery(brewery_id):
-    beers = db.session.query(venue_beer_association).all()
-    venues = db.session.query(venue_brewery_association).all()
+    # beers = db.session.query(venue_beer_association).all()
+    # venues = db.session.query(venue_brewery_association).all()
     brewery_info = Brewery.query.filter_by(id = brewery_id).first()
 
     return render_template('brewery.html',
@@ -85,11 +85,11 @@ def states() :
 
 # Page that shows info about a specific location with
 # the name of the location being passed in 
-@app.route('/states/<state_id>/')
-def state(state_id) :
-    state_info = State.query.filter_by(id = state_id).first()
-    venues = Venue.query.filter_by(state_id = state_id).all()
-    breweries = Brewery.query.filter_by(state_id = state_id).all()
+@app.route('/states/<state_abbreviation>/')
+def state(state_abbreviation) :
+    state_info = State.query.filter_by(abbreviation = state_abbreviation).first()
+    venues = Venue.query.filter_by(state_id = state_abbreviation).all()
+    breweries = Brewery.query.filter_by(state_id = state_abbreviation).all()
     return render_template('state.html', 
         state_info = state_info, venues = venues, breweries = breweries)
 

@@ -84,12 +84,12 @@ class Brewery(db.Model):
         state: which state this exists in
     """
     # properties
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), index=True, unique=True)
-    brewery_type = db.Column(db.String(60), index=True, unique=True)
-    founded = db.Column(db.Integer, index=True)
-    label = db.Column(db.String(300), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
+    name = db.Column(db.String(120), index=True, unique=True)
+    founded = db.Column(db.Float, index=True)
+    label = db.Column(db.String(300), index=True, unique=True)
+    brewery_type = db.Column(db.String(60), index=True)
+    id = db.Column(db.Integer, primary_key=True)
     # relationships
     state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
