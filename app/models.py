@@ -46,7 +46,21 @@ class Beer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ibu = db.Column(db.Integer)
     abv = db.Column(db.Float)
-    # relationships
+    
+    def __init__(self, style, rating, name, label, abv, ibu) :
+        assert (style != "")
+        assert (rating != "")
+        assert (name != "")
+        assert (label != "")
+        assert (abv != "")
+        assert (ibu != "")
+        
+        self.style = style
+        self.rating = rating
+        self.name = name
+        self.label = label
+        self.abv = abv
+        self.ibu = ibu
 
     def __repr__(self):
         """
@@ -93,6 +107,19 @@ class Brewery(db.Model):
     # relationships
     state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
+    
+    def __init__(self, address, name, founded, label, brewery_type) :
+        assert (address != "")
+        assert (name != "")
+        assert (founded != "")
+        assert (label != "")
+        assert (brewery_type != "")
+        
+        self.address = address
+        self.founded = founded
+        self.name = name
+        self.label = label
+        self.brewery_type = brewery_type
 
     def __repr__(self):
         """
@@ -162,6 +189,19 @@ class Venue(db.Model):
         secondary=ven2brew,
         backref=db.backref('venues'),
         lazy='select')
+        
+    def __init__(self, category, media, is_public, name, address) :
+        assert (address != "")
+        assert (name != "")
+        assert (category != "")
+        assert (media != "")
+        assert (is_public != "")
+        
+        self.address = address
+        self.category = category
+        self.name = name
+        self.media = media
+        self.is_public = is_public
 
     def __repr__(self):
         """
@@ -214,6 +254,19 @@ class State(db.Model):
     breweries = db.relationship('Brewery', backref='state', lazy='select')
     venues = db.relationship('Venue', backref='state', lazy='select')
     beers = db.relationship('Beer', backref='state', lazy='select')
+    
+    def __init__(self, abbreviation, capital, name, media, flower) :
+        assert (abbreviation != "")
+        assert (capital != "")
+        assert (name != "")
+        assert (media != "")
+        assert (flower != "")
+        
+        self.capital = capital
+        self.abbreviation = abbreviation
+        self.name = name
+        self.media = media
+        self.flower = flower
 
     def __repr__(self):
         """
