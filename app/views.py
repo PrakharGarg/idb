@@ -12,7 +12,7 @@ import subprocess
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestModels)
-    output = io.StringIO()
+    output = io.BytesIO()
     unittest.TextTestRunner(stream=output).run(suite)
     return render_template("unittests.html", output = output.getvalue())
 
