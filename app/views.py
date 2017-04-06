@@ -6,7 +6,7 @@ import subprocess
 
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :
-    output = subprocess.getoutput("python3 app/tests.py")
+    output = subprocess.check_output(['python', 'app/testing_tests.py'], stderr= subprocess.STDOUT)
     return render_template("unittests.html", output = output)
 
 # Index page that contains a carousel
