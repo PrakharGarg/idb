@@ -1,13 +1,20 @@
 from flask import render_template, abort, jsonify
 from app import app
 from app.models import *
+
+from app.tests import TestModels
+import unittest
+import io
+
 from flask_sqlalchemy import SQLAlchemy
 import subprocess
 
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :
-    output = subprocess.call(['python', 'app/tests.py'], stderr= subprocess.STDOUT)
-    return render_template("unittests.html", output = output)
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestModels)
+    output = io.StringIO()
+    unittest.TextTestRunner(stream=output).run(suite)
+    return render_template("unittests.html", output = output.getvalue())
 
 # Index page that contains a carousel
 # Can be accessed at either / or /index/
