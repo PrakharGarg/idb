@@ -3,6 +3,7 @@
 */*/*.pyc
 __pycache__
 idb-env
+app/sensitive.py
 .DS_Store
 */.DS_Store
 */*/.DS_Store

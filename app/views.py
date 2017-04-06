@@ -98,10 +98,10 @@ def state(state_id) :
 @app.route('/api/beers', methods=['GET'])
 def get_beers():
     beers = Beer.query.all()
-    beer_names = list()
+    _ = list()
     for beer in beers:
-        beer_names += [beer.name]
-    return jsonify({'result' : beer_names})
+        _ += [{'id' : beer.id, 'name' : beer.name}]
+    return jsonify({'result' : _})
 
 @app.route('/api/beer/<beer_id>', methods=['GET'])
 def get_beer_info(beer_id):
@@ -121,10 +121,10 @@ def get_beer_info(beer_id):
 @app.route('/api/venues', methods=['GET'])
 def get_venues():
     venues = Venue.query.all()
-    venue_names = list()
+    _ = list()
     for venue in venues:
-        venue_names += [venue.name]
-    return jsonify({'result' : venue_names})
+        _ += [{'id' : venue.id, 'name' : venue.name}]
+    return jsonify({'result' : _})
 
 @app.route('/api/venue/<venue_id>', methods=['GET'])
 def get_venue_info(venue_id):
@@ -145,10 +145,10 @@ def get_venue_info(venue_id):
 @app.route('/api/breweries', methods=['GET'])
 def get_breweries():
     breweries = Brewery.query.all()
-    brewery_names = list()
+    _ = list()
     for brewery in breweries:
-        brewery_names += [brewery.name]
-    return jsonify({'result' : brewery_names})
+        _ += [{'id' : brewery.id, 'name' : brewery.name}]
+    return jsonify({'result' : _})
 
 @app.route('/api/brewery/<brewery_id>', methods=['GET'])
 def get_brewery_info(brewery_id):
@@ -167,10 +167,10 @@ def get_brewery_info(brewery_id):
 @app.route('/api/states', methods=['GET'])
 def get_states():
     states = State.query.all()
-    state_names = list()
+    _ = list()
     for state in states:
-        state_names += [state.name]
-    return jsonify({'result' : state_names})
+        _ += [{'id' : state.id, 'name' : state.name}]
+    return jsonify({'result' : _})
 
 @app.route('/api/state/<state_id>', methods=['GET'])
 def get_state_info(state_id):
