@@ -218,3 +218,20 @@ class Data:
 		}
 		self.write_metadata()
 
+	def meta_tups_ven2brew(self):
+		v2b = self.metadata['venues_to_breweries']
+		v2b_tups = []
+		with open(Data.file_path('clean','ven2brew'), 'w') as f:
+			for ven, brws in v2b.items():
+				for brw in brws:
+					json.dump({'venue':ven, 'brewery':brw}, f)
+					f.write('\n')
+
+	def meta_tups_ven2beer(self):
+		v2b = self.metadata['venues_to_beers']
+		v2b_tups = []
+		with open(Data.file_path('clean','ven2beer'), 'w') as f:
+			for ven, brs in v2b.items():
+				for br in brs:
+					json.dump({'venue':ven, 'beer':br}, f)
+					f.write('\n')
