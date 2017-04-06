@@ -9,8 +9,8 @@ from unittest import main, TestCase
 
 class TestModels(TestCase):
         
-  def test_beer(self):
-    self.assertTrue(True)
+    def test_beer(self):
+        self.assertTrue(True)
                                                                                                                                                                                                          
 if __name__ == "__main__":
-  main()
+    main()
