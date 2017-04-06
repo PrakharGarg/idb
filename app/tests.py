@@ -3,19 +3,19 @@
 # pylint: disable = bad-whitespace
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
-
 import unittest
 from flask import Flask
 from flask_testing import TestCase
 from flask_sqlalchemy import SQLAlchemy
-from models_test import app, db, Beer, Brewery, Venue, State
+app = Flask(__name__)
+db = SQLAlchemy(app)
 
 
 class TestModels(TestCase):
 
     def create_app(self):
         return app
-
+        
     def setUp(self):
         db.create_all()
 

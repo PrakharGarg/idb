@@ -18,7 +18,7 @@ def test() :
             ['python', '-W', 'ignore', 'app/tests.py'], stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError, e:
         output = e.output
-
+        
     return render_template("unittests.html", output = output)
 
 # Index page that contains a carousel

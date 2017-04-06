@@ -15,8 +15,8 @@ ven2beer = db.Table('ven2beer',
 
 # venues <-> breweries
 ven2brew = db.Table('ven2brew',
-    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
-    db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id'))
+    db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id')),
+    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id'))
 )
 
 
@@ -37,16 +37,30 @@ class Beer(db.Model):
         brewery: where and who this is brewed by 
         venues: where this beer is served, sold, and distributed
     """
+    state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
+    brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
+    style = db.Column(db.String(60), index=True)
+    rating = db.Column(db.Float)
+    name = db.Column(db.String(120), index=True)
+    label = db.Column(db.String(300), index=True)
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), index=True, unique=True)
-    label = db.Column(db.String(300), index=True, unique=True)
-    style = db.Column(db.String(60), index=True, unique=True)
     ibu = db.Column(db.Integer)
     abv = db.Column(db.Float)
-    rating = db.Column(db.Float)
-    # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
-    brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
+    
+    def __init__(self, style, rating, name, label, abv, ibu) :
+        assert (style != "")
+        assert (rating != "")
+        assert (name != "")
+        assert (label != "")
+        assert (abv != "")
+        assert (ibu != "")
+        
+        self.style = style
+        self.rating = rating
+        self.name = name
+        self.label = label
+        self.abv = abv
+        self.ibu = ibu
 
     def __repr__(self):
         """
@@ -84,15 +98,28 @@ class Brewery(db.Model):
         state: which state this exists in
     """
     # properties
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), index=True, unique=True)
-    brewery_type = db.Column(db.String(60), index=True, unique=True)
-    founded = db.Column(db.Integer, index=True)
-    label = db.Column(db.String(300), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
+    name = db.Column(db.String(120), index=True, unique=True)
+    founded = db.Column(db.Float, index=True)
+    label = db.Column(db.String(300), index=True, unique=True)
+    brewery_type = db.Column(db.String(60), index=True)
+    id = db.Column(db.Integer, primary_key=True)
     # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
+    
+    def __init__(self, address, name, founded, label, brewery_type) :
+        assert (address != "")
+        assert (name != "")
+        assert (founded != "")
+        assert (label != "")
+        assert (brewery_type != "")
+        
+        self.address = address
+        self.founded = founded
+        self.name = name
+        self.label = label
+        self.brewery_type = brewery_type
 
     def __repr__(self):
         """
@@ -146,14 +173,14 @@ class Venue(db.Model):
         beers: all the beers you may obtain
     """
     # properties
+    category = db.Column(db.String(90), index=True)
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), index=True, unique=True)
-    media = db.Column(db.String(300), index=True, unique=True)
-    address = db.Column(db.String(120), index=True, unique=True)
-    category = db.Column(db.String(90), index=True, unique=True)
+    media = db.Column(db.String(300), index=True)
     is_public = db.Column(db.Boolean)
+    name = db.Column(db.String(120), index=True)
+    address = db.Column(db.String(120), index=True)
     # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     ven2beer = db.relationship('Beer',
         secondary=ven2beer,
         backref=db.backref('venues'),
@@ -162,6 +189,19 @@ class Venue(db.Model):
         secondary=ven2brew,
         backref=db.backref('venues'),
         lazy='select')
+        
+    def __init__(self, category, media, is_public, name, address) :
+        assert (address != "")
+        assert (name != "")
+        assert (category != "")
+        assert (media != "")
+        assert (is_public != "")
+        
+        self.address = address
+        self.category = category
+        self.name = name
+        self.media = media
+        self.is_public = is_public
 
     def __repr__(self):
         """
@@ -205,16 +245,28 @@ class State(db.Model):
         flower: the state flower! 
     """
     #properties
-    id = db.Column(db.Integer, primary_key=True)
+    abbreviation = db.Column(db.String(120), index=True, unique=True, primary_key=True)
     capital = db.Column(db.String(120), index=True, unique=True)
     name = db.Column(db.String(120), index=True, unique=True)
     media = db.Column(db.String(300), index=True, unique=True)
-    abbreviation = db.Column(db.String(120), index=True, unique=True)
     flower = db.Column(db.String(120), index=True)
     #relationships
     breweries = db.relationship('Brewery', backref='state', lazy='select')
     venues = db.relationship('Venue', backref='state', lazy='select')
     beers = db.relationship('Beer', backref='state', lazy='select')
+    
+    def __init__(self, abbreviation, capital, name, media, flower) :
+        assert (abbreviation != "")
+        assert (capital != "")
+        assert (name != "")
+        assert (media != "")
+        assert (flower != "")
+        
+        self.capital = capital
+        self.abbreviation = abbreviation
+        self.name = name
+        self.media = media
+        self.flower = flower
 
     def __repr__(self):
         """

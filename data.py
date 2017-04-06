@@ -16,7 +16,7 @@ class Data:
 	}
 
 	def __init__(self):
-		self.read_metadata()
+		self.create_metadata()
 
 	def file_path(state, which):
 		return '/'.join([Data.data_dir, state, which])+'.json'
@@ -97,13 +97,20 @@ class Data:
 		vs = self.get_all('venue')
 		with open(Data.file_path('clean','venue'), 'w') as vf:
 			for v in vs:
+				medias = []
+				for m in v['media']['items']:
+					medias.append(m['photo']['photo_img_og'])
 				v = Venue(
 					id=v['venue_id'],
 					name=v['venue_name'],
-					media=v['media'],
-					address=v['location'],
-					category=v['categories'],
-					is_public=v['public_venue'])
+					media=v['venue_icon']['lg'],
+					address=', '.join([
+				    	str(v['location']['venue_address']),
+				    	str(v['location']['venue_city']),
+				    	str(v['location']['venue_state']) ]),
+					category=v['categories']['items'][0]['category_name'],
+					is_public=v['public_venue'],
+					state_id=v['location']['venue_state'])
 				json.dump(v.to_dict(), vf)
 				vf.write('\n')
 
@@ -117,8 +124,10 @@ class Data:
 					label=b['beer']['beer_label'],
 					style=b['beer']['beer_style'],
 					ibu=b['beer']['beer_ibu'],
-					abv=b['beer']['beer_style'],
-					rating=b['beer']['rating_score'] )
+					abv=b['beer']['beer_abv'],
+					rating=b['beer']['rating_score'],
+					state_id=b['brewery']['location']['brewery_state'],
+					brewery_id=b['brewery']['brewery_id'] )
 				json.dump(b.to_dict(), bf)
 				bf.write('\n')
 
@@ -132,7 +141,12 @@ class Data:
 				    brewery_type=b['brewery_type'],
 				    founded=b['stats']['age_on_service'],
 				    label=b['brewery_label'],
-				    address=b['location'] )
+				    address=', '.join([
+				    	str(b['location']['brewery_address']),
+				    	str(b['location']['brewery_city']),
+				    	str(b['location']['brewery_state']) ]),
+				    state_id=b['location']['brewery_state']
+				    )
 				json.dump(b.to_dict(), bf)
 				bf.write('\n')
 
@@ -203,7 +217,4 @@ class Data:
 			'breweries_to_venues': brew2ven
 		}
 		self.write_metadata()
-
-		
-
 
