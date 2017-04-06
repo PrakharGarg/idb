@@ -132,7 +132,12 @@ class Data:
 				    brewery_type=b['brewery_type'],
 				    founded=b['stats']['age_on_service'],
 				    label=b['brewery_label'],
-				    address=b['location'] )
+				    address=', '.join([
+				    	str(b['location']['brewery_address']),
+				    	str(b['location']['brewery_city']),
+				    	str(b['location']['brewery_state']) ]),
+				    state_id=b['location']['brewery_state']
+				    )
 				json.dump(b.to_dict(), bf)
 				bf.write('\n')
 
