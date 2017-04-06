@@ -37,16 +37,16 @@ class Beer(db.Model):
         brewery: where and who this is brewed by 
         venues: where this beer is served, sold, and distributed
     """
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), index=True, unique=True)
-    label = db.Column(db.String(300), index=True, unique=True)
-    style = db.Column(db.String(60), index=True, unique=True)
-    ibu = db.Column(db.Integer)
-    abv = db.Column(db.Float)
-    rating = db.Column(db.Float)
-    # relationships
     state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
+    style = db.Column(db.String(60), index=True)
+    rating = db.Column(db.Float)
+    name = db.Column(db.String(120), index=True)
+    label = db.Column(db.String(300), index=True)
+    id = db.Column(db.Integer, primary_key=True)
+    ibu = db.Column(db.Integer)
+    abv = db.Column(db.Float)
+    # relationships
 
     def __repr__(self):
         """
