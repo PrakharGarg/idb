@@ -16,9 +16,15 @@
        	<h3 class = "gold"> Beers </h3>
        	<h4> <a href="/beers/{{ venue_info.beer_id }}"> {{ venue_info.beer }} </a> </h4>
        	<h3 class = "gold"> Breweries </h3>
-       	<h4> <a href="/breweries/{{venue_info.brewery_id}}"> {{ venue_info.brewery }} </a> </h4>
+        {% if not brews %}
+        <h4>None Available</h4>
+        {% endif %}
+        {% for i in brews %}
+       	  <h4> <a href="/brewery/{{ i.id }}"> {{ i.name }} </a> </h4>    
+        {% endfor %}
         <h3 class = "gold"> State </h3>
        	<h4> <a href="/states/{{ venue_info.state_id }}"> {{ venue_info.state.name}} </a> </h4>
       </div>
+      
     </body>
 {% endblock %}

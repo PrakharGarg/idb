@@ -15,8 +15,8 @@ ven2beer = db.Table('ven2beer',
 
 # venues <-> breweries
 ven2brew = db.Table('ven2brew',
-    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
-    db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id'))
+    db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id')),
+    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id'))
 )
 
 
