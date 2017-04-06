@@ -57,12 +57,12 @@ def venue(venue_id) :
     brew = []
     for i in brews :
         brew += Brewery.query.filter_by(id = i[0]).all()
-    # brew = Brewery.query.filter_by(id = brews[0]).all()
-    # beers = db.session.query(venue_beer_association).all()
-    # venues_breweries = db.session.query(venue_brewery_association).all()
-    
+    beers = db.session.query(ven2beer).filter_by(venue_id = venue_id).all()
+    beer = []
+    for i in beers :
+        beer += Beer.query.filter_by(id = i[1]).all()
     return render_template('venue.html', 
-        venue_info = venue_info, brews = brew)
+        venue_info = venue_info, brews = brew, beers = beer)
 
 # Page that shows all of the breweries in a grid
 @app.route('/breweries/')
