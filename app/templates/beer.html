@@ -4,7 +4,7 @@
 {% block content %}
     <body>
       <div class= "individual">
-      	<img src={{ beer_info["labels"] }} alt={{ beer_info['name'] }} style="width:304px;height:228px;">
+      	<img src={{ beer_info.label }} alt={{ beer_info.name}} style="width:304px;height:228px;">
       	<h3 class = "gold"> Name </h3>
       	<h4> {{ beer_info.name }} </h4>
        	<h3 class = "gold"> Brewery </h3>
