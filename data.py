@@ -16,7 +16,7 @@ class Data:
 	}
 
 	def __init__(self):
-		self.read_metadata()
+		self.create_metadata()
 
 	def file_path(state, which):
 		return '/'.join([Data.data_dir, state, which])+'.json'
@@ -117,8 +117,10 @@ class Data:
 					label=b['beer']['beer_label'],
 					style=b['beer']['beer_style'],
 					ibu=b['beer']['beer_ibu'],
-					abv=b['beer']['beer_style'],
-					rating=b['beer']['rating_score'] )
+					abv=b['beer']['beer_abv'],
+					rating=b['beer']['rating_score'],
+					state_id=b['brewery']['location']['brewery_state'],
+					brewery_id=b['brewery']['brewery_id'] )
 				json.dump(b.to_dict(), bf)
 				bf.write('\n')
 
@@ -208,7 +210,4 @@ class Data:
 			'breweries_to_venues': brew2ven
 		}
 		self.write_metadata()
-
-		
-
 
