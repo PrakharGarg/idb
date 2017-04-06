@@ -14,10 +14,16 @@
        	<h3 class = "gold"> State Flower </h3>
        	<h4> {{ state_info.flower }} </h4>
        	<h3 class = "gold"> Venues </h3>
+        {% if not venues %}
+        <h4>None Available</h4>
+        {% endif %}
         {% for i in venues %}
        	  <h4> <a href="/venues/{{ i.id}}"> {{ i.name }} </a> </h4>
         {% endfor %}
        	<h3 class = "gold"> Breweries </h3>
+        {% if not breweries %}
+        <h4>None Available</h4>
+        {% endif %}
         {% for i in breweries %}
        	  <h4> <a href="/breweries/{{ i.id }}"> {{ i.name }} </a> </h4>
         {% endfor %}
