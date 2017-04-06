@@ -6,7 +6,19 @@ import subprocess
 
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :
-    output = subprocess.call(['python', 'app/tests.py'], stderr= subprocess.STDOUT)
+    # output = subprocess.call(['python', 'app/tests.py'], stderr= subprocess.STDOUT)
+
+    # output = subprocess.Popen('python app/tests.py'.split(' '), stdout=subprocess.PIPE, stderr=subprocess.PIPE,)
+    # output.wait()
+    # stuff, output = output.communicate()
+    # return jsonify(**{'result': str(output)})
+
+    try:
+        output = subprocess.check_output(
+            ['python', '-W', 'ignore', 'app/tests.py'], stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError, e:
+        output = e.output
+        
     return render_template("unittests.html", output = output)
 
 # Index page that contains a carousel
