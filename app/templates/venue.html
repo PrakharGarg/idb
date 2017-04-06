@@ -25,7 +25,7 @@
         <h4>None Available</h4>
         {% endif %}
         {% for i in brews %}
-       	  <h4> <a href="/brewery/{{ i.id }}"> {{ i.name }} </a> </h4>    
+       	  <h4> <a href="/breweries/{{ i.id }}"> {{ i.name }} </a> </h4>    
         {% endfor %}
         <h3 class = "gold"> State </h3>
        	<h4> <a href="/states/{{ venue_info.state_id }}"> {{ venue_info.state.name}} </a> </h4>

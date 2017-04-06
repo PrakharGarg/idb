@@ -75,7 +75,10 @@ def breweries() :
 @app.route('/breweries/<brewery_id>/')
 def brewery(brewery_id):
     beers = Beer.query.filter_by(brewery_id = brewery_id).all()
-    venues = db.session.query(ven2brew).filter_by(brewery_id = brewery_id).all()
+    venue = db.session.query(ven2brew).filter_by(brewery_id = brewery_id).all()
+    venues = []
+    for i in venue :
+        venues += Venue.query.filter_by(id = i[1]).all()
     brewery_info = Brewery.query.filter_by(id = brewery_id).first()
 
     return render_template('brewery.html',
