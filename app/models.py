@@ -146,12 +146,12 @@ class Venue(db.Model):
         beers: all the beers you may obtain
     """
     # properties
+    category = db.Column(db.String(90), index=True)
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), index=True, unique=True)
-    media = db.Column(db.String(300), index=True, unique=True)
-    address = db.Column(db.String(120), index=True, unique=True)
-    category = db.Column(db.String(90), index=True, unique=True)
+    media = db.Column(db.String(300), index=True)
     is_public = db.Column(db.Boolean)
+    name = db.Column(db.String(120), index=True)
+    address = db.Column(db.String(120), index=True)
     # relationships
     state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     ven2beer = db.relationship('Beer',
