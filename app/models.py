@@ -1,3 +1,5 @@
+
+
 from app import db
 
 from flask_sqlalchemy import SQLAlchemy
@@ -10,13 +12,15 @@ association tables
 # venues <-> beers
 ven2beer = db.Table('ven2beer',
     db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
-    db.Column('beer_id', db.Integer, db.ForeignKey('beer.id'))
+    db.Column('beer_id', db.Integer, db.ForeignKey('beer.id')),
+    extend_existing=True
 )
 
 # venues <-> breweries
 ven2brew = db.Table('ven2brew',
     db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id')),
-    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id'))
+    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
+    extend_existing=True
 )
 
 
@@ -46,8 +50,9 @@ class Beer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ibu = db.Column(db.Integer)
     abv = db.Column(db.Float)
+    __table_args__ = {'extend_existing': True} 
     
-    def __init__(self, style, rating, name, label, abv, ibu) :
+    def __init__(self, idd, style, rating, name, label, abv, ibu) :
         assert (style != "")
         assert (rating != "")
         assert (name != "")
@@ -55,6 +60,7 @@ class Beer(db.Model):
         assert (abv != "")
         assert (ibu != "")
         
+        self.id = idd
         self.style = style
         self.rating = rating
         self.name = name
@@ -107,6 +113,7 @@ class Brewery(db.Model):
     # relationships
     state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
+    __table_args__ = {'extend_existing': True} 
     
     def __init__(self, address, name, founded, label, brewery_type) :
         assert (address != "")
@@ -189,6 +196,8 @@ class Venue(db.Model):
         secondary=ven2brew,
         backref=db.backref('venues'),
         lazy='select')
+
+    __table_args__ = {'extend_existing': True} 
         
     def __init__(self, category, media, is_public, name, address) :
         assert (address != "")
@@ -254,6 +263,7 @@ class State(db.Model):
     breweries = db.relationship('Brewery', backref='state', lazy='select')
     venues = db.relationship('Venue', backref='state', lazy='select')
     beers = db.relationship('Beer', backref='state', lazy='select')
+    __table_args__ = {'extend_existing': True} 
     
     def __init__(self, abbreviation, capital, name, media, flower) :
         assert (abbreviation != "")

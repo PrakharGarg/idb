@@ -8,9 +8,17 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/Prakhar/Documents/School/Software_Engineering/idb/app/models.py">/Users/Prakhar/Documents/School/Software_Engineering/idb/app/models.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/patrickmoore/ut/swe/idb/app/models.py">/Users/patrickmoore/ut/swe/idb/app/models.py</a></font></td></tr></table>
     <p></p>
 <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -55,7 +63,7 @@ Attributes:<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Beer-__init__"><strong>__init__</strong></a>(self, name, labels, style, is_organic, rating, brewery, venues)</dt><dd><tt>make&nbsp;a&nbsp;new&nbsp;beer&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Beer-__init__"><strong>__init__</strong></a>(self, idd, style, rating, name, label, abv, ibu)</dt></dl>
 
 <dl><dt><a name="Beer-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>get&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;beer</tt></dd></dl>
 
@@ -63,29 +71,35 @@ Methods defined here:<br>
 
 <dl><dt><a name="Beer-relabel"><strong>relabel</strong></a>(self, new_label)</dt><dd><tt>change&nbsp;the&nbsp;label&nbsp;on&nbsp;this&nbsp;beer&nbsp;(gotta&nbsp;keep&nbsp;it&nbsp;fresh!)</tt></dd></dl>
 
+<dl><dt><a name="Beer-to_dict"><strong>to_dict</strong></a>(self)</dt></dl>
+
 <hr>
 Data descriptors defined here:<br>
-<dl><dt><strong>brewery</strong></dt>
+<dl><dt><strong>abv</strong></dt>
+</dl>
+<dl><dt><strong>brewery_id</strong></dt>
+</dl>
+<dl><dt><strong>ibu</strong></dt>
 </dl>
 <dl><dt><strong>id</strong></dt>
 </dl>
-<dl><dt><strong>is_organic</strong></dt>
-</dl>
-<dl><dt><strong>labels</strong></dt>
+<dl><dt><strong>label</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
 <dl><dt><strong>rating</strong></dt>
 </dl>
-<dl><dt><strong>style</strong></dt>
+<dl><dt><strong>state_id</strong></dt>
 </dl>
-<dl><dt><strong>venues</strong></dt>
+<dl><dt><strong>style</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103dfd0b8; Beer&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x104367240; Beer&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('beer', MetaData(bind=None), Column('id', ...('rating', Integer(), table=&lt;beer&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('beer', MetaData(bind=None), Column('state...olumn('abv', Float(), table=&lt;beer&gt;), schema=None)</dl>
+
+<dl><dt><strong>__table_args__</strong> = {'extend_existing': True}</dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -138,7 +152,7 @@ Attributes:<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Brewery-__init__"><strong>__init__</strong></a>(self, name, brewery_type, founded, labels, address, venues, state)</dt><dd><tt>make&nbsp;a&nbsp;new&nbsp;brewery&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Brewery-__init__"><strong>__init__</strong></a>(self, address, name, founded, label, brewery_type)</dt></dl>
 
 <dl><dt><a name="Brewery-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>get&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;brewery</tt></dd></dl>
 
@@ -150,9 +164,13 @@ Methods defined here:<br>
 
 <dl><dt><a name="Brewery-remove_venue"><strong>remove_venue</strong></a>(self, venue)</dt><dd><tt>stop&nbsp;distributing&nbsp;beer&nbsp;to&nbsp;a&nbsp;venue</tt></dd></dl>
 
+<dl><dt><a name="Brewery-to_dict"><strong>to_dict</strong></a>(self)</dt></dl>
+
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>address</strong></dt>
+</dl>
+<dl><dt><strong>beers</strong></dt>
 </dl>
 <dl><dt><strong>brewery_type</strong></dt>
 </dl>
@@ -160,19 +178,19 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>id</strong></dt>
 </dl>
-<dl><dt><strong>labels</strong></dt>
+<dl><dt><strong>label</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
-<dl><dt><strong>state</strong></dt>
-</dl>
-<dl><dt><strong>venues</strong></dt>
+<dl><dt><strong>state_id</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103dfdf28; Brewery&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x104367940; Brewery&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('brewery', MetaData(bind=None), Column('id...tring(length=120), table=&lt;brewery&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('brewery', MetaData(bind=None), Column('ad...te.abbreviation'), table=&lt;brewery&gt;), schema=None)</dl>
+
+<dl><dt><strong>__table_args__</strong> = {'extend_existing': True}</dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -224,7 +242,7 @@ Attributes:<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="State-__init__"><strong>__init__</strong></a>(self, capital, name, media, abbreviation, flower)</dt><dd><tt>make&nbsp;a&nbsp;new&nbsp;state&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="State-__init__"><strong>__init__</strong></a>(self, abbreviation, capital, name, media, flower)</dt></dl>
 
 <dl><dt><a name="State-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>get&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;state</tt></dd></dl>
 
@@ -234,25 +252,33 @@ Methods defined here:<br>
 
 <dl><dt><a name="State-is_flower_pretty"><strong>is_flower_pretty</strong></a>(self)</dt><dd><tt>get&nbsp;info&nbsp;back&nbsp;on&nbsp;this&nbsp;state's&nbsp;flower's&nbsp;prettiness</tt></dd></dl>
 
+<dl><dt><a name="State-to_dict"><strong>to_dict</strong></a>(self)</dt></dl>
+
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>abbreviation</strong></dt>
+</dl>
+<dl><dt><strong>beers</strong></dt>
+</dl>
+<dl><dt><strong>breweries</strong></dt>
 </dl>
 <dl><dt><strong>capital</strong></dt>
 </dl>
 <dl><dt><strong>flower</strong></dt>
 </dl>
-<dl><dt><strong>id</strong></dt>
-</dl>
 <dl><dt><strong>media</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
+<dl><dt><strong>venues</strong></dt>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103e01198; State&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x104379b00; State&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('state', MetaData(bind=None), Column('id',... String(length=120), table=&lt;state&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('state', MetaData(bind=None), Column('abbr... String(length=120), table=&lt;state&gt;), schema=None)</dl>
+
+<dl><dt><strong>__table_args__</strong> = {'extend_existing': True}</dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -309,7 +335,7 @@ Attributes:<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Venue-__init__"><strong>__init__</strong></a>(self, name, media, address, category, is_public, state, breweries, beers)</dt><dd><tt>make&nbsp;a&nbsp;new&nbsp;venue&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Venue-__init__"><strong>__init__</strong></a>(self, category, media, is_public, name, address)</dt></dl>
 
 <dl><dt><a name="Venue-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>get&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;venue</tt></dd></dl>
 
@@ -319,13 +345,11 @@ Methods defined here:<br>
 
 <dl><dt><a name="Venue-remove_brewery"><strong>remove_brewery</strong></a>(self, brewery)</dt><dd><tt>stop&nbsp;serving&nbsp;all&nbsp;beers&nbsp;from&nbsp;this&nbsp;brewery</tt></dd></dl>
 
+<dl><dt><a name="Venue-to_dict"><strong>to_dict</strong></a>(self)</dt></dl>
+
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>address</strong></dt>
-</dl>
-<dl><dt><strong>beers</strong></dt>
-</dl>
-<dl><dt><strong>breweries</strong></dt>
 </dl>
 <dl><dt><strong>category</strong></dt>
 </dl>
@@ -337,13 +361,19 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
-<dl><dt><strong>state</strong></dt>
+<dl><dt><strong>state_id</strong></dt>
+</dl>
+<dl><dt><strong>ven2beer</strong></dt>
+</dl>
+<dl><dt><strong>ven2brew</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103dee860; Venue&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x1043790f0; Venue&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('venue', MetaData(bind=None), Column('id',..._public', Boolean(), table=&lt;venue&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('venue', MetaData(bind=None), Column('cate...tate.abbreviation'), table=&lt;venue&gt;), schema=None)</dl>
+
+<dl><dt><strong>__table_args__</strong> = {'extend_existing': True}</dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -376,7 +406,7 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine=sqlite:///:memory:&gt;<br>
-<strong>venue_beer_association</strong> = Table('venue_beer_association', MetaData(bind=No...'), table=&lt;venue_beer_association&gt;), schema=None)<br>
-<strong>venue_brewery_association</strong> = Table('venue_brewery_association', MetaData(bind... table=&lt;venue_brewery_association&gt;), schema=None)</td></tr></table>
+<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine=postgresql://localhost/poh&gt;<br>
+<strong>ven2beer</strong> = Table('ven2beer', MetaData(bind=None), Column('v...gnKey('beer.id'), table=&lt;ven2beer&gt;), schema=None)<br>
+<strong>ven2brew</strong> = Table('ven2brew', MetaData(bind=None), Column('b...nKey('venue.id'), table=&lt;ven2brew&gt;), schema=None)</td></tr></table>
 </body></html>

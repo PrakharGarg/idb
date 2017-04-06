@@ -1,3 +1,772 @@
+commit 99f88a807a8652f17f9ab1025b59db2c7443108e
+Merge: a9fa3d4 412d646
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 15:35:00 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+    
+    Conflicts:
+    	app/views.py
+
+commit a9fa3d4fedd4ed962867f6f6daf21de7ea6719ff
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 15:33:36 2017 -0500
+
+    testing view changed so that this orks!
+
+commit 057f96d74314b609086eb5f0350bf4fab7597772
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 15:33:01 2017 -0500
+
+    model test
+
+commit 234d0417e9993764e28d03700926cedaa2dbffe4
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 15:32:34 2017 -0500
+
+    writing tups for data dumping
+
+commit 412d646b5f01be4fa7bc71e412814cca33ad49e0
+Merge: 38d34a8 96ca18d
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Thu Apr 6 13:44:42 2017 -0500
+
+    Merge branch 'tests_modal' into master
+
+commit 96ca18d08373d650f2b4b8ec01528085c39870c2
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Thu Apr 6 13:43:13 2017 -0500
+
+    Changed modal script
+
+commit 38d34a80d74e7ae69714badea6be41c9d41e1fc1
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 12:50:13 2017 -0500
+
+    super great awesome file for setting up db quickly. All hail Prakhar!
+
+commit 8c0791ae0372c9d676a9057132587a09ffb5b59c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 12:09:09 2017 -0500
+
+    tests working but in terminal
+
+commit c753c4e4c2c0ccd8532feb6b5e53163c628d54b8
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 10:50:32 2017 -0500
+
+    added angular to about
+
+commit 789c5097622dd3fd24296757c4d0fc5e14bdaa6a
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 10:36:43 2017 -0500
+
+    added asserts to models.py
+
+commit bdd67db45a066c941d2d68e008590aed644664f8
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 01:50:57 2017 -0500
+
+    premature celebration
+
+commit df2c6f481f2223b701978b63e71afba9ca0fcd43
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 01:44:24 2017 -0500
+
+    LINKS DONE
+
+commit 2d5c1fb18b58eec54389afcde89485ca0bb2d314
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 01:34:00 2017 -0500
+
+    venues showing brews works
+
+commit fe4ad220ac0417a50941234da4c0bd5c8a7f8611
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 00:05:35 2017 -0500
+
+    fixed venues
+
+commit 1ec539c19ad9e855c26e203e2600682243ff9539
+Merge: 91e5c5a 1c232b7
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 23:57:12 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 91e5c5a96bba06012c9e6fde6b3a7e63e704c8bb
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 23:57:03 2017 -0500
+
+    venues
+
+commit 1c232b7a03d57dfba0a782db5d16ef183e716c76
+Merge: dd0762c 612fe8b
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 23:51:16 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit dd0762c43af7c018e07432e4c8e41e881700a209
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 23:51:09 2017 -0500
+
+    best data ever for venues
+
+commit 612fe8bedbadf3e4a5edb313ecdd0aea468734ba
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 23:47:57 2017 -0500
+
+    venues
+
+commit e46b929d59dcf99c8a4c2c2c1115b9f04f81ecd0
+Merge: b9f629f 0ba499d
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 23:40:54 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit b9f629f75ee495728137d28bcf3c02f141515a49
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 23:40:40 2017 -0500
+
+    venue data correction
+
+commit 0ba499d56c0e2f1f2ebe243703812510224ca851
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 23:35:10 2017 -0500
+
+    beers works
+
+commit f9543bc9ac7d18507e5b373d862c8df554d58095
+Merge: 04ee97f a75a2d0
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 23:17:14 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 04ee97fa503328d48dc47eba0d0eb4412159683e
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 23:17:08 2017 -0500
+
+    newest beer data
+
+commit a75a2d017e10924ee2429e3be7b2842d7291e48a
+Merge: a4532f3 14ea50c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 23:15:22 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit a4532f3672fe28a6a50c9309e63be75c7f50293d
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 23:15:19 2017 -0500
+
+    got breweries to work
+
+commit 14ea50c96746311988cfa1f923a31a6dbe5a0b0e
+Merge: 38baeef 331806e
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 23:12:43 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 38baeefc7a59f3676fc24fd0235d7167b8078bee
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 23:12:37 2017 -0500
+
+    beer json completion
+
+commit 331806e7c5ab53c165eb1a24aff868c68ca80a53
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Apr 5 22:51:44 2017 -0500
+
+    removing remnant of a merge conflict
+
+commit 28ee5f543c01c458a17338c1f29f211aa6bafb34
+Author: amiralihashim <amiralihashim@users.noreply.github.com>
+Date:   Wed Apr 5 22:43:52 2017 -0500
+
+    Added tests_model.py file needed for testing
+
+commit c800cafc6a1882e01b158b158af26189eac754fc
+Merge: c6ebd59 eaa46fd
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Apr 5 22:31:24 2017 -0500
+
+    fixing .gitignore merge conflicts
+
+commit c6ebd59ca05471aadc01f284fba12cdf5a03e71d
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Apr 5 22:30:21 2017 -0500
+
+    updating .gitignore resolves #90
+
+commit eaa46fda7d06368b0e372ec30906da9ef515d0cd
+Merge: 296aba4 9e1b9d3
+Author: amiralihashim <amiralihashim@users.noreply.github.com>
+Date:   Wed Apr 5 22:29:40 2017 -0500
+
+    Merge pull request #91 from PrakharGarg/tests_modal
+    
+    Update tests.py
+
+commit 296aba4193f3d1bcdcbdc0e3bc92a3da3865d685
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 22:26:37 2017 -0500
+
+    consistency fixes
+
+commit 9e1b9d3d408152e4c3f9b5b2201f9f1b05d562d4
+Author: amiralihashim <amiralihashim@users.noreply.github.com>
+Date:   Wed Apr 5 22:25:11 2017 -0500
+
+    Update tests.py
+
+commit 96d5d2603b611645e9357b4ba1a41a43835fdcb9
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 22:21:02 2017 -0500
+
+    consistency fixes
+
+commit 2c966ceee4596b29856d1911ca23eb75439bfb5c
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 22:18:27 2017 -0500
+
+    data modz
+
+commit 2c74621c14dabb970772ff08eab7827ba762a9e6
+Merge: f33fbd9 1c21a2e
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 22:17:19 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit f33fbd9ff6edd3f72b2571c1a0254b881d2db57d
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 22:16:58 2017 -0500
+
+    modified states to use the postal code as primary key, this no longer has an id field
+
+commit 1c21a2ead1a0080ead333b4dfd461436088bef36
+Merge: 7544139 8d6839a
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Apr 5 22:09:12 2017 -0500
+
+    Merge pull request #89 from PrakharGarg/tests_modal
+    
+    Tests modal
+
+commit 8d6839a2ff6c258cd0a2cb66df13052f2cd9c5af
+Merge: 13ed840 7544139
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Apr 5 22:07:46 2017 -0500
+
+    Merge pull request #88 from PrakharGarg/master
+    
+    Updating to master again
+
+commit 75441392f75d65b2ef7a7008178fbc9bc3013c9f
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 22:02:14 2017 -0500
+
+    temp fixes cuz who knows!
+
+commit bf79a67dc1d19782570f60200d630e1e2effcb7d
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 22:00:14 2017 -0500
+
+    local db
+
+commit 38faece484cde00fbd2b7a97c4a6170283eee37a
+Merge: 972f615 17f1589
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 21:52:05 2017 -0500
+
+    Merge pull request #87 from PrakharGarg/data
+    
+    Data
+
+commit 13ed8407bd17e0ab69dd8469f1b2778acf8cac07
+Merge: 14a092e 972f615
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Apr 5 21:49:48 2017 -0500
+
+    Merge pull request #86 from PrakharGarg/master
+    
+    Update to master
+
+commit 972f6159d3db79c0f1bfc372fed15a50dc1afe71
+Merge: 3b99770 14a092e
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Apr 5 21:49:01 2017 -0500
+
+    Merge branch 'tests_modal' into master
+
+commit 3b997701698e3199647a7069d66196f9e00accbe
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Apr 5 20:28:34 2017 -0500
+
+    there were indentaiton problems and lots of methods without closing parenthesis resolves #85
+
+commit 7656e60f551259aaf54f828e4028c5664b4b61bc
+Merge: baef4ab 795f674
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Apr 5 19:55:59 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit baef4abb764f6f9c56924ced0488ae7e264b377c
+Author: Cole Mayo <colemayo@utexas.edu>
+Date:   Wed Apr 5 19:53:43 2017 -0500
+
+    changes for connecting to gcloud sql databse
+
+commit 14a092e2b7dcd25e8c9f757f6aed5124756081c0
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Apr 5 19:06:50 2017 -0500
+
+    Fixed spacing on dummy test files and updated gitignore
+
+commit d8653acefa3ccf85f5f55c9c883af193b39b007f
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Apr 5 18:43:22 2017 -0500
+
+    Unit test modal changed to python2
+
+commit 795f6741919644b81265884a4e95f7fefee151f2
+Author: as43574 <adstorey@gmail.com>
+Date:   Wed Apr 5 18:35:59 2017 -0500
+
+    Transferring API Description file from Apiary.io -- fixes host url
+
+commit 6e9ba1076925482552075214efe3779a606e0a16
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Wed Apr 5 18:28:15 2017 -0500
+
+    Removes useless flag images from img folder
+
+commit 6beee348b830abc1c8e3e501a42888fd36bc7836
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Wed Apr 5 18:21:08 2017 -0500
+
+    removes js folder from /static
+
+commit 5230138410ddab6d8dfb69ef96d704bb8cec8fa0
+Merge: 36418ba 2135c11
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Wed Apr 5 17:06:29 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 2135c111edbcc7873eec5284b799f06bb153c45f
+Merge: d18ad24 b3a1605
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Apr 5 16:50:51 2017 -0500
+
+    Merge pull request #81 from PrakharGarg/tests_modal
+    
+    Tests modal
+
+commit b3a16059e4c8ea9d357e370001d88c7b1e03d79d
+Merge: 6932362 d18ad24
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Wed Apr 5 16:42:13 2017 -0500
+
+    Merge pull request #80 from PrakharGarg/master
+    
+    Update to master branch
+
+commit 17f15890925a5a2f9e46badbffb7b8da46726bdb
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 15:15:58 2017 -0500
+
+    data manips
+
+commit f5e5b7d1096599a9f89669503843f6209d576612
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 15:14:35 2017 -0500
+
+    automatically encodes all fields into dict. better  field consistency!
+
+commit 445bd215a23bd6e0d9205b73b22fc1e83ee831bf
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 14:51:59 2017 -0500
+
+    stuff is mostly working, I think we have a good working set of data here.
+    in data dir, there is a raw and clean data set
+
+commit 36418bac8b9ec1af877c141d31a213b67fa0cd5b
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Wed Apr 5 14:07:22 2017 -0500
+
+    Fixes format of json on api returns to include ids for get all names call
+
+commit d18ad24d6e2d194cb373e36047de0c1e09c364b4
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 13:04:26 2017 -0500
+
+    state page is now done
+
+commit 270fbc84251c439985f4f47bf1c2e0da45738a97
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 12:31:20 2017 -0500
+
+    default string representation is now json
+
+commit 7313ac3ecbefb7e1ccc09531c9032c3eb8300c9c
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 12:26:24 2017 -0500
+
+    change shitty name
+
+commit a0d61b578bbde45056c1e50c8957ad5004a0f8e7
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 12:26:22 2017 -0500
+
+    fixed states model
+
+commit 0c0ae5788a46c91d325e5c488bd2011819c7602b
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 12:19:31 2017 -0500
+
+    removed init functions
+
+commit 9286a8790bb6717ac3eba1bd6c9002b056f905a8
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 12:08:27 2017 -0500
+
+    to_dict methods, also access to ids
+
+commit 256cc4382e7dfc6be646895fa35c00381d6721b3
+Merge: e82b1ba b6f8c56
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 11:37:46 2017 -0500
+
+    Merge branch 'master' into data
+
+commit e82b1baffc795a1cdc75267714855c06d8841e56
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 11:19:47 2017 -0500
+
+    making some slight changes
+
+commit b6f8c56516fb3c07d39d8575aa891064a2b6f04e
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 11:11:28 2017 -0500
+
+    added stuff to about page
+
+commit 96fd3bde7f442060a579e8b1732f1a9edfa33993
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 09:56:26 2017 -0500
+
+    remove array from states view
+
+commit 46fec05ce33ac87f35d864c692d2017f1ef9c60a
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 09:53:13 2017 -0500
+
+    model fixes to remove arrays
+
+commit bea4f86f7558c1fa975a990da97372b60a6add20
+Merge: 1f0d2d1 5e5b982
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 09:46:21 2017 -0500
+
+    Merge pull request #78 from PrakharGarg/join
+    
+    fixing states
+
+commit 5e5b982bbf9f0a61372eb35dde7af059bb3cee15
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Wed Apr 5 09:45:57 2017 -0500
+
+    fixing states
+
+commit 6333bef5e5d6a5edca91b04dcae8d8d5d1df3942
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 03:07:38 2017 -0500
+
+    woops!
+
+commit 9e2f7203c7085775824b564828dd258dc957b6c9
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Wed Apr 5 02:58:21 2017 -0500
+
+    single python class for managing collection and pre-processing of data
+
+commit 1f0d2d1718de7897cca1d8bb6b7bb2d6ed4899de
+Merge: d6e3243 de84aa0
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Tue Apr 4 22:32:45 2017 -0500
+
+    Merge pull request #77 from PrakharGarg/join
+    
+    added extra vars in views
+
+commit de84aa0b234b6eefd747401a8cf5333e3f863310
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Apr 4 22:31:47 2017 -0500
+
+    added extra vars in views
+
+commit 907639e5c8738f21d9c2d0b4c64c1bd1753be841
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Tue Apr 4 21:48:32 2017 -0500
+
+    need some work on this so that data is not overwritten
+
+commit 509280a77633e944b426de0cae7788027bf15206
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Tue Apr 4 21:47:10 2017 -0500
+
+    fully contained dataset
+
+commit e0815d94ad3f1dfea960d63314465dddcc0b5482
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Tue Apr 4 20:23:18 2017 -0500
+
+    lots of data related things
+
+commit 6932362ff577c0b15598673b7969d4c36f797800
+Merge: 056f73b d6e3243
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Tue Apr 4 19:35:58 2017 -0500
+
+    Merge pull request #76 from PrakharGarg/master
+    
+    Updating to master branch
+
+commit 056f73b49c9f8e579ab8f4091b1027811f709791
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Tue Apr 4 19:27:37 2017 -0500
+
+    Made modal more pretty
+
+commit 4197891fe4d768a97cf262da5189798452dae1e3
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Tue Apr 4 18:43:29 2017 -0500
+
+    Modal output runs the unit tests (I hope)
+
+commit ef184b257ba93dd1645f706dfb92467c01dae98b
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Tue Apr 4 18:00:03 2017 -0500
+
+    Oops forgot to track some files
+
+commit 9fa754e08b45251bc9f1e9f7f2030e87c33389b6
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Tue Apr 4 17:59:11 2017 -0500
+
+    Refactored tests to unittests
+
+commit d6e3243db70bc573924a2598d518f448c4e7b42c
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Tue Apr 4 15:58:23 2017 -0500
+
+    Fixes api endpoints for individual page calls
+
+commit b8dba6c4023980cd4b2316939018257696982d71
+Author: Arjun Gopisetty <arjun.gopisetty@gmail.com>
+Date:   Tue Apr 4 15:16:18 2017 -0500
+
+    Initial work on modal
+
+commit 23c380d25082240b003f869aeefbfdedb87371df
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Tue Apr 4 15:12:24 2017 -0500
+
+    Fixed JSON format for beer list on api call
+
+commit c6befd42d31ce6264261679952ac6e59c9dae2c8
+Merge: f674b84 d33e377
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Tue Apr 4 14:42:05 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit d33e37706f582d8db8d991fd2f6453d50d44b6f1
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Apr 4 14:40:44 2017 -0500
+
+    done with json?
+
+commit f674b840df94cd5843c0b1c0a8f806bdf368d4ea
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Tue Apr 4 14:34:02 2017 -0500
+
+    Fix api calls to use IDs instead of names
+
+commit 1278a1f0b2b869004bf1d51f4abdc16c453ce12f
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Apr 4 14:29:18 2017 -0500
+
+    fixing json stuff
+
+commit 1296962cdb5d201d76e90918ec07fd9827f578ef
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Tue Apr 4 13:36:12 2017 -0500
+
+    Changes data for individual pages to queries instead of static data
+
+commit 3367dc2a57091be164ec3f1422a3bb7928adbfa7
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Tue Apr 4 13:27:39 2017 -0500
+
+    Fixes import for models and changes grid endpoints to queries instead of static data
+
+commit b56d9fc88ea39dd50eea7221331e0608ce7ead60
+Author: Drew Storey <adstorey@Sydney-Storeys-MacBook-Pro.local>
+Date:   Tue Apr 4 13:18:01 2017 -0500
+
+    adds api GET methods
+
+commit 8e87adc83f91840a4eeb680e08c2cb0ba72fc630
+Merge: 4781460 00a3a6e
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Tue Apr 4 12:34:17 2017 -0500
+
+    Merge pull request #73 from PrakharGarg/filter
+    
+    Filter
+
+commit 00a3a6e0a4ec4771521bff9389a0cc679a082281
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Apr 4 12:33:08 2017 -0500
+
+    got database working
+
+commit d52e8004d23d367140216a0c732526ced7f9c989
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Tue Apr 4 12:27:11 2017 -0500
+
+    test db
+
+commit 4781460f73a518d4c7c2936055269d9dc35316fc
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Tue Apr 4 12:25:33 2017 -0500
+
+    fixes to model relationships
+
+commit 244d9095ac260b24b0d5c68bc4011de902c00a1a
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Mon Apr 3 16:16:02 2017 -0500
+
+    added psycopg2 to requirements #70
+
+commit 53c4f067d3fcabb031a5ce4005a7fa8d518370b8
+Merge: d1f40ca c665938
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Mon Apr 3 14:51:55 2017 -0500
+
+    Merge pull request #69 from PrakharGarg/sql
+    
+    got local db working
+
+commit c665938071fee0d597728f1cb02d1707cb43badd
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Apr 3 14:47:43 2017 -0500
+
+    got local db working
+
+commit d1f40ca157b119d842a4e40608aaf430077ff8fc
+Merge: f57f2cf 793d651
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Mon Apr 3 11:04:52 2017 -0500
+
+    Merge pull request #68 from PrakharGarg/pop-up
+    
+    pop-up done
+
+commit 793d651c48af61d4133ae6a79f0959763661b4c6
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Mon Apr 3 11:04:20 2017 -0500
+
+    pop-up done
+
+commit f57f2cf409d0e7424e66a90387b2c8cad064574d
+Merge: 9b24b01 12ed149
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 20:01:13 2017 -0500
+
+    Merge pull request #67 from PrakharGarg/dynamic_grids
+    
+    Dynamic grids
+
+commit 12ed14968d80b58cce6122cb15a749826b146b67
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 20:00:30 2017 -0500
+
+    all grids are dynamic
+
+commit b2de8060f9233b39b1bcf460c350fdaaa9c78748
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 19:28:03 2017 -0500
+
+    whooohoo dynamic works
+
+commit 9b24b01b5ee5b474cd80934dc18bd7cd76fa459d
+Merge: a939d58 54353af
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 18:29:04 2017 -0500
+
+    Merge pull request #63 from PrakharGarg/implement_grid
+    
+    Implement grid
+
+commit 54353af769cc6783fd929378fd208ff2f2008c0d
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 18:25:27 2017 -0500
+
+    asc and desc arrows done
+
+commit 6a452445b62b6356e33902178ae6379e35528cb7
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 17:46:27 2017 -0500
+
+    fixed venue filters
+
+commit f49d88519fd810c7d7473a43d0dc7361e240677a
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 17:45:01 2017 -0500
+
+    fixed filters
+
+commit a939d586825542c7300254b823ff3965ae52dc23
+Merge: 2513fc3 e9057e0
+Author: Prakhar Garg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 13:35:10 2017 -0500
+
+    Merge pull request #61 from PrakharGarg/small_fixes
+    
+    Small fixes
+
+commit e9057e0ac0ad51208b6f5d306c9da55afa64641e
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 13:33:00 2017 -0500
+
+    fixed about title clipping
+
+commit d958c4c0860aad1a5390fa177fd6ae42d4d6476c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 13:28:53 2017 -0500
+
+    fixed spacing issue
+
+commit eb5d796774d87fa9448ad4883e3ba99a54514435
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Sat Apr 1 13:27:43 2017 -0500
+
+    moved technical report to seperate page:
+
+commit 2513fc3a9454bea9888afe67e19bff4c48148fe2
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Fri Mar 24 11:38:36 2017 -0500
+
+    final push
+
 commit 08e63e55622db39d9838fd74e24f6d785df3f441
 Author: PrakharGarg <prakhargarg@utexas.edu>
 Date:   Fri Mar 24 11:37:14 2017 -0500

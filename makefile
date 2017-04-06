@@ -41,8 +41,8 @@ clean:
 	-rm -r *.pyc
 	-rm -rf __pycache__
 	-rm -rf idb-env
-	-rm IDB1.html
-	-rm IDB1.log
+	-rm IDB2.html
+	-rm IDB2.log
 
 run:
 	python main.py
@@ -53,8 +53,8 @@ deploy:
 doc:
 	make clean
 	pydoc3.5 -w app/models.py
-	mv models.html IDB1.html
-	git log > IDB1.log
+	mv models.html IDB2.html
+	git log > IDB2.log
 
 env:
 	sudo pip install virtualenv
