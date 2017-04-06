@@ -97,13 +97,20 @@ class Data:
 		vs = self.get_all('venue')
 		with open(Data.file_path('clean','venue'), 'w') as vf:
 			for v in vs:
+				medias = []
+				for m in v['media']['items']:
+					medias.append(m['photo']['photo_img_og'])
 				v = Venue(
 					id=v['venue_id'],
 					name=v['venue_name'],
-					media=v['media'],
-					address=v['location'],
-					category=v['categories'],
-					is_public=v['public_venue'])
+					media=medias[0],
+					address=', '.join([
+				    	str(v['location']['venue_address']),
+				    	str(v['location']['venue_city']),
+				    	str(v['location']['venue_state']) ]),
+					category=v['categories']['items'][0]['category_name'],
+					is_public=v['public_venue'],
+					state_id=v['location']['venue_state'])
 				json.dump(v.to_dict(), vf)
 				vf.write('\n')
 
