@@ -53,11 +53,11 @@ def venues() :
 @app.route('/venues/<venue_id>/')
 def venue(venue_id) :
     venue_info = Venue.query.filter_by(id = venue_id).first()
-    beers = db.session.query(venue_beer_association).all()
-    venues_breweries = db.session.query(venue_brewery_association).all()
+    # beers = db.session.query(venue_beer_association).all()
+    # venues_breweries = db.session.query(venue_brewery_association).all()
     
     return render_template('venue.html', 
-        venue_info = venue_info, beers = beers, venues_breweries = venues_breweries)
+        venue_info = venue_info)
 
 # Page that shows all of the breweries in a grid
 @app.route('/breweries/')
