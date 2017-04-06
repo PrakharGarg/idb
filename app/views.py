@@ -6,7 +6,19 @@ import subprocess
 
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :
-    output = subprocess.check_output(['python', 'app/testing_tests.py'], stderr= subprocess.STDOUT)
+    # output = subprocess.call(['python', 'app/tests.py'], stderr= subprocess.STDOUT)
+
+    # output = subprocess.Popen('python app/tests.py'.split(' '), stdout=subprocess.PIPE, stderr=subprocess.PIPE,)
+    # output.wait()
+    # stuff, output = output.communicate()
+    # return jsonify(**{'result': str(output)})
+
+    try:
+        output = subprocess.check_output(
+            ['python', '-W', 'ignore', 'app/tests.py'], stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError, e:
+        output = e.output
+
     return render_template("unittests.html", output = output)
 
 # Index page that contains a carousel
@@ -53,11 +65,16 @@ def venues() :
 @app.route('/venues/<venue_id>/')
 def venue(venue_id) :
     venue_info = Venue.query.filter_by(id = venue_id).first()
-    beers = db.session.query(venue_beer_association).all()
-    venues_breweries = db.session.query(venue_brewery_association).all()
-    
+    brews = db.session.query(ven2brew).filter_by(venue_id = venue_id).all()
+    brew = []
+    for i in brews :
+        brew += Brewery.query.filter_by(id = i[0]).all()
+    beers = db.session.query(ven2beer).filter_by(venue_id = venue_id).all()
+    beer = []
+    for i in beers :
+        beer += Beer.query.filter_by(id = i[1]).all()
     return render_template('venue.html', 
-        venue_info = venue_info, beers = beers, venues_breweries = venues_breweries)
+        venue_info = venue_info, brews = brew, beers = beer)
 
 # Page that shows all of the breweries in a grid
 @app.route('/breweries/')
@@ -69,8 +86,11 @@ def breweries() :
 # the name of the brewery being passed in
 @app.route('/breweries/<brewery_id>/')
 def brewery(brewery_id):
-    beers = db.session.query(venue_beer_association).all()
-    venues = db.session.query(venue_brewery_association).all()
+    beers = Beer.query.filter_by(brewery_id = brewery_id).all()
+    venue = db.session.query(ven2brew).filter_by(brewery_id = brewery_id).all()
+    venues = []
+    for i in venue :
+        venues += Venue.query.filter_by(id = i[1]).all()
     brewery_info = Brewery.query.filter_by(id = brewery_id).first()
 
     return render_template('brewery.html',
@@ -85,11 +105,11 @@ def states() :
 
 # Page that shows info about a specific location with
 # the name of the location being passed in 
-@app.route('/states/<state_id>/')
-def state(state_id) :
-    state_info = State.query.filter_by(id = state_id).first()
-    venues = Venue.query.filter_by(state_id = state_id).all()
-    breweries = Brewery.query.filter_by(state_id = state_id).all()
+@app.route('/states/<state_abbreviation>/')
+def state(state_abbreviation) :
+    state_info = State.query.filter_by(abbreviation = state_abbreviation).first()
+    venues = Venue.query.filter_by(state_id = state_abbreviation).all()
+    breweries = Brewery.query.filter_by(state_id = state_abbreviation).all()
     return render_template('state.html', 
         state_info = state_info, venues = venues, breweries = breweries)
 
