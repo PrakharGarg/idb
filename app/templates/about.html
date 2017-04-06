@@ -80,12 +80,47 @@
   
   <h2 class = "aboutstatsheader">Data</h2>
   <div class = "aboutstats">
-    Source 1: <a href="http://www.brewerydb.com" class = "gold">BreweryDB</a> <br />
-    Phase 1: Since we are serving up static pages and don't have a database to work with, we manually looked up
-    breweries, locations, beers, and breweries. We manually imported this data into our project. <br /><br />
-    Source 2: <a href="https://untappd.com/api/docs" class = "gold">Untapped API</a> <br />
-    Phase 1: Since we are serving up static pages and don't have a database to work with, we manually looked up
-    breweries, locations, beers, and breweries. We manually imported this data into our project.
+    <ul>
+      <li>
+        Source 1: <a href="http://www.brewerydb.com" class = "gold">BreweryDB</a>
+      </li>
+      <ul>
+        <li>
+          <strong>Phase 1:</strong> Since we are serving up static pages and don't have a database to work with, we manually looked up
+          breweries, locations, beers, and breweries. We manually imported this data into our project.
+        </li>
+        <li>
+          <strong>Phase 2:</strong> Using BreweryDB's API, we queried for all of the beers that we got from Untapped
+          and used their data to fill in the remaining fields. 
+        </li>
+      </ul>
+      <li>
+        Source 2: <a href="https://untappd.com/api/docs" class = "gold">Untapped API</a>
+      </li>
+      <ul>
+        <li>
+          <strong>Phase 1:</strong> Since we are serving up static pages and don't have a database to work with, we manually looked up
+          breweries, locations, beers, and breweries. We manually imported this data into our project.
+        </li>
+        <li>
+          <strong>Phase 2:</strong> Using Untapped's API, we first queried all of the venues. With the Venues came the list
+          of beers and breweries that they served. Using this list of breweries, we then queried all of their beers.
+        </li>
+      </ul>
+      <li>
+        Source 3: <a href="https://www.mediawiki.org/wiki/API:Main_page" class = "gold">Wikipedia API</a>
+      </li>
+      <ul>
+        <li>
+          <strong>Phase 1:</strong> Since we are serving up static pages and don't have a database to work with, we manually looked up
+          breweries, locations, beers, and breweries. We manually imported this data into our project.
+        </li>
+        <li>
+          <strong>Phase 2:</strong> Using Wikipedia's API, we created a script to go through the U.S States page and query each of the states listed.
+          From there, we massaged the json down to only the fields that we needed.
+        </li>
+      </ul>
+    </ul>
   </div>
   <br />
   
@@ -101,6 +136,14 @@
           </li>
           <li>
             <i>Grid System</i> - used to provide the skeleton for the database pages.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="" class = "gold"></a>
+        <ul>
+          <li>
+            Used to dynamically render our front-end without having to refresh the page.
           </li>
         </ul>
       </li>
@@ -166,7 +209,7 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+        <p id="myText">Some text in the Modal.</p>
       </div>
       
     </div>

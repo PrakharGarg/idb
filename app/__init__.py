@@ -7,4 +7,4 @@ app.config['SQLALCHEMY_DATABASE_URI'] = sensitive.DATABASE['postgres']
 db = SQLAlchemy(app)
 db.create_all()
 
-from app import views,models
+from app import views, models
