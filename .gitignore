@@ -4,6 +4,11 @@
 __pycache__
 idb-env
 app/sensitive.py
+<<<<<<< HEAD
 gcloud-credentials.json
 /cloud_sql_proxy
 *.sh
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store

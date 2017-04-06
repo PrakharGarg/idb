@@ -1,19 +1,20 @@
 from app import db
-from flask_sqlalchemy import SQLAlchemy
 
+from flask_sqlalchemy import SQLAlchemy
+import json
 
 """
 association tables
 """
 
 # venues <-> beers
-venue_beer_association = db.Table('venue_beer_association',
+ven2beer = db.Table('ven2beer',
     db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
     db.Column('beer_id', db.Integer, db.ForeignKey('beer.id'))
 )
 
 # venues <-> breweries
-venue_brewery_association = db.Table('venue_brewery_association',
+ven2brew = db.Table('ven2brew',
     db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
     db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id'))
 )
@@ -38,39 +39,29 @@ class Beer(db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True, unique=True)
-    labels = db.Column(db.String(300), index=True, unique=True)
+    label = db.Column(db.String(300), index=True, unique=True)
     style = db.Column(db.String(60), index=True, unique=True)
-    is_organic = db.Column(db.Boolean)
+    ibu = db.Column(db.Integer)
+    abv = db.Column(db.Float)
     rating = db.Column(db.Float)
     # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     brewery_id = db.Column(db.Integer, db.ForeignKey('brewery.id'))
-
-    def __init__(self, name, labels, style, is_organic, rating,
-        brewery, venues):
-        """
-        make a new beer instance
-        """
-        self.name = name
-        self.labels = labels
-        self.style = style
-        self.is_organic = is_organic
-        self.rating = rating
-        self.brewery = brewery
-        self.venues = venues
 
     def __repr__(self):
         """
         get a string representation of this beer
         """
-        descr = "This is {} beer. You will drink it, and you will love it!"
-        return descr.format(self.name)
+        return json.dumps(self.to_dict())
+
+    def to_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def relabel(self, new_label):
         """
         change the label on this beer (gotta keep it fresh!)
         """
-        self.labels.insert(0, new_label)
+        self.label = new_label
 
     def change_rating(self, new_rating):
         """
@@ -97,31 +88,20 @@ class Brewery(db.Model):
     name = db.Column(db.String(120), index=True, unique=True)
     brewery_type = db.Column(db.String(60), index=True, unique=True)
     founded = db.Column(db.Integer, index=True)
-    labels = db.Column(db.String(300), index=True, unique=True)
+    label = db.Column(db.String(300), index=True, unique=True)
     address = db.Column(db.String(120), index=True, unique=True)
     # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+    state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
-
-    def __init__(self, name, brewery_type, founded, labels, address,
-        venues, state):
-        """
-        make a new brewery instance
-        """
-        self.name = name
-        self.brewery_type = brewery_type
-        self.founded = founded
-        self.labels = labels
-        self.address = address
-        self.venues = venues
-        self.state = state
 
     def __repr__(self):
         """
         get a string representation of this brewery
         """
-        descr = "At {}, we brew lots of beers. Try some!"
-        return descr.format(self.name)
+        return json.dumps(self.to_dict())
+
+    def to_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def change_name(self, new_name):
         """
@@ -173,36 +153,24 @@ class Venue(db.Model):
     category = db.Column(db.String(90), index=True, unique=True)
     is_public = db.Column(db.Boolean)
     # relationships
-    state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
-    venue_beer_association = db.relationship('Beer',
-        secondary=venue_beer_association,
+    state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
+    ven2beer = db.relationship('Beer',
+        secondary=ven2beer,
         backref=db.backref('venues'),
         lazy='select')
-    venue_brewery_association = db.relationship('Brewery',
-        secondary=venue_brewery_association,
+    ven2brew = db.relationship('Brewery',
+        secondary=ven2brew,
         backref=db.backref('venues'),
         lazy='select')
-
-    def __init__(self, name, media, address, category, is_public,
-        state, breweries, beers):
-        """
-        make a new venue instance
-        """
-        self.name = name
-        self.media = media
-        self.address = address
-        self.category = category
-        self.is_public = is_public
-        self.state = state
-        self.breweries = breweries
-        self.beers = beers
 
     def __repr__(self):
         """
         get a string representation of this venue
         """
-        descr = "Here at {}, you can get a whole bunch of beers from {} breweries."
-        return descr.format(self.name, str(len(self.breweries)))
+        return json.dumps(self.to_dict())
+
+    def to_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def add_beer(self, beer):
         """
@@ -237,34 +205,24 @@ class State(db.Model):
         flower: the state flower! 
     """
     #properties
-    id = db.Column(db.Integer, primary_key=True)
+    abbreviation = db.Column(db.String(120), index=True, unique=True, primary_key=True)
     capital = db.Column(db.String(120), index=True, unique=True)
     name = db.Column(db.String(120), index=True, unique=True)
     media = db.Column(db.String(300), index=True, unique=True)
-    abbreviation = db.Column(db.String(120), index=True, unique=True)
     flower = db.Column(db.String(120), index=True)
     #relationships
     breweries = db.relationship('Brewery', backref='state', lazy='select')
     venues = db.relationship('Venue', backref='state', lazy='select')
     beers = db.relationship('Beer', backref='state', lazy='select')
 
-    def __init__(self, capital, name, media, abbreviation, flower):
-        """
-        make a new state instance
-        """
-        self.capital = capital
-        self.name = name
-        self.media = media
-        self.abbreviation = abbreviation
-        self.flower = flower
-
     def __repr__(self):
         """
         get a string representation of this state
         """
-        descr = ("Welcome to {}, where the state flower is the {}, and "
-            "the capital is {}. Our postal code is {}!")
-        return descr.format(self.name, self.flower, self.capital, self.abbreviation)
+        return json.dumps(self.to_dict())
+
+    def to_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def is_best_state(self):
         """
