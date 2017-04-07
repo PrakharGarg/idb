@@ -54,7 +54,7 @@ doc:
 	make clean
 	pydoc3.5 -w app/models.py
 	mv models.html IDB2.html
-	git log > IDB2.log
+	git log > IDB1.log
 
 env:
 	sudo pip install virtualenv

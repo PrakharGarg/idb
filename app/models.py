@@ -1,4 +1,8 @@
-
+# pylint: disable = bad-whitespace
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = no-member
+# pylint: disable = pointless-string-statement
 
 from app import db
 
@@ -11,22 +15,27 @@ association tables
 
 # venues <-> beers
 ven2beer = db.Table('ven2beer',
-    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
-    db.Column('beer_id', db.Integer, db.ForeignKey('beer.id')),
-    extend_existing=True
-)
+                    db.Column('venue_id', db.Integer,
+                              db.ForeignKey('venue.id')),
+                    db.Column('beer_id', db.Integer, db.ForeignKey('beer.id')),
+                    extend_existing=True
+                   )
 
 # venues <-> breweries
 ven2brew = db.Table('ven2brew',
-    db.Column('brewery_id', db.Integer, db.ForeignKey('brewery.id')),
-    db.Column('venue_id', db.Integer, db.ForeignKey('venue.id')),
-    extend_existing=True
-)
+                    db.Column('brewery_id', db.Integer,
+                              db.ForeignKey('brewery.id')),
+                    db.Column('venue_id', db.Integer,
+                              db.ForeignKey('venue.id')),
+                    extend_existing=True
+                   )
 
 
 """
 model definitions
 """
+
+
 class Beer(db.Model):
     """
     This is the beer model. It contains the necessary information and links
@@ -38,7 +47,7 @@ class Beer(db.Model):
         style: what type of beer this is (ale, lager, IPA, kolsh, etc.)
         is_organic: whether or not this beer is environmentally friendly!
         rating: numeric rating by the Untapped community.
-        brewery: where and who this is brewed by 
+        brewery: where and who this is brewed by
         venues: where this beer is served, sold, and distributed
     """
     state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
@@ -50,16 +59,16 @@ class Beer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ibu = db.Column(db.Integer)
     abv = db.Column(db.Float)
-    __table_args__ = {'extend_existing': True} 
-    
-    def __init__(self, idd, style, rating, name, label, abv, ibu) :
-        assert (style != "")
-        assert (rating != "")
-        assert (name != "")
-        assert (label != "")
-        assert (abv != "")
-        assert (ibu != "")
-        
+    __table_args__ = {'extend_existing': True}
+
+    def __init__(self, idd, style, rating, name, label, abv, ibu):
+        assert style != ""
+        assert rating != ""
+        assert name != ""
+        assert label != ""
+        assert abv != ""
+        assert ibu != ""
+
         self.id = idd
         self.style = style
         self.rating = rating
@@ -89,6 +98,7 @@ class Beer(db.Model):
         """
         self.rating = new_rating
 
+
 class Brewery(db.Model):
     """
     The brewery model. This gives information about what kinds of beers
@@ -113,15 +123,15 @@ class Brewery(db.Model):
     # relationships
     state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     beers = db.relationship('Beer', backref='brewery', lazy='select')
-    __table_args__ = {'extend_existing': True} 
-    
-    def __init__(self, address, name, founded, label, brewery_type) :
-        assert (address != "")
-        assert (name != "")
-        assert (founded != "")
-        assert (label != "")
-        assert (brewery_type != "")
-        
+    __table_args__ = {'extend_existing': True}
+
+    def __init__(self, address, name, founded, label, brewery_type):
+        assert address != ""
+        assert name != ""
+        assert founded != ""
+        assert label != ""
+        assert brewery_type != ""
+
         self.address = address
         self.founded = founded
         self.name = name
@@ -152,8 +162,8 @@ class Brewery(db.Model):
 
 class Venue(db.Model):
     """
-    The venue model. You come here to visit with friends, 
-    enjoy a pint of your favorite brew, and to find 
+    The venue model. You come here to visit with friends,
+    enjoy a pint of your favorite brew, and to find
     new favorites! This has all the info you need. For
     bars, restaurants, stores, and anywhere else you can get
     your hands on a can, bottle, or pint.
@@ -178,23 +188,23 @@ class Venue(db.Model):
     # relationships
     state_id = db.Column(db.String(120), db.ForeignKey('state.abbreviation'))
     ven2beer = db.relationship('Beer',
-        secondary=ven2beer,
-        backref=db.backref('venues'),
-        lazy='select')
+                               secondary=ven2beer,
+                               backref=db.backref('venues'),
+                               lazy='select')
     ven2brew = db.relationship('Brewery',
-        secondary=ven2brew,
-        backref=db.backref('venues'),
-        lazy='select')
+                               secondary=ven2brew,
+                               backref=db.backref('venues'),
+                               lazy='select')
 
-    __table_args__ = {'extend_existing': True} 
-        
-    def __init__(self, category, media, is_public, name, address) :
-        assert (address != "")
-        assert (name != "")
-        assert (category != "")
-        assert (media != "")
-        assert (is_public != "")
-        
+    __table_args__ = {'extend_existing': True}
+
+    def __init__(self, category, media, is_public, name, address):
+        assert address != ""
+        assert name != ""
+        assert category != ""
+        assert media != ""
+        assert is_public != ""
+
         self.address = address
         self.category = category
         self.name = name
@@ -210,6 +220,7 @@ class Venue(db.Model):
     def to_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
+
 class State(db.Model):
     """
     A large geographic region you may wish to explore by beer. Beer!
@@ -221,27 +232,28 @@ class State(db.Model):
         capital: the city where this state does its legislative business
         media: links to pics of this state!
         abbreviation: state abbreviation.
-        flower: the state flower! 
+        flower: the state flower!
     """
-    #properties
-    abbreviation = db.Column(db.String(120), index=True, unique=True, primary_key=True)
+    # properties
+    abbreviation = db.Column(db.String(120), index=True,
+                             unique=True, primary_key=True)
     capital = db.Column(db.String(120), index=True, unique=True)
     name = db.Column(db.String(120), index=True, unique=True)
     media = db.Column(db.String(300), index=True, unique=True)
     flower = db.Column(db.String(120), index=True)
-    #relationships
+    # relationships
     breweries = db.relationship('Brewery', backref='state', lazy='select')
     venues = db.relationship('Venue', backref='state', lazy='select')
     beers = db.relationship('Beer', backref='state', lazy='select')
-    __table_args__ = {'extend_existing': True} 
-    
-    def __init__(self, abbreviation, capital, name, media, flower) :
-        assert (abbreviation != "")
-        assert (capital != "")
-        assert (name != "")
-        assert (media != "")
-        assert (flower != "")
-        
+    __table_args__ = {'extend_existing': True}
+
+    def __init__(self, abbreviation, capital, name, media, flower):
+        assert abbreviation != ""
+        assert capital != ""
+        assert name != ""
+        assert media != ""
+        assert flower != ""
+
         self.capital = capital
         self.abbreviation = abbreviation
         self.name = name
