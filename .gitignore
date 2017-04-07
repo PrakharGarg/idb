@@ -4,6 +4,7 @@
 __pycache__
 idb-env
 /cloud_sql_proxy
+c.tmp
 *.sh
 .DS_Store
 */.DS_Store
