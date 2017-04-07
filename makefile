@@ -41,8 +41,8 @@ clean:
 	-rm -r *.pyc
 	-rm -rf __pycache__
 	-rm -rf idb-env
-	-rm IDB2.html
-	-rm IDB2.log
+	-rm IDB1.html
+	-rm IDB1.log
 
 run:
 	python main.py
@@ -53,8 +53,8 @@ deploy:
 doc:
 	make clean
 	pydoc -w app/models.py
-	mv models.html IDB2.html
-	git log > IDB2.log
+	mv models.html IDB1.html
+	git log > IDB1.log
 	coverage run --source="models" app/tests.py > c.tmp 2>&1
 	coverage report -m >> c.tmp
 	cat c.tmp
@@ -66,3 +66,4 @@ env:
 	pip install -r requirements.txt
 
 test:
+	python app/tests.py
