@@ -163,12 +163,12 @@ def get_states():
     states = State.query.all()
     _ = list()
     for state in states:
-        _ += [{'id' : state.id, 'name' : state.name}]
+        _ += [{'abbreviation' : state.abbreviation, 'name' : state.name}]
     return jsonify({'result' : _})
 
-@app.route('/api/state/<state_id>', methods=['GET'])
-def get_state_info(state_id):
-    state = State.query.filter_by(id=state_id).first()
+@app.route('/api/state/<state_abbreviation>', methods=['GET'])
+def get_state_info(state_abbreviation):
+    state = State.query.filter_by(abbreviation=state_abbreviation).first()
 
     if not state:
         abort(404)
