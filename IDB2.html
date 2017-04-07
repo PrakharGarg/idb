@@ -10,7 +10,11 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/patrickmoore/ut/swe/idb/app/models.py">/Users/patrickmoore/ut/swe/idb/app/models.py</a></font></td></tr></table>
-    <p></p>
+    <p><tt>#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;bad-whitespace<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;invalid-name<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;missing-docstring<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;no-member<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;pointless-string-statement</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -53,7 +57,7 @@ Attributes:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;what&nbsp;type&nbsp;of&nbsp;beer&nbsp;this&nbsp;is&nbsp;(ale,&nbsp;lager,&nbsp;IPA,&nbsp;kolsh,&nbsp;etc.)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;is_organic:&nbsp;whether&nbsp;or&nbsp;not&nbsp;this&nbsp;beer&nbsp;is&nbsp;environmentally&nbsp;friendly!<br>
 &nbsp;&nbsp;&nbsp;&nbsp;rating:&nbsp;numeric&nbsp;rating&nbsp;by&nbsp;the&nbsp;Untapped&nbsp;community.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;brewery:&nbsp;where&nbsp;and&nbsp;who&nbsp;this&nbsp;is&nbsp;brewed&nbsp;by&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;brewery:&nbsp;where&nbsp;and&nbsp;who&nbsp;this&nbsp;is&nbsp;brewed&nbsp;by<br>
 &nbsp;&nbsp;&nbsp;&nbsp;venues:&nbsp;where&nbsp;this&nbsp;beer&nbsp;is&nbsp;served,&nbsp;sold,&nbsp;and&nbsp;distributed<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
@@ -96,7 +100,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x110462d50; Beer&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10515dcd0; Beer&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('beer', MetaData(bind=None), Column('state...olumn('abv', Float(), table=&lt;beer&gt;), schema=None)</dl>
 
@@ -187,7 +191,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x110475550; Brewery&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x1051774d0; Brewery&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('brewery', MetaData(bind=None), Column('ad...te.abbreviation'), table=&lt;brewery&gt;), schema=None)</dl>
 
@@ -277,7 +281,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x11048f8d0; State&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10518a850; State&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('state', MetaData(bind=None), Column('abbr... String(length=120), table=&lt;state&gt;), schema=None)</dl>
 
@@ -318,8 +322,8 @@ standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 <font color="#000000" face="helvetica, arial"><a name="Venue">class <strong>Venue</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>The&nbsp;venue&nbsp;model.&nbsp;You&nbsp;come&nbsp;here&nbsp;to&nbsp;visit&nbsp;with&nbsp;friends,&nbsp;<br>
-enjoy&nbsp;a&nbsp;pint&nbsp;of&nbsp;your&nbsp;favorite&nbsp;brew,&nbsp;and&nbsp;to&nbsp;find&nbsp;<br>
+<td colspan=2><tt>The&nbsp;venue&nbsp;model.&nbsp;You&nbsp;come&nbsp;here&nbsp;to&nbsp;visit&nbsp;with&nbsp;friends,<br>
+enjoy&nbsp;a&nbsp;pint&nbsp;of&nbsp;your&nbsp;favorite&nbsp;brew,&nbsp;and&nbsp;to&nbsp;find<br>
 new&nbsp;favorites!&nbsp;This&nbsp;has&nbsp;all&nbsp;the&nbsp;info&nbsp;you&nbsp;need.&nbsp;For<br>
 bars,&nbsp;restaurants,&nbsp;stores,&nbsp;and&nbsp;anywhere&nbsp;else&nbsp;you&nbsp;can&nbsp;get<br>
 your&nbsp;hands&nbsp;on&nbsp;a&nbsp;can,&nbsp;bottle,&nbsp;or&nbsp;pint.<br>
@@ -370,7 +374,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x110475e50; Venue&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x105177dd0; Venue&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('venue', MetaData(bind=None), Column('cate...tate.abbreviation'), table=&lt;venue&gt;), schema=None)</dl>
 

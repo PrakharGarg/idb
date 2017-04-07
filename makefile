@@ -55,7 +55,7 @@ doc:
 	pydoc -w app/models.py
 	mv models.html IDB2.html
 	git log > IDB2.log
-	coverage run app/tests.py > c.tmp 2>&1
+	coverage run --source="models" app/tests.py > c.tmp 2>&1
 	coverage report -m >> c.tmp
 	cat c.tmp
 
