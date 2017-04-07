@@ -4,10 +4,11 @@
 # pylint: disable = no-member
 # pylint: disable = pointless-string-statement
 
-from app import db
-
-from flask_sqlalchemy import SQLAlchemy
 import json
+try:
+    from app import db
+except:
+    from __init__ import db
 
 """
 association tables
