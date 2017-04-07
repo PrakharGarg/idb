@@ -1,3 +1,65 @@
+commit c0df940202af7592467fe3215e507c3d11429a92
+Merge: dad493f 32fb8cb
+Author: Amirali Hashim <amirali.hashim@gmail.com>
+Date:   Thu Apr 6 19:26:13 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit dad493fe8a2d81c2058422e3eb930825fbc80508
+Author: Amirali Hashim <amirali.hashim@gmail.com>
+Date:   Thu Apr 6 19:26:10 2017 -0500
+
+    fixes to models and completion of test
+
+commit 32fb8cbe88301a5b9d3f3cb07b03167c700b8239
+Author: as43574 <adstorey@gmail.com>
+Date:   Thu Apr 6 17:48:20 2017 -0500
+
+    Fixes small issue with state_id type -- changed to state_abbreviation
+
+commit 9af0040177dad355a651d12859a1091a9c89f0e2
+Author: as43574 <adstorey@gmail.com>
+Date:   Thu Apr 6 17:46:00 2017 -0500
+
+    Changes state id to abbreviation on apiary
+
+commit b162998bc7c9ec85cb010144ffbc86802819ef85
+Author: Drew Storey <adstorey@gmail.com>
+Date:   Thu Apr 6 16:57:01 2017 -0500
+
+    Changes states API call to collect abbreviation instead of id
+
+commit 5e24e2729c08cdd18454ab0a6163eaea292991b8
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 16:43:44 2017 -0500
+
+    bytes
+
+commit 88d80e90c88e10ddfb3188da345b687f3ed5e890
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 16:15:23 2017 -0500
+
+    silly crazy shit
+
+commit 63ee398ff7f83fcdbe0421e418eda1dfcf2ab11c
+Merge: b208c21 9b59b41
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 15:59:20 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit b208c2153e070c7f9df0fbd7fc77c35b8e267d50
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 15:59:16 2017 -0500
+
+    changes to allow for pydoc running
+
+commit 9b59b413c247429cf74cc96c478b8ba123422f5c
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 15:51:17 2017 -0500
+
+    fixed state.html
+
 commit 99f88a807a8652f17f9ab1025b59db2c7443108e
 Merge: a9fa3d4 412d646
 Author: Patrick Moore <phatrickmoore@gmail.com>
