@@ -9,4 +9,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 db.create_all()
 
-from app import views, models
+try:
+	from app import views, models
+except:
+	import views, models

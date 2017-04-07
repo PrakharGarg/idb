@@ -3,8 +3,12 @@
 # pylint: disable = missing-docstring
 import unittest
 
-from app import db
-from app.models import *
+try:
+    from app import db
+    from app.models import *
+except:
+    from __init__ import db
+    from models import *
 
 class TestModels(unittest.TestCase):
         
@@ -194,3 +198,7 @@ class TestModels(unittest.TestCase):
             media="https://en.wikipedia.org/wiki/Flag_of_Texas#/media/File:Flag_of_Texas.svg",
             flower="Bluebonnet")
         self.assertTrue(state.is_flower_pretty())
+
+if __name__ == "__main__" : #pragma: no cover
+    unittest.main()
+

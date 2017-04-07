@@ -52,9 +52,12 @@ deploy:
 
 doc:
 	make clean
-	pydoc3.5 -w app/models.py
+	pydoc -w app/models.py
 	mv models.html IDB2.html
 	git log > IDB2.log
+	coverage run app/tests.py > c.tmp 2>&1
+	coverage report -m >> c.tmp
+	cat c.tmp
 
 env:
 	sudo pip install virtualenv
