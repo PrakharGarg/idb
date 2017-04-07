@@ -3,8 +3,6 @@
 */*/*.pyc
 __pycache__
 idb-env
-app/sensitive.py
-gcloud-credentials.json
 /cloud_sql_proxy
 *.sh
 .DS_Store
