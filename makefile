@@ -41,8 +41,8 @@ clean:
 	-rm -r *.pyc
 	-rm -rf __pycache__
 	-rm -rf idb-env
-	-rm IDB2.html
-	-rm IDB2.log
+	-rm IDB1.html
+	-rm IDB1.log
 
 run:
 	python main.py
