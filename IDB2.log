@@ -1,3 +1,71 @@
+commit a9138fcfa98cf2f2097280fdc7f786adf62eee0b
+Merge: e189458 ccb9223
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 21:07:02 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit e18945866033387e940983fb10c2be29069e7648
+Merge: 76b8bb2 f0bdbea
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 21:06:58 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+    
+    Conflicts:
+    	app/models.py
+    	makefile
+
+commit ccb92238e464c409c5837847d267d2e863ed4ad2
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 21:04:26 2017 -0500
+
+    pylint
+
+commit 76b8bb2fa4a52f1d6a0b3eab5438a8ea46d368b7
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 21:00:58 2017 -0500
+
+    testing and coverage fixes
+
+commit e144b525e8badcbc91306282afaead57bcceea56
+Author: Patrick Moore <phatrickmoore@gmail.com>
+Date:   Thu Apr 6 21:00:24 2017 -0500
+
+    deleting some files
+
+commit f0bdbea82faed49bcc3722746c46da3b68d6ce8a
+Merge: 07abe34 d30ca81
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 20:58:42 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 07abe3451ac2dbe3802b9e8e65ac7dce68cc8ef1
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 20:58:33 2017 -0500
+
+    pylint
+
+commit d30ca811b87b62607c8ad845e3ab5cf692d4dda1
+Author: as43574 <adstorey@gmail.com>
+Date:   Thu Apr 6 19:57:49 2017 -0500
+
+    Fixes response examples
+
+commit 3142b4a4fdb00ec70033e9e9a1fc880dd4cf328a
+Merge: 908b40b c0df940
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 19:44:04 2017 -0500
+
+    Merge branch 'master' of https://github.com/PrakharGarg/idb
+
+commit 908b40b79c66d9aa1970f28b5cca6f4d5373dcac
+Author: PrakharGarg <prakhargarg@utexas.edu>
+Date:   Thu Apr 6 19:44:02 2017 -0500
+
+    yaml
+
 commit c0df940202af7592467fe3215e507c3d11429a92
 Merge: dad493f 32fb8cb
 Author: Amirali Hashim <amirali.hashim@gmail.com>
