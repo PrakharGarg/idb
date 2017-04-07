@@ -149,17 +149,6 @@ class Brewery(db.Model):
         """
         raise Exception('THOU SHALT NOT REWRITE HISTORY')
 
-    def add_venue(self, venue):
-        """
-        add a venue to which this brewery distributes its products
-        """
-        self.venues.add(venue)
-
-    def remove_venue(self, venue):
-        """
-        stop distributing beer to a venue
-        """
-        self.venues.remove(venue)
 
 class Venue(db.Model):
     """
@@ -221,25 +210,6 @@ class Venue(db.Model):
     def to_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
-    def add_beer(self, beer):
-        """
-        add a beer that this venue will serve
-        """
-        self.beers.add(beer)
-
-    def remove_beer(self, beer):
-        """
-        stop serving a beer
-        """
-        self.beers.remove(beer)
-
-    def remove_brewery(self, brewery):
-        """
-        stop serving all beers from this brewery
-        """
-        self.breweries.remove(brewery)
-        self.beers = [br for br in self.beers if br.brewery != brewery]
-
 class State(db.Model):
     """
     A large geographic region you may wish to explore by beer. Beer!
@@ -291,13 +261,7 @@ class State(db.Model):
         """
         get whether or not this state is the best in the US
         """
-        return abbreviation == 'TX'
-
-    def add_media(self, link):
-        """
-        add an image that helps showcase this state
-        """
-        self.media.add(media)
+        return self.abbreviation == "TX"
 
     def is_flower_pretty(self):
         """
