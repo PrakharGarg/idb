@@ -148,41 +148,40 @@ Retrieve the specific details of a venue using its ID from the database includin
 ## State Collection [/state]
 
 ### List all States [GET /api/states]
-Retrieves a list of all of the states.
+Retrieves a list of all of the states and their abbreviationsixe.
     
 + Response 200 (application/json)
 
         [
             {
-                "id": "0",
+                "abbreviation": "TX",
                 "name": "Texas"
             },
             {
-                "id": "1",
+                "abbreviation": "CA",
                 "name": "California"
             }
             {
-                "id": "2",
+                "abbreviation": "FL",
                 "name": "Florida"
             }
         ]
         
-### Specific States [GET /api/state/{state_id}]
+### Specific States [GET /api/state/{state_abbreviation}]
 Retrieves the specific details of a location using its ID from the database including its name, capital, and media.
 
 + Parameters
-    + state_id (number, required) - the unique id of the state as an integer
+    + state_abbreviation (string, required) - the unique abbreviation of the state as a string
 
 + Response 200 (application/json)
 
         [
             {
-                "id": "0",
-                "capital": "Austin",
-                "name": "Texas",
-                "media": "https://en.wikipedia.org/wiki/Flag_of_Texas#/media/File:Flag_of_Texas.svg",
                 "abbreviation": "TX",
-                "flower": "Bluebonnet"
+                "capital": "Austin",
+                "flower": "Bluebonnet",
+                "media": "https://en.wikipedia.org/wiki/Flag_of_Texas#/media/File:Flag_of_Texas.svg",
+                "name": "Texas"
             }
         
         ]
