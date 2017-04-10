@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %} Beers {% endblock %}
+
+
+{% block content %}
+<!-- PLACEHOLDER TABLE, REPLACE ASAP -->
+<head>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<h1 class = "gold" align="center">Beers</h1> 
+	<br />
+	<br />
+</head>
+<body>
+<div class="grid row">
+	<div class="col-md-3">
+		<div class="list-group">
+			<div class="dropdown">
+				<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By
+					<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Name</a></li>
+						<li><a href="#">Type</a></li>
+						<li><a href="#">Rating</a></li>
+					</ul>
+				</div>
+				<button type="button" class="btn btn-default ascdesc" aria-label="Left Align">
+					<a href = "#" class="glyphicon glyphicon-arrow-up" aria-hidden="true"></a>
+				</button>
+				<button type="button" class="btn btn-default ascdesc" aria-label="Left Align">
+					<a href = "#" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></a>
+				</button>
+				<div class="dropdown">
+					<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
+						<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li class = "boxes" ><input type="checkbox"> Stout <br /></li>
+							<li class = "boxes" ><input type="checkbox"> IPA <br /></li>
+							<li class = "boxes" ><input type="checkbox"> Sour <br /></li>
+						</ul>
+					</div>
+					<div class="dropdown">
+						<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li class = "boxes" ><input type="checkbox"> 2+ <br /></li>
+								<li class = "boxes" ><input type="checkbox"> 3+ <br /></li>
+								<li class = "boxes" ><input type="checkbox"> 4+</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id = "app">
+					
+				</div>
+			</div>
+	
+</body>
+<script type = "text/jsx">
+var foo = React.createClass({
+	render: function() {
+		var tst = <h3>FUCK</h3>
+		return (
+			<div className="col-md-3 col-sm-6 hero-feature text-center">
+			{tst}
+							<div className="thumbnail">
+								<img src="#" width = "150" alt=""></img>
+								<div className="caption">
+									<h3>name</h3>
+									<p>
+										style <br />
+										ABV: abv <br />
+										Rating: rating/5.0 <br />
+									</p>
+									<p>
+										<a href="#" className="btn btn-primary">More Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+		);
+	}
+});
+ReactDOM.render(React.createElement(foo,null),document.getElementById('app'));
+	
+</script>
+{% endblock %}

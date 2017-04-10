@@ -1,0 +1,22 @@
+{
+    "name": "flask-react-boilerplate",
+    "authors": [
+        "nithunx <nithun@gmail.com>"
+    ],
+    "description": "Boilerplate for flask and react",
+    "main": "",
+    "license": "MIT",
+    "homepage": "www.nithun.com",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap": "^3.3.6",
+        "react": "^15.1.0"
+    }
+
+}
