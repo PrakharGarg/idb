@@ -33,7 +33,7 @@ var App = React.createClass({
             return (
               <div className="col-md-3 col-sm-6 hero-feature text-center">
 							<div className="thumbnail">
-								<img src="{brewery.label}" width = "150" alt=""/>
+								<img src={"" + brewery.label} width = "150" alt=""/>
 								<div className="caption">
 									<h3>{brewery.name}</h3>
 									<p>
@@ -41,7 +41,7 @@ var App = React.createClass({
 										{brewery.address}
 									</p>
 									<p>
-										<a href="/brewery/{{brewery.id}}/" className="btn btn-primary">More Info</a>
+										<a href={"/breweries/" + brewery.id + "/"} className="btn btn-primary">More Info</a>
 									</p>
 								</div>
 							</div>

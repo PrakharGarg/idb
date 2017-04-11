@@ -4090,7 +4090,7 @@ var App = React.createClass({displayName: "App",
             return (
               React.createElement("div", {className: "col-md-3 col-sm-6 hero-feature text-center"}, 
 							React.createElement("div", {className: "thumbnail"}, 
-								React.createElement("img", {src: "{state.label}", width: "150", alt: ""}), 
+								React.createElement("img", {src: "" + state.label, width: "150", alt: ""}), 
 								React.createElement("div", {className: "caption"}, 
 									React.createElement("h3", null, state.name), 
 									React.createElement("p", null, 
@@ -4098,7 +4098,7 @@ var App = React.createClass({displayName: "App",
 										state.flower
 									), 
 									React.createElement("p", null, 
-										React.createElement("a", {href: "/state/{{state.id}}/", className: "btn btn-primary"}, "More Info")
+										React.createElement("a", {href: "/states/" + state.id + "/", className: "btn btn-primary"}, "More Info")
 									)
 								)
 							)
