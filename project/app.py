@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from models import *
 import os
@@ -6,6 +6,7 @@ import subprocess
 import unittest
 import io
 from tests import TestModels
+
 #import sensitive
 
 app = Flask(__name__)
@@ -189,4 +190,4 @@ def get_state_info(state_abbreviation):
     
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
