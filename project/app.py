@@ -1,11 +1,9 @@
 from flask import Flask, render_template, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from models import *
 import os
 import subprocess
 import unittest
 import io
-from tests import TestModels
 
 #import sensitive
 
@@ -13,9 +11,8 @@ app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = sensitive.DATABASE['postgres']
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/poh'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-db.create_all()
-
+from models import *
+from tests import TestModels
 
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :

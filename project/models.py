@@ -5,10 +5,9 @@
 # pylint: disable = pointless-string-statement
 
 import json
-try:
-    from app import *
-except:
-    from app import *
+from flask_sqlalchemy import SQLAlchemy
+from __main__ import app
+db = SQLAlchemy(app)
 
 """
 association tables

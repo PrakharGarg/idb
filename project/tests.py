@@ -3,23 +3,18 @@
 # pylint: disable = missing-docstring
 import unittest
 
-try:
-    from app import *
-    from models import *
-except:
-    from app import *
-    from models import *
+from __main__ import app
 
 class TestModels(unittest.TestCase):
         
     def setUp(self):
-        app.db.drop_all()
-        app.db.session.remove()
-        app.db.create_all()
+        db.drop_all()
+        db.session.remove()
+        db.create_all()
 
     def tearDown(self):
-        app.db.session.remove()
-        app.db.drop_all()
+        db.session.remove()
+        db.drop_all()
         
     global demo_beer
     demo_beer = {
@@ -60,8 +55,8 @@ class TestModels(unittest.TestCase):
             abv=7.6,
             rating=3.2
             )
-        app.db.session.add(beer)
-        app.db.session.commit()
+        db.session.add(beer)
+        db.session.commit()
         beers = Beer.query.all()
         self.assertTrue(str(beer) in [str(b) for b in beers])
 
@@ -111,8 +106,8 @@ class TestModels(unittest.TestCase):
             name="Austin Brewery",
             label="https://www.tripadvisor.com/LocationPhotoDirectLink-g30196-d8547104-i232510009-Hops_Grain_Brewing-Austin_Texas.html",
             brewery_type="lager")
-        app.db.session.add(brewery)
-        app.db.session.commit()
+        db.session.add(brewery)
+        db.session.commit()
         breweries = Brewery.query.all()
         self.assertTrue(str(brewery) in [str(b) for b in breweries])
 
@@ -153,8 +148,8 @@ class TestModels(unittest.TestCase):
             name="The Ginger Man",
             media="https://www.facebook.com/pg/Draughthouse/photos/",
             is_public=True)
-        app.db.session.add(venue)
-        app.db.session.commit()
+        db.session.add(venue)
+        db.session.commit()
         venues = Venue.query.all()
         self.assertTrue(str(venue) in [str(v) for v in venues])
 
@@ -165,8 +160,8 @@ class TestModels(unittest.TestCase):
             name="Texas",
             media="https://en.wikipedia.org/wiki/Flag_of_Texas#/media/File:Flag_of_Texas.svg",
             flower="Bluebonnet")
-        app.db.session.add(state)
-        app.db.session.commit()
+        db.session.add(state)
+        db.session.commit()
         states = State.query.all()
         self.assertTrue(str(state) in [str(s) for s in states])
 
