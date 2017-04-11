@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<h1 class = "gold" align="center">Beers</h1> 
 	<br />
 	<br />
@@ -51,38 +52,9 @@
 						</div>
 					</div>
 				</div>
-				<div id = "app">
-					
-				</div>
+				<div id="beers"></div>
 			</div>
 	
 </body>
-<script type = "text/jsx">
-var foo = React.createClass({
-	render: function() {
-		var tst = <h3>FUCK</h3>
-		return (
-			<div className="col-md-3 col-sm-6 hero-feature text-center">
-			{tst}
-							<div className="thumbnail">
-								<img src="#" width = "150" alt=""></img>
-								<div className="caption">
-									<h3>name</h3>
-									<p>
-										style <br />
-										ABV: abv <br />
-										Rating: rating/5.0 <br />
-									</p>
-									<p>
-										<a href="#" className="btn btn-primary">More Info</a>
-									</p>
-								</div>
-							</div>
-						</div>
-		);
-	}
-});
-ReactDOM.render(React.createElement(foo,null),document.getElementById('app'));
-	
-</script>
+<script src="{{url_for('static', filename='scripts/js/app.js')}}"></script>
 {% endblock %}

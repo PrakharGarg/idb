@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/PrakharGarg/flask-react-boilerplate/issues"
   },
-  "homepage": "https://github.com/PrakharGarg/flask-react-boilerplate#readme"
+  "homepage": "https://github.com/PrakharGarg/flask-react-boilerplate#readme",
+  "dependencies": {
+    "axios": "^0.16.1"
+  }
 }
