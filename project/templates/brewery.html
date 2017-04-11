@@ -10,7 +10,7 @@
        	<h3 class = "gold"> Type </h3>
        	<h4> {{ brewery_info.brewery_type }} </h4>
        	<h3 class = "gold"> Founded </h3>
-       	<h4> {{ brewery_info.founded }} </h4>
+       	<h4> {{ (2017 - (brewery_info.founded/365))|int }} </h4>
        	<h3 class = "gold"> Address </h3>
        	<h4> {{ brewery_info.address }} </h4>
        	<h3 class = "gold"> Venues </h3>

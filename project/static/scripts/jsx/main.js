@@ -4,6 +4,7 @@ var DynamicSearch = React.createClass({
   getInitialState: function(){
     return { searchString: '' };
   },
+  
 
   // sets state, triggers render method
   handleChange: function(event){
@@ -49,5 +50,5 @@ var countries = [
 
 ReactDOM.render(
   <DynamicSearch items={ countries } />,
-  document.getElementById('main')
+  document.getElementById('app')
 );
