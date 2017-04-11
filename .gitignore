@@ -10,3 +10,11 @@ c.tmp
 */.DS_Store
 */*/.DS_Store
 */*/*/.DS_Store
+.git
+
+env
+venv
+
+node_modules/
+npm-debug.log
+.module-cache
