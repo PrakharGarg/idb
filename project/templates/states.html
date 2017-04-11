@@ -21,8 +21,8 @@
 						<span class="caret"></span></button>
 						<ul class="dropdown-menu">
 							<li><a href="#">Name</a></li>
-							<li><a href="#">Capital</a></li>
-							<li><a href="#">Flower</a></li>
+							<li><a href="#">Type</a></li>
+							<li><a href="#">Rating</a></li>
 						</ul>
 					</div>
 					<button type="button" class="btn btn-default ascdesc" aria-label="Left Align">
@@ -32,40 +32,32 @@
 						<a href = "#" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></a>
 					</button>
 					<div class="dropdown">
-						<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Name
+						<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li class = "boxes" ><input type="checkbox"> A-M <br /></li>
-								<li class = "boxes" ><input type="checkbox"> N-P <br /></li>
-								<li class = "boxes" ><input type="checkbox"> Q-Z </li>
+								<li class = "boxes" ><input type="checkbox"> Stout <br /></li>
+								<li class = "boxes" ><input type="checkbox"> IPA <br /></li>
+								<li class = "boxes" ><input type="checkbox"> Sour <br /></li>
 							</ul>
 						</div>
-						</div>
-					</div>
-					<div>
-						
-					{% for i in json_query %}
-					<div class="col-md-3 col-sm-6 hero-feature text-center">
-						<div class="thumbnail">
-							<img src="{{i.media}}" width = "150" alt="">
-							<div class="caption">
-								<h3 class = "name">{{i.name}}</h3>
-								<p>
-									{{i["type"]}} <br />
-									Capital: {{i.capital}} <br />
-									Flower: {{i.flower}} <br />
-								</p>
-								<p>
-									<a href="/states/{{i.abbreviation}}/" class="btn btn-primary">More Info</a>
-								</p>
+						<div class="dropdown">
+							<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
+								<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li class = "boxes" ><input type="checkbox"> 2+ <br /></li>
+									<li class = "boxes" ><input type="checkbox"> 3+ <br /></li>
+									<li class = "boxes" ><input type="checkbox"> 4+</li>
+								</ul>
 							</div>
 						</div>
 					</div>
-					{% endfor %}
+					<div id = "states">
+						
+					</div>
 				</div>
-
-			</div>
-
-	</div>	
-</body>
-{% endblock %}
+		
+	</body>
+	<script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='scripts/js/states.js') }}"></script>
+	{% endblock %}
