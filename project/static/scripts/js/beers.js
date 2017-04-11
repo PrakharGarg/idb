@@ -4086,7 +4086,6 @@ var App = React.createClass({displayName: "App",
   render: function() {
     return (
       React.createElement("div", null, 
-          React.createElement("h1", null, "Beers!"), 
           this.state.beers.map(function(beer) {
             return (
               React.createElement("div", {className: "col-md-3 col-sm-6 hero-feature text-center"}, 

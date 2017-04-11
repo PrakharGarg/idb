@@ -29,7 +29,6 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-          <h1>Beers!</h1>
           {this.state.beers.map(function(beer) {
             return (
               <div className="col-md-3 col-sm-6 hero-feature text-center">
