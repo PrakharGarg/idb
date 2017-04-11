@@ -4063,7 +4063,7 @@ var App = React.createClass({displayName: "App",
 
   getInitialState: function() {
     return {
-      beers: []
+      breweries: []
     }
   },
 
@@ -4071,10 +4071,10 @@ var App = React.createClass({displayName: "App",
     var _this = this;
     this.serverRequest = 
       axios
-        .get("http://pursuitofhoppyness.me/api/beers")
+        .get("http://pursuitofhoppyness.me/api/breweries")
         .then(function(result) {    
           _this.setState({
-            beers: result.data.result
+            breweries: result.data.result
           });
         })
   },
@@ -4086,20 +4086,19 @@ var App = React.createClass({displayName: "App",
   render: function() {
     return (
       React.createElement("div", null, 
-          this.state.beers.map(function(beer) {
+          this.state.breweries.map(function(brewery) {
             return (
               React.createElement("div", {className: "col-md-3 col-sm-6 hero-feature text-center"}, 
 							React.createElement("div", {className: "thumbnail"}, 
-								React.createElement("img", {src: "{beer.label}", width: "150", alt: ""}), 
+								React.createElement("img", {src: "{brewery.label}", width: "150", alt: ""}), 
 								React.createElement("div", {className: "caption"}, 
-									React.createElement("h3", null, beer.name), 
+									React.createElement("h3", null, brewery.name), 
 									React.createElement("p", null, 
-										beer.style, " ", React.createElement("br", null), 
-										"ABV: ", beer.abv, " ", React.createElement("br", null), 
-										"Rating: ", beer.rating, "/5.0" 
+										brewery.founded, " ", React.createElement("br", null), 
+										brewery.address
 									), 
 									React.createElement("p", null, 
-										React.createElement("a", {href: "/beers/{{beer.id}}/", className: "btn btn-primary"}, "More Info")
+										React.createElement("a", {href: "/brewery/{{brewery.id}}/", className: "btn btn-primary"}, "More Info")
 									)
 								)
 							)
@@ -4111,6 +4110,6 @@ var App = React.createClass({displayName: "App",
   }
 });
 
-ReactDOM.render(React.createElement(App, null),document.getElementById('beers'));
+ReactDOM.render(React.createElement(App, null),document.getElementById('breweries'));
 
 },{"axios":1,"whatwg-fetch":31}]},{},[32]);

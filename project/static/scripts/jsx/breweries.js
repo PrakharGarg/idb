@@ -6,7 +6,7 @@ var App = React.createClass({
 
   getInitialState: function() {
     return {
-      beers: []
+      breweries: []
     }
   },
 
@@ -14,10 +14,10 @@ var App = React.createClass({
     var _this = this;
     this.serverRequest = 
       axios
-        .get("http://pursuitofhoppyness.me/api/beers")
+        .get("http://pursuitofhoppyness.me/api/breweries")
         .then(function(result) {    
           _this.setState({
-            beers: result.data.result
+            breweries: result.data.result
           });
         })
   },
@@ -29,20 +29,19 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-          {this.state.beers.map(function(beer) {
+          {this.state.breweries.map(function(brewery) {
             return (
               <div className="col-md-3 col-sm-6 hero-feature text-center">
 							<div className="thumbnail">
-								<img src="" + {beer.label} width = "150" alt=""/>
+								<img src="{brewery.label}" width = "150" alt=""/>
 								<div className="caption">
-									<h3>{beer.name}</h3>
+									<h3>{brewery.name}</h3>
 									<p>
-										{beer.style} <br/>
-										ABV: {beer.abv} <br />
-										Rating: {beer.rating}/5.0 
+										{brewery.founded} <br/>
+										{brewery.address}
 									</p>
 									<p>
-										<a href="/beers/" + {beer.id} + "/" className="btn btn-primary">More Info</a>
+										<a href="/brewery/{{brewery.id}}/" className="btn btn-primary">More Info</a>
 									</p>
 								</div>
 							</div>
@@ -54,5 +53,5 @@ var App = React.createClass({
   }
 });
 
-ReactDOM.render(<App/>,document.getElementById('beers'));
+ReactDOM.render(<App/>,document.getElementById('breweries'));
 	
