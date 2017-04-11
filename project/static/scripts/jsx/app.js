@@ -10,9 +10,12 @@ var Beers = React.createClass({
 
 	componentDidMount: function() {
 	    var _this = this;
-	    this.serverRequest = 
-	      axios
-	        .get("http://pursuitofhoppyness.me/api/beers")
+	    this.serverRequest =
+		    axios.request({
+		      	method: 'get',
+		      	url: 'http://pursuitofhoppyness.me/api/beers',
+		      	headers: {'Access-Control-Allow-Origin': '*'}
+		    })
 	        .then(function(result) {    
 	          _this.setState({
 	            beers: result
