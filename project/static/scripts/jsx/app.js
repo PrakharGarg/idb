@@ -5,6 +5,7 @@ var Beers = React.createClass({
 	getInitialState: function() {
 		return {
 			beers: []
+			states: []
 		};
 	},
 
@@ -16,17 +17,18 @@ var Beers = React.createClass({
 		      	url: 'http://pursuitofhoppyness.me/api/beers',
 		      	headers: {'Access-Control-Allow-Origin': '*'}
 		    })
-	        .then(function(result) {    
-	          _this.setState({
-	            beers: result
-	          });
+	        .then(function(result) {
+
+				_this.setState({
+					beers: result.data.result
+				});
 	        })
 	  },
 
 	render: function() {
 		var items = this.state.beers.map(function(item) {
 	      return (
-	        <li>hello</li>
+	        <li><Beer beer={item}/></li>
 	      );
 	    });
 
@@ -44,7 +46,7 @@ var Beer = React.createClass({
 	render: function() {
 		return (
 			<div>
-				goo!
+				{this.props.beer.name}
 			</div>
 		)
 	}

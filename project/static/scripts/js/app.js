@@ -3610,9 +3610,9 @@ var Beers = React.createClass({displayName: "Beers",
 		      	url: 'http://pursuitofhoppyness.me/api/beers',
 		      	headers: {'Access-Control-Allow-Origin': '*'}
 		    })
-	        .then(function(result) {    
+	        .then(function(result) {
 	          _this.setState({
-	            beers: result
+	            beers: result.data.result
 	          });
 	        })
 	  },
@@ -3620,7 +3620,7 @@ var Beers = React.createClass({displayName: "Beers",
 	render: function() {
 		var items = this.state.beers.map(function(item) {
 	      return (
-	        React.createElement("li", null, "hello")
+	        React.createElement("li", null, React.createElement(Beer, {beer: item}))
 	      );
 	    });
 
@@ -3638,7 +3638,7 @@ var Beer = React.createClass({displayName: "Beer",
 	render: function() {
 		return (
 			React.createElement("div", null, 
-				"goo!"
+				this.props.beer.name
 			)
 		)
 	}
