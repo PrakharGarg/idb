@@ -50,8 +50,7 @@ def technical() :
 @app.route('/beers/')
 # TODO: DO SQL HERE AND STORE IT IN A VAR CALLED JSON_QUERY
 def beers() :
-    json_query = Beer.query.all()
-    return render_template('beers.html', json_query = json_query)
+    return render_template('beers.html')
 
 # Page that shows info about a specific beer with
 # the name of the beer being passed in   
@@ -65,8 +64,7 @@ def beer(beer_id) :
 @app.route('/venues/')
 # TODO: DO SQL HERE AND STORE IT IN A VAR CALLED JSON_QUERY
 def venues() :
-    json_query = Venue.query.all()
-    return render_template('venues.html', json_query = json_query)
+    return render_template('venues.html')
 
 # Page that shows info about a specific venue with
 # the name of the venue being passed in 
@@ -88,8 +86,7 @@ def venue(venue_id) :
 @app.route('/breweries/')
 # TODO: DO SQL HERE AND STORE IT IN A VAR CALLED JSON_QUERY
 def breweries() :
-    json_query = Brewery.query.all()
-    return render_template('breweries.html', json_query = json_query)
+    return render_template('breweries.html')
 # Page that shows info about a specific brewery with
 # the name of the brewery being passed in
 @app.route('/breweries/<brewery_id>/')
@@ -108,8 +105,7 @@ def brewery(brewery_id):
 @app.route('/states/')
 # TODO: DO SQL HERE AND STORE IT IN A VAR CALLED JSON_QUERY
 def states() :
-    json_query = State.query.all()
-    return render_template('states.html', json_query = json_query)
+    return render_template('states.html')
 
 # Page that shows info about a specific location with
 # the name of the location being passed in 
