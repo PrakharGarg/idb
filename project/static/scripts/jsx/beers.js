@@ -53,32 +53,6 @@ class ProductTable extends React.Component {
   }
 }
 
-class StateFilterButton extends React.Component {
-  constructor(props){
-    super(props);
-    this.handleStateFilterToggle = this.handleStateFilterToggle.bind(this);
-  }
-
-  handleStateFilterToggle(e){
-    this.props.onStateFilter(e)
-  }
-
-  render() {
-    return (
-      <form>
-        <p>
-          <input
-            type="checkbox"
-            checked={this.props.inStockOnly}
-            onChange={this.handleStateFilterToggle}
-          />
-          {' '}
-          show beers from {this.props.st}
-        </p>
-      </form>
-    );
-  }
-}
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -131,7 +105,6 @@ class FilterableProductTable extends React.Component {
     
     this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
     this.handleInStockInput = this.handleInStockInput.bind(this);
-    this.handleStateFilter = this.handleStateFilter.bind(this);
   }
 
   componentDidMount() {
@@ -148,14 +121,6 @@ class FilterableProductTable extends React.Component {
 
   componentWillUnmount() {
     this.serverRequest.abort();
-  }
-
-  handleStateFilter(_state) {
-    fs = this.state.filtering_states;
-    fs.push(_state);
-    this.setState({
-      filtering_states: fs
-    })
   }
 
   handleFilterTextInput(filterText) {
@@ -179,15 +144,6 @@ class FilterableProductTable extends React.Component {
           onFilterTextInput={this.handleFilterTextInput}
           onInStockInput={this.handleInStockInput}
         />
-        {this.state.all_states.map(function(sf) {
-          console.log(sf);
-          return (
-            <StateFilterButton
-              st={sf}
-              onStateFilter={this.handleStateFilter}
-            />
-          )
-        })}
         <ProductTable
           products={this.state.beers}
           filterText={this.state.filterText}
