@@ -4,6 +4,8 @@
 import unittest
 
 from __main__ import app
+from __main__ import db
+from models import *
 
 class TestModels(unittest.TestCase):
         
