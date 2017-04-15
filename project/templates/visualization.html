@@ -9,7 +9,7 @@
         </div>
     </html>
     <script>
-        var w = window.innerWidth*0.68*0.95;
+        var w = window.innerWidth * 0.9;
         var h = Math.ceil(w*0.7);
         var oR = 0;
         var nTop = 0;
@@ -31,7 +31,7 @@
          .attr("dominant-baseline", "middle")
          .attr("alignment-baseline", "middle")
          .style("fill", "#888888")
-         .text(function(d) {return "D3.js bubble menu developed by Shipeng Sun (sunsp.gis@gmail.com), Institute of Environment, University of Minnesota, and University of Springfield, Illinois.";});   
+         .text(function(d) {return "Visualzation of VennFridge recipes and ingredients.";});   
         
         
          d3.json("/static/main_bubble.json", function(error, root) {
@@ -130,7 +130,7 @@
              }); 
         
          resetBubbles = function () {
-           w = window.innerWidth*0.68*0.95;
+           w = window.innerWidth*0.9;
            oR = w/(1+3*nTop);
            
            h = Math.ceil(w/nTop*2);
@@ -141,7 +141,7 @@
            svg.attr("width", w);
            svg.attr("height",h);       
            
-           d3.select("#bubbleItemNote").text("D3.js bubble menu developed by Shipeng Sun (sunsp.gis@gmail.com), Institute of Environment, University of Minnesota, and University of Springfield, Illinois.");
+           d3.select("#bubbleItemNote").text("Visualzation of VennFridge recipes and ingredients.");
            
            var t = svg.transition()
                .duration(650);

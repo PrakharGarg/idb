@@ -18,3 +18,4 @@ venv
 node_modules/
 npm-debug.log
 .module-cache
+bower_components/
