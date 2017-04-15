@@ -1,12 +1,81 @@
-{% extends "base.html" %}
-{% block title %} Visualzation {% endblock %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-{% block content %}
+    <title>flask+d3 Hello World</title>
+
+    <script src="http://d3js.org/d3.v2.js"></script>
+    <style>
+
+#intro  {
+    padding:3em;
+}
+
+path.line {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+
+.domain {
+    stroke-width: 1px;
+}
+
+circle {
+    cursor: pointer;
+}
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.axis line, .axis path {
+    stroke-width: 1px;
+    stroke: #000;
+    fill: none;
+}
+
+.tooltip {
+    display: none;
+}
+
+.tooltip.active {
+    display: block;
+}
+
+.tooltip rect {
+    fill: #ff0000;
+}
+
+    </style>
+
+</head>
 <body>
-	<script src="http://d3js.org/d3.v2.js"></script>
-    <h1>Hello World using d3.js &amp; Flask</h1>
 
-    <p>Taken from Dan F.M.'s <a href="https://github.com/dfm/flask-d3-hello-world">flask-d3-hellow-world</a> and forked <a href="https://github.com/cranmer/flask-d3-hello-world">here</a>.
+<a href="https://github.com/cranmer/flask-d3-hello-world"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+
+    <h1>Simple example using d3.js &amp; Flask</h1>
+    <div id="intro">This webpage uses d3 to draw some circles.  The data are generated on the fly by a simple flask application.  You can update the mean of the (x,y) pairs with the form.  This info is passed via ?mux=&lt;value&gt;&amp;muy=&lt;value&gt; which flask grabs, passes in rendering the template (which is used to fill out the form and in the all-important url to fetch the data via a d3.json() call. Of course, d3 coudl easily generate some random data by itself, but that's not the point of the exercise.</div>
+
+
+    {% if mux %}
+      <p>The point cloud has a mux={{mux}} muy={{muy}}</p>
+        <form action="/">
+            mean x = <input type="text" name="mux" value="{{mux}}">
+            mean y = <input type="text" name="muy" value="{{muy}}">
+            <input type="submit" value="Submit">
+        </form>
+    {% else %}
+      <p>The point cloud has a mux=3. muy=3.</p>
+        <form action="">
+            mean x = <input type="text" name="mux" value="3.">
+            mean y = <input type="text" name="muy" value="3.">
+            <input type="submit" value="Submit">
+        </form>
+    {% endif %}
+
     <div id="info">
         <div id="point-info">
             Click on a point.
@@ -18,6 +87,7 @@
 
 
     <script>
+
         // Set up the plot window.
         var margin = 80;
         var w = 700 - 2 * margin, h = 500 - 2 * margin;
@@ -26,24 +96,34 @@
                         .attr("height", h + 2 * margin)
                     .append("svg:g")
                         .attr("transform", "translate(" + margin + ", " + margin + ")");
+
         // The colorbar.
         var color = d3.scale.quantize()
                       .range(["#156b87", "#876315", "#543510", "#872815"])
                       .domain([0, 1]);
+
         // Axes scaling functions.
         var xscale = d3.scale.linear().range([0, w]);
         var yscale = d3.scale.linear().range([h, 0]);
+
         // The axes objects themselves.
         var xaxis = d3.svg.axis().scale(xscale).ticks(8);
         var yaxis = d3.svg.axis().scale(yscale).ticks(8).orient("left");
+
         svg.append("svg:g").attr("class", "x axis")
                            .attr("transform", "translate(0, " + h + ")");
         svg.append("svg:g").attr("class", "y axis");
+
+        // Format the numbers 
+        var numFormat = d3.format(".2f")
+
         // Show the information about a particular point.
         var show_info = function (d) {
             d3.select("#point-info").text("This is point " + d._id + ". "
-                + "It has the coordinates (" + d.x + ", " + d.y + ").");
+                + "It has the coordinates (" + numFormat(d.x) + ", " + numFormat(d.y) + ").");
         };
+
+
         // Load the data.
         var callback = function (data) {
             // Rescale the axes.
@@ -51,9 +131,11 @@
                            d3.max(data, function (d) { return d.x; }) + 0.05]);
             yscale.domain([d3.min(data, function (d) { return d.y; }) - 0.05,
                            d3.max(data, function (d) { return d.y; }) + 0.05]);
+
             // Display the axes.
             svg.select(".x.axis").call(xaxis);
             svg.select(".y.axis").call(yaxis);
+
             // Insert the data points.
             svg.selectAll("circle").data(data).enter()
                 .append("circle")
@@ -64,8 +146,12 @@
                     .style("fill", function (d) { return color(d.color); })
                     .on("mousedown", show_info);
         };
-        d3.json("/data", callback);
+
+        {% if mux %}
+            d3.json("/gdata?mux={{mux}}&muy={{muy}}", callback);
+        {% endif %}
+
     </script>
 
 </body>
-{% endblock %}
+</html>
