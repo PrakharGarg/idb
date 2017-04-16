@@ -22,7 +22,7 @@ $(window).on('resize', function (){
 });
 
 $('.carousel').carousel({
-  interval: 6000,
+  interval: 2500,
   pause: "false"
 });
   // Get the modal
