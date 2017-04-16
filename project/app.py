@@ -38,9 +38,10 @@ def index() :
 def about() :
     return render_template('about.html')
     
-@app.route('/search/<search_var>/')
-def search(search_var) :
-    return render_template('search.html', search_var = search_var)
+@app.route('/search/', methods=['GET', 'POST'])
+def search() :
+    value = request.form['search']
+    return render_template('search.html', value = value)
     
 @app.route('/visualization/')
 def visual() :
