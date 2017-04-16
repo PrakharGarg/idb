@@ -10,6 +10,7 @@ body {
 }
 .navbar {
   border-radius: 0px;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
 .about {
