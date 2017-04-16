@@ -1,6 +1,9 @@
 body {
   font-family:  "Lucida Console", Monaco, monospace;
 }
+#mycarousel {
+    margin-top: -2%;
+}
 
 .navlist:hover {
   background-color: #FFCE1A;
