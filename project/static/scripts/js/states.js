@@ -4071,7 +4071,7 @@ var App = React.createClass({displayName: "App",
     var _this = this;
     this.serverRequest = 
       axios
-        .get("http://pursuitofhoppyness.me/api/states")
+        .get("/api/states")
         .then(function(result) {    
           _this.setState({
             states: result.data.result
@@ -4090,7 +4090,7 @@ var App = React.createClass({displayName: "App",
             return (
               React.createElement("div", {className: "col-md-3 col-sm-6 hero-feature text-center"}, 
 							React.createElement("div", {className: "thumbnail"}, 
-								React.createElement("img", {src: "" + state.label, width: "150", alt: ""}), 
+								React.createElement("img", {src: "" + state.media, width: "150", alt: ""}), 
 								React.createElement("div", {className: "caption"}, 
 									React.createElement("h3", null, state.name), 
 									React.createElement("p", null, 

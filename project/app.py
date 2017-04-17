@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, abort, jsonify
+from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 import os
 import subprocess
@@ -8,6 +9,7 @@ import io
 #import sensitive
 
 app = Flask(__name__)
+CORS(app)
 # app.config['SQLALCHEMY_DATABASE_URI'] = sensitive.DATABASE['postgres']
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/poh'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -41,6 +43,7 @@ def about() :
 @app.route('/search/', methods=['GET', 'POST'])
 def search() :
     value = request.form['search']
+    value = value.split()
     return render_template('search.html', value = value)
     
 @app.route('/visualization/')

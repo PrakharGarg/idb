@@ -14,7 +14,7 @@ var App = React.createClass({
     var _this = this;
     this.serverRequest = 
       axios
-        .get("http://pursuitofhoppyness.me/api/breweries")
+        .get("/api/breweries")
         .then(function(result) {    
           _this.setState({
             breweries: result.data.result
