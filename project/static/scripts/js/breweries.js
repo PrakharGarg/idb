@@ -4094,7 +4094,7 @@ var App = React.createClass({displayName: "App",
 								React.createElement("div", {className: "caption"}, 
 									React.createElement("h3", null, brewery.name), 
 									React.createElement("p", null, 
-										brewery.founded, " ", React.createElement("br", null), 
+										2017 - Math.floor(brewery.founded/365), " ", React.createElement("br", null), 
 										brewery.address
 									), 
 									React.createElement("p", null, 
