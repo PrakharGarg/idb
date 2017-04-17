@@ -44,6 +44,10 @@ def about() :
 def search() :
     value = request.form['search']
     value = value.split()
+    andResult = []
+    orResult = []
+    # for i in  value :
+        
     return render_template('search.html', value = value)
     
 @app.route('/visualization/')

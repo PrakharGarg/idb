@@ -4,7 +4,9 @@ body {
 #mycarousel {
     margin-top: -2%;
 }
-
+.venueimg {
+    height: 50%;
+}
 .navlist:hover {
   background-color: #FFCE1A;
 }

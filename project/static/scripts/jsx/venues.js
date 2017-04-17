@@ -2,6 +2,10 @@ require('whatwg-fetch');
 
 var axios = require('axios');
 
+var venuestyle = {
+  height: "50%"
+};
+
 var App = React.createClass({
 
   getInitialState: function() {
@@ -33,7 +37,7 @@ var App = React.createClass({
             return (
               <div className="col-md-3 col-sm-6 hero-feature text-center">
 							<div className="thumbnail">
-								<img src={"" + venue.media} width = "150" alt=""/>
+								<img className = "venueimg" style={venuestyle} src={"" + venue.media} width = "150" alt=""/>
 								<div className="caption">
 									<h3>{venue.name}</h3>
 									<p>
