@@ -41,8 +41,7 @@ var App = React.createClass({
 								<div className="caption">
 									<h3>{venue.name}</h3>
 									<p>
-										{venue.type} <br/>
-										{venue.is_public} <br />
+										{venue.category} <br />
                     {venue.address}
 									</p>
 									<p>
