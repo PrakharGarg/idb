@@ -125,7 +125,7 @@ def state(state_abbreviation) :
 
 # API GET methods
 
-@app.route('/api/beers', methods=['GET'])
+@app.route('/api/beers/', methods=['GET'])
 def get_beers():
     beers = Beer.query.all()
     _ = list()
@@ -141,7 +141,7 @@ def get_beer_info(beer_id):
         abort(404)
     return jsonify({'result' : beer.to_dict()})
 
-@app.route('/api/venues', methods=['GET'])
+@app.route('/api/venues/', methods=['GET'])
 def get_venues():
     venues = Venue.query.all()
     _ = list()
@@ -157,7 +157,7 @@ def get_venue_info(venue_id):
         abort(404)
     return jsonify({'result' : venue.to_dict()})
 
-@app.route('/api/breweries', methods=['GET'])
+@app.route('/api/breweries/', methods=['GET'])
 def get_breweries():
     breweries = Brewery.query.all()
     _ = list()
@@ -173,7 +173,7 @@ def get_brewery_info(brewery_id):
         abort(404)
     return jsonify({'result' : brewery.to_dict()})
 
-@app.route('/api/states', methods=['GET'])
+@app.route('/api/states/', methods=['GET'])
 def get_states():
     states = State.query.all()
     _ = list()
