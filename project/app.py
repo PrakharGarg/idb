@@ -58,22 +58,38 @@ def search() :
     for word in values :
         for model in all_models:
             model_dictionary = model.__dict__
-            for key in model_dictionary:
+            for key in model_dictionary.keys():
                 try:
                     if word in str(model_dictionary[key]) :
-                        if model not in orResult:
-                            orResult.append(model)
+                        if model_dictionary not in orResult:
+                            model_dictionary["match_key"] = key
+                            index = str(model_dictionary[key]).index(word)
+                            beginning_sub = str(model_dictionary[key])[:index]
+                            model_dictionary["match_beginning"] = beginning_sub
+                            model_dictionary["match_word"] = word
+                            index += len(word)
+                            end_sub = str(model_dictionary[key])[index:]
+                            model_dictionary["match_end"] = end_sub
+                            orResult.append(model_dictionary)
                 except: 
                     pass
     
     # Get AND results 
     for model in all_models:
         model_dictionary = model.__dict__
-        for key in model_dictionary:
+        for key in model_dictionary.keys():
             try:
                 if value in str(model_dictionary[key]) :
-                    if model not in andResult:
-                        andResult.append(model)
+                    if model_dictionary not in andResult:
+                        model_dictionary["match_key"] = key
+                        index = str(model_dictionary[key]).index(value)
+                        beginning_sub = str(model_dictionary[key])[:index]
+                        model_dictionary["match_beginning"] = beginning_sub
+                        model_dictionary["match_word"] = value
+                        index += len(value)
+                        end_sub = str(model_dictionary[key])[index:]
+                        model_dictionary["match_end"] = end_sub
+                        andResult.append(model_dictionary)
             except: 
                 pass
     
