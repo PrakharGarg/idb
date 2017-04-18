@@ -56,7 +56,7 @@ def search() :
             for key in model_dictionary.keys():
                 try:
                     if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if model_dictionary not in andResult:
+                        if not any(d['id'] == model.id for d in andResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(value.lower())
                             beginning_sub = str(model_dictionary[key]).lower()[:index]
@@ -72,7 +72,7 @@ def search() :
                     pass
                 try:
                     if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if model_dictionary not in orResult:
+                        if not any(d['id'] == model.id for d in orResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(word.lower())
                             beginning_sub = str(model_dictionary[key]).lower()[:index]
@@ -93,7 +93,7 @@ def search() :
             for key in model_dictionary.keys():
                 try:
                     if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if model_dictionary not in andResult:
+                        if not any(d['id'] == model.id for d in andResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(value.lower())
                             beginning_sub = str(model_dictionary[key]).lower()[:index]
@@ -109,7 +109,7 @@ def search() :
                     pass
                 try:
                     if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if model_dictionary not in orResult:
+                        if not any(d['id'] == model.id for d in orResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(word.lower())
                             beginning_sub = str(model_dictionary[key]).lower()[:index]
@@ -131,7 +131,7 @@ def search() :
             for key in model_dictionary.keys():
                 try:
                     if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if model_dictionary not in andResult:
+                        if not any(d['id'] == model.abbreviation for d in andResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(value.lower())
                             beginning_sub = str(model_dictionary[key]).lower()[:index]
@@ -147,7 +147,7 @@ def search() :
                     pass
                 try:
                     if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if model_dictionary not in orResult:
+                        if not any(d['id'] == model.abbreviation for d in orResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(word.lower())
                             beginning_sub = str(model_dictionary[key]).lower()[:index]
@@ -169,7 +169,7 @@ def search() :
             for key in model_dictionary.keys():
                 try:
                     if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if model_dictionary not in andResult:
+                        if not any(d['id'] == model.id for d in andResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(value.lower())
                             beginning_sub = str(model_dictionary[key]).lower()[:index]
@@ -185,7 +185,7 @@ def search() :
                     pass
                 try:
                     if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if model_dictionary not in orResult:
+                        if not any(d['id'] == model.id for d in orResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(word.lower())
                             beginning_sub = str(model_dictionary[key]).lower()[:index]
