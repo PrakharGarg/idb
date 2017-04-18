@@ -60,7 +60,7 @@ def search() :
             model_dictionary = model.__dict__
             for key in model_dictionary.keys():
                 try:
-                    if word in str(model_dictionary[key]) :
+                    if word in str(model_dictionary[key]) and "media" not in key and key != "label" and "instance" not in key :
                         if model_dictionary not in orResult:
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).index(word)
@@ -79,7 +79,7 @@ def search() :
         model_dictionary = model.__dict__
         for key in model_dictionary.keys():
             try:
-                if value in str(model_dictionary[key]) :
+                if value in str(model_dictionary[key]) and "media" not in key and key != "label" and "instance" not in key :
                     if model_dictionary not in andResult:
                         model_dictionary["match_key"] = key
                         index = str(model_dictionary[key]).index(value)
