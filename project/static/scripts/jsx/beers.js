@@ -1,5 +1,3 @@
-require('whatwg-fetch'); 
-
 var axios = require('axios');
 
 class ProductCategoryRow extends React.Component {
@@ -92,6 +90,84 @@ class SearchBar extends React.Component {
   }
 }
 
+class FilterBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSortByChange = this.handleSortByChange.bind(this);
+    this.handleOrderAscend = this.handleOrderAscend.bind(this);
+    this.handleOrderDescend = this.handleOrderDescend.bind(this);
+    this.handleTypeChange = this.handleTypeChange.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
+  }
+
+  handleSortByChange(e) {
+    this.props.onSortChange(e);
+  }
+
+  handleOrderAscend(e) {
+    this.props.onOrderChange(true);
+  }
+
+  handleOrderDescend(e) {
+    this.props.onOrderChange(false);
+  }
+
+  handleTypeChange(e) {
+    this.props.onTypeChange(e);
+  }
+
+  handleRatingChange(e) {
+    this.props.onRatingChange(e);
+  }
+
+  render() {
+    return (
+      <div>
+
+        <div className="dropdown">
+          <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By
+            <span className="caret"></span></button>
+            <ul className="dropdown-menu">
+              <li><a href="#">Name</a></li>
+              <li><a href="#">Type</a></li>
+              <li><a href="#">Rating</a></li>
+            </ul>
+        </div>
+
+        <button type="button" className="btn btn-default ascdesc" aria-label="Left Align" onClick={this.handleOrderAscend}>
+          <a href = "#" className="glyphicon glyphicon-arrow-up" aria-hidden="true"></a>
+        </button>
+
+        <button type="button" className="btn btn-default ascdesc" aria-label="Left Align" onClick={this.handleOrderDescend}>
+          <a href = "#" className="glyphicon glyphicon-arrow-down" aria-hidden="true"></a>
+        </button>
+
+        <div className="dropdown">
+          <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
+            <span className="caret"></span></button>
+            <ul className="dropdown-menu">
+              <li class = "boxes" ><input type="checkbox"/> Stout <br /></li>
+              <li class = "boxes" ><input type="checkbox"/> IPA <br /></li>
+              <li class = "boxes" ><input type="checkbox"/> Sour <br /></li>
+            </ul>
+        </div>
+
+        <div className="dropdown">
+          <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
+            <span className="caret"></span></button>
+            <ul className="dropdown-menu">
+              <li class = "boxes" ><input type="checkbox"/> 2+ <br /></li>
+              <li class = "boxes" ><input type="checkbox"/> 3+ <br /></li>
+              <li class = "boxes" ><input type="checkbox"/> 4+</li>
+            </ul>
+        </div>
+
+      </div>
+    )
+  }
+
+}
+
 class FilterableProductTable extends React.Component {
   constructor(props) {
     super(props);
@@ -100,11 +176,38 @@ class FilterableProductTable extends React.Component {
       inStockOnly: false,
       beers: new Array(),
       all_states: ['TX','AL','CA'],
-      filtering_states: new Array()
+      filtering_states: new Array(),
+
+      ascending: true,
+      ratings: new Array(),
+      types: new Array()
     };
     
     this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
     this.handleInStockInput = this.handleInStockInput.bind(this);
+
+    this.handleSortInput = this.handleSortInput.bind(this);
+    this.handleOrderInput = this.handleOrderInput.bind(this);
+    this.handleTypeInput = this.handleTypeInput.bind(this);
+    this.handleRatingInput = this.handleRatingInput.bind(this);
+  }
+
+  handleSortInput(e) {
+    console.log(e);
+  }
+
+  handleOrderInput(ascend) {
+    this.setState({
+      ascending: ascend
+    });
+  }
+
+  handleTypeInput(e) {
+    console.log(e);
+  }
+
+  handleRatingInput(e) {
+    console.log(e);
   }
 
   componentDidMount() {
@@ -143,6 +246,12 @@ class FilterableProductTable extends React.Component {
           inStockOnly={this.state.inStockOnly}
           onFilterTextInput={this.handleFilterTextInput}
           onInStockInput={this.handleInStockInput}
+        />
+        <FilterBar
+          onSortChange={this.handleSortInput}
+          onOrderChange={this.handleOrderInput}
+          onTypeChange={this.handleTypeInput}
+          onRatingChange={this.handleRatingInput}
         />
         <ProductTable
           products={this.state.beers}

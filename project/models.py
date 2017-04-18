@@ -6,7 +6,11 @@
 
 import json
 from flask_sqlalchemy import SQLAlchemy
-from __main__ import app
+try:
+    from __main__ import app
+except:
+    from app import app
+
 db = SQLAlchemy(app)
 
 """

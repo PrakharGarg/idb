@@ -3,7 +3,10 @@
 # pylint: disable = missing-docstring
 import unittest
 
-from __main__ import app
+try:
+    from __main__ import app
+except:
+    from app import app
 
 class TestModels(unittest.TestCase):
         
