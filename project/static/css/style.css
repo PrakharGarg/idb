@@ -6,6 +6,7 @@ body {
 }
 .venueimg {
     height: 50%;
+    max-height: 125px;
 }
 .navlist:hover {
   background-color: #FFCE1A;
