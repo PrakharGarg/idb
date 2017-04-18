@@ -3,12 +3,17 @@
 # pylint: disable = missing-docstring
 import unittest
 
-from __main__ import app
-from __main__ import db
+try:
+    from __main__ import app
+    from __main__ import db
+except:
+    from app import app
+    from app import db
+
 from models import *
 
 class TestModels(unittest.TestCase):
-        
+
     def setUp(self):
         db.drop_all()
         db.session.remove()
@@ -17,7 +22,7 @@ class TestModels(unittest.TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
-        
+
     global demo_beer
     demo_beer = {
         'id':0,
@@ -198,4 +203,3 @@ class TestModels(unittest.TestCase):
 
 if __name__ == "__main__" : #pragma: no cover
     unittest.main()
-
