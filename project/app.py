@@ -42,13 +42,46 @@ def about() :
     
 @app.route('/search/', methods=['GET', 'POST'])
 def search() :
+    # Get the search value that the user inputed
     value = request.form['search']
-    value = value.split()
+    # Split the words into a list
+    values = value.split()
     andResult = []
     orResult = []
-    # for i in  value :
+    # Get a list of all of the items
+    all_models = []
+    all_models += Beer.query.all()
+    all_models += Brewery.query.all()
+    all_models += State.query.all()
+    all_models += Venue.query.all()
+    # Get the OR results
+    for word in values :
+        for model in all_models:
+            model_dictionary = model.__dict__
+            for key in model_dictionary:
+                try:
+                    if word in str(model_dictionary[key]) :
+                        if model not in orResult:
+                            orResult.append(model)
+                except: 
+                    pass
+    
+    # Get AND results 
+    for model in all_models:
+        model_dictionary = model.__dict__
+        for key in model_dictionary:
+            try:
+                if value in str(model_dictionary[key]) :
+                    if model not in andResult:
+                        andResult.append(model)
+            except: 
+                pass
+    
+    orHeader = value.replace(" ", " OR ")
+    andHeader = value.replace(" ", " AND ")
+    
         
-    return render_template('search.html', value = value)
+    return render_template('search.html', orResult = orResult, orHeader = orHeader,andResult = andResult, andHeader = andHeader)
     
 @app.route('/visualization/')
 def visual() :
