@@ -42,16 +42,20 @@ def about() :
     
 @app.route('/search/', methods=['GET', 'POST'])
 def search() :
+    # Get the search value that the user inputed
     value = request.form['search']
-    value = value.split()
+    # Split the words into a list
+    values = value.split()
     andResult = []
     orResult = []
+    # Get a list of all of the items
     all_models = []
     all_models += Beer.query.all()
     all_models += Brewery.query.all()
     all_models += State.query.all()
     all_models += Venue.query.all()
-    for word in value :
+    # Get the OR results
+    for word in values :
         for model in all_models:
             model_dictionary = model.__dict__
             for key in model_dictionary:
@@ -61,7 +65,12 @@ def search() :
                             orResult.append(model)
                 except: 
                     pass
-    return render_template('search.html', value = orResult)
+    
+    orHeader = value.replace(" ", " OR ")
+    andHeader = value.replace(" ", " AND ")
+    
+        
+    return render_template('search.html', orResult = orResult, orHeader = orHeader, andHeader = andHeader)
     
 @app.route('/visualization/')
 def visual() :
