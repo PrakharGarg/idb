@@ -60,15 +60,15 @@ def search() :
             model_dictionary = model.__dict__
             for key in model_dictionary.keys():
                 try:
-                    if word in str(model_dictionary[key]) and "media" not in key and key != "label" and "instance" not in key :
+                    if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
                         if model_dictionary not in orResult:
                             model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).index(word)
-                            beginning_sub = str(model_dictionary[key])[:index]
+                            index = str(model_dictionary[key]).lower().index(word.lower())
+                            beginning_sub = str(model_dictionary[key]).lower()[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = word
                             index += len(word)
-                            end_sub = str(model_dictionary[key])[index:]
+                            end_sub = str(model_dictionary[key]).lower()[index:]
                             model_dictionary["match_end"] = end_sub
                             orResult.append(model_dictionary)
                 except: 
@@ -79,15 +79,15 @@ def search() :
         model_dictionary = model.__dict__
         for key in model_dictionary.keys():
             try:
-                if value in str(model_dictionary[key]) and "media" not in key and key != "label" and "instance" not in key :
+                if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
                     if model_dictionary not in andResult:
                         model_dictionary["match_key"] = key
-                        index = str(model_dictionary[key]).index(value)
-                        beginning_sub = str(model_dictionary[key])[:index]
+                        index = str(model_dictionary[key]).lower().index(value.lower())
+                        beginning_sub = str(model_dictionary[key]).lower()[:index]
                         model_dictionary["match_beginning"] = beginning_sub
                         model_dictionary["match_word"] = value
                         index += len(value)
-                        end_sub = str(model_dictionary[key])[index:]
+                        end_sub = str(model_dictionary[key]).lower()[index:]
                         model_dictionary["match_end"] = end_sub
                         andResult.append(model_dictionary)
             except: 
