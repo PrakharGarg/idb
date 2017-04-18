@@ -37,6 +37,9 @@ clean:
 run:
 	python project/main.py
 
+test:
+	python project/tests.py
+
 doc:
 	make clean
 	pydoc -w app/models.py
