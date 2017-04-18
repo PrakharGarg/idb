@@ -46,9 +46,15 @@ def search() :
     value = value.split()
     andResult = []
     orResult = []
+    all_models = []
+    all_models += Beer.query.all()
+    all_models += Brewery.query.all()
+    all_models += State.query.all()
+    all_models += Venue.query.all()
     # for i in  value :
         
-    return render_template('search.html', value = value)
+        
+    return render_template('search.html', value = all_models)
     
 @app.route('/visualization/')
 def visual() :
