@@ -51,10 +51,17 @@ def search() :
     all_models += Brewery.query.all()
     all_models += State.query.all()
     all_models += Venue.query.all()
-    # for i in  value :
-        
-        
-    return render_template('search.html', value = all_models)
+    for word in value :
+        for model in all_models:
+            model_dictionary = model.__dict__
+            for key in model_dictionary:
+                try:
+                    if word in str(model_dictionary[key]) :
+                        if model not in orResult:
+                            orResult.append(model)
+                except: 
+                    pass
+    return render_template('search.html', value = orResult)
     
 @app.route('/visualization/')
 def visual() :
