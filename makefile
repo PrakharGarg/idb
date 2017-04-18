@@ -1,21 +1,11 @@
 FILES :=                          	\
-    main.py                       	\
-	app/__init__.py					\
-	app/models.py					\
-	app/tests.py					\
-	app/views.py					\
-	app/templates/about.html		\
-	app/templates/base.html			\
-	app/templates/beer.html			\
-	app/templates/beers.html		\
-	app/templates/breweries.html	\
-	app/templates/brewery.html		\
-	app/templates/index.html		\
-	app/templates/states.html		\
-	app/templates/venues.html		\
-	app/templates/venue.html		\
+	filters.sql						\
+	package.json 					\
 	.gitignore                    	\
 	requirements.txt				\
+	project/models.py				\
+	project/tests.py				\
+	gulpfile.js						\
 
 
 check:
@@ -45,10 +35,7 @@ clean:
 	-rm IDB1.log
 
 run:
-	python main.py
-
-deploy:
-	gcloud deploy app
+	python project/main.py
 
 doc:
 	make clean
@@ -64,6 +51,3 @@ env:
 	virtualenv idb-env
 	-source idb-env/bin/activate
 	pip install -r requirements.txt
-
-test:
-	python app/tests.py
