@@ -59,11 +59,11 @@ def search() :
                         if not any(d['id'] == model.id for d in orResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(word.lower())
-                            beginning_sub = str(model_dictionary[key]).lower()[:index]
+                            beginning_sub = str(model_dictionary[key])[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = word
                             index += len(word)
-                            end_sub = str(model_dictionary[key]).lower()[index:]
+                            end_sub = str(model_dictionary[key])[index:]
                             model_dictionary["match_end"] = end_sub
                             model_dictionary["type"] = "beers"
                             model_dictionary["id"] = model.id
@@ -75,11 +75,11 @@ def search() :
                         if not any(d['id'] == model.id for d in andResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(value.lower())
-                            beginning_sub = str(model_dictionary[key]).lower()[:index]
+                            beginning_sub = str(model_dictionary[key])[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = value
                             index += len(value)
-                            end_sub = str(model_dictionary[key]).lower()[index:]
+                            end_sub = str(model_dictionary[key])[index:]
                             model_dictionary["match_end"] = end_sub
                             model_dictionary["type"] = "beers"
                             model_dictionary["id"] = model.id
@@ -96,11 +96,11 @@ def search() :
                         if not any(d['id'] == model.id for d in orResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(word.lower())
-                            beginning_sub = str(model_dictionary[key]).lower()[:index]
+                            beginning_sub = str(model_dictionary[key])[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = word
                             index += len(word)
-                            end_sub = str(model_dictionary[key]).lower()[index:]
+                            end_sub = str(model_dictionary[key])[index:]
                             model_dictionary["match_end"] = end_sub
                             model_dictionary["type"] = "breweries"
                             model_dictionary["id"] = model.id
@@ -112,11 +112,11 @@ def search() :
                         if not any(d['id'] == model.id for d in andResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(value.lower())
-                            beginning_sub = str(model_dictionary[key]).lower()[:index]
+                            beginning_sub = str(model_dictionary[key])[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = value
                             index += len(value)
-                            end_sub = str(model_dictionary[key]).lower()[index:]
+                            end_sub = str(model_dictionary[key])[index:]
                             model_dictionary["match_end"] = end_sub
                             model_dictionary["type"] = "breweries"
                             model_dictionary["id"] = model.id
@@ -133,11 +133,11 @@ def search() :
                         if not any(d['id'] == model.abbreviation for d in orResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(word.lower())
-                            beginning_sub = str(model_dictionary[key]).lower()[:index]
+                            beginning_sub = str(model_dictionary[key])[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = word
                             index += len(word)
-                            end_sub = str(model_dictionary[key]).lower()[index:]
+                            end_sub = str(model_dictionary[key])[index:]
                             model_dictionary["match_end"] = end_sub
                             model_dictionary["type"] = "states"
                             model_dictionary["id"] = model.abbreviation
@@ -149,11 +149,11 @@ def search() :
                         if not any(d['id'] == model.abbreviation for d in andResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(value.lower())
-                            beginning_sub = str(model_dictionary[key]).lower()[:index]
+                            beginning_sub = str(model_dictionary[key])[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = value
                             index += len(value)
-                            end_sub = str(model_dictionary[key]).lower()[index:]
+                            end_sub = str(model_dictionary[key])[index:]
                             model_dictionary["match_end"] = end_sub
                             model_dictionary["type"] = "states"
                             model_dictionary["id"] = model.abbreviation
@@ -171,11 +171,11 @@ def search() :
                         if not any(d['id'] == model.id for d in orResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(word.lower())
-                            beginning_sub = str(model_dictionary[key]).lower()[:index]
+                            beginning_sub = str(model_dictionary[key])[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = word
                             index += len(word)
-                            end_sub = str(model_dictionary[key]).lower()[index:]
+                            end_sub = str(model_dictionary[key])[index:]
                             model_dictionary["match_end"] = end_sub
                             model_dictionary["type"] = "venues"
                             model_dictionary["id"] = model.id
@@ -187,11 +187,11 @@ def search() :
                         if not any(d['id'] == model.id for d in andResult):
                             model_dictionary["match_key"] = key
                             index = str(model_dictionary[key]).lower().index(value.lower())
-                            beginning_sub = str(model_dictionary[key]).lower()[:index]
+                            beginning_sub = str(model_dictionary[key])[:index]
                             model_dictionary["match_beginning"] = beginning_sub
                             model_dictionary["match_word"] = value
                             index += len(value)
-                            end_sub = str(model_dictionary[key]).lower()[index:]
+                            end_sub = str(model_dictionary[key])[index:]
                             model_dictionary["match_end"] = end_sub
                             model_dictionary["type"] = "venues"
                             model_dictionary["id"] = model.id
