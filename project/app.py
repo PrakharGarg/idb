@@ -66,11 +66,22 @@ def search() :
                 except: 
                     pass
     
+    # Get AND results 
+    for model in all_models:
+        model_dictionary = model.__dict__
+        for key in model_dictionary:
+            try:
+                if value in str(model_dictionary[key]) :
+                    if model not in andResult:
+                        andResult.append(model)
+            except: 
+                pass
+    
     orHeader = value.replace(" ", " OR ")
     andHeader = value.replace(" ", " AND ")
     
         
-    return render_template('search.html', orResult = orResult, orHeader = orHeader, andHeader = andHeader)
+    return render_template('search.html', orResult = orResult, orHeader = orHeader,andResult = andResult, andHeader = andHeader)
     
 @app.route('/visualization/')
 def visual() :
