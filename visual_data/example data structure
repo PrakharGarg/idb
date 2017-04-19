@@ -1,0 +1,35 @@
+EXAMPLE:
+
+{
+"name":"Tags",
+"children":[
+	{
+	"name":"Grocery Items",
+	"children":[
+		{"name": "item1", "size":400},
+		{"name": "item2", "size":400}
+	]
+	},
+	{
+	"name":"Ingredients",
+	"children":[
+		{"name": "item1", "size":400},
+		{"name": "item2", "size":400}
+	]
+	},
+	{
+	"name":"Recipes",
+	"children":[
+		{"name": "item1",
+		"children":[
+			{"name":"ingredients Used",
+			"children":[
+				{"name":"ingredient1", "size":400},
+				{"name":"ingredient2", "size":400}
+			]}
+		]},
+		{"name": "item2"}
+	]
+	}
+]
+}
