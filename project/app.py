@@ -41,9 +41,15 @@ def about() :
     return render_template('about.html')
     
 @app.route('/search/', methods=['GET', 'POST'])
-def search() :
+@app.route('/search/<int:or_page>/<string:default>', methods=['GET', 'POST'])
+@app.route('/search/<int:and_page>/<string:default>', methods=['GET', 'POST'])
+def search(or_page=1,and_page=1, default='') :
     # Get the search value that the user inputed
-    value = request.form['search']
+    try:
+        value = request.form['search']
+    except:
+        value = str(default)
+    print(value)
     # Split the words into a list
     values = value.split()
     # Create the variables to hold the result. These will be passed to the html
@@ -120,12 +126,28 @@ def search() :
                 newstring = key + ": " + newstring
                 and_model_dict["results"][key]["string"] = Markup(newstring)
             andResult.append(and_model_dict)
-            
-            
+    
+    or_length = len(orResult)/10
+    if or_length > 11 :
+        or_length = 11
+    max_end = or_page * 10
+    lower_end = max_end - 10
+    orResult = orResult[lower_end:max_end]
+    orResult.append({"length" : or_length})
+    
+    
+    and_length = len(andResult)/10
+    if and_length > 11 :
+        and_length = 11
+    max_end = and_page * 10
+    lower_end = max_end - 10
+    andResult = andResult[lower_end:max_end]
+    andResult.append({"length" : and_length})
+        
     orHeader = value.replace(" ", " OR ")
     andHeader = value.replace(" ", " AND ")
     
-    return render_template('search.html',orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
+    return render_template('search.html',query = value, and_page = and_page, or_page = or_page, orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
     
 @app.route('/visualization/')
 def visual() :
