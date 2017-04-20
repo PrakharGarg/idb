@@ -12,7 +12,7 @@ class Beer extends React.Component {
       <p>
       {this.props.beer.style} <br/>
       ABV: {this.props.beer.abv} <br />
-      Rating: {this.props.beer.rating}/5.0 
+      Rating: {this.props.beer.rating}/5.0
       </p>
       <p>
       <a href={"/beers/" + this.props.beer.id + "/"} className="btn btn-primary">More Info</a>
@@ -29,12 +29,12 @@ class Pagein extends React.Component {
     super(props);
     this.handlePageByChange = this.handlePageByChange.bind(this);
   }
-  
+
   handlePageByChange(e) {
     this.props.onPageChange(e.target.id);
   }
-  
-  
+
+
   render() {
     return (
       <div >
@@ -52,7 +52,7 @@ class Pagein extends React.Component {
 class ProductTable extends React.Component {
   render() {
     var rows = [];
-    
+
     var filteredProducts = _.filter(this.props.products, (beer) => {
       var type_matches = _.map(this.props.types, (type) => {
         console.log(type + "  : " + beer.style);
@@ -65,18 +65,18 @@ class ProductTable extends React.Component {
       var rating_matches = beer.rating >= this.props.lowRating;
       return type_matches && rating_matches;
     });
-    
+
     var sortedProducts = _.sortBy(filteredProducts, this.props.sortBy);
     if (!this.props.ascend) {
       sortedProducts.reverse();
     }
-    
+
     sortedProducts.forEach((beer) => {
       rows.push(
         <Beer beer={beer}/>
       );
     });
-    
+
     return (
       <div>{rows}</div>
     );
@@ -92,27 +92,27 @@ class FilterBar extends React.Component {
     this.handleTypeChange = this.handleTypeChange.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
   }
-  
+
   handleSortByChange(e) {
     this.props.onSortChange(e.target.id);
   }
-  
+
   handleOrderAscend(e) {
     this.props.onOrderChange(true);
   }
-  
+
   handleOrderDescend(e) {
     this.props.onOrderChange(false);
   }
-  
+
   handleTypeChange(e) {
     this.props.onTypeChange(e.target.id);
   }
-  
+
   handleRatingChange(e) {
     this.props.onRatingChange(e.target.id);
   }
-  
+
   render() {
     return (
       <div className="col-md-3">
@@ -126,15 +126,15 @@ class FilterBar extends React.Component {
       <li><a href="#" id='rating'>Rating</a></li>
       </ul>
       </div>
-      
+
       <button type="button" className="btn btn-default ascdesc" aria-label="Left Align" onClick={this.handleOrderAscend}>
       <a href = "#" className="glyphicon glyphicon-arrow-up" aria-hidden="true"></a>
       </button>
-      
+
       <button type="button" className="btn btn-default ascdesc" aria-label="Left Align" onClick={this.handleOrderDescend}>
       <a href = "#" className="glyphicon glyphicon-arrow-down" aria-hidden="true"></a>
       </button>
-      
+
       <div className="dropdown">
       <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
       <span className="caret"></span></button>
@@ -144,7 +144,7 @@ class FilterBar extends React.Component {
       <li className= "boxes" ><input id="sour" type="checkbox"/> Sour <br /></li>
       </ul>
       </div>
-      
+
       <div className="dropdown">
       <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
       <span className="caret"></span></button>
@@ -158,7 +158,7 @@ class FilterBar extends React.Component {
       </div>
     )
   }
-  
+
 }
 
 class FilterableProductTable extends React.Component {
@@ -172,29 +172,30 @@ class FilterableProductTable extends React.Component {
       types: new Array(),
       page: 1
     };
-    
+
     this.handleSortInput = this.handleSortInput.bind(this);
     this.handleOrderInput = this.handleOrderInput.bind(this);
     this.handleTypeInput = this.handleTypeInput.bind(this);
     this.handleRatingInput = this.handleRatingInput.bind(this);
     this.handlePageInput = this.handlePageInput.bind(this);
   }
-  
+
   handleSortInput(sort_by) {
     console.log(sort_by);
     this.setState({
       sortBy: sort_by
     });
   }
-  
+
   handlePageInput(newPage) {
     console.log(newPage)
     this.setState({
       page: newPage
-    }
+  },
+  function() {
+      this.componentDidMount();
+  }
   );
-  this.forceUpdate();
-  this.componentDidMount();
 }
 
 handleOrderInput(ascend) {
@@ -232,7 +233,7 @@ componentDidMount() {
   this.serverRequest = axios
   .get("/api/beers/" + this.state.page)
   .then(function(result) {
-    console.log(result);   
+    console.log(result);
     _this.setState({
       beers: result.data.result
     });
@@ -259,7 +260,7 @@ render() {
     products={this.state.beers}
     filterText={this.state.filterText}
     inStockOnly={this.state.inStockOnly}
-    
+
     sortBy={this.state.sortBy}
     types={this.state.types}
     ascend={this.state.ascend}
