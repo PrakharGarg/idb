@@ -57,3 +57,5 @@ env:
 	virtualenv idb-env
 	-source idb-env/bin/activate
 	pip install -r requirements.txt
+	npm install
+	bower install -g
