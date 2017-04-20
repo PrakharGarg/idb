@@ -41,8 +41,8 @@ def get_ingredient_names():
 	return names
 
 def get_recipe_ingredients():
-	names = []
-	ingredients = []
+	names = [] #375 len
+	ingredients = [] #375 len
 	js = open('recipe_info.json')
 	data = (json.load(js)).get('result')
 	#real_data = data.get('data')
@@ -130,6 +130,10 @@ def create_file():
 			###REMOVE LAST COMMA###
 			fd.write(']    }]  },')#closechild4
 
+	with open('test.txt', 'rb+') as filehandle:
+		filehandle.seek(-1, os.SEEK_END)
+		filehandle.truncate()
+
 	with open('test.txt','a') as fd:
 		fd.write(']}')#closechild0
 
@@ -142,41 +146,41 @@ create_file()
 
 
 
-	#to get related grocery items
-	"""for _ in tag_grocery:
-		with open('test.txt','a') as fd:
-			try:
-				for item in tag_grocery[0]:
-					fd.write(item.get('name').encode('utf-8')+'\n') # _ is a list!
-			except (IndexError, AttributeError):
-				pass
-			else:
-				with open('test.txt','a') as fd:
-					fd.write('[]'+'\n')
-	"""
-	#to get recipes and related ingredients
-	"""for _ in tag_recipes:
-		with open('test.txt','a') as fd:
-			fd.write('{\n"name" : "Recipes",\n"children":[\n')
-		with open('test.txt','a') as fd:
-			try:
-				for i in tag_recipes:
-					if(i != ""):
-						fd.write('{"name" : "')
-						for item in i:
-							fd.write(''+item.get('name').encode('utf-8')+'\n') # _ is a list!
-						fd.write('"\n}\n')
-			except (IndexError, AttributeError):
-				pass
-			else:
-				with open('test.txt','a') as fd:
-					fd.write('[]'+'\n')
-		with open('test.txt','a') as fd:
-			fd.write(']\n}')
-	"""
-	### DO NOT FORGET TO REMOVE LAST COMMA MANUALLY ###
-	#with open('test.txt','a') as fd:
-	#	fd.write('\n]\n}')
+#to get related grocery items
+"""for _ in tag_grocery:
+	with open('test.txt','a') as fd:
+		try:
+			for item in tag_grocery[0]:
+				fd.write(item.get('name').encode('utf-8')+'\n') # _ is a list!
+		except (IndexError, AttributeError):
+			pass
+		else:
+			with open('test.txt','a') as fd:
+				fd.write('[]'+'\n')
+"""
+#to get recipes and related ingredients
+"""for _ in tag_recipes:
+	with open('test.txt','a') as fd:
+		fd.write('{\n"name" : "Recipes",\n"children":[\n')
+	with open('test.txt','a') as fd:
+		try:
+			for i in tag_recipes:
+				if(i != ""):
+					fd.write('{"name" : "')
+					for item in i:
+						fd.write(''+item.get('name').encode('utf-8')+'\n') # _ is a list!
+					fd.write('"\n}\n')
+		except (IndexError, AttributeError):
+			pass
+		else:
+			with open('test.txt','a') as fd:
+				fd.write('[]'+'\n')
+	with open('test.txt','a') as fd:
+		fd.write(']\n}')
+"""
+### DO NOT FORGET TO REMOVE LAST COMMA MANUALLY ###
+#with open('test.txt','a') as fd:
+#	fd.write('\n]\n}')
 
 
 
