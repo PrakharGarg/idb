@@ -8,56 +8,14 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
-	<h1 align="center" class = "gold">Venues</h1>
+	<h1 class = "gold" align="center">Venues</h1> 
 	<br />
 	<br />
 </head>
 <body>
-	<div class="grid row">
-		<div class="col-md-3">
-			<div class="list-group">
-				<div class="dropdown">
-					<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By
-						<span class="caret"></span></button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Name</a></li>
-							<li><a href="#">Type</a></li>
-							<li><a href="#">Rating</a></li>
-						</ul>
-					</div>
-					<button type="button" class="btn btn-default ascdesc" aria-label="Left Align">
-						<a href = "#" class="glyphicon glyphicon-arrow-up" aria-hidden="true"></a>
-					</button>
-					<button type="button" class="btn btn-default ascdesc" aria-label="Left Align">
-						<a href = "#" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></a>
-					</button>
-					<div class="dropdown">
-						<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
-							<span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li class = "boxes" ><input type="checkbox"> Stout <br /></li>
-								<li class = "boxes" ><input type="checkbox"> IPA <br /></li>
-								<li class = "boxes" ><input type="checkbox"> Sour <br /></li>
-							</ul>
-						</div>
-						<div class="dropdown">
-							<button class=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
-								<span class="caret"></span></button>
-								<ul class="dropdown-menu">
-									<li class = "boxes" ><input type="checkbox"> 2+ <br /></li>
-									<li class = "boxes" ><input type="checkbox"> 3+ <br /></li>
-									<li class = "boxes" ><input type="checkbox"> 4+</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div id = "venues">
-						
-					</div>
-				</div>
-		
-	</body>
-	<script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='scripts/js/venues.js') }}"></script>
-	{% endblock %}
+	<div id="venues"></div>	
+</body>
+<script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/js/venues.js') }}"></script>
+{% endblock %}
