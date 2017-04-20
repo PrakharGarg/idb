@@ -5,17 +5,17 @@
 
 <div class = "about center">
   <h1>Welcome to <span class = "gold">Pursuit of Hoppyness!</span></h1>
-  
+
   <br />
-  
+
   <p class = "center text">
     We are enthusiasts of all things beer, and we want to share our love with you.
     Our goal is to make ordering a pint less stressful, to help support local
     breweries, and to teach people everywhere how to be beer snobs.
   </p>
-  
+
   <h2 class = "centernormal gold">Drink With Us!</h2> <br /><br /><br />
-  
+
   <div class="row center">
     <div class="col-lg-4">
       <img class="img-circle" src="/static/img/prakhar.jpg" alt="Generic placeholder image" width="140" height="140">
@@ -33,7 +33,7 @@
       <p>Amirali is a senior Computer Science student at The University of Texas. He enjoys cooking, reading, and playing videogames.<br /><br />Major Responsibilities: <span class = "gold">Apiary and Model Tests</span><br />Number of Commits: <span class = "gold">6</span><br />Number of Issues: <span class = "gold">2</span><br />Number of Unit Tests: <span class = "gold">13</span><br />Team Leader for Phase: <span class = "gold"></span></p>
     </div>
   </div>
-  
+
   <div class="row center">
     <div class="col-lg-4">
       <img class="img-circle" src="/static/img/arthur_storey.jpg" alt="Generic placeholder image" width="140" height="140">
@@ -54,8 +54,8 @@
 </div>
 
 <div class = "tools">
-  
-  
+
+
   <h2 class = "aboutstatsheader">Stats</h2>
   <div class = "aboutstats">
     <p>
@@ -75,9 +75,9 @@
       <br />
     </p>
   </div>
-  
+
   <br />
-  
+
   <h2 class = "aboutstatsheader">Data</h2>
   <div class = "aboutstats">
     <ul>
@@ -110,7 +110,7 @@
     </ul>
   </div>
   <br />
-  
+
   <h2 class = "aboutstatsheader">Tools</h2>
   <div class = "aboutstats">
     <h3>Front-End</h3>
@@ -127,21 +127,21 @@
         </ul>
       </li>
       <li>
-        <a href="https://angular.io" class = "gold">Angular 2</a>
+        <a href="https://facebook.github.io/react/" class = "gold">React</a>
         <ul>
               Used to dynamically render our front-end without having to refresh the page.
           </li>
         </ul>
       </li>
     </ul>
-    
+
     <h3>Back-End</h3>
     <ul>
       <li>
         <a href="https://console.cloud.google.com/project" class = "gold">GCP Hosting</a>
         <ul>
           <li>
-            Used to host our Flask project.
+            Used to host our website. We use a Compute Engine isntance.
           </li>
         </ul>
       </li>
@@ -153,8 +153,16 @@
           </li>
         </ul>
       </li>
+      <li>
+        <a href="https://www.postgresql.org/" class = "gold">PostgreSQL</a>
+        <ul>
+          <li>
+            Used as for our database.
+          </li>
+        </ul>
+      </li>
     </ul>
-    
+
     <h3>Others</h3>
     <ul>
       <li>
@@ -182,26 +190,26 @@
         </ul>
       </li>
     </ul>
-    
+
   </div>
-  
+
   <h2 class = "aboutstatsheader">Tests</h2>
   <div class = "aboutstats">
     <button class = "btn btn-primary" id="myBtn">Run Tests</button>
-    
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
-      
+
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
         <p id="myText">Loading...</p>
       </div>
-      
+
     </div>
   </div>
   <br />
-  
-  
-  
+
+
+
   {% endblock %}

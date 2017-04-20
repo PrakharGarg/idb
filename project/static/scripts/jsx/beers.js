@@ -124,9 +124,9 @@ class FilterBar extends React.Component {
             <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
               <span className="caret"></span></button>
               <ul className="dropdown-menu" onClick={this.handleRatingChange}>
-                <li className= "boxes" ><input id="2" type="checkbox"/> 2+ <br /></li>
-                <li className= "boxes" ><input id="3" type="checkbox"/> 3+ <br /></li>
-                <li className= "boxes" ><input id="4" type="checkbox"/> 4+</li>
+                <li><a href="#" id="2">2</a></li>
+                <li><a href="#" id="3">3</a></li>
+                <li><a href="#" id="4">4</a></li>
               </ul>
           </div>
         </div>
