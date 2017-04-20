@@ -5,6 +5,8 @@ import os
 import subprocess
 import unittest
 import io
+import copy
+from flask import Markup
 
 #import sensitive
 
@@ -19,13 +21,11 @@ from tests import TestModels
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :
 
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestModels)
-    output = io.BytesIO()
-    runner = unittest.TextTestRunner(stream=output)
-    runner.run(suite)
+    try:
+        output = subprocess.check_output('make cover'.split())
+    except subprocess.CalledProcessError as e:
+        output = e.output
 
-    output = output.getvalue()
-    
     return render_template("unittests.html", output = output)
 
 # Index page that contains a carousel
@@ -46,164 +46,86 @@ def search() :
     value = request.form['search']
     # Split the words into a list
     values = value.split()
+    # Create the variables to hold the result. These will be passed to the html
     andResult = []
     orResult = []
     
-    # Get all of the beer matches
-    for word in values :
-        for model in Beer.query.all() :
-            model_dictionary = model.__dict__
-            for key in model_dictionary.keys():
-                try:
-                    if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if not any(d['id'] == model.id for d in orResult):
-                            model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).lower().index(word.lower())
-                            beginning_sub = str(model_dictionary[key])[:index]
-                            model_dictionary["match_beginning"] = beginning_sub
-                            model_dictionary["match_word"] = word
-                            index += len(word)
-                            end_sub = str(model_dictionary[key])[index:]
-                            model_dictionary["match_end"] = end_sub
-                            model_dictionary["type"] = "beers"
-                            model_dictionary["id"] = model.id
-                            orResult.append(model_dictionary)
-                except: 
-                    pass
-                try:
-                    if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and "label" not in key and "instance" not in key :
-                        if not any(d['id'] == model.id for d in andResult):
-                            model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).lower().index(value.lower())
-                            beginning_sub = str(model_dictionary[key])[:index]
-                            model_dictionary["match_beginning"] = beginning_sub
-                            model_dictionary["match_word"] = value
-                            index += len(value)
-                            end_sub = str(model_dictionary[key])[index:]
-                            model_dictionary["match_end"] = end_sub
-                            model_dictionary["type"] = "beers"
-                            model_dictionary["id"] = model.id
-                            andResult.append(model_dictionary)
-                except: 
-                    pass
-    # Get all of the Brewery matches
-    for word in values :
-        for model in Brewery.query.all() :
-            model_dictionary = model.__dict__
-            for key in model_dictionary.keys():
-                try:
-                    if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if not any(d['id'] == model.id for d in orResult):
-                            model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).lower().index(word.lower())
-                            beginning_sub = str(model_dictionary[key])[:index]
-                            model_dictionary["match_beginning"] = beginning_sub
-                            model_dictionary["match_word"] = word
-                            index += len(word)
-                            end_sub = str(model_dictionary[key])[index:]
-                            model_dictionary["match_end"] = end_sub
-                            model_dictionary["type"] = "breweries"
-                            model_dictionary["id"] = model.id
-                            orResult.append(model_dictionary)
-                except: 
-                    pass
-                try:
-                    if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if not any(d['id'] == model.id for d in andResult):
-                            model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).lower().index(value.lower())
-                            beginning_sub = str(model_dictionary[key])[:index]
-                            model_dictionary["match_beginning"] = beginning_sub
-                            model_dictionary["match_word"] = value
-                            index += len(value)
-                            end_sub = str(model_dictionary[key])[index:]
-                            model_dictionary["match_end"] = end_sub
-                            model_dictionary["type"] = "breweries"
-                            model_dictionary["id"] = model.id
-                            andResult.append(model_dictionary)
-                except: 
-                    pass
-    # Get all of the State matches
-    for word in values :
-        for model in State.query.all() :
-            model_dictionary = model.__dict__
-            for key in model_dictionary.keys():
-                try:
-                    if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if not any(d['id'] == model.abbreviation for d in orResult):
-                            model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).lower().index(word.lower())
-                            beginning_sub = str(model_dictionary[key])[:index]
-                            model_dictionary["match_beginning"] = beginning_sub
-                            model_dictionary["match_word"] = word
-                            index += len(word)
-                            end_sub = str(model_dictionary[key])[index:]
-                            model_dictionary["match_end"] = end_sub
-                            model_dictionary["type"] = "states"
-                            model_dictionary["id"] = model.abbreviation
-                            orResult.append(model_dictionary)
-                except: 
-                    pass
-                try:
-                    if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if not any(d['id'] == model.abbreviation for d in andResult):
-                            model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).lower().index(value.lower())
-                            beginning_sub = str(model_dictionary[key])[:index]
-                            model_dictionary["match_beginning"] = beginning_sub
-                            model_dictionary["match_word"] = value
-                            index += len(value)
-                            end_sub = str(model_dictionary[key])[index:]
-                            model_dictionary["match_end"] = end_sub
-                            model_dictionary["type"] = "states"
-                            model_dictionary["id"] = model.abbreviation
-                            andResult.append(model_dictionary)
-                except: 
-                    pass
-                    
-    # Get all of the Venue matches
-    for word in values :
-        for model in Venue.query.all() :
-            model_dictionary = model.__dict__
-            for key in model_dictionary.keys():
-                try:
-                    if word.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if not any(d['id'] == model.id for d in orResult):
-                            model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).lower().index(word.lower())
-                            beginning_sub = str(model_dictionary[key])[:index]
-                            model_dictionary["match_beginning"] = beginning_sub
-                            model_dictionary["match_word"] = word
-                            index += len(word)
-                            end_sub = str(model_dictionary[key])[index:]
-                            model_dictionary["match_end"] = end_sub
-                            model_dictionary["type"] = "venues"
-                            model_dictionary["id"] = model.id
-                            orResult.append(model_dictionary)
-                except: 
-                    pass
-                try:
-                    if value.lower() in str(model_dictionary[key]).lower() and "media" not in key and key != "label" and "instance" not in key :
-                        if not any(d['id'] == model.id for d in andResult):
-                            model_dictionary["match_key"] = key
-                            index = str(model_dictionary[key]).lower().index(value.lower())
-                            beginning_sub = str(model_dictionary[key])[:index]
-                            model_dictionary["match_beginning"] = beginning_sub
-                            model_dictionary["match_word"] = value
-                            index += len(value)
-                            end_sub = str(model_dictionary[key])[index:]
-                            model_dictionary["match_end"] = end_sub
-                            model_dictionary["type"] = "venues"
-                            model_dictionary["id"] = model.id
-                            andResult.append(model_dictionary)
-                except: 
-                    pass
+    # Get all of the models for the OR Search
+    or_query = Beer.query.all()
+    or_query += Brewery.query.all()
+    or_query += State.query.all()
+    or_query += Venue.query.all()
     
+    # For each model, search all of the columns to see if a query word appears in it.
+    for model in or_query :
+        or_model_dict = copy.deepcopy(model.__dict__)
+        # This dict will store all of the matches, with the column name being the keys.
+        or_model_dict["results"] = {}
+        or_model_dict["match_found"] = False
+        for key in or_model_dict.keys():
+            for word in values :
+                try:
+                    if word.lower() in str(or_model_dict[key]).lower() and "results" not in key and "media" not in key and key != "label" and "instance" not in key and "match_key" not in key and "match_beginning" not in key and "match_word" not in key and "match_end" not in key and "match_found" not in key :
+                        if key not in or_model_dict["results"] :
+                            a = {"match_word" : [word] }
+                            or_model_dict["results"][key] = a
+                            or_model_dict["type"] = "beers"
+                            or_model_dict["match_found"] = True
+                        else :
+                            or_model_dict["results"][key]["match_word"] += [word]
+                except:
+                    pass
+        if or_model_dict["match_found"] :
+            for key in or_model_dict["results"]:
+                newstring = str(or_model_dict[key]).lower()
+                for word in or_model_dict["results"][key]["match_word"]:
+                    new_word = "<span class = 'gold'>" + word.lower() + "</span>"
+                    newstring = newstring.replace(word.lower(), new_word)
+                    newstring += "<br />"
+                newstring = key + ": " + newstring
+                or_model_dict["results"][key]["string"] = Markup(newstring)
+            orResult.append(or_model_dict)
+    
+    and_query = Beer.query.all()
+    and_query += Brewery.query.all()
+    and_query += State.query.all()
+    and_query += Venue.query.all() 
+    for model in and_query :
+        and_model_dict = copy.deepcopy(model.__dict__)
+        and_model_dict["results"] = {}
+        for word in values:
+            and_model_dict["match_found"] = False
+            for key in and_model_dict.keys() :
+                try:
+                    if word.lower() in str(and_model_dict[key]).lower() and "results" not in key and "media" not in key and key != "label" and "instance" not in key and "match_key" not in key and "match_beginning" not in key and "match_word" not in key and "match_end" not in key and "match_found" not in key :
+                        if key not in and_model_dict["results"] :
+                            a = {"match_word" : [word] }
+                            and_model_dict["results"][key] = a
+                            and_model_dict["type"] = "beers"
+                            and_model_dict["match_found"] = True
+                        else :
+                            and_model_dict["results"][key]["match_word"] += [word]
+                            and_model_dict["match_found"] = True
+                except:
+                    pass
+            if and_model_dict["match_found"] == False :
+                break
+        if and_model_dict["match_found"] :
+            for key in and_model_dict["results"]:
+                newstring = str(and_model_dict[key]).lower()
+                for word in and_model_dict["results"][key]["match_word"]:
+                    new_word = "<span class = 'gold'>" + word + "</span>"
+                    newstring = newstring.replace(word.lower(), new_word)
+                    newstring += "<br />"
+                newstring = key + ": " + newstring
+                and_model_dict["results"][key]["string"] = Markup(newstring)
+            andResult.append(and_model_dict)
+            
+            
     orHeader = value.replace(" ", " OR ")
     andHeader = value.replace(" ", " AND ")
     
-        
-    return render_template('search.html',orResult = orResult, orHeader = orHeader,andResult = andResult, andHeader = andHeader)
+    return render_template('search.html',orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
     
 @app.route('/visualization/')
 def visual() :

@@ -9,30 +9,28 @@
       <h2 class = "center">Search Results For <span class = "gold">{{orHeader}}</span></h2>
       
       {% for i in orResult %}
-      <div class="col-md-3 col-sm-6 hero-feature text-center">
-        <div class="thumbnail">
-          <img src="{{i["labels"]}}" width = "150" alt="">
-          <div style = "margin-top: -8%" class="caption">
-            <h4>{{i["name"]}}</h4> <br />
-            <p>
-              {% if i["media"] %}
-                <img class="venueimg"src={{i["media"]}} width = "150" alt=""/>
-              {% endif %}
-              {% if i["label"] %}
-                <img class="venueimg"src={{i["label"]}} width = "150" alt=""/>
-              {% endif %}
-              <br />
-              <br />
-              <strong>First Match:</strong> <br />
-              {{i["match_key"]}}: {{i["match_beginning"]}}<span class = "gold">{{i["match_word"]}}</span>{{i["match_end"]}}
-            </p>
-            <p>
-              <a href="/{{i["type"]}}/{{i["id"]}}/" class="btn btn-primary">More Info</a>
-            </p>
+          <div class="col-md-3 col-sm-6 hero-feature text-center">
+            <div class="thumbnail">
+              <div style = "margin-top: -8%" class="caption">
+                <h4>{{i["name"]}}</h4> <br />
+                <p>
+                  <img class = "venueimg" src = {{i["media"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
+                  <img class = "venueimg" src = {{i["label"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
+                  <br />
+                  <br />
+                  {% for j in i["results"] %}
+                    {{i["results"][j]["string"]}}
+                  {% endfor %}
+                  <!-- {{i["results"]}} -->
+                </p>
+                <p>
+                  <a href="/{{i["type"]}}/{{i["id"]}}/" class="btn btn-primary">More Info</a>
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      {% endfor %}
+        
+      {% endfor %}  
       
     </div>
     
@@ -43,25 +41,29 @@
       <h2 class = "center">Search Results For <span class = "gold">{{andHeader}}</span></h2>
       
       {% for i in andResult %}
-      <div class="col-md-3 col-sm-6 hero-feature text-center">
-        <div class="thumbnail">
-          <img src="{{i["labels"]}}" width = "150" alt="">
-          <div style = "margin-top: -8%" class="caption">
-            <h4>{{i["name"]}}</h4>
-            <p>
-              <img class="venueimg"src={{i["media"]}}{{i["label"]}} width = "150" alt=""/>
-              <br />
-              <br />
-              <strong>First Match:</strong> <br />
-              {{i["match_key"]}}: {{i["match_beginning"]}}<span class = "gold">{{i["match_word"]}}</span>{{i["match_end"]}}
-            </p>
-            <p>
-              <a href="/{{i["type"]}}/{{i["id"]}}/" class="btn btn-primary">More Info</a>
-            </p>
+          <div class="col-md-3 col-sm-6 hero-feature text-center">
+            <div class="thumbnail">
+              <div style = "margin-top: -8%" class="caption">
+                <h4>{{i["name"]}}</h4> <br />
+                <p>
+                  <img class = "venueimg" src = {{i["media"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
+                  <img class = "venueimg" src = {{i["label"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
+                  <br />
+                  <br />
+                  {% for j in i["results"] %}
+                    {{i["results"][j]["string"]}}
+                  {% endfor %}
+                  <!-- {{i["results"]}} -->
+                </p>
+                <p>
+                  <a href="/{{i["type"]}}/{{i["id"]}}/" class="btn btn-primary">More Info</a>
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      {% endfor %}
+        
+      {% endfor %}  
+      
       
     </div>
     
