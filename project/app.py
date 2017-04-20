@@ -80,6 +80,37 @@ def search() :
                     newstring += "<br />"
                 or_model_dict["results"][key]["string"] = Markup(newstring)
             orResult.append(or_model_dict)
+            
+    for model in Beer.query.all() :
+        and_model_dict = copy.deepcopy(model.__dict__)
+        and_model_dict["results"] = {}
+        for key in and_model_dict.keys():
+            for word in values :
+                and_model_dict["match_found"] = False
+                try:
+                    if word.lower() in str(and_model_dict[key]).lower() and "results" not in key and "media" not in key and key != "label" and "instance" not in key and "match_key" not in key and "match_beginning" not in key and "match_word" not in key and "match_end" not in key and "match_found" not in key :
+                        if key not in and_model_dict["results"] :
+                            a = {"match_word" : [word] }
+                            and_model_dict["results"][key] = a
+                            and_model_dict["type"] = "beers"
+                            and_model_dict["match_found"] = True
+                        else :
+                            and_model_dict["results"][key]["match_word"] += [word]
+                            and_model_dict["match_found"] = True
+                except:
+                    pass
+        if and_model_dict["match_found"] :
+            # or_model_dict["length"] = len(or_model_dict["match_key"])
+            for key in and_model_dict["results"]:
+                index = 10000
+                index_array = []
+                newstring = str((key + ": " + and_model_dict[key])).lower()
+                for word in and_model_dict["results"][key]["match_word"]:
+                    new_word = "<span class = 'gold'>" + word + "</span>"
+                    newstring = newstring.replace(word.lower(), new_word)
+                    newstring += "<br />"
+                and_model_dict["results"][key]["string"] = Markup(newstring)
+            andResult.append(and_model_dict)
                 
         
     
