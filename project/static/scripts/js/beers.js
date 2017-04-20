@@ -8586,29 +8586,54 @@ class Beer extends React.Component {
   render () {
     return (
       React.createElement("div", {className: "col-md-3 col-sm-6 hero-feature text-center"}, 
-        React.createElement("div", {className: "thumbnail"}, 
-          React.createElement("img", {src: "" + this.props.beer.label, width: "150", alt: ""}), 
-          React.createElement("div", {className: "caption"}, 
-            React.createElement("h3", null, this.props.beer.name), 
-            React.createElement("p", null, 
-              this.props.beer.style, " ", React.createElement("br", null), 
-              "ABV: ", this.props.beer.abv, " ", React.createElement("br", null), 
-              "Rating: ", this.props.beer.rating, "/5.0" 
-            ), 
-            React.createElement("p", null, 
-              React.createElement("a", {href: "/beers/" + this.props.beer.id + "/", className: "btn btn-primary"}, "More Info")
-            )
-          )
-        )
+      React.createElement("div", {className: "thumbnail"}, 
+      React.createElement("img", {src: "" + this.props.beer.label, width: "150", alt: ""}), 
+      React.createElement("div", {className: "caption"}, 
+      React.createElement("h3", null, this.props.beer.name), 
+      React.createElement("p", null, 
+      this.props.beer.style, " ", React.createElement("br", null), 
+      "ABV: ", this.props.beer.abv, " ", React.createElement("br", null), 
+      "Rating: ", this.props.beer.rating, "/5.0" 
+      ), 
+      React.createElement("p", null, 
+      React.createElement("a", {href: "/beers/" + this.props.beer.id + "/", className: "btn btn-primary"}, "More Info")
+      )
+      )
+      )
       )
     )
+  }
+}
+
+class Pagein extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePageByChange = this.handlePageByChange.bind(this);
+  }
+  
+  handlePageByChange(e) {
+    this.props.onPageChange(e.target.id);
+  }
+  
+  
+  render() {
+    return (
+      React.createElement("div", null, 
+      React.createElement("ul", {className: "pagination", onClick: this.handlePageByChange}, 
+      React.createElement("li", null, React.createElement("a", {id: "1", href: "#"}, "1")), 
+      React.createElement("li", null, React.createElement("a", {id: "2", href: "#"}, "2")), 
+      React.createElement("li", null, React.createElement("a", {id: "3", href: "#"}, "3")), 
+      React.createElement("li", null, React.createElement("a", {id: "4", href: "#"}, "4"))
+      )
+      )
+    );
   }
 }
 
 class ProductTable extends React.Component {
   render() {
     var rows = [];
-
+    
     var filteredProducts = _.filter(this.props.products, (beer) => {
       var type_matches = _.map(this.props.types, (type) => {
         console.log(type + "  : " + beer.style);
@@ -8621,18 +8646,18 @@ class ProductTable extends React.Component {
       var rating_matches = beer.rating >= this.props.lowRating;
       return type_matches && rating_matches;
     });
-
+    
     var sortedProducts = _.sortBy(filteredProducts, this.props.sortBy);
     if (!this.props.ascend) {
       sortedProducts.reverse();
     }
-
+    
     sortedProducts.forEach((beer) => {
       rows.push(
         React.createElement(Beer, {beer: beer})
       );
     });
-
+    
     return (
       React.createElement("div", null, rows)
     );
@@ -8648,73 +8673,73 @@ class FilterBar extends React.Component {
     this.handleTypeChange = this.handleTypeChange.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
   }
-
+  
   handleSortByChange(e) {
     this.props.onSortChange(e.target.id);
   }
-
+  
   handleOrderAscend(e) {
     this.props.onOrderChange(true);
   }
-
+  
   handleOrderDescend(e) {
     this.props.onOrderChange(false);
   }
-
+  
   handleTypeChange(e) {
     this.props.onTypeChange(e.target.id);
   }
-
+  
   handleRatingChange(e) {
     this.props.onRatingChange(e.target.id);
   }
-
+  
   render() {
     return (
       React.createElement("div", {className: "col-md-3"}, 
-        React.createElement("div", {className: "list-group"}, 
-          React.createElement("div", {className: "dropdown"}, 
-            React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Sort By", 
-              React.createElement("span", {className: "caret"})), 
-              React.createElement("ul", {className: "dropdown-menu", onClick: this.handleSortByChange}, 
-                React.createElement("li", null, React.createElement("a", {href: "#", id: "name"}, "Name")), 
-                React.createElement("li", null, React.createElement("a", {href: "#", id: "type"}, "Type")), 
-                React.createElement("li", null, React.createElement("a", {href: "#", id: "rating"}, "Rating"))
-              )
-          ), 
-
-          React.createElement("button", {type: "button", className: "btn btn-default ascdesc", "aria-label": "Left Align", onClick: this.handleOrderAscend}, 
-            React.createElement("a", {href: "#", className: "glyphicon glyphicon-arrow-up", "aria-hidden": "true"})
-          ), 
-
-          React.createElement("button", {type: "button", className: "btn btn-default ascdesc", "aria-label": "Left Align", onClick: this.handleOrderDescend}, 
-            React.createElement("a", {href: "#", className: "glyphicon glyphicon-arrow-down", "aria-hidden": "true"})
-          ), 
-
-          React.createElement("div", {className: "dropdown"}, 
-            React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Type", 
-              React.createElement("span", {className: "caret"})), 
-              React.createElement("ul", {className: "dropdown-menu", onClick: this.handleTypeChange}, 
-                React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "stout", type: "checkbox"}), " Stout ", React.createElement("br", null)), 
-                React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "ipa", type: "checkbox"}), " IPA ", React.createElement("br", null)), 
-                React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "sour", type: "checkbox"}), " Sour ", React.createElement("br", null))
-              )
-          ), 
-
-          React.createElement("div", {className: "dropdown"}, 
-            React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Rating", 
-              React.createElement("span", {className: "caret"})), 
-              React.createElement("ul", {className: "dropdown-menu", onClick: this.handleRatingChange}, 
-                React.createElement("li", null, React.createElement("a", {href: "#", id: "2"}, "2")), 
-                React.createElement("li", null, React.createElement("a", {href: "#", id: "3"}, "3")), 
-                React.createElement("li", null, React.createElement("a", {href: "#", id: "4"}, "4"))
-              )
-          )
-        )
+      React.createElement("div", {className: "list-group"}, 
+      React.createElement("div", {className: "dropdown"}, 
+      React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Sort By", 
+      React.createElement("span", {className: "caret"})), 
+      React.createElement("ul", {className: "dropdown-menu", onClick: this.handleSortByChange}, 
+      React.createElement("li", null, React.createElement("a", {href: "#", id: "name"}, "Name")), 
+      React.createElement("li", null, React.createElement("a", {href: "#", id: "type"}, "Type")), 
+      React.createElement("li", null, React.createElement("a", {href: "#", id: "rating"}, "Rating"))
+      )
+      ), 
+      
+      React.createElement("button", {type: "button", className: "btn btn-default ascdesc", "aria-label": "Left Align", onClick: this.handleOrderAscend}, 
+      React.createElement("a", {href: "#", className: "glyphicon glyphicon-arrow-up", "aria-hidden": "true"})
+      ), 
+      
+      React.createElement("button", {type: "button", className: "btn btn-default ascdesc", "aria-label": "Left Align", onClick: this.handleOrderDescend}, 
+      React.createElement("a", {href: "#", className: "glyphicon glyphicon-arrow-down", "aria-hidden": "true"})
+      ), 
+      
+      React.createElement("div", {className: "dropdown"}, 
+      React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Type", 
+      React.createElement("span", {className: "caret"})), 
+      React.createElement("ul", {className: "dropdown-menu", onClick: this.handleTypeChange}, 
+      React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "stout", type: "checkbox"}), " Stout ", React.createElement("br", null)), 
+      React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "ipa", type: "checkbox"}), " IPA ", React.createElement("br", null)), 
+      React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "sour", type: "checkbox"}), " Sour ", React.createElement("br", null))
+      )
+      ), 
+      
+      React.createElement("div", {className: "dropdown"}, 
+      React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Rating", 
+      React.createElement("span", {className: "caret"})), 
+      React.createElement("ul", {className: "dropdown-menu", onClick: this.handleRatingChange}, 
+      React.createElement("li", null, React.createElement("a", {href: "#", id: "2"}, "2")), 
+      React.createElement("li", null, React.createElement("a", {href: "#", id: "3"}, "3")), 
+      React.createElement("li", null, React.createElement("a", {href: "#", id: "4"}, "4"))
+      )
+      )
+      )
       )
     )
   }
-
+  
 }
 
 class FilterableProductTable extends React.Component {
@@ -8725,90 +8750,106 @@ class FilterableProductTable extends React.Component {
       sortBy: 'name',
       ascend: true,
       lowRating: 0,
-      types: new Array()
+      types: new Array(),
+      page: 1
     };
     
     this.handleSortInput = this.handleSortInput.bind(this);
     this.handleOrderInput = this.handleOrderInput.bind(this);
     this.handleTypeInput = this.handleTypeInput.bind(this);
     this.handleRatingInput = this.handleRatingInput.bind(this);
+    this.handlePageInput = this.handlePageInput.bind(this);
   }
-
+  
   handleSortInput(sort_by) {
     console.log(sort_by);
     this.setState({
       sortBy: sort_by
     });
   }
-
-  handleOrderInput(ascend) {
-    console.log(ascend);
+  
+  handlePageInput(newPage) {
+    console.log(newPage)
     this.setState({
-      ascend: ascend
-    });
-  }
-
-  handleTypeInput(type) {
-    var newTypes = _.clone(this.state.types);
-    if (_.contains(this.state.types, type)) {
-      newTypes = _.filter(newTypes, (elem) => {
-        return elem !== type;
-      });
+      page: newPage
     }
-    else {
-      newTypes.push(type);
-    }
-    this.setState({
-      types: newTypes
+  );
+  this.forceUpdate();
+  this.componentDidMount();
+}
+
+handleOrderInput(ascend) {
+  console.log(ascend);
+  this.setState({
+    ascend: ascend
+  });
+}
+
+handleTypeInput(type) {
+  var newTypes = _.clone(this.state.types);
+  if (_.contains(this.state.types, type)) {
+    newTypes = _.filter(newTypes, (elem) => {
+      return elem !== type;
     });
-    console.log(newTypes);
   }
+  else {
+    newTypes.push(type);
+  }
+  this.setState({
+    types: newTypes
+  });
+  console.log(newTypes);
+}
 
-  handleRatingInput(newRating) {
-    console.log(newRating);
-    this.setState({
-      lowRating: newRating
+handleRatingInput(newRating) {
+  console.log(newRating);
+  this.setState({
+    lowRating: newRating
+  });
+}
+
+componentDidMount() {
+  var _this = this;
+  this.serverRequest = axios
+  .get("/api/beers/" + this.state.page)
+  .then(function(result) {
+    console.log(result);   
+    _this.setState({
+      beers: result.data.result
     });
-  }
+  })
+}
 
-  componentDidMount() {
-    var _this = this;
-    this.serverRequest = axios
-      .get("/api/beers")
-      .then(function(result) {
-        console.log(result);   
-        _this.setState({
-          beers: result.data.result
-        });
-      })
-  }
+componentWillUnmount() {
+  this.serverRequest.abort();
+}
 
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
-
-  render() {
-    return (
-      React.createElement("div", {className: "grid row"}, 
-        React.createElement(FilterBar, {
-          onSortChange: this.handleSortInput, 
-          onOrderChange: this.handleOrderInput, 
-          onTypeChange: this.handleTypeInput, 
-          onRatingChange: this.handleRatingInput}
-        ), 
-        React.createElement(ProductTable, {
-          products: this.state.beers, 
-          filterText: this.state.filterText, 
-          inStockOnly: this.state.inStockOnly, 
-
-          sortBy: this.state.sortBy, 
-          types: this.state.types, 
-          ascend: this.state.ascend, 
-          lowRating: this.state.lowRating}
-        )
-      )
-    );
-  }
+render() {
+  return (
+    React.createElement("div", {className: "grid row"}, 
+    React.createElement(Pagein, {
+    onPageChange: this.handlePageInput}
+    ), 
+    React.createElement(FilterBar, {
+    onSortChange: this.handleSortInput, 
+    onOrderChange: this.handleOrderInput, 
+    onTypeChange: this.handleTypeInput, 
+    onRatingChange: this.handleRatingInput}
+    ), 
+    React.createElement(ProductTable, {
+    products: this.state.beers, 
+    filterText: this.state.filterText, 
+    inStockOnly: this.state.inStockOnly, 
+    
+    sortBy: this.state.sortBy, 
+    types: this.state.types, 
+    ascend: this.state.ascend, 
+    lowRating: this.state.lowRating, 
+    page: this.state.page}
+    )
+    )
+  );
+}
 }
 
 ReactDOM.render(React.createElement(FilterableProductTable, null),document.getElementById('beers'));
