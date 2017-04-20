@@ -14,11 +14,8 @@
               <div style = "margin-top: -8%" class="caption">
                 <h4>{{i["name"]}}</h4> <br />
                 <p>
-                  {% if i["media"] %}
-                    <img class="venueimg"src={{i["media"]}} width = "150" alt=""/>
-                  {% else %}
-                    <img class="venueimg"src={{i["label"]}} width = "150" alt=""/>
-                  {% endif %}
+                  <img class = "venueimg" src = {{i["media"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
+                  <img class = "venueimg" src = {{i["label"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
                   <br />
                   <br />
                   {% for j in i["results"] %}
@@ -49,11 +46,8 @@
               <div style = "margin-top: -8%" class="caption">
                 <h4>{{i["name"]}}</h4> <br />
                 <p>
-                  {% if i["media"] %}
-                    <img class="venueimg"src={{i["media"]}} width = "150" alt=""/>
-                  {% else %}
-                    <img class="venueimg"src={{i["label"]}} width = "150" alt=""/>
-                  {% endif %}
+                  <img class = "venueimg" src = {{i["media"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
+                  <img class = "venueimg" src = {{i["label"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
                   <br />
                   <br />
                   {% for j in i["results"] %}
