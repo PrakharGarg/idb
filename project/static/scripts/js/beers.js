@@ -8774,7 +8774,7 @@ class FilterableProductTable extends React.Component {
   componentDidMount() {
     var _this = this;
     this.serverRequest = axios
-      .get("http://localhost:5000/api/beers")
+      .get("/api/beers")
       .then(function(result) {
         console.log(result);   
         _this.setState({
