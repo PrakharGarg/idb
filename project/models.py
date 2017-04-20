@@ -2,6 +2,7 @@
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
 # pylint: disable = no-member
+# pylint: disable = too-many-arguments
 # pylint: disable = pointless-string-statement
 
 import json
