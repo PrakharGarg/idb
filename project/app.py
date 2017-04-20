@@ -19,13 +19,11 @@ from tests import TestModels
 @app.route('/unittests/', methods=['GET', 'POST'])
 def test() :
 
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestModels)
-    output = io.BytesIO()
-    runner = unittest.TextTestRunner(stream=output)
-    runner.run(suite)
+    try:
+        output = subprocess.check_output('make cover'.split())
+    except subprocess.CalledProcessError as e:
+        output = e.output
 
-    output = output.getvalue()
-    
     return render_template("unittests.html", output = output)
 
 # Index page that contains a carousel

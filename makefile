@@ -40,14 +40,17 @@ run:
 test:
 	python project/tests.py
 
-doc:
-	make clean
-	pydoc -w app/models.py
-	mv models.html IDB2.html
-	git log > IDB1.log
-	coverage run --source="models" app/tests.py > c.tmp 2>&1
+cover:
+	coverage run --source="models" project/tests.py > c.tmp 2>&1
 	coverage report -m >> c.tmp
 	cat c.tmp
+
+doc:
+	make clean
+	make cover
+	pydoc -w project/models.py
+	mv models.html IDB1.html
+	git log > IDB1.log
 
 env:
 	sudo pip install virtualenv
