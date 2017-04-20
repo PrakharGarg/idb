@@ -230,10 +230,13 @@ def state(state_abbreviation) :
         state_info = state_info, venues = venues, breweries = breweries)
 
 # API GET methods
-
+@app.route('/api/beers/', methods=['GET'])
 @app.route('/api/beers/<int:page>', methods=['GET'])
-def get_beers(page=1):
-    beers = Beer.query.paginate(page,10,False)
+def get_beers(page=0):
+    if page == 0 :
+        beers = Beer.query.all()
+    else :    
+        beers = Beer.query.paginate(page,10,False).items
     _ = list()
     for beer in beers:
         _ += [beer.to_dict()]
@@ -248,8 +251,12 @@ def get_beer_info(beer_id):
     return jsonify({'result' : beer.to_dict()})
 
 @app.route('/api/venues/', methods=['GET'])
-def get_venues():
-    venues = Venue.query.all()
+@app.route('/api/venues/<int:page>', methods=['GET'])
+def get_venues(page=0):
+    if page == 0 :
+        venues = Venue.query.all()
+    else :    
+        venues = Venue.query.paginate(page,10,False).items
     _ = list()
     for venue in venues:
         _ += [venue.to_dict()]
@@ -264,8 +271,12 @@ def get_venue_info(venue_id):
     return jsonify({'result' : venue.to_dict()})
 
 @app.route('/api/breweries/', methods=['GET'])
-def get_breweries():
-    breweries = Brewery.query.all()
+@app.route('/api/breweries/<int:page>', methods=['GET'])
+def get_breweries(page=0):
+    if page == 0 :
+        breweries = Brewery.query.all()
+    else :    
+        breweries = Brewery.query.paginate(page,10,False).items
     _ = list()
     for brewery in breweries:
         _ += [brewery.to_dict()]
@@ -280,8 +291,12 @@ def get_brewery_info(brewery_id):
     return jsonify({'result' : brewery.to_dict()})
 
 @app.route('/api/states/', methods=['GET'])
-def get_states():
-    states = State.query.all()
+@app.route('/api/states/<int:page>', methods=['GET'])
+def get_states(page=0):
+    if page == 0 :
+        states = State.query.all()
+    else :    
+        states = State.query.paginate(page,10,False).items
     _ = list()
     for state in states:
         _ += [state.to_dict()]
