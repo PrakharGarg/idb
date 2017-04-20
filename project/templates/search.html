@@ -2,8 +2,8 @@
 {% block title %} Search Results {% endblock %}
 
 {% block content %}
+<a href="{{ url_for('search', page=page+1, default='ca az') }}">Click</a>
 <body>
-  
   <div class="grid row">
     <div>
       <h2 class = "center">Search Results For <span class = "gold">{{orHeader}}</span></h2>
