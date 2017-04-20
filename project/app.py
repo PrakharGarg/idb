@@ -231,9 +231,9 @@ def state(state_abbreviation) :
 
 # API GET methods
 
-@app.route('/api/beers/', methods=['GET'])
-def get_beers():
-    beers = Beer.query.all()
+@app.route('/api/beers/<int:page>', methods=['GET'])
+def get_beers(page=1):
+    beers = Beer.query.paginate(page,10,False)
     _ = list()
     for beer in beers:
         _ += [beer.to_dict()]
