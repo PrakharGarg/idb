@@ -42,6 +42,7 @@ def about() :
     
 @app.route('/search/', methods=['GET', 'POST'])
 @app.route('/search/<int:or_page>/<string:default>', methods=['GET', 'POST'])
+@app.route('/search/<int:and_page>/<string:default>', methods=['GET', 'POST'])
 def search(or_page=1,and_page=1, default='') :
     # Get the search value that the user inputed
     try:
@@ -133,11 +134,20 @@ def search(or_page=1,and_page=1, default='') :
     lower_end = max_end - 10
     orResult = orResult[lower_end:max_end]
     orResult.append({"length" : or_length})
+    
+    
+    and_length = len(andResult)/10
+    if and_length > 11 :
+        and_length = 11
+    max_end = and_page * 10
+    lower_end = max_end - 10
+    andResult = andResult[lower_end:max_end]
+    andResult.append({"length" : and_length})
         
     orHeader = value.replace(" ", " OR ")
     andHeader = value.replace(" ", " AND ")
     
-    return render_template('search.html',query = value, or_page = or_page, orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
+    return render_template('search.html',query = value, and_page = and_page, or_page = or_page, orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
     
 @app.route('/visualization/')
 def visual() :

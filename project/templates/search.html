@@ -7,7 +7,7 @@
     <div>
       <h2 class = "center">Search Results For <span class = "gold">{{orHeader}}</span></h2>
       
-      {% for i in range(1, (orResult|length)-1) %}
+      {% for i in range(0, (orResult|length)-1) %}
           <div class="col-md-3 col-sm-6 hero-feature text-center">
             <div class="thumbnail">
               <div style = "margin-top: -8%" class="caption">
@@ -46,28 +46,27 @@
     <div>
       <h2 class = "center">Search Results For <span class = "gold">{{andHeader}}</span></h2>
       
-      {% for i in andResult %}
+      {% for i in range(0, (andResult|length)-1) %}
           <div class="col-md-3 col-sm-6 hero-feature text-center">
             <div class="thumbnail">
               <div style = "margin-top: -8%" class="caption">
-                <h4>{{i["name"]}}</h4> <br />
+                <h4>{{andResult[i]["name"]}}</h4> <br />
                 <p>
-                  <img class = "venueimg" src = {{i["media"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
-                  <img class = "venueimg" src = {{i["label"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
+                  <img class = "venueimg" src = {{andResult[i]["media"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
+                  <img class = "venueimg" src = {{andResult[i]["label"]}} width = "150" alt = "" onerror="this.style.display='none'"/>
                   <br />
                   <br />
-                  {% for j in i["results"] %}
-                    {{i["results"][j]["string"]}}
+                  {% for j in andResult[i]["results"] %}
+                    {{andResult[i]["results"][j]["string"]}}
                   {% endfor %}
                   <!-- {{i["results"]}} -->
                 </p>
                 <p>
-                  <a href="/{{i["type"]}}/{{i["id"]}}/" class="btn btn-primary">More Info</a>
+                  <a href="/{{andResult[i]["type"]}}/{{andResult[i]["id"]}}/" class="btn btn-primary">More Info</a>
                 </p>
               </div>
             </div>
           </div>
-        
       {% endfor %}  
     </div>
   </div>
@@ -83,6 +82,5 @@
   <!-- scripts -->
   <script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
   <script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='scripts/js/main.js') }}"></script>
 </body>
 {% endblock %}
