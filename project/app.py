@@ -41,8 +41,8 @@ def about() :
     return render_template('about.html')
     
 @app.route('/search/', methods=['GET', 'POST'])
-@app.route('/search/<int:page>/<string:default>', methods=['GET', 'POST'])
-def search(page=1, default='FUCK') :
+@app.route('/search/<int:or_page>/<string:default>', methods=['GET', 'POST'])
+def search(or_page=1,and_page=2, default='') :
     # Get the search value that the user inputed
     try:
         value = request.form['search']
@@ -56,10 +56,10 @@ def search(page=1, default='FUCK') :
     orResult = []
     
     # Get all of the models for the OR Search
-    or_query = Beer.query.paginate(page, 2, False).items
-    or_query += Brewery.query.paginate(page, 2, False).items
-    or_query += State.query.paginate(page, 2, False).items
-    or_query += Venue.query.paginate(page, 2, False).items
+    or_query = Beer.query.paginate(or_page, 25, False).items
+    or_query += Brewery.query.paginate(or_page, 25, False).items
+    or_query += State.query.paginate(or_page, 25, False).items
+    or_query += Venue.query.paginate(or_page, 25, False).items
     
     # For each model, search all of the columns to see if a query word appears in it.
     for model in or_query :
@@ -130,7 +130,7 @@ def search(page=1, default='FUCK') :
     orHeader = value.replace(" ", " OR ")
     andHeader = value.replace(" ", " AND ")
     
-    return render_template('search.html',page = page, orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
+    return render_template('search.html',or_page = or_page, orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
     
 @app.route('/visualization/')
 def visual() :

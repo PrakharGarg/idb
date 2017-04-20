@@ -2,7 +2,12 @@
 {% block title %} Search Results {% endblock %}
 
 {% block content %}
-<a href="{{ url_for('search', page=page+1, default='ca az') }}">Click</a>
+<ul class="pagination">
+  <li><a href="{{ url_for('search', or_page=1, default='ca az') }}">1</a></li>
+  <li><a href="{{ url_for('search', or_page=2, default='ca az') }}">2</a></li>
+  <li><a href="{{ url_for('search', or_page=3, default='ca az') }}">3</a></li>
+  <li><a href="{{ url_for('search', or_page=4, default='ca az') }}">4</a></li>
+</ul>
 <body>
   <div class="grid row">
     <div>
