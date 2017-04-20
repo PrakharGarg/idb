@@ -9,7 +9,11 @@ from flask_sqlalchemy import SQLAlchemy
 try:
     from __main__ import app
 except:
-    from app import app
+    try:
+        from app import app
+    except:
+        app = None
+
 db = SQLAlchemy(app)
 
 """

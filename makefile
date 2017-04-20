@@ -41,13 +41,13 @@ test:
 	python project/tests.py
 
 cover:
+	make clean
 	coverage run --source="models" project/tests.py > c.tmp 2>&1
 	coverage report -m >> c.tmp
 	cat c.tmp
 
 doc:
 	make clean
-	make cover
 	pydoc -w project/models.py
 	mv models.html IDB1.html
 	git log > IDB1.log
