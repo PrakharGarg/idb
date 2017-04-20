@@ -41,7 +41,7 @@ def about() :
     return render_template('about.html')
     
 @app.route('/search/', methods=['GET', 'POST'])
-@app.route('/search/<int:or_page>/<string:default>', methods=['GET', 'POST'])
+@app.route('/search/<int:or_page>/<int:and_page>/<string:default>', methods=['GET', 'POST'])
 @app.route('/search/<int:and_page>/<string:default>', methods=['GET', 'POST'])
 def search(or_page=1,and_page=1, default='') :
     # Get the search value that the user inputed
