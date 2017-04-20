@@ -1,0 +1,22 @@
+// yUML class diagram to track database schema
+// class declarations
+
+[Beer| -name: string; -labels: string; -style: string; -organic: boolean; -rating: float ; -ibu: integer ; -abv: float | to_dict() ; relabel(new_label); change_rating(new_rating)]
+
+[Brewery| -name: string; -brewery_type: string; -founded: date; -label: string］; -address: string | to_dict() ; change_name(new_name); change_founded_date(new_date);]
+
+[Venue| -name: string; -media: string］; -address: string; -category: string; -is_public: Boolean | to_dict() ;]
+
+[State| -name: string; -media: string; -capital: string; -abbreviation: string; -flower: String | is_best_state() ; is_flower_pretty() ; to_dict()]
+
+
+// class inter-relations
+
+[State]1-0..*[Venue]
+[State]1-0..*[Beer]
+[State]1-0..*[Brewery]
+
+[Brewery]1-1..*[Beer]
+
+[Venue]0..*-1..*[Beer]
+[Venue]0..*-1..*[Brewery]

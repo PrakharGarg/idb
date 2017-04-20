@@ -14,7 +14,7 @@ var App = React.createClass({
     var _this = this;
     this.serverRequest = 
       axios
-        .get("http://pursuitofhoppyness.me/api/states")
+        .get("/api/states")
         .then(function(result) {    
           _this.setState({
             states: result.data.result
@@ -33,7 +33,7 @@ var App = React.createClass({
             return (
               <div className="col-md-3 col-sm-6 hero-feature text-center">
 							<div className="thumbnail">
-								<img src={"" + state.label} width = "150" alt=""/>
+								<img src={"" + state.media} width = "150" alt=""/>
 								<div className="caption">
 									<h3>{state.name}</h3>
 									<p>

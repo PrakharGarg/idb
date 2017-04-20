@@ -15,10 +15,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="{{ url_for('static', filename = 'custom.js') }}"></script>
-
+  
   
   {% block head %}
-    <title>{% block title %}{% endblock %}</title>
+  <title>{% block title %}{% endblock %}</title>
   {% endblock %}
 </head>
 
@@ -34,7 +34,18 @@
         <li class = "navlist"><a href="/states">States</a></li>
         <li class = "navlist"><a href="/venues">Venues</a></li>
         <li class = "navlist"><a href="/about">About</a></li>
+        <li class = "navlist"><a href="/visualization">Visualization</a></li>
       </ul>
+      <div class="col-sm-3 col-md-3 pull-right">
+        <form class = "navbar-form" action="/search/" method=post>
+          <div class = "input-group">
+            <input type=text class = "form-control" placeholder="Search" name=search value="{{ request.form.search}}">
+            <div class = "input-group-btn">
+              <button class="btn btn-default actions" value=submit type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </nav>
   

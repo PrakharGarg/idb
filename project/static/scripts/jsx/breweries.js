@@ -14,7 +14,7 @@ var App = React.createClass({
     var _this = this;
     this.serverRequest = 
       axios
-        .get("http://pursuitofhoppyness.me/api/breweries")
+        .get("/api/breweries")
         .then(function(result) {    
           _this.setState({
             breweries: result.data.result
@@ -37,7 +37,7 @@ var App = React.createClass({
 								<div className="caption">
 									<h3>{brewery.name}</h3>
 									<p>
-										{brewery.founded} <br/>
+										{2017 - Math.floor(brewery.founded/365)} <br/>
 										{brewery.address}
 									</p>
 									<p>

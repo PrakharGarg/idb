@@ -10,7 +10,6 @@ try:
     from __main__ import app
 except:
     from app import app
-
 db = SQLAlchemy(app)
 
 """

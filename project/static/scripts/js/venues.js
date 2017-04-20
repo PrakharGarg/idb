@@ -4059,6 +4059,10 @@ require('whatwg-fetch');
 
 var axios = require('axios');
 
+var venuestyle = {
+  height: "50%"
+};
+
 var App = React.createClass({displayName: "App",
 
   getInitialState: function() {
@@ -4071,7 +4075,7 @@ var App = React.createClass({displayName: "App",
     var _this = this;
     this.serverRequest = 
       axios
-        .get("http://pursuitofhoppyness.me/api/venues")
+        .get("/api/venues")
         .then(function(result) {    
           _this.setState({
             venues: result.data.result
@@ -4090,12 +4094,11 @@ var App = React.createClass({displayName: "App",
             return (
               React.createElement("div", {className: "col-md-3 col-sm-6 hero-feature text-center"}, 
 							React.createElement("div", {className: "thumbnail"}, 
-								React.createElement("img", {src: "" + venue.label, width: "150", alt: ""}), 
+								React.createElement("img", {className: "venueimg", style: venuestyle, src: "" + venue.media, width: "150", alt: ""}), 
 								React.createElement("div", {className: "caption"}, 
 									React.createElement("h3", null, venue.name), 
 									React.createElement("p", null, 
-										venue.type, " ", React.createElement("br", null), 
-										venue.is_public, " ", React.createElement("br", null), 
+										venue.category, " ", React.createElement("br", null), 
                     venue.address
 									), 
 									React.createElement("p", null, 
