@@ -7,8 +7,33 @@
   <div class="grid row">
     <div>
       <h2 class = "center">Search Results For <span class = "gold">{{orHeader}}</span></h2>
-      {{orResult}}  
       
+      {% for i in orResult %}
+          <div class="col-md-3 col-sm-6 hero-feature text-center">
+            <div class="thumbnail">
+              <div style = "margin-top: -8%" class="caption">
+                <h4>{{i["name"]}}</h4> <br />
+                <p>
+                  {% if i["media"] %}
+                    <img class="venueimg"src={{i["media"]}} width = "150" alt=""/>
+                  {% else %}
+                    <img class="venueimg"src={{i["label"]}} width = "150" alt=""/>
+                  {% endif %}
+                  <br />
+                  <br />
+                  {% for j in i["results"] %}
+                    {{i["results"][j]["string"]}}
+                  {% endfor %}
+                  <!-- {{i["results"]}} -->
+                </p>
+                <p>
+                  <a href="/{{i["type"]}}/{{i["id"]}}/" class="btn btn-primary">More Info</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      {% endfor %}  
       
     </div>
     
