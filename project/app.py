@@ -42,7 +42,7 @@ def about() :
     
 @app.route('/search/', methods=['GET', 'POST'])
 @app.route('/search/<int:or_page>/<string:default>', methods=['GET', 'POST'])
-def search(or_page=1,and_page=2, default='') :
+def search(or_page=1,and_page=1, default='') :
     # Get the search value that the user inputed
     try:
         value = request.form['search']
@@ -56,10 +56,10 @@ def search(or_page=1,and_page=2, default='') :
     orResult = []
     
     # Get all of the models for the OR Search
-    or_query = Beer.query.paginate(or_page, 25, False).items
-    or_query += Brewery.query.paginate(or_page, 25, False).items
-    or_query += State.query.paginate(or_page, 25, False).items
-    or_query += Venue.query.paginate(or_page, 25, False).items
+    or_query = Beer.query.all()
+    or_query += Brewery.query.all()
+    or_query += State.query.all()
+    or_query += Venue.query.all()
     
     # For each model, search all of the columns to see if a query word appears in it.
     for model in or_query :
@@ -125,12 +125,19 @@ def search(or_page=1,and_page=2, default='') :
                 newstring = key + ": " + newstring
                 and_model_dict["results"][key]["string"] = Markup(newstring)
             andResult.append(and_model_dict)
-            
-            
+    
+    or_length = len(orResult)/10
+    if or_length > 11 :
+        or_length = 11
+    max_end = or_page * 10
+    lower_end = max_end - 10
+    orResult = orResult[lower_end:max_end]
+    orResult.append({"length" : or_length})
+        
     orHeader = value.replace(" ", " OR ")
     andHeader = value.replace(" ", " AND ")
     
-    return render_template('search.html',or_page = or_page, orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
+    return render_template('search.html',query = value, or_page = or_page, orResult = orResult, orHeader = orHeader, andHeader = andHeader, andResult = andResult)
     
 @app.route('/visualization/')
 def visual() :
