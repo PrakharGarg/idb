@@ -16,16 +16,37 @@ Retrieve a list of all beers from the PursuitOfHoppyness database.
 
         [
             {
-                "id": "0",
-                "name": "Shiner Bock"
-            },
+              "abv": 5.2, 
+              "brewery_id": 259, 
+              "ibu": 33, 
+              "id": 3558, 
+              "label": "https://untappd.akamaized.net/site/beer_logos/beer-3558_fe9a9_sm.jpeg", 
+              "name": "Brooklyn Lager", 
+              "rating": 3.506, 
+              "state_id": "NY", 
+              "style": "Lager - Vienna"
+            }, 
             {
-                "id": "1",
-                "name": "Heineken"
-            },
+              "abv": 6.8, 
+              "brewery_id": 2228, 
+              "ibu": 66, 
+              "id": 8238, 
+              "label": "https://untappd.akamaized.net/site/beer_logos/beer-IPA_8238.jpeg", 
+              "name": "IPA", 
+              "rating": 3.541, 
+              "state_id": "CA", 
+              "style": "IPA - American"
+            }, 
             {
-                "id": "2",
-                "name": "Blue Moon"
+              "abv": 8.9, 
+              "brewery_id": 39329, 
+              "ibu": 32, 
+              "id": 249566, 
+              "label": "https://untappd.akamaized.net/site/beer_logos/beer-Hellion_249566.jpeg", 
+              "name": "Hellion", 
+              "rating": 3.652, 
+              "state_id": "CA", 
+              "style": "Blonde Ale - Belgian Blonde / Golden"
             }
         ]
 ### Specific Beer [GET /api/beers/{beer_id}]
@@ -63,16 +84,31 @@ Retrieve the list of all of the breweries.
 
         [
             {
-                "id": "0",
-                "name": "Hops and Grain",
-            },
+              "address": "369 Congress St, Boston, MA", 
+              "brewery_type": "Micro Brewery", 
+              "founded": 1893.1081365741, 
+              "id": 23038, 
+              "label": "https://untappd.akamaized.net/site/brewery_logos/brewery-trillium_23038.jpeg", 
+              "name": "Trillium Brewing Company", 
+              "state_id": "MA"
+            }, 
             {
-                "id": "1",
-                "name": "Blue Owl"
-            },
+              "address": "3725 Greenwood St, San Diego, CA", 
+              "brewery_type": "Micro Brewery", 
+              "founded": 1382.8446643519, 
+              "id": 68356, 
+              "label": "https://untappd.akamaized.net/site/brewery_logos/brewery-68356_982b4.jpeg", 
+              "name": "Modern Times Beer", 
+              "state_id": "CA"
+            }, 
             {
-                "id": "2",
-                "name": "Zilker Brewing Company and Taproom"
+              "address": "1280 North McDowell Boulevard, Petaluma, CA", 
+              "brewery_type": "Micro Brewery", 
+              "founded": 2373.8632638889, 
+              "id": 765, 
+              "label": "https://untappd.akamaized.net/site/brewery_logos/brewery-765_b53eb.jpeg", 
+              "name": "Lagunitas Brewing Company", 
+              "state_id": "CA"
             }
         ]
         
@@ -108,16 +144,31 @@ Retrieve the list of all of the venues.
 
         [
             {
-                "id": "0",
-                "name": "The Ginger Man"
-            },
+              "address": "10426 National Blvd, Los Angeles, CA", 
+              "category": "Mexican Restaurant", 
+              "id": 6, 
+              "is_public": true, 
+              "media": "https://untappd.akamaized.net/photo/2016_08_25/903644606c381723486b7bc34135430b_raw.jpeg", 
+              "name": "El Nopal", 
+              "state_id": "CA"
+            }, 
             {
-                "id": "1",
-                "name": "Draught House Pub"
-            }
+              "address": "2 Boland Way, Springfield, MA", 
+              "category": "Hotel", 
+              "id": 7, 
+              "is_public": true, 
+              "media": "https://untappd.akamaized.net/photo/2017_04_01/44ba60270c1c6b5cb763ccaf83caa746_raw.jpg", 
+              "name": "Springfield Marriott", 
+              "state_id": "MA"
+            }, 
             {
-                "id": "2",
-                "name": "Craft Pride"
+              "address": "1277 Main St, Springfield, MA", 
+              "category": "Hockey Arena", 
+              "id": 10, 
+              "is_public": true, 
+              "media": "https://untappd.akamaized.net/photo/2017_04_01/049590f461ccc18a9594b10d23947813_raw.jpeg", 
+              "name": "MassMutual Center", 
+              "state_id": "MA"
             }
         ]
 
@@ -153,16 +204,25 @@ Retrieves a list of all of the states and their abbreviationsixe.
 
         [
             {
-                "abbreviation": "TX",
-                "name": "Texas"
-            },
+              "abbreviation": "AL", 
+              "capital": "Montgomery", 
+              "flower": "Camellia", 
+              "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Alabama.svg/300px-Flag_of_Alabama.svg.png", 
+              "name": "Alabama"
+            }, 
             {
-                "abbreviation": "CA",
-                "name": "California"
-            }
+              "abbreviation": "AK", 
+              "capital": "Juneau", 
+              "flower": "Forget-me-not", 
+              "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/286px-Flag_of_Alaska.svg.png", 
+              "name": "Alaska"
+            }, 
             {
-                "abbreviation": "FL",
-                "name": "Florida"
+              "abbreviation": "AS", 
+              "capital": "Phoenix", 
+              "flower": "Saguaro cactus blossom", 
+              "media": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Flag_of_Arizona.svg/300px-Flag_of_Arizona.svg.png", 
+              "name": "Arizona"
             }
         ]
         
