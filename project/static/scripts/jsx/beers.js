@@ -90,45 +90,46 @@ class FilterBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="dropdown">
-          <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By
-            <span className="caret"></span></button>
-            <ul className="dropdown-menu" onClick={this.handleSortByChange}>
-              <li><a href="#" id="name">Name</a></li>
-              <li><a href="#" id='type'>Type</a></li>
-              <li><a href="#" id='rating'>Rating</a></li>
-            </ul>
+      <div className="col-md-3">
+        <div className="list-group">
+          <div className="dropdown">
+            <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By
+              <span className="caret"></span></button>
+              <ul className="dropdown-menu" onClick={this.handleSortByChange}>
+                <li><a href="#" id="name">Name</a></li>
+                <li><a href="#" id='type'>Type</a></li>
+                <li><a href="#" id='rating'>Rating</a></li>
+              </ul>
+          </div>
+
+          <button type="button" className="btn btn-default ascdesc" aria-label="Left Align" onClick={this.handleOrderAscend}>
+            <a href = "#" className="glyphicon glyphicon-arrow-up" aria-hidden="true"></a>
+          </button>
+
+          <button type="button" className="btn btn-default ascdesc" aria-label="Left Align" onClick={this.handleOrderDescend}>
+            <a href = "#" className="glyphicon glyphicon-arrow-down" aria-hidden="true"></a>
+          </button>
+
+          <div className="dropdown">
+            <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
+              <span className="caret"></span></button>
+              <ul className="dropdown-menu" onClick={this.handleTypeChange}>
+                <li className= "boxes" ><input id="stout" type="checkbox"/> Stout <br /></li>
+                <li className= "boxes" ><input id="ipa" type="checkbox"/> IPA <br /></li>
+                <li className= "boxes" ><input id="sour" type="checkbox"/> Sour <br /></li>
+              </ul>
+          </div>
+
+          <div className="dropdown">
+            <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
+              <span className="caret"></span></button>
+              <ul className="dropdown-menu" onClick={this.handleRatingChange}>
+                <li><a href="#" id="2">2</a></li>
+                <li><a href="#" id="3">3</a></li>
+                <li><a href="#" id="4">4</a></li>
+              </ul>
+          </div>
         </div>
-
-        <button type="button" className="btn btn-default ascdesc" aria-label="Left Align" onClick={this.handleOrderAscend}>
-          <a href = "#" className="glyphicon glyphicon-arrow-up" aria-hidden="true"></a>
-        </button>
-
-        <button type="button" className="btn btn-default ascdesc" aria-label="Left Align" onClick={this.handleOrderDescend}>
-          <a href = "#" className="glyphicon glyphicon-arrow-down" aria-hidden="true"></a>
-        </button>
-
-        <div className="dropdown">
-          <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
-            <span className="caret"></span></button>
-            <ul className="dropdown-menu" onClick={this.handleTypeChange}>
-              <li className= "boxes" ><input id="stout" type="checkbox"/> Stout <br /></li>
-              <li className= "boxes" ><input id="ipa" type="checkbox"/> IPA <br /></li>
-              <li className= "boxes" ><input id="sour" type="checkbox"/> Sour <br /></li>
-            </ul>
-        </div>
-
-        <div className="dropdown">
-          <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
-            <span className="caret"></span></button>
-            <ul className="dropdown-menu" onClick={this.handleRatingChange}>
-              <li className= "boxes" ><input id="2" type="checkbox"/> 2+ <br /></li>
-              <li className= "boxes" ><input id="3" type="checkbox"/> 3+ <br /></li>
-              <li className= "boxes" ><input id="4" type="checkbox"/> 4+</li>
-            </ul>
-        </div>
-
       </div>
     )
   }
@@ -207,7 +208,7 @@ class FilterableProductTable extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="grid row">
         <FilterBar
           onSortChange={this.handleSortInput}
           onOrderChange={this.handleOrderInput}

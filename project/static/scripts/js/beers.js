@@ -8671,45 +8671,46 @@ class FilterBar extends React.Component {
 
   render() {
     return (
-      React.createElement("div", null, 
-        React.createElement("div", {className: "dropdown"}, 
-          React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Sort By", 
-            React.createElement("span", {className: "caret"})), 
-            React.createElement("ul", {className: "dropdown-menu", onClick: this.handleSortByChange}, 
-              React.createElement("li", null, React.createElement("a", {href: "#", id: "name"}, "Name")), 
-              React.createElement("li", null, React.createElement("a", {href: "#", id: "type"}, "Type")), 
-              React.createElement("li", null, React.createElement("a", {href: "#", id: "rating"}, "Rating"))
-            )
-        ), 
+      React.createElement("div", {className: "col-md-3"}, 
+        React.createElement("div", {className: "list-group"}, 
+          React.createElement("div", {className: "dropdown"}, 
+            React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Sort By", 
+              React.createElement("span", {className: "caret"})), 
+              React.createElement("ul", {className: "dropdown-menu", onClick: this.handleSortByChange}, 
+                React.createElement("li", null, React.createElement("a", {href: "#", id: "name"}, "Name")), 
+                React.createElement("li", null, React.createElement("a", {href: "#", id: "type"}, "Type")), 
+                React.createElement("li", null, React.createElement("a", {href: "#", id: "rating"}, "Rating"))
+              )
+          ), 
 
-        React.createElement("button", {type: "button", className: "btn btn-default ascdesc", "aria-label": "Left Align", onClick: this.handleOrderAscend}, 
-          React.createElement("a", {href: "#", className: "glyphicon glyphicon-arrow-up", "aria-hidden": "true"})
-        ), 
+          React.createElement("button", {type: "button", className: "btn btn-default ascdesc", "aria-label": "Left Align", onClick: this.handleOrderAscend}, 
+            React.createElement("a", {href: "#", className: "glyphicon glyphicon-arrow-up", "aria-hidden": "true"})
+          ), 
 
-        React.createElement("button", {type: "button", className: "btn btn-default ascdesc", "aria-label": "Left Align", onClick: this.handleOrderDescend}, 
-          React.createElement("a", {href: "#", className: "glyphicon glyphicon-arrow-down", "aria-hidden": "true"})
-        ), 
+          React.createElement("button", {type: "button", className: "btn btn-default ascdesc", "aria-label": "Left Align", onClick: this.handleOrderDescend}, 
+            React.createElement("a", {href: "#", className: "glyphicon glyphicon-arrow-down", "aria-hidden": "true"})
+          ), 
 
-        React.createElement("div", {className: "dropdown"}, 
-          React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Type", 
-            React.createElement("span", {className: "caret"})), 
-            React.createElement("ul", {className: "dropdown-menu", onClick: this.handleTypeChange}, 
-              React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "stout", type: "checkbox"}), " Stout ", React.createElement("br", null)), 
-              React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "ipa", type: "checkbox"}), " IPA ", React.createElement("br", null)), 
-              React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "sour", type: "checkbox"}), " Sour ", React.createElement("br", null))
-            )
-        ), 
+          React.createElement("div", {className: "dropdown"}, 
+            React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Type", 
+              React.createElement("span", {className: "caret"})), 
+              React.createElement("ul", {className: "dropdown-menu", onClick: this.handleTypeChange}, 
+                React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "stout", type: "checkbox"}), " Stout ", React.createElement("br", null)), 
+                React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "ipa", type: "checkbox"}), " IPA ", React.createElement("br", null)), 
+                React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "sour", type: "checkbox"}), " Sour ", React.createElement("br", null))
+              )
+          ), 
 
-        React.createElement("div", {className: "dropdown"}, 
-          React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Rating", 
-            React.createElement("span", {className: "caret"})), 
-            React.createElement("ul", {className: "dropdown-menu", onClick: this.handleRatingChange}, 
-              React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "2", type: "checkbox"}), " 2+ ", React.createElement("br", null)), 
-              React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "3", type: "checkbox"}), " 3+ ", React.createElement("br", null)), 
-              React.createElement("li", {className: "boxes"}, React.createElement("input", {id: "4", type: "checkbox"}), " 4+")
-            )
+          React.createElement("div", {className: "dropdown"}, 
+            React.createElement("button", {className: " list-group-item btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown"}, "Rating", 
+              React.createElement("span", {className: "caret"})), 
+              React.createElement("ul", {className: "dropdown-menu", onClick: this.handleRatingChange}, 
+                React.createElement("li", null, React.createElement("a", {href: "#", id: "2"}, "2")), 
+                React.createElement("li", null, React.createElement("a", {href: "#", id: "3"}, "3")), 
+                React.createElement("li", null, React.createElement("a", {href: "#", id: "4"}, "4"))
+              )
+          )
         )
-
       )
     )
   }
@@ -8788,7 +8789,7 @@ class FilterableProductTable extends React.Component {
 
   render() {
     return (
-      React.createElement("div", null, 
+      React.createElement("div", {className: "grid row"}, 
         React.createElement(FilterBar, {
           onSortChange: this.handleSortInput, 
           onOrderChange: this.handleOrderInput, 
