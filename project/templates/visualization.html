@@ -50,7 +50,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("/static/test2.json", function(error, flare) {
+d3.json("/static/data.json", function(error, flare) {
   if (error) throw error;
 
   root = flare;
@@ -169,7 +169,17 @@ function click(d) {
   }
   update(d);
 }
-
 </script>
+<br>
+<div class = "about visual">
+  <p>
+    An interactive version of a 
+    <a href=https://bl.ocks.org/mbostock/4339184> Reingold–Tilford </a> 
+    tree. Visualization of API data from http://www.vennfridge.me/.<br>Click on the nodes to expand or collapse.<br>The root note is "tags" (basically categories) and contains all of the tags from the API. The children of every tag are:<br>
+    "Grocery items" which are the grocery items (if any) that are a part of that tag<br>
+    "Ingredients" which are the ingredients (if any) that are a part of that tag<br>
+    "Recipes" which are the recipes (if any) that are a part of that tag.<br><br><br>
+  </p>
+</div>
 </body>
 {% endblock %}
