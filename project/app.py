@@ -73,25 +73,11 @@ def search() :
             for key in or_model_dict["results"]:
                 index = 10000
                 index_array = []
-                newstring = key + ": " + or_model_dict[key]
+                newstring = str((key + ": " + or_model_dict[key])).lower()
                 for word in or_model_dict["results"][key]["match_word"]:
-                    new_word = "<strong>" + word + "</strong>"
-                    newstring.replace(word.lower(), new_word.lower())
-                    print(newstring)
-                #     word_index = str(or_model_dict[key]).lower().index(word.lower())
-                #     index_array.append([word_index, word_index + len(word)])
-                # index_array = sorted(index_array, key=lambda x: x[1])
-                # 
-                # beginning_sub = str(or_model_dict[key])[:index_array[0][0]]
-                # end_sub = str(or_model_dict[key])[index_array[-1][1]:]
-                # newstring = str(or_model_dict[key])
-                # for index in index_array:
-                #     newstring = newstring[:index[0] - 1] + ' <strong>' + newstring[index[0]:index[1] + 1] + '</strong> ' + newstring[index] 
-                # print(newstring)
-                # or_model_dict["results"][key]["match_beginning"] =  Markup('<strong>' + beginning_sub + '</strong>')
-                # or_model_dict["results"][key]["match_end"] = Markup('<strong>' + end_sub + '</strong>')
-                # middle_strings = []
-                print(newstring)
+                    new_word = "<span class = 'gold'>" + word + "</span>"
+                    newstring = newstring.replace(word.lower(), new_word)
+                    newstring += "<br />"
                 or_model_dict["results"][key]["string"] = Markup(newstring)
             orResult.append(or_model_dict)
                 
