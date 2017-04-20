@@ -1,91 +1,59 @@
 var axios = require('axios');
+var _ = require('lodash');
 
-class ProductCategoryRow extends React.Component {
-  render() {
-    return (<tr><th colSpan="2">{this.props.category}</th></tr>);
-  }
-}
-
-class ProductRow extends React.Component {
-  render() {
-    var name = this.props.product.id ?
-      this.props.product.name :
-      <span style={{color: 'red'}}>
-        {this.props.product.name}
-      </span>;
+class Beer extends React.Component {
+  render () {
     return (
-      <tr>
-        <td>{name}</td>
-        <td>{this.props.product.id}</td>
-      </tr>
-    );
+      <div className="col-md-3 col-sm-6 hero-feature text-center">
+        <div className="thumbnail">
+          <img src={"" + this.props.beer.label} width = "150" alt=""/>
+          <div className="caption">
+            <h3>{this.props.beer.name}</h3>
+            <p>
+              {this.props.beer.style} <br/>
+              ABV: {this.props.beer.abv} <br />
+              Rating: {this.props.beer.rating}/5.0 
+            </p>
+            <p>
+              <a href={"/beers/" + this.props.beer.id + "/"} className="btn btn-primary">More Info</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    )
   }
 }
 
 class ProductTable extends React.Component {
   render() {
     var rows = [];
-    var lastCategory = null;
-    console.log(this.props.inStockOnly);
-    this.props.products.forEach((product) => {
-      if (product.name.indexOf(this.props.filterText) === -1 || (!product.id && this.props.inStockOnly)) {
-        return;
-      }
-      if (product.category !== lastCategory) {
-        rows.push(<ProductCategoryRow category={product.category} key={product.category} />);
-      }
-      rows.push(<ProductRow product={product} key={product.name} />);
-      lastCategory = product.category;
+
+    var filteredProducts = _.filter(this.props.products, (beer) => {
+      var type_matches = _.map(this.props.types, (type) => {
+        console.log(type + "  : " + beer.style);
+        return _.contains(beer.style.toLowerCase(), type);
+      });
+      var any_match = _.reduce(type_matches, (a,b) => {
+        return a || b;
+      }, false);
+      var type_matches = _.isEmpty(this.props.types) || any_match;
+      var rating_matches = beer.rating >= this.props.lowRating;
+      return type_matches && rating_matches;
     });
-    return (
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </table>
-    );
-  }
-}
 
+    var sortedProducts = _.sortBy(filteredProducts, this.props.sortBy);
+    if (!this.props.ascend) {
+      sortedProducts.reverse();
+    }
 
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleFilterTextInputChange = this.handleFilterTextInputChange.bind(this);
-    this.handleInStockInputChange = this.handleInStockInputChange.bind(this);
-  }
-  
-  handleFilterTextInputChange(e) {
-    this.props.onFilterTextInput(e.target.value);
-  }
-  
-  handleInStockInputChange(e) {
-    this.props.onInStockInput(e.target.checked);
-  }
-  
-  render() {
+    sortedProducts.forEach((beer) => {
+      rows.push(
+        <Beer beer={beer}/>
+      );
+    });
+
     return (
-      <form>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={this.props.filterText}
-          onChange={this.handleFilterTextInputChange}
-        />
-        <p>
-          <input
-            type="checkbox"
-            checked={this.props.inStockOnly}
-            onChange={this.handleInStockInputChange}
-          />
-          {' '}
-          Only show products in stock
-        </p>
-      </form>
+      <div>{rows}</div>
     );
   }
 }
@@ -101,7 +69,7 @@ class FilterBar extends React.Component {
   }
 
   handleSortByChange(e) {
-    this.props.onSortChange(e);
+    this.props.onSortChange(e.target.id);
   }
 
   handleOrderAscend(e) {
@@ -113,24 +81,23 @@ class FilterBar extends React.Component {
   }
 
   handleTypeChange(e) {
-    this.props.onTypeChange(e);
+    this.props.onTypeChange(e.target.id);
   }
 
   handleRatingChange(e) {
-    this.props.onRatingChange(e);
+    this.props.onRatingChange(e.target.id);
   }
 
   render() {
     return (
       <div>
-
         <div className="dropdown">
           <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort By
             <span className="caret"></span></button>
-            <ul className="dropdown-menu">
-              <li><a href="#">Name</a></li>
-              <li><a href="#">Type</a></li>
-              <li><a href="#">Rating</a></li>
+            <ul className="dropdown-menu" onClick={this.handleSortByChange}>
+              <li><a href="#" id="name">Name</a></li>
+              <li><a href="#" id='type'>Type</a></li>
+              <li><a href="#" id='rating'>Rating</a></li>
             </ul>
         </div>
 
@@ -145,20 +112,20 @@ class FilterBar extends React.Component {
         <div className="dropdown">
           <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Type
             <span className="caret"></span></button>
-            <ul className="dropdown-menu">
-              <li class = "boxes" ><input type="checkbox"/> Stout <br /></li>
-              <li class = "boxes" ><input type="checkbox"/> IPA <br /></li>
-              <li class = "boxes" ><input type="checkbox"/> Sour <br /></li>
+            <ul className="dropdown-menu" onClick={this.handleTypeChange}>
+              <li className= "boxes" ><input id="stout" type="checkbox"/> Stout <br /></li>
+              <li className= "boxes" ><input id="ipa" type="checkbox"/> IPA <br /></li>
+              <li className= "boxes" ><input id="sour" type="checkbox"/> Sour <br /></li>
             </ul>
         </div>
 
         <div className="dropdown">
           <button className=" list-group-item btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Rating
             <span className="caret"></span></button>
-            <ul className="dropdown-menu">
-              <li class = "boxes" ><input type="checkbox"/> 2+ <br /></li>
-              <li class = "boxes" ><input type="checkbox"/> 3+ <br /></li>
-              <li class = "boxes" ><input type="checkbox"/> 4+</li>
+            <ul className="dropdown-menu" onClick={this.handleRatingChange}>
+              <li className= "boxes" ><input id="2" type="checkbox"/> 2+ <br /></li>
+              <li className= "boxes" ><input id="3" type="checkbox"/> 3+ <br /></li>
+              <li className= "boxes" ><input id="4" type="checkbox"/> 4+</li>
             </ul>
         </div>
 
@@ -172,42 +139,54 @@ class FilterableProductTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterText: '',
-      inStockOnly: false,
       beers: new Array(),
-      all_states: ['TX','AL','CA'],
-      filtering_states: new Array(),
-
-      ascending: true,
-      ratings: new Array(),
+      sortBy: 'name',
+      ascend: true,
+      lowRating: 0,
       types: new Array()
     };
     
-    this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
-    this.handleInStockInput = this.handleInStockInput.bind(this);
-
     this.handleSortInput = this.handleSortInput.bind(this);
     this.handleOrderInput = this.handleOrderInput.bind(this);
     this.handleTypeInput = this.handleTypeInput.bind(this);
     this.handleRatingInput = this.handleRatingInput.bind(this);
   }
 
-  handleSortInput(e) {
-    console.log(e);
-  }
-
-  handleOrderInput(ascend) {
+  handleSortInput(sort_by) {
+    console.log(sort_by);
     this.setState({
-      ascending: ascend
+      sortBy: sort_by
     });
   }
 
-  handleTypeInput(e) {
-    console.log(e);
+  handleOrderInput(ascend) {
+    console.log(ascend);
+    this.setState({
+      ascend: ascend
+    });
   }
 
-  handleRatingInput(e) {
-    console.log(e);
+  handleTypeInput(type) {
+    var newTypes = _.clone(this.state.types);
+    if (_.contains(this.state.types, type)) {
+      newTypes = _.filter(newTypes, (elem) => {
+        return elem !== type;
+      });
+    }
+    else {
+      newTypes.push(type);
+    }
+    this.setState({
+      types: newTypes
+    });
+    console.log(newTypes);
+  }
+
+  handleRatingInput(newRating) {
+    console.log(newRating);
+    this.setState({
+      lowRating: newRating
+    });
   }
 
   componentDidMount() {
@@ -226,27 +205,9 @@ class FilterableProductTable extends React.Component {
     this.serverRequest.abort();
   }
 
-  handleFilterTextInput(filterText) {
-    this.setState({
-      filterText: filterText
-    });
-  }
-  
-  handleInStockInput(inStockOnly) {
-    this.setState({
-      inStockOnly: inStockOnly
-    })
-  }
-
   render() {
     return (
       <div>
-        <SearchBar
-          filterText={this.state.filterText}
-          inStockOnly={this.state.inStockOnly}
-          onFilterTextInput={this.handleFilterTextInput}
-          onInStockInput={this.handleInStockInput}
-        />
         <FilterBar
           onSortChange={this.handleSortInput}
           onOrderChange={this.handleOrderInput}
@@ -257,6 +218,11 @@ class FilterableProductTable extends React.Component {
           products={this.state.beers}
           filterText={this.state.filterText}
           inStockOnly={this.state.inStockOnly}
+
+          sortBy={this.state.sortBy}
+          types={this.state.types}
+          ascend={this.state.ascend}
+          lowRating={this.state.lowRating}
         />
       </div>
     );
