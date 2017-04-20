@@ -1,0 +1,429 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module models</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/Prakhar/Documents/School/Software_Engineering/idb/project/models.py">/Users/Prakhar/Documents/School/Software_Engineering/idb/project/models.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;bad-whitespace<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;invalid-name<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;missing-docstring<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;no-member<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;too-many-arguments<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;pointless-string-statement</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial">flask_sqlalchemy.Model(<a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="models.html#Beer">Beer</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Brewery">Brewery</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#State">State</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Venue">Venue</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Beer">class <strong>Beer</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;beer&nbsp;model.&nbsp;It&nbsp;contains&nbsp;the&nbsp;necessary&nbsp;information&nbsp;and&nbsp;links<br>
+for&nbsp;serving&nbsp;up&nbsp;all&nbsp;you&nbsp;could&nbsp;ever&nbsp;want&nbsp;to&nbsp;know&nbsp;about&nbsp;a&nbsp;tasty&nbsp;brew.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;name&nbsp;of&nbsp;the&nbsp;beer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;labels:&nbsp;link&nbsp;to&nbsp;a&nbsp;picture&nbsp;of&nbsp;the&nbsp;beer&nbsp;label<br>
+&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;what&nbsp;type&nbsp;of&nbsp;beer&nbsp;this&nbsp;is&nbsp;(ale,&nbsp;lager,&nbsp;IPA,&nbsp;kolsh,&nbsp;etc.)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is_organic:&nbsp;whether&nbsp;or&nbsp;not&nbsp;this&nbsp;beer&nbsp;is&nbsp;environmentally&nbsp;friendly!<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rating:&nbsp;numeric&nbsp;rating&nbsp;by&nbsp;the&nbsp;Untapped&nbsp;community.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;brewery:&nbsp;where&nbsp;and&nbsp;who&nbsp;this&nbsp;is&nbsp;brewed&nbsp;by<br>
+&nbsp;&nbsp;&nbsp;&nbsp;venues:&nbsp;where&nbsp;this&nbsp;beer&nbsp;is&nbsp;served,&nbsp;sold,&nbsp;and&nbsp;distributed<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Beer">Beer</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Beer-__init__"><strong>__init__</strong></a>(self, idd, style, rating, name, label, abv, ibu)</dt></dl>
+
+<dl><dt><a name="Beer-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>get&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;beer</tt></dd></dl>
+
+<dl><dt><a name="Beer-change_rating"><strong>change_rating</strong></a>(self, new_rating)</dt><dd><tt>update&nbsp;the&nbsp;rating&nbsp;on&nbsp;this&nbsp;beer</tt></dd></dl>
+
+<dl><dt><a name="Beer-relabel"><strong>relabel</strong></a>(self, new_label)</dt><dd><tt>change&nbsp;the&nbsp;label&nbsp;on&nbsp;this&nbsp;beer&nbsp;(gotta&nbsp;keep&nbsp;it&nbsp;fresh!)</tt></dd></dl>
+
+<dl><dt><a name="Beer-to_dict"><strong>to_dict</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>abv</strong></dt>
+</dl>
+<dl><dt><strong>brewery_id</strong></dt>
+</dl>
+<dl><dt><strong>ibu</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>label</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>rating</strong></dt>
+</dl>
+<dl><dt><strong>state_id</strong></dt>
+</dl>
+<dl><dt><strong>style</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10dc044d0; Beer&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('beer', MetaData(bind=None), Column('state...olumn('abv', Float(), table=&lt;beer&gt;), schema=None)</dl>
+
+<dl><dt><strong>__table_args__</strong> = {'extend_existing': True}</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'beer'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Brewery">class <strong>Brewery</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;brewery&nbsp;model.&nbsp;This&nbsp;gives&nbsp;information&nbsp;about&nbsp;what&nbsp;kinds&nbsp;of&nbsp;beers<br>
+are&nbsp;crafted&nbsp;here,&nbsp;what&nbsp;kind&nbsp;of&nbsp;brewery&nbsp;tis&nbsp;is,&nbsp;and&nbsp;where&nbsp;it's&nbsp;located.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;name&nbsp;of&nbsp;this&nbsp;brewery<br>
+&nbsp;&nbsp;&nbsp;&nbsp;brewery_type:&nbsp;large,&nbsp;medium,&nbsp;craft,&nbsp;micro,&nbsp;etc.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;founded:&nbsp;date&nbsp;this&nbsp;brewery&nbsp;was&nbsp;created<br>
+&nbsp;&nbsp;&nbsp;&nbsp;labels:&nbsp;links&nbsp;to&nbsp;images&nbsp;of&nbsp;this&nbsp;breweries&nbsp;logo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;address:&nbsp;where&nbsp;this&nbsp;thing&nbsp;is!<br>
+&nbsp;&nbsp;&nbsp;&nbsp;venues:&nbsp;who&nbsp;serves,&nbsp;sells,&nbsp;and&nbsp;distributes&nbsp;this&nbsp;beer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;state:&nbsp;which&nbsp;state&nbsp;this&nbsp;exists&nbsp;in<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Brewery">Brewery</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Brewery-__init__"><strong>__init__</strong></a>(self, address, name, founded, label, brewery_type)</dt></dl>
+
+<dl><dt><a name="Brewery-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>get&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;brewery</tt></dd></dl>
+
+<dl><dt><a name="Brewery-change_founded_date"><strong>change_founded_date</strong></a>(self, new_date)</dt><dd><tt>Rewrite&nbsp;history!&nbsp;Lie!&nbsp;Try,&nbsp;at&nbsp;least&nbsp;:)</tt></dd></dl>
+
+<dl><dt><a name="Brewery-change_name"><strong>change_name</strong></a>(self, new_name)</dt><dd><tt>change&nbsp;this&nbsp;brewery's&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="Brewery-to_dict"><strong>to_dict</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>address</strong></dt>
+</dl>
+<dl><dt><strong>beers</strong></dt>
+</dl>
+<dl><dt><strong>brewery_type</strong></dt>
+</dl>
+<dl><dt><strong>founded</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>label</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>state</strong></dt>
+</dl>
+<dl><dt><strong>state_id</strong></dt>
+</dl>
+<dl><dt><strong>venues</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10dc04e50; Brewery&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('brewery', MetaData(bind=None), Column('ad...te.abbreviation'), table=&lt;brewery&gt;), schema=None)</dl>
+
+<dl><dt><strong>__table_args__</strong> = {'extend_existing': True}</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'brewery'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="State">class <strong>State</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;large&nbsp;geographic&nbsp;region&nbsp;you&nbsp;may&nbsp;wish&nbsp;to&nbsp;explore&nbsp;by&nbsp;beer.&nbsp;<a href="#Beer">Beer</a>!<br>
+States&nbsp;contain&nbsp;information&nbsp;about&nbsp;venues&nbsp;and&nbsp;breweries&nbsp;located&nbsp;in&nbsp;them,<br>
+and&nbsp;some&nbsp;general&nbsp;trivia&nbsp;you&nbsp;may&nbsp;find&nbsp;amusing.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;what&nbsp;state&nbsp;is&nbsp;this?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;capital:&nbsp;the&nbsp;city&nbsp;where&nbsp;this&nbsp;state&nbsp;does&nbsp;its&nbsp;legislative&nbsp;business<br>
+&nbsp;&nbsp;&nbsp;&nbsp;media:&nbsp;links&nbsp;to&nbsp;pics&nbsp;of&nbsp;this&nbsp;state!<br>
+&nbsp;&nbsp;&nbsp;&nbsp;abbreviation:&nbsp;state&nbsp;abbreviation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flower:&nbsp;the&nbsp;state&nbsp;flower!<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#State">State</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="State-__init__"><strong>__init__</strong></a>(self, abbreviation, capital, name, media, flower)</dt></dl>
+
+<dl><dt><a name="State-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>get&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;state</tt></dd></dl>
+
+<dl><dt><a name="State-is_best_state"><strong>is_best_state</strong></a>(self)</dt><dd><tt>get&nbsp;whether&nbsp;or&nbsp;not&nbsp;this&nbsp;state&nbsp;is&nbsp;the&nbsp;best&nbsp;in&nbsp;the&nbsp;US</tt></dd></dl>
+
+<dl><dt><a name="State-is_flower_pretty"><strong>is_flower_pretty</strong></a>(self)</dt><dd><tt>get&nbsp;info&nbsp;back&nbsp;on&nbsp;this&nbsp;state's&nbsp;flower's&nbsp;prettiness</tt></dd></dl>
+
+<dl><dt><a name="State-to_dict"><strong>to_dict</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>abbreviation</strong></dt>
+</dl>
+<dl><dt><strong>beers</strong></dt>
+</dl>
+<dl><dt><strong>breweries</strong></dt>
+</dl>
+<dl><dt><strong>capital</strong></dt>
+</dl>
+<dl><dt><strong>flower</strong></dt>
+</dl>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>venues</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10dc49310; State&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('state', MetaData(bind=None), Column('abbr... String(length=120), table=&lt;state&gt;), schema=None)</dl>
+
+<dl><dt><strong>__table_args__</strong> = {'extend_existing': True}</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'state'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Venue">class <strong>Venue</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;venue&nbsp;model.&nbsp;You&nbsp;come&nbsp;here&nbsp;to&nbsp;visit&nbsp;with&nbsp;friends,<br>
+enjoy&nbsp;a&nbsp;pint&nbsp;of&nbsp;your&nbsp;favorite&nbsp;brew,&nbsp;and&nbsp;to&nbsp;find<br>
+new&nbsp;favorites!&nbsp;This&nbsp;has&nbsp;all&nbsp;the&nbsp;info&nbsp;you&nbsp;need.&nbsp;For<br>
+bars,&nbsp;restaurants,&nbsp;stores,&nbsp;and&nbsp;anywhere&nbsp;else&nbsp;you&nbsp;can&nbsp;get<br>
+your&nbsp;hands&nbsp;on&nbsp;a&nbsp;can,&nbsp;bottle,&nbsp;or&nbsp;pint.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;its&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;media:&nbsp;links&nbsp;to&nbsp;images&nbsp;of&nbsp;the&nbsp;venue,&nbsp;its&nbsp;patrons,&nbsp;its&nbsp;logo,&nbsp;etc.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;address:&nbsp;where&nbsp;this&nbsp;is&nbsp;located<br>
+&nbsp;&nbsp;&nbsp;&nbsp;category:&nbsp;is&nbsp;this&nbsp;a&nbsp;bar?&nbsp;is&nbsp;it&nbsp;a&nbsp;store?&nbsp;this&nbsp;will&nbsp;tell&nbsp;you!<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is_public:&nbsp;boolean&nbsp;value&nbsp;to&nbsp;let&nbsp;us&nbsp;know&nbsp;if&nbsp;this&nbsp;place&nbsp;is&nbsp;open&nbsp;to&nbsp;the&nbsp;public&nbsp;or&nbsp;not.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;state:&nbsp;which&nbsp;state&nbsp;you&nbsp;will&nbsp;find&nbsp;this&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;breweries:&nbsp;all&nbsp;of&nbsp;the&nbsp;breweries&nbsp;represented&nbsp;here<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beers:&nbsp;all&nbsp;the&nbsp;beers&nbsp;you&nbsp;may&nbsp;obtain<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Venue">Venue</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Venue-__init__"><strong>__init__</strong></a>(self, category, media, is_public, name, address)</dt></dl>
+
+<dl><dt><a name="Venue-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>get&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;venue</tt></dd></dl>
+
+<dl><dt><a name="Venue-to_dict"><strong>to_dict</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>address</strong></dt>
+</dl>
+<dl><dt><strong>category</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>is_public</strong></dt>
+</dl>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>state</strong></dt>
+</dl>
+<dl><dt><strong>state_id</strong></dt>
+</dl>
+<dl><dt><strong>ven2beer</strong></dt>
+</dl>
+<dl><dt><strong>ven2brew</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10dc2b810; Venue&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('venue', MetaData(bind=None), Column('cate...tate.abbreviation'), table=&lt;venue&gt;), schema=None)</dl>
+
+<dl><dt><strong>__table_args__</strong> = {'extend_existing': True}</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'venue'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>app</strong> = None<br>
+<strong>db</strong> = &lt;SQLAlchemy engine=None&gt;<br>
+<strong>ven2beer</strong> = Table('ven2beer', MetaData(bind=None), Column('v...gnKey('beer.id'), table=&lt;ven2beer&gt;), schema=None)<br>
+<strong>ven2brew</strong> = Table('ven2brew', MetaData(bind=None), Column('b...nKey('venue.id'), table=&lt;ven2brew&gt;), schema=None)</td></tr></table>
+</body></html>
