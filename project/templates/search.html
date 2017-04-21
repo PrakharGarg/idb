@@ -23,7 +23,11 @@
                   <!-- {{i["results"]}} -->
                 </p>
                 <p>
-                  <a href="/{{orResult[i]["type"]}}/{{orResult[i]["id"]}}/" class="btn btn-primary">More Info</a>
+                  {% if orResult[i]["abbreviation"] %}
+                    <a href="/{{orResult[i]["type"]}}/{{orResult[i]["abbreviation"]}}/" onerror="this.style.display='none'" class="btn btn-primary">More Info</a>
+                  {% else %}
+                  <a href="/{{orResult[i]["type"]}}/{{orResult[i]["id"]}}/" onerror="this.style.display='none'" class="btn btn-primary">More Info</a>
+                  {% endif %}
                 </p>
               </div>
             </div>
