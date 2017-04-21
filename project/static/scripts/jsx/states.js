@@ -23,6 +23,29 @@ class State extends React.Component {
     )
   }
 }
+class Pagein extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePageByChange = this.handlePageByChange.bind(this);
+  }
+
+  handlePageByChange(e) {
+    this.props.onPageChange(e.target.id);
+  }
+
+
+  render() {
+    return (
+      <div >
+      <ul className="pagination page" onClick={this.handlePageByChange} >
+      {this.props.page > 1 && <li><a id = "back" href="#">{this.props.page - 1}</a></li>}
+      <li><a id = "current" href="#">Current Page: {this.props.page}</a></li>
+      {this.props.page < 5 && <li><a id = "next" href="#">{this.props.page + 1}</a></li>}
+      </ul>
+      </div>
+    );
+  }
+}
 
 class ProductTable extends React.Component {
   render() {
@@ -107,11 +130,13 @@ class FilterableProductTable extends React.Component {
     this.state = {
       states: new Array(),
       sortBy: 'name',
+      page: 1,
       ascend: true,
     };
     
     this.handleSortInput = this.handleSortInput.bind(this);
     this.handleOrderInput = this.handleOrderInput.bind(this);
+    this.handlePageInput = this.handlePageInput.bind(this);
     
   }
 
@@ -121,6 +146,34 @@ class FilterableProductTable extends React.Component {
       sortBy: sort_by
     });
   }
+  
+  handlePageInput(newPage) {
+    if (newPage == "next") {
+      if(this.state.page == 5){
+        updatePage = 5
+      }
+      else{
+        var updatePage = this.state.page += 1
+      }
+      
+    }
+    else if (newPage == "back") {
+      var updatePage = this.state.page -= 1
+      if (updatePage < 1) {
+        updatePage = 1
+      }
+    }
+    else {
+      updatePage = this.state.page
+    }
+    this.setState({
+      page: updatePage
+  },
+  function() {
+      this.componentDidMount();
+  }
+  );
+}
 
   handleOrderInput(ascend) {
     console.log(ascend);
@@ -134,7 +187,7 @@ class FilterableProductTable extends React.Component {
   componentDidMount() {
     var _this = this;
     this.serverRequest = axios
-      .get("/api/states")
+      .get("/api/states/" + this.state.page)
       .then(function(result) {
         console.log(result);   
         _this.setState({
@@ -150,6 +203,10 @@ class FilterableProductTable extends React.Component {
   render() {
     return (
       <div className="grid row">
+      <Pagein
+      onPageChange={this.handlePageInput}
+      page={this.state.page}
+      />
         <FilterBar
           onSortChange={this.handleSortInput}
           onOrderChange={this.handleOrderInput}
@@ -162,6 +219,7 @@ class FilterableProductTable extends React.Component {
 
           sortBy={this.state.sortBy}
           ascend={this.state.ascend}
+          page={this.state.page}
         />
       </div>
     );

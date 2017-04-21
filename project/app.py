@@ -236,7 +236,7 @@ def get_beers(page=0):
     if page == 0 :
         beers = Beer.query.all()
     else :    
-        beers = Beer.query.paginate(page,10,False).items
+        beers = Beer.query.paginate(page,10,True).items
     _ = list()
     for beer in beers:
         _ += [beer.to_dict()]
@@ -256,7 +256,7 @@ def get_venues(page=0):
     if page == 0 :
         venues = Venue.query.all()
     else :    
-        venues = Venue.query.paginate(page,10,False).items
+        venues = Venue.query.paginate(page,10,True).items
     _ = list()
     for venue in venues:
         _ += [venue.to_dict()]
@@ -276,7 +276,7 @@ def get_breweries(page=0):
     if page == 0 :
         breweries = Brewery.query.all()
     else :    
-        breweries = Brewery.query.paginate(page,10,False).items
+        breweries = Brewery.query.paginate(page,10,True).items
     _ = list()
     for brewery in breweries:
         _ += [brewery.to_dict()]
@@ -296,7 +296,7 @@ def get_states(page=0):
     if page == 0 :
         states = State.query.all()
     else :    
-        states = State.query.paginate(page,10,False).items
+        states = State.query.paginate(page,10,True).items
     _ = list()
     for state in states:
         _ += [state.to_dict()]

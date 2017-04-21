@@ -8587,7 +8587,7 @@ class Venue extends React.Component {
     return (
       React.createElement("div", {className: "col-md-3 col-sm-6 hero-feature text-center"}, 
         React.createElement("div", {className: "thumbnail"}, 
-          React.createElement("img", {src: "" + this.props.venue.media, width: "150", alt: ""}), 
+          React.createElement("img", {className: "venueimg", src: "" + this.props.venue.media, width: "150", alt: ""}), 
           React.createElement("div", {className: "caption"}, 
             React.createElement("h3", null, this.props.venue.name), 
             React.createElement("p", null, 
@@ -8604,7 +8604,29 @@ class Venue extends React.Component {
     )
   }
 }
+class Pagein extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePageByChange = this.handlePageByChange.bind(this);
+  }
 
+  handlePageByChange(e) {
+    this.props.onPageChange(e.target.id);
+  }
+
+
+  render() {
+    return (
+      React.createElement("div", null, 
+      React.createElement("ul", {className: "pagination page", onClick: this.handlePageByChange}, 
+      this.props.page > 1 && React.createElement("li", null, React.createElement("a", {id: "back", href: "#"}, this.props.page - 1)), 
+      React.createElement("li", null, React.createElement("a", {id: "current", href: "#"}, "Current Page: ", this.props.page)), 
+      this.props.page < 4 && React.createElement("li", null, React.createElement("a", {id: "next", href: "#"}, this.props.page + 1))
+      )
+      )
+    );
+  }
+}
 class ProductTable extends React.Component {
   render() {
     var rows = [];
@@ -8711,12 +8733,15 @@ class FilterableProductTable extends React.Component {
       venues: new Array(),
       sortBy: 'name',
       ascend: true,
-      categories: new Array()
+      categories: new Array(),
+      page: 1
     };
     
     this.handleSortInput = this.handleSortInput.bind(this);
     this.handleOrderInput = this.handleOrderInput.bind(this);
     this.handleTypeInput = this.handleTypeInput.bind(this);
+    this.handlePageInput = this.handlePageInput.bind(this);
+
 
   }
 
@@ -8726,6 +8751,34 @@ class FilterableProductTable extends React.Component {
       sortBy: sort_by
     });
   }
+  handlePageInput(newPage) {
+    console.log(newPage)
+    if (newPage == "next") {
+      if(this.state.page == 4){
+        updatePage = 4
+      }
+      else{
+        var updatePage = this.state.page += 1
+      }
+      
+    }
+    else if (newPage == "back") {
+      var updatePage = this.state.page -= 1
+      if (updatePage < 1) {
+        updatePage = 1
+      }
+    }
+    else {
+      updatePage = this.state.page
+    }
+    this.setState({
+      page: updatePage
+  },
+  function() {
+      this.componentDidMount();
+  }
+  );
+}
 
   handleTypeInput(category) {
     var newTypes = _.clone(this.state.categories);
@@ -8755,7 +8808,7 @@ class FilterableProductTable extends React.Component {
   componentDidMount() {
     var _this = this;
     this.serverRequest = axios
-      .get("/api/venues")
+      .get("/api/venues/" + this.state.page)
       .then(function(result) {
         console.log(result);   
         _this.setState({
@@ -8771,6 +8824,10 @@ class FilterableProductTable extends React.Component {
   render() {
     return (
       React.createElement("div", {className: "grid row"}, 
+      React.createElement(Pagein, {
+      onPageChange: this.handlePageInput, 
+      page: this.state.page}
+      ), 
         React.createElement(FilterBar, {
           onSortChange: this.handleSortInput, 
           onOrderChange: this.handleOrderInput, 
@@ -8784,7 +8841,8 @@ class FilterableProductTable extends React.Component {
 
           categories: this.state.categories, 
           sortBy: this.state.sortBy, 
-          ascend: this.state.ascend}
+          ascend: this.state.ascend, 
+          page: this.state.page}
         )
       )
     );
