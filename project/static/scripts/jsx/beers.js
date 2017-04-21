@@ -187,7 +187,6 @@ class FilterableProductTable extends React.Component {
   }
 
   handlePageInput(newPage) {
-    console.log(newPage)
     if (newPage == "next") {
       var updatePage = this.state.page += 1
     }

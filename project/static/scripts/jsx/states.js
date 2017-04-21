@@ -148,9 +148,14 @@ class FilterableProductTable extends React.Component {
   }
   
   handlePageInput(newPage) {
-    console.log(newPage)
     if (newPage == "next") {
-      var updatePage = this.state.page += 1
+      if(this.state.page == 5){
+        updatePage = 5
+      }
+      else{
+        var updatePage = this.state.page += 1
+      }
+      
     }
     else if (newPage == "back") {
       var updatePage = this.state.page -= 1
