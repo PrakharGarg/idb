@@ -42,6 +42,9 @@
     </ul>
   </div>
   
+  
+  
+  {% if (andResult|length) > 1 %}
   <div class="grid row">
     <div>
       <h2 class = "center">Search Results For <span class = "gold">{{andHeader}}</span></h2>
@@ -70,6 +73,7 @@
       {% endfor %}  
     </div>
   </div>
+  {% endif %}
   <div class = "grid row center">
     <ul class="pagination">
       {% for i in range(1, andResult[-1]["length"]) %}
