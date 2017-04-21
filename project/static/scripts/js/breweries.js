@@ -8620,9 +8620,9 @@ class Pagein extends React.Component {
     return (
       React.createElement("div", null, 
       React.createElement("ul", {className: "pagination page", onClick: this.handlePageByChange}, 
-      React.createElement("li", null, React.createElement("a", {id: "back", href: "#"}, this.props.page - 1)), 
+      this.props.page > 1 && React.createElement("li", null, React.createElement("a", {id: "back", href: "#"}, this.props.page - 1)), 
       React.createElement("li", null, React.createElement("a", {id: "current", href: "#"}, "Current Page: ", this.props.page)), 
-      React.createElement("li", null, React.createElement("a", {id: "next", href: "#"}, this.props.page + 1))
+      this.props.page < 6 && React.createElement("li", null, React.createElement("a", {id: "next", href: "#"}, this.props.page + 1))
       )
       )
     );

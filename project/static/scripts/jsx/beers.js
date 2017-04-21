@@ -39,7 +39,8 @@ class Pagein extends React.Component {
     return (
       <div >
       <ul className="pagination page" onClick={this.handlePageByChange} >
-      <li><a id = "back" href="#">{this.props.page - 1}</a></li>
+      {this.props.page > 1 && <li><a id = "back" href="#">{this.props.page - 1}</a></li>}
+      
       <li><a id = "current" href="#">Current Page: {this.props.page}</a></li>
       <li><a id = "next" href="#">{this.props.page + 1}</a></li>
       </ul>
