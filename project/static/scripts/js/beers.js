@@ -8620,8 +8620,9 @@ class Pagein extends React.Component {
     return (
       React.createElement("div", null, 
       React.createElement("ul", {className: "pagination page", onClick: this.handlePageByChange}, 
-      React.createElement("li", null, React.createElement("a", {id: "back", href: "#"}, "Previous Page")), 
-      React.createElement("li", null, React.createElement("a", {id: "next", href: "#"}, "Next Page"))
+      React.createElement("li", null, React.createElement("a", {id: "back", href: "#"}, this.props.page - 1)), 
+      React.createElement("li", null, React.createElement("a", {id: "current", href: "#"}, "Current Page: ", this.props.page)), 
+      React.createElement("li", null, React.createElement("a", {id: "next", href: "#"}, this.props.page + 1))
       )
       )
     );
@@ -8771,11 +8772,14 @@ class FilterableProductTable extends React.Component {
     if (newPage == "next") {
       var updatePage = this.state.page += 1
     }
-    else {
+    else if (newPage == "back") {
       var updatePage = this.state.page -= 1
-      if (updatePage < 0) {
-        updatePage = 0
+      if (updatePage < 1) {
+        updatePage = 1
       }
+    }
+    else {
+      updatePage = this.state.page
     }
     this.setState({
       page: updatePage
@@ -8836,7 +8840,8 @@ render() {
   return (
     React.createElement("div", {className: "grid row"}, 
     React.createElement(Pagein, {
-    onPageChange: this.handlePageInput}
+    onPageChange: this.handlePageInput, 
+    page: this.state.page}
     ), 
     React.createElement(FilterBar, {
     onSortChange: this.handleSortInput, 

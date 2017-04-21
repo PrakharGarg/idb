@@ -39,8 +39,9 @@ class Pagein extends React.Component {
     return (
       <div >
       <ul className="pagination page" onClick={this.handlePageByChange} >
-      <li><a id = "back" href="#">Previous Page</a></li>
-      <li><a id = "next" href="#">Next Page</a></li>
+      <li><a id = "back" href="#">{this.props.page - 1}</a></li>
+      <li><a id = "current" href="#">Current Page: {this.props.page}</a></li>
+      <li><a id = "next" href="#">{this.props.page + 1}</a></li>
       </ul>
       </div>
     );
@@ -190,11 +191,14 @@ class FilterableProductTable extends React.Component {
     if (newPage == "next") {
       var updatePage = this.state.page += 1
     }
-    else {
+    else if (newPage == "back") {
       var updatePage = this.state.page -= 1
-      if (updatePage < 0) {
-        updatePage = 0
+      if (updatePage < 1) {
+        updatePage = 1
       }
+    }
+    else {
+      updatePage = this.state.page
     }
     this.setState({
       page: updatePage
@@ -256,6 +260,7 @@ render() {
     <div className="grid row">
     <Pagein
     onPageChange={this.handlePageInput}
+    page={this.state.page}
     />
     <FilterBar
     onSortChange={this.handleSortInput}
