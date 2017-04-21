@@ -8619,11 +8619,9 @@ class Pagein extends React.Component {
   render() {
     return (
       React.createElement("div", null, 
-      React.createElement("ul", {className: "pagination", onClick: this.handlePageByChange}, 
-      React.createElement("li", null, React.createElement("a", {id: "1", href: "#"}, "1")), 
-      React.createElement("li", null, React.createElement("a", {id: "2", href: "#"}, "2")), 
-      React.createElement("li", null, React.createElement("a", {id: "3", href: "#"}, "3")), 
-      React.createElement("li", null, React.createElement("a", {id: "4", href: "#"}, "4"))
+      React.createElement("ul", {className: "pagination page", onClick: this.handlePageByChange}, 
+      React.createElement("li", null, React.createElement("a", {id: "back", href: "#"}, "Previous Page")), 
+      React.createElement("li", null, React.createElement("a", {id: "next", href: "#"}, "Next Page"))
       )
       )
     );
@@ -8770,8 +8768,17 @@ class FilterableProductTable extends React.Component {
 
   handlePageInput(newPage) {
     console.log(newPage)
+    if (newPage == "next") {
+      var updatePage = this.state.page += 1
+    }
+    else {
+      var updatePage = this.state.page -= 1
+      if (updatePage < 0) {
+        updatePage = 0
+      }
+    }
     this.setState({
-      page: newPage
+      page: updatePage
   },
   function() {
       this.componentDidMount();

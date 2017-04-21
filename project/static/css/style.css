@@ -14,6 +14,11 @@ body {
 .navbar-brand:hover {
   background-color: #FFCE1A;
 }
+
+.pagination.page {
+    padding-left:20px;
+}
+
 .navbar {
   border-radius: 0px;
   font-family: "Lucida Console", Monaco, monospace;
