@@ -8618,11 +8618,10 @@ class Pagein extends React.Component {
   render() {
     return (
       React.createElement("div", null, 
-      React.createElement("ul", {className: "pagination", onClick: this.handlePageByChange}, 
-      React.createElement("li", null, React.createElement("a", {id: "1", href: "#"}, "1")), 
-      React.createElement("li", null, React.createElement("a", {id: "2", href: "#"}, "2")), 
-      React.createElement("li", null, React.createElement("a", {id: "3", href: "#"}, "3")), 
-      React.createElement("li", null, React.createElement("a", {id: "4", href: "#"}, "4"))
+      React.createElement("ul", {className: "pagination page", onClick: this.handlePageByChange}, 
+      React.createElement("li", null, React.createElement("a", {id: "back", href: "#"}, this.props.page - 1)), 
+      React.createElement("li", null, React.createElement("a", {id: "current", href: "#"}, "Current Page: ", this.props.page)), 
+      React.createElement("li", null, React.createElement("a", {id: "next", href: "#"}, this.props.page + 1))
       )
       )
     );
@@ -8728,10 +8727,23 @@ class FilterableProductTable extends React.Component {
       sortBy: sort_by
     });
   }
+  
   handlePageInput(newPage) {
     console.log(newPage)
+    if (newPage == "next") {
+      var updatePage = this.state.page += 1
+    }
+    else if (newPage == "back") {
+      var updatePage = this.state.page -= 1
+      if (updatePage < 1) {
+        updatePage = 1
+      }
+    }
+    else {
+      updatePage = this.state.page
+    }
     this.setState({
-      page: newPage
+      page: updatePage
   },
   function() {
       this.componentDidMount();
@@ -8768,7 +8780,8 @@ class FilterableProductTable extends React.Component {
     return (
       React.createElement("div", {className: "grid row"}, 
       React.createElement(Pagein, {
-      onPageChange: this.handlePageInput}
+      onPageChange: this.handlePageInput, 
+      page: this.state.page}
       ), 
         React.createElement(FilterBar, {
           onSortChange: this.handleSortInput, 

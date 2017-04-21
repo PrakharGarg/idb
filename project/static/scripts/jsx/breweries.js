@@ -38,16 +38,16 @@ class Pagein extends React.Component {
   render() {
     return (
       <div >
-      <ul className="pagination" onClick={this.handlePageByChange} >
-      <li><a id = "1" href="#">1</a></li>
-      <li><a id = "2" href="#">2</a></li>
-      <li><a id = "3" href="#">3</a></li>
-      <li><a id = "4" href="#">4</a></li>
+      <ul className="pagination page" onClick={this.handlePageByChange} >
+      <li><a id = "back" href="#">{this.props.page - 1}</a></li>
+      <li><a id = "current" href="#">Current Page: {this.props.page}</a></li>
+      <li><a id = "next" href="#">{this.props.page + 1}</a></li>
       </ul>
       </div>
     );
   }
 }
+
 class ProductTable extends React.Component {
   render() {
     var rows = [];
@@ -173,16 +173,30 @@ class FilterableProductTable extends React.Component {
       sortBy: sort_by
     });
   }
+  
   handlePageInput(newPage) {
     console.log(newPage)
+    if (newPage == "next") {
+      var updatePage = this.state.page += 1
+    }
+    else if (newPage == "back") {
+      var updatePage = this.state.page -= 1
+      if (updatePage < 1) {
+        updatePage = 1
+      }
+    }
+    else {
+      updatePage = this.state.page
+    }
     this.setState({
-      page: newPage
+      page: updatePage
   },
   function() {
       this.componentDidMount();
   }
   );
 }
+
   handleTypeInput(brewery_type) {
     var newTypes = _.clone(this.state.brewery_types);
     if (_.contains(this.state.brewery_types, brewery_type)) {
@@ -229,6 +243,7 @@ class FilterableProductTable extends React.Component {
       <div className="grid row">
       <Pagein
       onPageChange={this.handlePageInput}
+      page={this.state.page}
       />
         <FilterBar
           onSortChange={this.handleSortInput}
