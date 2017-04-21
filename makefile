@@ -46,7 +46,7 @@ cover:
 	make clean
 	coverage run --source="models" project/tests.py > test.out 2>&1
 	coverage report -m >> test.out
-	test.out c.tmp
+	cat test.out
 
 doc:
 	make clean
