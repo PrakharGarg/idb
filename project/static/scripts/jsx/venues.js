@@ -6,7 +6,7 @@ class Venue extends React.Component {
     return (
       <div className="col-md-3 col-sm-6 hero-feature text-center">
         <div className="thumbnail">
-          <img src={"" + this.props.venue.media} width = "150" alt=""/>
+          <img className = "venueimg" src={"" + this.props.venue.media} width = "150" alt=""/>
           <div className="caption">
             <h3>{this.props.venue.name}</h3>
             <p>

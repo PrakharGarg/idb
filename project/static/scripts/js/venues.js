@@ -8587,7 +8587,7 @@ class Venue extends React.Component {
     return (
       React.createElement("div", {className: "col-md-3 col-sm-6 hero-feature text-center"}, 
         React.createElement("div", {className: "thumbnail"}, 
-          React.createElement("img", {src: "" + this.props.venue.media, width: "150", alt: ""}), 
+          React.createElement("img", {className: "venueimg", src: "" + this.props.venue.media, width: "150", alt: ""}), 
           React.createElement("div", {className: "caption"}, 
             React.createElement("h3", null, this.props.venue.name), 
             React.createElement("p", null, 
