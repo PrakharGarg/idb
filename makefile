@@ -33,18 +33,20 @@ clean:
 	-rm -rf idb-env
 	-rm IDB3.html
 	-rm IDB3.log
+	-rm test.out
 
 run:
 	python project/main.py
 
 test:
+	-rm test.out
 	python project/tests.py
 
 cover:
 	make clean
-	coverage run --source="models" project/tests.py > c.tmp 2>&1
-	coverage report -m >> c.tmp
-	cat c.tmp
+	coverage run --source="models" project/tests.py > test.out 2>&1
+	coverage report -m >> test.out
+	test.out c.tmp
 
 doc:
 	make clean
