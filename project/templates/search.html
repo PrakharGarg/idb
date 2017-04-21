@@ -24,9 +24,9 @@
                 </p>
                 <p>
                   {% if orResult[i]["abbreviation"] %}
-                    <a href="/{{orResult[i]["type"]}}/{{orResult[i]["abbreviation"]}}/" onerror="this.style.display='none'" class="btn btn-primary">More Info</a>
+                    <a href="/{{orResult[i]["type"]}}/{{orResult[i]["abbreviation"]}}/"  class="btn btn-primary">More Info</a>
                   {% else %}
-                  <a href="/{{orResult[i]["type"]}}/{{orResult[i]["id"]}}/" onerror="this.style.display='none'" class="btn btn-primary">More Info</a>
+                  <a href="/{{orResult[i]["type"]}}/{{orResult[i]["id"]}}/"  class="btn btn-primary">More Info</a>
                   {% endif %}
                 </p>
               </div>
@@ -69,7 +69,11 @@
                   <!-- {{i["results"]}} -->
                 </p>
                 <p>
-                  <a href="/{{andResult[i]["type"]}}/{{andResult[i]["id"]}}/" class="btn btn-primary">More Info</a>
+                  {% if andResult[i]["abbreviation"] %}
+                    <a href="/{{andResult[i]["type"]}}/{{andResult[i]["abbreviation"]}}/"  class="btn btn-primary">More Info</a>
+                  {% else %}
+                  <a href="/{{andResult[i]["type"]}}/{{andResult[i]["id"]}}/"  class="btn btn-primary">More Info</a>
+                  {% endif %}
                 </p>
               </div>
             </div>
