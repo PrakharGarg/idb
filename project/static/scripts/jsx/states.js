@@ -23,6 +23,30 @@ class State extends React.Component {
     )
   }
 }
+class Pagein extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePageByChange = this.handlePageByChange.bind(this);
+  }
+
+  handlePageByChange(e) {
+    this.props.onPageChange(e.target.id);
+  }
+
+
+  render() {
+    return (
+      <div >
+      <ul className="pagination" onClick={this.handlePageByChange} >
+      <li><a id = "1" href="#">1</a></li>
+      <li><a id = "2" href="#">2</a></li>
+      <li><a id = "3" href="#">3</a></li>
+      <li><a id = "4" href="#">4</a></li>
+      </ul>
+      </div>
+    );
+  }
+}
 
 class ProductTable extends React.Component {
   render() {
@@ -107,11 +131,13 @@ class FilterableProductTable extends React.Component {
     this.state = {
       states: new Array(),
       sortBy: 'name',
+      page: 1,
       ascend: true,
     };
     
     this.handleSortInput = this.handleSortInput.bind(this);
     this.handleOrderInput = this.handleOrderInput.bind(this);
+    this.handlePageInput = this.handlePageInput.bind(this);
     
   }
 
@@ -121,6 +147,16 @@ class FilterableProductTable extends React.Component {
       sortBy: sort_by
     });
   }
+  handlePageInput(newPage) {
+    console.log(newPage)
+    this.setState({
+      page: newPage
+  },
+  function() {
+      this.componentDidMount();
+  }
+  );
+}
 
   handleOrderInput(ascend) {
     console.log(ascend);
@@ -134,7 +170,7 @@ class FilterableProductTable extends React.Component {
   componentDidMount() {
     var _this = this;
     this.serverRequest = axios
-      .get("/api/states")
+      .get("/api/states/" + this.state.page)
       .then(function(result) {
         console.log(result);   
         _this.setState({
@@ -150,6 +186,9 @@ class FilterableProductTable extends React.Component {
   render() {
     return (
       <div className="grid row">
+      <Pagein
+      onPageChange={this.handlePageInput}
+      />
         <FilterBar
           onSortChange={this.handleSortInput}
           onOrderChange={this.handleOrderInput}
@@ -162,6 +201,7 @@ class FilterableProductTable extends React.Component {
 
           sortBy={this.state.sortBy}
           ascend={this.state.ascend}
+          page={this.state.page}
         />
       </div>
     );

@@ -8605,7 +8605,30 @@ class Brewery extends React.Component {
     )
   }
 }
+class Pagein extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePageByChange = this.handlePageByChange.bind(this);
+  }
 
+  handlePageByChange(e) {
+    this.props.onPageChange(e.target.id);
+  }
+
+
+  render() {
+    return (
+      React.createElement("div", null, 
+      React.createElement("ul", {className: "pagination", onClick: this.handlePageByChange}, 
+      React.createElement("li", null, React.createElement("a", {id: "1", href: "#"}, "1")), 
+      React.createElement("li", null, React.createElement("a", {id: "2", href: "#"}, "2")), 
+      React.createElement("li", null, React.createElement("a", {id: "3", href: "#"}, "3")), 
+      React.createElement("li", null, React.createElement("a", {id: "4", href: "#"}, "4"))
+      )
+      )
+    );
+  }
+}
 class ProductTable extends React.Component {
   render() {
     var rows = [];
@@ -8712,12 +8735,16 @@ class FilterableProductTable extends React.Component {
       breweries: new Array(),
       sortBy: 'name',
       ascend: true,
-      brewery_types: new Array()
+      brewery_types: new Array(),
+      page: 1
+
     };
     
     this.handleSortInput = this.handleSortInput.bind(this);
     this.handleOrderInput = this.handleOrderInput.bind(this);
     this.handleTypeInput = this.handleTypeInput.bind(this);
+    this.handlePageInput = this.handlePageInput.bind(this);
+
 
   }
 
@@ -8727,7 +8754,16 @@ class FilterableProductTable extends React.Component {
       sortBy: sort_by
     });
   }
-
+  handlePageInput(newPage) {
+    console.log(newPage)
+    this.setState({
+      page: newPage
+  },
+  function() {
+      this.componentDidMount();
+  }
+  );
+}
   handleTypeInput(brewery_type) {
     var newTypes = _.clone(this.state.brewery_types);
     if (_.contains(this.state.brewery_types, brewery_type)) {
@@ -8756,7 +8792,7 @@ class FilterableProductTable extends React.Component {
   componentDidMount() {
     var _this = this;
     this.serverRequest = axios
-      .get("/api/breweries")
+      .get("/api/breweries/" + this.state.page)
       .then(function(result) {
         console.log(result);   
         _this.setState({
@@ -8772,6 +8808,9 @@ class FilterableProductTable extends React.Component {
   render() {
     return (
       React.createElement("div", {className: "grid row"}, 
+      React.createElement(Pagein, {
+      onPageChange: this.handlePageInput}
+      ), 
         React.createElement(FilterBar, {
           onSortChange: this.handleSortInput, 
           onOrderChange: this.handleOrderInput, 
@@ -8785,7 +8824,9 @@ class FilterableProductTable extends React.Component {
 
           brewery_types: this.state.brewery_types, 
           sortBy: this.state.sortBy, 
-          ascend: this.state.ascend}
+          ascend: this.state.ascend, 
+          page: this.state.page}
+
         )
       )
     );
