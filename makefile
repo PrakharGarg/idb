@@ -43,7 +43,6 @@ test:
 	python project/tests.py
 
 cover:
-	make clean
 	coverage run --source="models" project/tests.py > test.out 2>&1
 	coverage report -m >> test.out
 	cat test.out
