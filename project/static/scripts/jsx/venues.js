@@ -12,7 +12,7 @@ class Venue extends React.Component {
             <p>
               Category: {this.props.venue.category} <br />
               Address: {this.props.venue.address} <br />
-              Public: {this.props.venue.is_public} <br />
+              Public: {this.props.venue.is_public + ""} <br />
             </p>
             <p>
               <a href={"/venues/" + this.props.venue.id + "/"} className="btn btn-primary">More Info</a>

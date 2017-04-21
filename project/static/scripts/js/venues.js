@@ -8593,7 +8593,7 @@ class Venue extends React.Component {
             React.createElement("p", null, 
               "Category: ", this.props.venue.category, " ", React.createElement("br", null), 
               "Address: ", this.props.venue.address, " ", React.createElement("br", null), 
-              "Public: ", this.props.venue.is_public, " ", React.createElement("br", null)
+              "Public: ", this.props.venue.is_public + "", " ", React.createElement("br", null)
             ), 
             React.createElement("p", null, 
               React.createElement("a", {href: "/venues/" + this.props.venue.id + "/", className: "btn btn-primary"}, "More Info")
